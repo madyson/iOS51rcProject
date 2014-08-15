@@ -21,8 +21,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    //判断当前设备屏幕尺寸
+    CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
+    UIStoryboard *mainStoryboard = nil;
+    if (iOSDeviceScreenSize.height == 568) {
+        mainStoryboard = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+    }
+    else{
+        mainStoryboard = self.window.rootViewController.storyboard;
+    }
     
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];    
     tipViewController * startView = [[tipViewController alloc]init];
     self.window.rootViewController = startView;
     [startView release];

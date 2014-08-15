@@ -17,7 +17,7 @@
 @implementation tipViewController
 
 
-#define HEIGHT 460
+#define HEIGHT [[UIScreen mainScreen] bounds].size.height
 #define SAWTOOTH_COUNT 10
 #define SAWTOOTH_WIDTH_FACTOR 20 
 
@@ -41,6 +41,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+     CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
+    CGFloat height = iOSDeviceScreenSize.height;
     
     self.view.backgroundColor = [UIColor whiteColor];
         
@@ -61,7 +63,7 @@
     }
     
     self.imageView = [[UIImageView alloc] init];
-    self.imageView.frame = CGRectMake(0, 0, 320, 568);
+    self.imageView.frame = CGRectMake(0, 0, 320, HEIGHT);
     //self.imageView.frame = CGRectMake(0, 0, 320, 480);
     self.imageView.image = [UIImage imageNamed:@"index640x960.png"];
     
