@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99291252199DD5A000AE459D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99291250199DD5A000AE459D /* Default-568h@2x.png */; };
+		99291253199DD5A000AE459D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99291251199DD5A000AE459D /* Default@2x.png */; };
 		99B2F2FB199C43580066853D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2F2FA199C43580066853D /* Login.storyboard */; };
 		99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AD199CB1F100CAEC71 /* index640x960.png */; };
 		99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AE199CB1F100CAEC71 /* index640x1136.png */; };
@@ -93,6 +95,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		99291250199DD5A000AE459D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		99291251199DD5A000AE459D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		99B2F2FA199C43580066853D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		99B350AD199CB1F100CAEC71 /* index640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x960.png; sourceTree = "<group>"; };
 		99B350AE199CB1F100CAEC71 /* index640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x1136.png; sourceTree = "<group>"; };
@@ -288,6 +292,8 @@
 		99CFD84E199B60D8009A5ABA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				99291250199DD5A000AE459D /* Default-568h@2x.png */,
+				99291251199DD5A000AE459D /* Default@2x.png */,
 				99CFD84F199B60D8009A5ABA /* images */,
 			);
 			path = Resource;
@@ -492,6 +498,7 @@
 				99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */,
 				99CFD87C199B60D8009A5ABA /* ico_leftmenu_index.png in Resources */,
 				99CFD893199B60D8009A5ABA /* main_pic_jobnews.png in Resources */,
+				99291252199DD5A000AE459D /* Default-568h@2x.png in Resources */,
 				99CFD822199B5F80009A5ABA /* InfoPlist.strings in Resources */,
 				99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */,
 				99CFD87D199B60D8009A5ABA /* ico_leftmenu_jobnews.png in Resources */,
@@ -507,6 +514,7 @@
 				99CFD8D7199B6196009A5ABA /* menu-button.png in Resources */,
 				99CFD875199B60D8009A5ABA /* bg_leftmenu.png in Resources */,
 				99B350BD199CB1F100CAEC71 /* welcom3-320x960.png in Resources */,
+				99291253199DD5A000AE459D /* Default@2x.png in Resources */,
 				99CFD883199B60D8009A5ABA /* ico_main_jobapply.png in Resources */,
 				99B350BC199CB1F100CAEC71 /* welcom2-320x1136.png in Resources */,
 				99CFD890199B60D8009A5ABA /* main_pic_campus.png in Resources */,

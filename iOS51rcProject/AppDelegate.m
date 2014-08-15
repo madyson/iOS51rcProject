@@ -31,13 +31,27 @@
         mainStoryboard = self.window.rootViewController.storyboard;
     }
     
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];    
-    tipViewController * startView = [[tipViewController alloc]init];
-    self.window.rootViewController = startView;
-    [startView release];
+    [NSThread sleepForTimeInterval:1.0];
     
+    //获得是否是第一次登录
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger logCount = [userDefaults integerForKey:@"logCount"];
+    if (logCount == 0) {
+        NSLog(@"the first login");
+        self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+        tipViewController * startView = [[tipViewController alloc]init];
+        self.window.rootViewController = startView;
+        [startView release];
+    }
+    else{
+        NSLog(@"not the first login");
+    }
+   
     [self.window makeKeyAndVisible];
-    [self.window makeKeyAndVisible];
+    logCount ++;
+    [userDefaults setInteger:logCount forKey:@"logCount"];
+    [userDefaults synchronize];
+    
     // Override point for customization after application launch.
     return YES;
 }

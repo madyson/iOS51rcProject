@@ -13,7 +13,7 @@
     
 }
 
-@property(nonatomic,strong) UIImageView * imageView;
+//@property(nonatomic,strong) UIImageView * indexView;
 @property(nonatomic,strong) UIImageView * left;
 @property(nonatomic,strong) UIImageView * right;
 
@@ -22,11 +22,5 @@
 
 @property(retain,nonatomic) UIButton * gotoMainViewBtn;
 -(void)gotoMainView:(id)sender;
-
-
-
-
-
-
 
 @end

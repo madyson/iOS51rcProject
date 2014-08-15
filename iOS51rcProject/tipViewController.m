@@ -21,7 +21,7 @@
 #define SAWTOOTH_COUNT 10
 #define SAWTOOTH_WIDTH_FACTOR 20 
 
-@synthesize imageView;
+//@synthesize indexView;
 @synthesize left = _left;
 @synthesize right = _right;
 @synthesize pageScroll;
@@ -40,86 +40,72 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-     CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
-    CGFloat height = iOSDeviceScreenSize.height;
-    
+	
     self.view.backgroundColor = [UIColor whiteColor];
-        
+    
     pageScroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, HEIGHT)];
-    pageScroll.contentSize = CGSizeMake(5*320, HEIGHT);
+    pageScroll.contentSize = CGSizeMake(4*320, HEIGHT);
     pageScroll.pagingEnabled = YES;
     pageScroll.delegate = self;
     [pageScroll setShowsHorizontalScrollIndicator:NO];
     
+    //欢迎页（切换）
+    UIImageView * imageView1 = [[UIImageView alloc]init];
+    UIImageView * imageView2 = [[UIImageView alloc]init];
+    UIImageView * imageView3 = [[UIImageView alloc]init];
+    UIImageView * imageView4 = [[UIImageView alloc]init];
+    //每一个图片的位置
+    imageView1.frame = CGRectMake(0*320, 0, 320, HEIGHT);
+    imageView2.frame = CGRectMake(1*320, 0, 320, HEIGHT);
+    imageView3.frame = CGRectMake(2*320, 0, 320, HEIGHT);
+    imageView4.frame = CGRectMake(3*320, 0, 320, HEIGHT);
+    //添加图片
+    if (HEIGHT == 568) {
+        //self.indexView.image = [UIImage imageNamed:@"index640x1136.png"];
+        imageView1.image = [UIImage imageNamed:@"welcom2-320x1136.png"];
+        imageView2.image = [UIImage imageNamed:@"welcom3-320x1136.png"];
+        imageView3.image = [UIImage imageNamed:@"welcom4-320x1136.png"];
+        imageView4.image = [UIImage imageNamed:@"welcom5-320x1136.png"];
+    }
+    else{
+        //self.indexView.image = [UIImage imageNamed:@"index640x960.png"];
+        imageView1.image = [UIImage imageNamed:@"welcom2-320x960.png"];
+        imageView2.image = [UIImage imageNamed:@"welcom3-320x960.png"];
+        imageView3.image = [UIImage imageNamed:@"welcom4-320x960.png"];
+        imageView4.image = [UIImage imageNamed:@"welcom5-320x960.png"];
+    }
+    //创建最后一个点击按钮
     self.gotoMainViewBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.gotoMainViewBtn.frame = CGRectMake(110, 200, 80, 30);
-    [self.gotoMainViewBtn setTitle:@"进入主页" forState:UIControlStateNormal];
+    self.gotoMainViewBtn.frame = CGRectMake(3*320+110, HEIGHT-100, 100, 80);//在第四个页面上
+    [self.gotoMainViewBtn setTitle:@"" forState:UIControlStateNormal];
     [self.gotoMainViewBtn addTarget:self action:@selector(gotoMainView:) forControlEvents:UIControlEventTouchUpInside];
     
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 5.0) {
-    }
-    else {
-    }
-    
-    self.imageView = [[UIImageView alloc] init];
-    self.imageView.frame = CGRectMake(0, 0, 320, HEIGHT);
-    //self.imageView.frame = CGRectMake(0, 0, 320, 480);
-    self.imageView.image = [UIImage imageNamed:@"index640x960.png"];
-    
-    UIImageView * imageView1 = [[UIImageView alloc]init];
-    imageView1.image = [UIImage imageNamed:@"welcom2-320x1136.png"];
-    
-    UIImageView * imageView2 = [[UIImageView alloc]init];
-    imageView2.image = [UIImage imageNamed:@"welcom3-320x1136.png"];
-    
-    UIImageView * imageView3 = [[UIImageView alloc]init];
-    imageView3.image = [UIImage imageNamed:@"welcom4-320x1136.png"];
-    
-    UIImageView * imageView4 = [[UIImageView alloc]init];
-    imageView4.image = [UIImage imageNamed:@"welcom5-320x1136.png"];
-    
-    UIView * returnView = [[UIView alloc]init];
-    returnView.backgroundColor = [UIColor redColor];
-    [returnView addSubview:self.imageView];
-    [returnView addSubview:self.gotoMainViewBtn];
-    
-    
-    for(int i = 0; i < 5; ++ i )
+    for(int i = 0; i < 4; ++ i )
     {
         if( i == 0 )
         {
             [pageScroll addSubview:imageView1];
-            imageView1.frame = CGRectMake(i*320, 0, 320, HEIGHT);
         }
         else if( i == 1 )
         {
             [pageScroll addSubview:imageView2];
-            imageView2.frame = CGRectMake(i*320, 0, 320, HEIGHT);
         }
         else if( i == 2 )
         {
             [pageScroll addSubview:imageView3];
-            imageView3.frame = CGRectMake(i*320, 0, 320, HEIGHT);
         }
         else if( i == 3 )
         {
             [pageScroll addSubview:imageView4];
-            imageView4.frame = CGRectMake(i*320, 0, 320, HEIGHT);
-        }
-        else if( i == 4 )
-        {
-            returnView.frame = CGRectMake(i*320, 0, 320, HEIGHT);
-            [pageScroll addSubview:returnView];
+            [pageScroll addSubview:self.gotoMainViewBtn];
         }
     }
     
     [self.view addSubview:pageScroll];
     
-    
     pageControl = [[UIPageControl alloc] init];
     pageControl.frame = CGRectMake(141,364,50,50);
-    [pageControl setNumberOfPages:5];
+    [pageControl setNumberOfPages:4];
     pageControl.currentPage = 0;
     [pageControl addTarget:self action:@selector(pageTurn:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:pageControl];
@@ -130,8 +116,8 @@
 {
     if( [animationID isEqualToString:@"split"] && finished )
     {
-        [self.left removeFromSuperview];
-        [self.right removeFromSuperview];
+        //self.left removeFromSuperview];
+        //[self.right removeFromSuperview];
         
         [pageScroll removeFromSuperview];
         
@@ -144,37 +130,17 @@
 
 -(void)gotoMainView:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
-
-    NSArray * array = [UIImage WelcomeUIImage:self.imageView.image];
-    
-    self.left = [[UIImageView alloc] initWithImage:[array objectAtIndex:0]];
-    self.right = [[UIImageView alloc] initWithImage:[array objectAtIndex:1]];
-    [self.view addSubview:self.left];
-    [self.view addSubview:self.right];
-    [self.pageControl setHidden:YES];
-    [self.pageScroll setHidden:YES];
-    
-    self.left.transform = CGAffineTransformIdentity;
-    self.right.transform = CGAffineTransformIdentity;
-    
-    [UIView beginAnimations:@"split" context:nil];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDuration:3];
-    [UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
-    
-    self.left.transform = CGAffineTransformMakeTranslation(-150, 0);
-    self.right.transform = CGAffineTransformMakeTranslation(150, 0);
-    
-    [UIView commitAnimations];
-    
+     NSLog(@"登录");
+    //[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+    //[UIView commitAnimations];
 }
 
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGPoint offset = scrollView.contentOffset;
-    pageControl.currentPage = offset.x/320;
+    pageControl.currentPage = offset.x/320 ;
+    //NSLog(@"111-------%d", pageControl.currentPage);
 }
 
 
@@ -182,6 +148,7 @@
 {
     CGPoint offset = scrollView.contentOffset;
     pageControl.currentPage = offset.x / 320;
+     //NSLog(@"222---------%d", pageControl.currentPage);
 }
 
 
