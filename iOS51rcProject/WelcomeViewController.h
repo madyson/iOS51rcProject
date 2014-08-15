@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface tipViewController : UIViewController<UIScrollViewDelegate>
+@interface WelcomeViewController : UIViewController<UIScrollViewDelegate>
 {
     
 }

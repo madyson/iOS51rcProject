@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		99291252199DD5A000AE459D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99291250199DD5A000AE459D /* Default-568h@2x.png */; };
 		99291253199DD5A000AE459D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99291251199DD5A000AE459D /* Default@2x.png */; };
+		99291256199DE4CB00AE459D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99291255199DE4CB00AE459D /* LoginViewController.m */; };
 		99B2F2FB199C43580066853D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2F2FA199C43580066853D /* Login.storyboard */; };
 		99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AD199CB1F100CAEC71 /* index640x960.png */; };
 		99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AE199CB1F100CAEC71 /* index640x1136.png */; };
@@ -18,7 +19,7 @@
 		99B350BE199CB1F100CAEC71 /* welcom3-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B4199CB1F100CAEC71 /* welcom3-320x1136.png */; };
 		99B350BF199CB1F100CAEC71 /* welcom4-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B5199CB1F100CAEC71 /* welcom4-320x960.png */; };
 		99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */; };
-		99B350C3199CB28000CAEC71 /* tipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B350C2199CB28000CAEC71 /* tipViewController.m */; };
+		99B350C3199CB28000CAEC71 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B350C2199CB28000CAEC71 /* WelcomeViewController.m */; };
 		99B350C6199CB29B00CAEC71 /* WelcomeUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B350C5199CB29B00CAEC71 /* WelcomeUIImage.m */; };
 		99B350C9199CB43A00CAEC71 /* welcom5-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */; };
 		99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */; };
@@ -97,6 +98,8 @@
 /* Begin PBXFileReference section */
 		99291250199DD5A000AE459D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		99291251199DD5A000AE459D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		99291254199DE4CB00AE459D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		99291255199DE4CB00AE459D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		99B2F2FA199C43580066853D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		99B350AD199CB1F100CAEC71 /* index640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x960.png; sourceTree = "<group>"; };
 		99B350AE199CB1F100CAEC71 /* index640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x1136.png; sourceTree = "<group>"; };
@@ -106,8 +109,8 @@
 		99B350B4199CB1F100CAEC71 /* welcom3-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom3-320x1136.png"; sourceTree = "<group>"; };
 		99B350B5199CB1F100CAEC71 /* welcom4-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x960.png"; sourceTree = "<group>"; };
 		99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x1136.png"; sourceTree = "<group>"; };
-		99B350C1199CB28000CAEC71 /* tipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tipViewController.h; sourceTree = "<group>"; };
-		99B350C2199CB28000CAEC71 /* tipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tipViewController.m; sourceTree = "<group>"; };
+		99B350C1199CB28000CAEC71 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		99B350C2199CB28000CAEC71 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		99B350C4199CB29B00CAEC71 /* WelcomeUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeUIImage.h; sourceTree = "<group>"; };
 		99B350C5199CB29B00CAEC71 /* WelcomeUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
 		99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x960.png"; sourceTree = "<group>"; };
@@ -246,8 +249,8 @@
 			children = (
 				99B350C4199CB29B00CAEC71 /* WelcomeUIImage.h */,
 				99B350C5199CB29B00CAEC71 /* WelcomeUIImage.m */,
-				99B350C1199CB28000CAEC71 /* tipViewController.h */,
-				99B350C2199CB28000CAEC71 /* tipViewController.m */,
+				99B350C1199CB28000CAEC71 /* WelcomeViewController.h */,
+				99B350C2199CB28000CAEC71 /* WelcomeViewController.m */,
 				99CFD89A199B6196009A5ABA /* Class */,
 				99CFD84E199B60D8009A5ABA /* Resource */,
 				99CFD826199B5F80009A5ABA /* AppDelegate.h */,
@@ -256,6 +259,8 @@
 				99CFD81E199B5F80009A5ABA /* Supporting Files */,
 				99CFD84C199B6082009A5ABA /* Home.storyboard */,
 				99B2F2FA199C43580066853D /* Login.storyboard */,
+				99291254199DE4CB00AE459D /* LoginViewController.h */,
+				99291255199DE4CB00AE459D /* LoginViewController.m */,
 			);
 			path = iOS51rcProject;
 			sourceTree = "<group>";
@@ -562,12 +567,13 @@
 			files = (
 				99B350C6199CB29B00CAEC71 /* WelcomeUIImage.m in Sources */,
 				99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */,
+				99291256199DE4CB00AE459D /* LoginViewController.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				99CFD8C7199B6196009A5ABA /* AnimatedGif.m in Sources */,
 				99CFD8D5199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				99CFD8DA199B6196009A5ABA /* TKLoadingAnimationView.m in Sources */,
-				99B350C3199CB28000CAEC71 /* tipViewController.m in Sources */,
+				99B350C3199CB28000CAEC71 /* WelcomeViewController.m in Sources */,
 				99CFD828199B5F80009A5ABA /* AppDelegate.m in Sources */,
 				99CFD824199B5F80009A5ABA /* main.m in Sources */,
 				99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */,

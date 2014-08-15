@@ -6,15 +6,15 @@
 //  Copyright (c) 2013年 taizhouxueyuan. All rights reserved.
 //
 
-#import "tipViewController.h"
+#import "WelcomeViewController.h"
 #import "WelcomeUIImage.h"
 //#import "Home.storyboard"
 
-@interface tipViewController ()
+@interface WelcomeViewController ()
 
 @end
 
-@implementation tipViewController
+@implementation WelcomeViewController
 
 
 #define HEIGHT [[UIScreen mainScreen] bounds].size.height

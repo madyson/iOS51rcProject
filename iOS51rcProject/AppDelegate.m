@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "tipViewController.h"
+#import "WelcomeViewController.h"
 
 @implementation AppDelegate
 
@@ -39,7 +39,7 @@
     if (logCount == 0) {
         NSLog(@"the first login");
         self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-        tipViewController * startView = [[tipViewController alloc]init];
+        WelcomeViewController * startView = [[WelcomeViewController alloc]init];
         self.window.rootViewController = startView;
         [startView release];
     }
