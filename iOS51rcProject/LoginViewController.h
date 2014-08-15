@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoginDetailsViewController.h"
+#import "RegisterViewController.h"
 
 @interface LoginViewController : UIViewController
-
+    @property (nonatomic, strong) UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
+    @property (nonatomic, strong) UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
+    @property (nonatomic, strong) LoginDetailsViewController *loginDetailsView;
+    @property (nonatomic, strong) RegisterViewController *registerView;
 @end

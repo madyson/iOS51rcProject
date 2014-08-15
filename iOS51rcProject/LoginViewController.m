@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 
+
 @interface LoginViewController ()
 
 @end
@@ -26,9 +27,42 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.loginDetailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginDetailsView"];
+    self.registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
+    
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    frame.origin.y = 100;//状态栏和切换栏的高度
+    frame.size.height = frame.size.height - 100;
+    
+    self.loginDetailsView.view.frame = frame;
+    self.registerView.view.frame = frame;
+    
     // Do any additional setup after loading the view.
+    self.leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
+    self.rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
+    self.leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    self.rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:self.leftSwipeGestureRecognizer];
+    [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
+    
+    [self.view addSubview: self.loginDetailsView.view];
 }
+- (void)handleSwipes:(UISwipeGestureRecognizer *)sender
+{
+    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
+        //CGPoint labelPosition = CGPointMake(self.swipeLabel.frame.origin.x - 100.0, self.swipeLabel.frame.origin.y);
+        //self.swipeLabel.frame = CGRectMake( labelPosition.x , labelPosition.y , self.swipeLabel.frame.size.width, self.swipeLabel.frame.size.height);
+        //self.swipeLabel.text = @"往左边跑啊....";
+        [self.registerView removeFromParentViewController];
+        [self.view addSubview:self.loginDetailsView.view];
+    }
+    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+        [self.loginDetailsView removeFromParentViewController];
+        [self.view addSubview:self.registerView.view];
 
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

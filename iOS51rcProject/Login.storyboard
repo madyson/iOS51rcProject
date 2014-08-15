@@ -88,11 +88,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="txtEmail" destination="aWL-EV-ivP" id="hLT-DN-ixJ"/>
-                        <outlet property="txtPsd" destination="PTP-pR-A1P" id="bzn-oX-eVh"/>
-                        <outlet property="txtRePsd" destination="vxc-Q0-5j1" id="FiJ-u3-aul"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8N-A4-FKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,18 +196,10 @@
                                 <state key="normal" title="登录">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="btnLoginClick:" destination="3LL-QA-RMo" eventType="touchUpInside" id="hbS-mA-dx6"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="btnLogin" destination="Mxo-qZ-N41" id="vmC-w0-tgr"/>
-                        <outlet property="txtName" destination="lrm-pQ-KQF" id="GPC-eM-ZIO"/>
-                        <outlet property="txtPsd" destination="FNN-p0-hI3" id="kpu-PC-pth"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPI-sp-kGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
