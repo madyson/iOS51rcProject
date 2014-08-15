@@ -15,41 +15,11 @@
                             <view contentMode="scaleToFill" id="wbh-xn-x4O">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <subviews>
-                                    <navigationBar contentMode="scaleToFill" id="8Zp-bY-AVa">
-                                        <rect key="frame" x="-4" y="17" width="324" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="barTintColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <textAttributes key="titleTextAttributes">
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </textAttributes>
-                                        <items>
-                                            <navigationItem title="登录" id="bXG-lT-P17"/>
-                                        </items>
-                                    </navigationBar>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="I0b-Il-QQo">
-                                        <rect key="frame" x="0.0" y="61" width="320" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="登录"/>
-                                            <segment title="注册"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="segmentSwich:" destination="My1-PP-fg4" eventType="valueChanged" id="Sqw-7a-N7S"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="navigateBar" destination="bXG-lT-P17" id="eto-Py-LLe"/>
-                        <outlet property="segment" destination="I0b-Il-QQo" id="k7E-ut-VyX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFM-dh-fmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="-446" y="17"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login Details View Controller-->
         <scene sceneID="hDQ-3h-cPV">
             <objects>
-                <viewController storyboardIdentifier="LoginDetailsView" id="3LL-QA-RMo" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginDetailsView" id="3LL-QA-RMo" customClass="LoginDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Isn-2P-bYH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,9 +118,6 @@
                                 <state key="normal" title="忘记密码">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="gNE-5I-qDg" kind="modal" id="ldL-H4-ske"/>
-                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自动登录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TaM-tX-9RS">
                                 <rect key="frame" x="71" y="137" width="75" height="21"/>
@@ -251,10 +218,10 @@
             </objects>
             <point key="canvasLocation" x="-821" y="-611"/>
         </scene>
-        <!--Find Psd View Controller-->
+        <!--Find Psd Step1 View Controller-->
         <scene sceneID="zrF-RU-RrA">
             <objects>
-                <viewController id="gNE-5I-qDg" customClass="FindPsdViewController" sceneMemberID="viewController">
+                <viewController id="gNE-5I-qDg" customClass="FindPsdStep1ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VzI-9u-LbA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -293,20 +260,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qe3-wr-Vla" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-446" y="-611"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="CMn-rC-enx">
-            <objects>
-                <viewController id="6wP-fU-f55" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IWj-uL-Y8d">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqh-Pu-0PN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-101" y="-612"/>
         </scene>
     </scenes>
     <resources>

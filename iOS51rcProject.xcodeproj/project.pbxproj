@@ -10,6 +10,11 @@
 		99291252199DD5A000AE459D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99291250199DD5A000AE459D /* Default-568h@2x.png */; };
 		99291253199DD5A000AE459D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99291251199DD5A000AE459D /* Default@2x.png */; };
 		99291256199DE4CB00AE459D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99291255199DE4CB00AE459D /* LoginViewController.m */; };
+		99291259199DE6C400AE459D /* LoginDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99291258199DE6C400AE459D /* LoginDetailsViewController.m */; };
+		9929125C199DE77100AE459D /* FindPsdStep1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9929125B199DE77100AE459D /* FindPsdStep1ViewController.m */; };
+		9929125F199DE78800AE459D /* FindPsdStep2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9929125E199DE78800AE459D /* FindPsdStep2ViewController.m */; };
+		99291262199DE81C00AE459D /* FindPsdStep3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99291261199DE81C00AE459D /* FindPsdStep3ViewController.m */; };
+		99291265199DE84C00AE459D /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99291264199DE84C00AE459D /* RegisterViewController.m */; };
 		99B2F2FB199C43580066853D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2F2FA199C43580066853D /* Login.storyboard */; };
 		99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AD199CB1F100CAEC71 /* index640x960.png */; };
 		99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AE199CB1F100CAEC71 /* index640x1136.png */; };
@@ -100,6 +105,16 @@
 		99291251199DD5A000AE459D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		99291254199DE4CB00AE459D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		99291255199DE4CB00AE459D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		99291257199DE6C400AE459D /* LoginDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDetailsViewController.h; sourceTree = "<group>"; };
+		99291258199DE6C400AE459D /* LoginDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginDetailsViewController.m; sourceTree = "<group>"; };
+		9929125A199DE77100AE459D /* FindPsdStep1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPsdStep1ViewController.h; sourceTree = "<group>"; };
+		9929125B199DE77100AE459D /* FindPsdStep1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPsdStep1ViewController.m; sourceTree = "<group>"; };
+		9929125D199DE78800AE459D /* FindPsdStep2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPsdStep2ViewController.h; sourceTree = "<group>"; };
+		9929125E199DE78800AE459D /* FindPsdStep2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPsdStep2ViewController.m; sourceTree = "<group>"; };
+		99291260199DE81C00AE459D /* FindPsdStep3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPsdStep3ViewController.h; sourceTree = "<group>"; };
+		99291261199DE81C00AE459D /* FindPsdStep3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPsdStep3ViewController.m; sourceTree = "<group>"; };
+		99291263199DE84C00AE459D /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		99291264199DE84C00AE459D /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		99B2F2FA199C43580066853D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		99B350AD199CB1F100CAEC71 /* index640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x960.png; sourceTree = "<group>"; };
 		99B350AE199CB1F100CAEC71 /* index640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x1136.png; sourceTree = "<group>"; };
@@ -261,6 +276,16 @@
 				99B2F2FA199C43580066853D /* Login.storyboard */,
 				99291254199DE4CB00AE459D /* LoginViewController.h */,
 				99291255199DE4CB00AE459D /* LoginViewController.m */,
+				99291257199DE6C400AE459D /* LoginDetailsViewController.h */,
+				99291258199DE6C400AE459D /* LoginDetailsViewController.m */,
+				9929125A199DE77100AE459D /* FindPsdStep1ViewController.h */,
+				9929125B199DE77100AE459D /* FindPsdStep1ViewController.m */,
+				9929125D199DE78800AE459D /* FindPsdStep2ViewController.h */,
+				9929125E199DE78800AE459D /* FindPsdStep2ViewController.m */,
+				99291260199DE81C00AE459D /* FindPsdStep3ViewController.h */,
+				99291261199DE81C00AE459D /* FindPsdStep3ViewController.m */,
+				99291263199DE84C00AE459D /* RegisterViewController.h */,
+				99291264199DE84C00AE459D /* RegisterViewController.m */,
 			);
 			path = iOS51rcProject;
 			sourceTree = "<group>";
@@ -570,11 +595,16 @@
 				99291256199DE4CB00AE459D /* LoginViewController.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
+				99291259199DE6C400AE459D /* LoginDetailsViewController.m in Sources */,
 				99CFD8C7199B6196009A5ABA /* AnimatedGif.m in Sources */,
 				99CFD8D5199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
+				99291262199DE81C00AE459D /* FindPsdStep3ViewController.m in Sources */,
 				99CFD8DA199B6196009A5ABA /* TKLoadingAnimationView.m in Sources */,
 				99B350C3199CB28000CAEC71 /* WelcomeViewController.m in Sources */,
 				99CFD828199B5F80009A5ABA /* AppDelegate.m in Sources */,
+				9929125C199DE77100AE459D /* FindPsdStep1ViewController.m in Sources */,
+				99291265199DE84C00AE459D /* RegisterViewController.m in Sources */,
+				9929125F199DE78800AE459D /* FindPsdStep2ViewController.m in Sources */,
 				99CFD824199B5F80009A5ABA /* main.m in Sources */,
 				99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */,
