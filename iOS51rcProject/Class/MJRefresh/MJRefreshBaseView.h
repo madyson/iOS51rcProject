@@ -1,3 +1,10 @@
+//
+//  MJRefreshBaseView.h
+//  MJRefresh
+//  
+//  Created by mj on 13-3-4.
+//  Copyright (c) 2013年 itcast. All rights reserved.
+
 #import <UIKit/UIKit.h>
 
 @class MJRefreshBaseView;
@@ -21,19 +28,19 @@ typedef enum {
  */
 @interface MJRefreshBaseView : UIView
 #pragma mark - 父控件
-@property (nonatomic, readonly) UIScrollView *scrollView;
+@property (nonatomic, weak, readonly) UIScrollView *scrollView;
 @property (nonatomic, assign, readonly) UIEdgeInsets scrollViewOriginalInset;
 
 #pragma mark - 内部的控件
-@property (nonatomic, readonly) UILabel *statusLabel;
-@property (nonatomic, readonly) UIImageView *arrowImage;
-@property (nonatomic, readonly) UIActivityIndicatorView *activityView;
+@property (nonatomic, weak, readonly) UILabel *statusLabel;
+@property (nonatomic, weak, readonly) UIImageView *arrowImage;
+@property (nonatomic, weak, readonly) UIActivityIndicatorView *activityView;
 
 #pragma mark - 回调
 /**
  *  开始进入刷新状态的监听器
  */
-@property (assign, nonatomic) id beginRefreshingTaget;
+@property (weak, nonatomic) id beginRefreshingTaget;
 /**
  *  开始进入刷新状态的监听方法
  */

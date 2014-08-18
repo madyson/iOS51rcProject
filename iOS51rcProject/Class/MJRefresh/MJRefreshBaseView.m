@@ -1,3 +1,11 @@
+//
+//  MJRefreshBaseView.m
+//  MJRefresh
+//
+//  Created by mj on 13-3-4.
+//  Copyright (c) 2013年 itcast. All rights reserved.
+//
+
 #import "MJRefreshBaseView.h"
 #import "MJRefreshConst.h"
 #import "UIView+Extension.h"
@@ -6,9 +14,9 @@
 
 @interface  MJRefreshBaseView()
 {
-    UILabel *_statusLabel;
-    UIImageView *_arrowImage;
-    UIActivityIndicatorView *_activityView;
+    __weak UILabel *_statusLabel;
+    __weak UIImageView *_arrowImage;
+    __weak UIActivityIndicatorView *_activityView;
 }
 @end
 
@@ -27,7 +35,6 @@
         statusLabel.backgroundColor = [UIColor clearColor];
         statusLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_statusLabel = statusLabel];
-        [statusLabel release];
     }
     return _statusLabel;
 }
@@ -41,7 +48,6 @@
         UIImageView *arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:MJRefreshSrcName(@"arrow.png")]];
         arrowImage.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self addSubview:_arrowImage = arrowImage];
-        [arrowImage release];
     }
     return _arrowImage;
 }
@@ -56,7 +62,6 @@
         activityView.bounds = self.arrowImage.bounds;
         activityView.autoresizingMask = self.arrowImage.autoresizingMask;
         [self addSubview:_activityView = activityView];
-        [activityView release];
     }
     return _activityView;
 }
@@ -130,6 +135,7 @@
     if (self.window) {
         self.state = MJRefreshStateRefreshing;
     } else {
+#warning 不能调用set方法
         _state = MJRefreshStateWillRefreshing;
         [super setNeedsDisplay];
     }

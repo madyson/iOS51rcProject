@@ -1,13 +1,6 @@
-//
-//  RecruitmentListViewController.h
-//  iOS51rcProject
-//
-//  Created by Lucifer on 14-8-14.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import "DatePicker.h"
+#import "LoadingAnimationView.h"
 
 @interface RecruitmentListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 {
@@ -16,5 +9,6 @@
     NSString *begindate;
     NSString *placeid;
     DatePicker *pickDate;
+    LoadingAnimationView *loadView;
 }
 @end

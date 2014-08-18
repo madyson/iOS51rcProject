@@ -1,3 +1,11 @@
+//
+//  MJRefreshFooterView.m
+//  MJRefresh
+//
+//  Created by mj on 13-2-26.
+//  Copyright (c) 2013年 itcast. All rights reserved.
+//  上拉加载更多
+
 #import "MJRefreshFooterView.h"
 #import "MJRefreshConst.h"
 #import "UIView+Extension.h"
@@ -68,6 +76,7 @@
         // 调整frame
         [self adjustFrameWithContentSize];
     } else if ([MJRefreshContentOffset isEqualToString:keyPath]) {
+#warning 这个返回一定要放这个位置
         // 如果正在刷新，直接返回
         if (self.state == MJRefreshStateRefreshing) return;
         

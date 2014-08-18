@@ -1,3 +1,11 @@
+//
+//  MJRefreshHeaderView.m
+//  MJRefresh
+//
+//  Created by mj on 13-2-26.
+//  Copyright (c) 2013年 itcast. All rights reserved.
+//  下拉刷新
+
 #import "MJRefreshConst.h"
 #import "MJRefreshHeaderView.h"
 #import "UIView+Extension.h"
@@ -5,8 +13,8 @@
 
 @interface MJRefreshHeaderView()
 // 最后的更新时间
-@property (nonatomic) NSDate *lastUpdateTime;
-@property (nonatomic) UILabel *lastUpdateTimeLabel;
+@property (nonatomic, strong) NSDate *lastUpdateTime;
+@property (nonatomic, weak) UILabel *lastUpdateTimeLabel;
 @end
 
 @implementation MJRefreshHeaderView
@@ -25,7 +33,7 @@
         lastUpdateTimeLabel.backgroundColor = [UIColor clearColor];
         lastUpdateTimeLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_lastUpdateTimeLabel = lastUpdateTimeLabel];
-        [lastUpdateTimeLabel release];
+        
         // 2.加载时间
         self.lastUpdateTime = [[NSUserDefaults standardUserDefaults] objectForKey:MJRefreshHeaderTimeKey];
     }
@@ -109,7 +117,7 @@
         formatter.dateFormat = @"yyyy-MM-dd HH:mm";
     }
     NSString *time = [formatter stringFromDate:self.lastUpdateTime];
-    [formatter release];
+    
     // 3.显示日期
     self.lastUpdateTimeLabel.text = [NSString stringWithFormat:@"最后更新：%@", time];
 }

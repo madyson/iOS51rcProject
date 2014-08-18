@@ -1,3 +1,11 @@
+//
+//  UIScrollView+Extension.m
+//  MJRefreshExample
+//
+//  Created by MJ Lee on 14-5-28.
+//  Copyright (c) 2014年 itcast. All rights reserved.
+//
+
 #import "UIScrollView+Extension.h"
 
 @implementation UIScrollView (Extension)

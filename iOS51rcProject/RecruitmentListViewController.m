@@ -28,11 +28,20 @@
 {
     [super viewDidLoad];
     [recruitmentData retain];
+    //时间选择控件
     pickDate = [[DatePicker alloc] init];
     pickDate.delegate = self;
     [self.btnDateSet addTarget:self action:@selector(showDateSelect) forControlEvents:UIControlEventTouchUpInside];
-    self.tvRecruitmentList.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    //数据加载等待控件初始化
+    loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton];
+    
+    //添加上拉加载更多
     [self.tvRecruitmentList addFooterWithTarget:self action:@selector(footerRereshing)];
+    //不显示列表分隔线
+    self.tvRecruitmentList.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    //搜索初始化
     begindate = @"";
     page = 1;
     placeid = @"0";
@@ -57,6 +66,8 @@
     [request startAsynchronous];
     [request setDelegate:self];
     self.runningRequest = request;
+    //开始等待动画
+    [loadView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning
@@ -181,6 +192,8 @@
         [imgWillRun release];
         
     }
+    //结束等待动画
+    [loadView stopAnimating];
     return cell;
 }
 
@@ -224,6 +237,7 @@
 - (void)dealloc {
     [recruitmentData release];
     [pickDate release];
+    [loadView release];
     [_tvRecruitmentList release];
     [_btnDateSet release];
     [_btnProvinceSel release];

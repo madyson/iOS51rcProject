@@ -1,3 +1,11 @@
+//
+//  MJRefreshConst.h
+//  MJRefresh
+//
+//  Created by mj on 14-1-3.
+//  Copyright (c) 2014年 itcast. All rights reserved.
+//
+
 #ifdef DEBUG
 #define MJLog(...) NSLog(__VA_ARGS__)
 #else
