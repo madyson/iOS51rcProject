@@ -175,6 +175,7 @@
 		99AF855519A1883400524B66 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		99AF856019A1898B00524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
 		99AF856219A1918600524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
+		99AF856319A1E6ED00524B66 /* LoginDetailsDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginDetailsDelegate.h; sourceTree = "<group>"; };
 		99B2F2FA199C43580066853D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		99B350AD199CB1F100CAEC71 /* index640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x960.png; sourceTree = "<group>"; };
 		99B350AE199CB1F100CAEC71 /* index640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x1136.png; sourceTree = "<group>"; };
@@ -385,6 +386,7 @@
 				99AF854F19A1883400524B66 /* LoginViewController.m */,
 				99AF855019A1883400524B66 /* RegisterViewController.h */,
 				99AF855119A1883400524B66 /* RegisterViewController.m */,
+				99AF856319A1E6ED00524B66 /* LoginDetailsDelegate.h */,
 			);
 			name = Login;
 			sourceTree = "<group>";

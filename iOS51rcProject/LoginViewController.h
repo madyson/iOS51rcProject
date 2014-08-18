@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "LoginDetailsViewController.h"
 #import "RegisterViewController.h"
+#import "LoginDetailsDelegate.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController: UIViewController<LoginDetailsDelegate>
     @property (nonatomic, strong) UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
     @property (nonatomic, strong) UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
     @property (nonatomic, strong) LoginDetailsViewController *loginDetailsView;

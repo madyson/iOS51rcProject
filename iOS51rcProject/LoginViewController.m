@@ -7,10 +7,14 @@
 //
 
 #import "LoginViewController.h"
+#import "NetWebServiceRequest.h"
+#import "GDataXMLNode.h"
+#import "CommonController.h"
 
 
 @interface LoginViewController ()
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segment;
+@property (retain, nonatomic) IBOutlet UINavigationItem *ni;
 
 @end
 
@@ -30,17 +34,21 @@
     if (index == 0){
         [self.registerView removeFromParentViewController];
         [self.view addSubview:self.loginDetailsView.view];
+        // = self;
+        self.ni.title = @"登录";
     } else  {
         [self.loginDetailsView removeFromParentViewController];
         [self.view addSubview:self.registerView.view];
+        self.ni.title = @"注册";
     }
-
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.ni.titleView.backgroundColor = [UIColor orangeColor];
+    self.ni.title = @"登录";
     self.loginDetailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginDetailsView"];
     self.registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
     
@@ -58,20 +66,29 @@
     self.rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:self.leftSwipeGestureRecognizer];
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
-    
+    self.loginDetailsView.delegate = self;
     [self.view addSubview: self.loginDetailsView.view];
+    
 }
+
+- (void) pushParentsFromLoginDetails
+{
+    NSLog(@"call login details");
+}
+
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
     if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         [self.registerView removeFromParentViewController];
         [self.view addSubview:self.loginDetailsView.view];
         self.segment.selectedSegmentIndex = 0;
+        self.ni.title = @"登录";
     }
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
         [self.loginDetailsView removeFromParentViewController];
         [self.view addSubview:self.registerView.view];
         self.segment.selectedSegmentIndex = 1;
+        self.ni.title = @"注册";
     }
 }
 - (void)didReceiveMemoryWarning
@@ -93,6 +110,7 @@
 
 - (void)dealloc {
     [_segment release];
+    [_ni release];
     [super dealloc];
 }
 @end

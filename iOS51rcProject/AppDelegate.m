@@ -43,7 +43,7 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSInteger logCount = [userDefaults integerForKey:@"loginCount"];
     if (logCount == 0) {
-        NSLog(@"the first login");
+        //NSLog(@"the first login");
         //如果是第一次登录，则显示四个欢迎图片
         self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
         WelcomeViewController * startView = [[WelcomeViewController alloc]init];
@@ -51,7 +51,7 @@
         [startView release];
     }
     else{
-        NSLog(@"not the first login");
+        //NSLog(@"not the first login");
     }
     [self.window makeKeyAndVisible];
     logCount ++;
