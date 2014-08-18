@@ -52,29 +52,29 @@
     NSString *strWeek = @"";
     NSInteger week = [comps weekday];
     switch (week){
-    case 1:
-        strWeek = @"周日";
+        case 1:
+            strWeek = @"周日";
             break;
-    case 2:
-        strWeek = @"周一";
+        case 2:
+            strWeek = @"周一";
             break;
-    case 3:
-        strWeek = @"周二";
+        case 3:
+            strWeek = @"周二";
             break;
-    case 4:
-        strWeek = @"周三";
+        case 4:
+            strWeek = @"周三";
             break;
-    case 5:
-        strWeek = @"周四";
+        case 5:
+            strWeek = @"周四";
             break;
-    case 6:
-        strWeek = @"周五";
+        case 6:
+            strWeek = @"周五";
             break;
-    case 7:
-        strWeek = @"周六";
+        case 7:
+            strWeek = @"周六";
             break;
-    default:
-        strWeek = @"周日";
+        default:
+            strWeek = @"周日";
             break;
     }
     [calendar release];

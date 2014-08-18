@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		994454AD199C4A0800206482 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994454AC199C4A0800206482 /* MenuViewController.m */; };
+		9945C30B19A1A4890027E931 /* ico_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9945C30A19A1A4890027E931 /* ico_clock.png */; };
+		9945C30D19A1AB370027E931 /* ico_rm_group.png in Resources */ = {isa = PBXBuildFile; fileRef = 9945C30C19A1AB370027E931 /* ico_rm_group.png */; };
+		9945C32019A1DBD60027E931 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9945C31019A1DBD60027E931 /* MJRefresh.bundle */; };
+		9945C32119A1DBD60027E931 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C31319A1DBD60027E931 /* MJRefreshBaseView.m */; };
+		9945C32219A1DBD60027E931 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C31519A1DBD60027E931 /* MJRefreshConst.m */; };
+		9945C32319A1DBD60027E931 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C31719A1DBD60027E931 /* MJRefreshFooterView.m */; };
+		9945C32419A1DBD60027E931 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C31919A1DBD60027E931 /* MJRefreshHeaderView.m */; };
+		9945C32519A1DBD60027E931 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C31B19A1DBD60027E931 /* UIScrollView+Extension.m */; };
+		9945C32619A1DBD60027E931 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C31D19A1DBD60027E931 /* UIScrollView+MJRefresh.m */; };
+		9945C32719A1DBD60027E931 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C31F19A1DBD60027E931 /* UIView+Extension.m */; };
 		997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C5199DB33C00FD0B12 /* ASIAuthenticationDialog.m */; };
 		997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C8199DB33C00FD0B12 /* ASIDataCompressor.m */; };
 		997BF0E5199DB33C00FD0B12 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0CA199DB33C00FD0B12 /* ASIDataDecompressor.m */; };
@@ -121,6 +131,24 @@
 /* Begin PBXFileReference section */
 		994454AB199C4A0800206482 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		994454AC199C4A0800206482 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		9945C30A19A1A4890027E931 /* ico_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_clock.png; sourceTree = "<group>"; };
+		9945C30C19A1AB370027E931 /* ico_rm_group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_rm_group.png; sourceTree = "<group>"; };
+		9945C31019A1DBD60027E931 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		9945C31219A1DBD60027E931 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		9945C31319A1DBD60027E931 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		9945C31419A1DBD60027E931 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		9945C31519A1DBD60027E931 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		9945C31619A1DBD60027E931 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		9945C31719A1DBD60027E931 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		9945C31819A1DBD60027E931 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		9945C31919A1DBD60027E931 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		9945C31A19A1DBD60027E931 /* UIScrollView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extension.h"; sourceTree = "<group>"; };
+		9945C31B19A1DBD60027E931 /* UIScrollView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extension.m"; sourceTree = "<group>"; };
+		9945C31C19A1DBD60027E931 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		9945C31D19A1DBD60027E931 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		9945C31E19A1DBD60027E931 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		9945C31F19A1DBD60027E931 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		9945C32819A1E1C20027E931 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		997BF0C4199DB33C00FD0B12 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		997BF0C5199DB33C00FD0B12 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		997BF0C6199DB33C00FD0B12 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -291,6 +319,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9945C30F19A1DBD60027E931 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				9945C32819A1E1C20027E931 /* MJRefresh.h */,
+				9945C31019A1DBD60027E931 /* MJRefresh.bundle */,
+				9945C31219A1DBD60027E931 /* MJRefreshBaseView.h */,
+				9945C31319A1DBD60027E931 /* MJRefreshBaseView.m */,
+				9945C31419A1DBD60027E931 /* MJRefreshConst.h */,
+				9945C31519A1DBD60027E931 /* MJRefreshConst.m */,
+				9945C31619A1DBD60027E931 /* MJRefreshFooterView.h */,
+				9945C31719A1DBD60027E931 /* MJRefreshFooterView.m */,
+				9945C31819A1DBD60027E931 /* MJRefreshHeaderView.h */,
+				9945C31919A1DBD60027E931 /* MJRefreshHeaderView.m */,
+				9945C31A19A1DBD60027E931 /* UIScrollView+Extension.h */,
+				9945C31B19A1DBD60027E931 /* UIScrollView+Extension.m */,
+				9945C31C19A1DBD60027E931 /* UIScrollView+MJRefresh.h */,
+				9945C31D19A1DBD60027E931 /* UIScrollView+MJRefresh.m */,
+				9945C31E19A1DBD60027E931 /* UIView+Extension.h */,
+				9945C31F19A1DBD60027E931 /* UIView+Extension.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
 		997BF0C2199DB33C00FD0B12 /* NetworkConnect */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +538,8 @@
 		99CFD84F199B60D8009A5ABA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9945C30C19A1AB370027E931 /* ico_rm_group.png */,
+				9945C30A19A1A4890027E931 /* ico_clock.png */,
 				99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */,
 				99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */,
 				99B350AD199CB1F100CAEC71 /* index640x960.png */,
@@ -541,6 +594,7 @@
 		99CFD89A199B6196009A5ABA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				9945C30F19A1DBD60027E931 /* MJRefresh */,
 				997BF0C2199DB33C00FD0B12 /* NetworkConnect */,
 				99CFD8E1199B61E3009A5ABA /* LoadingAnimate */,
 				99CFD8A9199B6196009A5ABA /* SlideNavigation */,
@@ -703,7 +757,9 @@
 				99B350BD199CB1F100CAEC71 /* welcom3-320x960.png in Resources */,
 				99CFD883199B60D8009A5ABA /* ico_main_jobapply.png in Resources */,
 				99B350BC199CB1F100CAEC71 /* welcom2-320x1136.png in Resources */,
+				9945C30B19A1A4890027E931 /* ico_clock.png in Resources */,
 				99CFD890199B60D8009A5ABA /* main_pic_campus.png in Resources */,
+				9945C32019A1DBD60027E931 /* MJRefresh.bundle in Resources */,
 				99CFD894199B60D8009A5ABA /* password.png in Resources */,
 				99CFD885199B60D8009A5ABA /* ico_main_more.png in Resources */,
 				99CFD877199B60D8009A5ABA /* checked.png in Resources */,
@@ -718,6 +774,7 @@
 				99CFD84D199B6082009A5ABA /* Home.storyboard in Resources */,
 				99CFD881199B60D8009A5ABA /* ico_leftmenu_salary.png in Resources */,
 				99CFD87A199B60D8009A5ABA /* ico_leftmenu_govnews.png in Resources */,
+				9945C30D19A1AB370027E931 /* ico_rm_group.png in Resources */,
 				99CFD896199B60D8009A5ABA /* renren.png in Resources */,
 				99CFD880199B60D8009A5ABA /* ico_leftmenu_rm.png in Resources */,
 				99B350BB199CB1F100CAEC71 /* welcom2-320x960.png in Resources */,
@@ -754,26 +811,32 @@
 				997BF0EA199DB33C00FD0B12 /* ASINetworkQueue.m in Sources */,
 				99CFD8C7199B6196009A5ABA /* AnimatedGif.m in Sources */,
 				99CFD8D5199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
+				9945C32519A1DBD60027E931 /* UIScrollView+Extension.m in Sources */,
+				9945C32619A1DBD60027E931 /* UIScrollView+MJRefresh.m in Sources */,
 				997BF0EC199DB33C00FD0B12 /* GDataXMLNode.m in Sources */,
 				997BF0E6199DB33C00FD0B12 /* ASIDownloadCache.m in Sources */,
 				997BF0E9199DB33C00FD0B12 /* ASIInputStream.m in Sources */,
 				99CFD8DA199B6196009A5ABA /* TKLoadingAnimationView.m in Sources */,
 				99AF855D19A1883400524B66 /* WelcomeViewController.m in Sources */,
+				9945C32319A1DBD60027E931 /* MJRefreshFooterView.m in Sources */,
 				99AF855719A1883400524B66 /* FindPsdStep2ViewController.m in Sources */,
 				99AF855919A1883400524B66 /* LoginDetailsViewController.m in Sources */,
 				997BF0EB199DB33C00FD0B12 /* Reachability.m in Sources */,
 				99CFD828199B5F80009A5ABA /* AppDelegate.m in Sources */,
 				997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */,
 				99A5D671199CB8D100466B0C /* RecruitmentListViewController.m in Sources */,
+				9945C32419A1DBD60027E931 /* MJRefreshHeaderView.m in Sources */,
 				997BF102199E248C00FD0B12 /* CommonController.m in Sources */,
 				997BF0E8199DB33C00FD0B12 /* ASIHTTPRequest.m in Sources */,
 				99CFD824199B5F80009A5ABA /* main.m in Sources */,
 				99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				994454AD199C4A0800206482 /* MenuViewController.m in Sources */,
 				99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */,
+				9945C32219A1DBD60027E931 /* MJRefreshConst.m in Sources */,
 				99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */,
 				997BF0ED199DB33C00FD0B12 /* NetWebServiceRequest.m in Sources */,
 				99AF855619A1883400524B66 /* FindPsdStep1ViewController.m in Sources */,
+				9945C32119A1DBD60027E931 /* MJRefreshBaseView.m in Sources */,
 				997BF0E7199DB33C00FD0B12 /* ASIFormDataRequest.m in Sources */,
 				997BF0EE199DB33C00FD0B12 /* SoapXmlParseHelper.m in Sources */,
 				997BF0E5199DB33C00FD0B12 /* ASIDataDecompressor.m in Sources */,

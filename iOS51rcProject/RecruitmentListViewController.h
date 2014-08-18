@@ -10,7 +10,7 @@
 
 @interface RecruitmentListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 {
-    NSArray *recruitmentData;
+    NSMutableArray *recruitmentData;
     NSInteger page;
     NSString *begindate;
     NSString *placeid;
