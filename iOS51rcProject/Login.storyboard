@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="My1-PP-fg4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="g0F-ZZ-Iw8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Ixo-TG-FEH">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="g0F-ZZ-Iw8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4dQ-p9-49D">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="My1-PP-fg4" kind="relationship" relationship="rootViewController" id="lCJ-1X-ewd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4e5-bK-g3J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1182" y="-10"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="mgs-3r-2zp">
             <objects>
@@ -17,7 +33,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="4Ge-Rp-EP6">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="40"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
                                             <segment title="登录"/>
@@ -33,7 +49,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="39t-Jr-erI"/>
                     <connections>
+                        <outlet property="ni" destination="39t-Jr-erI" id="Hwp-fL-7aN"/>
                         <outlet property="segment" destination="4Ge-Rp-EP6" id="uFO-s6-pkt"/>
                     </connections>
                 </viewController>
@@ -129,6 +147,9 @@
                                 <state key="normal" title="忘记密码">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnFindPsd:" destination="3LL-QA-RMo" eventType="touchUpInside" id="tO7-mm-p73"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自动登录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TaM-tX-9RS">
                                 <rect key="frame" x="71" y="137" width="75" height="21"/>
@@ -212,10 +233,18 @@
                                 <state key="normal" title="登录">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnLoginClick:" destination="3LL-QA-RMo" eventType="touchUpInside" id="11a-qQ-K6H"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gXG-jV-bBP"/>
+                    <connections>
+                        <outlet property="txtName" destination="lrm-pQ-KQF" id="dc4-sM-ksQ"/>
+                        <outlet property="txtPsd" destination="FNN-p0-hI3" id="14Z-XZ-q6E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPI-sp-kGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -224,7 +253,7 @@
         <!--Find Psd Step1 View Controller-->
         <scene sceneID="zrF-RU-RrA">
             <objects>
-                <viewController id="gNE-5I-qDg" customClass="FindPsdStep1ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="findPsd1View" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gNE-5I-qDg" customClass="FindPsdStep1ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VzI-9u-LbA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

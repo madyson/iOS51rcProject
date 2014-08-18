@@ -21,14 +21,43 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Home"
-															 bundle: nil];
-	
-	MenuViewController *menuC = (MenuViewController*)[mainStoryboard
-                                                                 instantiateViewControllerWithIdentifier: @"MenuViewController"];
+    //判断当前设备屏幕尺寸
+    CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
+    UIStoryboard *mainStoryboard = nil;
+    if (iOSDeviceScreenSize.height == 568) {
+        mainStoryboard = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+    }
+    else{
+        mainStoryboard = self.window.rootViewController.storyboard;
+    }
+    
+    MenuViewController *menuC = (MenuViewController*)[mainStoryboard
+                                                      instantiateViewControllerWithIdentifier: @"MenuViewController"];
 	
 	[SlideNavigationController sharedInstance].rightMenu = menuC;
 	[SlideNavigationController sharedInstance].leftMenu = menuC;
+
+    //设置欢迎界面
+    [NSThread sleepForTimeInterval:1.0];
+    //获得是否是第一次登录
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger logCount = [userDefaults integerForKey:@"loginCount"];
+    if (logCount == 0) {
+        //NSLog(@"the first login");
+        //如果是第一次登录，则显示四个欢迎图片
+        self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+        WelcomeViewController * startView = [[WelcomeViewController alloc]init];
+        self.window.rootViewController = startView;
+        [startView release];
+    }
+    else{
+        //NSLog(@"not the first login");
+    }
+    [self.window makeKeyAndVisible];
+    logCount ++;
+    [userDefaults setInteger:logCount forKey:@"loginCount"];
+    [userDefaults synchronize];
+	
     return YES;
 }
 							

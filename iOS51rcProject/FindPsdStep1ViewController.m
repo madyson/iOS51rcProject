@@ -27,6 +27,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //自定义在导航条显示的对第二个视图对描述；
+    //UINavigationController的title可以用别的view替代，比如用UIButton UILable等，此处使用uibutton
+    UIButton *button = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    [button setTitle: @"自定义title" forState: UIControlStateNormal];
+    [button sizeToFit];
+    self.navigationItem.titleView = button;
+    
+    //导航栏右侧按钮
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(selectRightAction:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+    //自定义从下一个视图左上角，“返回”本视图的按钮
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"后退" style:UIBarButtonItemStyleDone target:nil action:nil];
+    self.navigationItem.backBarButtonItem=backButton;
 }
 
 - (void)didReceiveMemoryWarning
