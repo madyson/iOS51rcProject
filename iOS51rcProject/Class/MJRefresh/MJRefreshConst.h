@@ -1,10 +1,7 @@
-//
-//  MJRefreshConst.h
-//  MJRefresh
-//
-//  Created by mj on 14-1-3.
-//  Copyright (c) 2014年 itcast. All rights reserved.
-//
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
 
 #ifdef DEBUG
 #define MJLog(...) NSLog(__VA_ARGS__)

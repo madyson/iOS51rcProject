@@ -14,7 +14,7 @@
 @interface MJRefreshHeaderView()
 // 最后的更新时间
 @property (nonatomic, strong) NSDate *lastUpdateTime;
-@property (nonatomic, weak) UILabel *lastUpdateTimeLabel;
+@property (nonatomic) UILabel *lastUpdateTimeLabel;
 @end
 
 @implementation MJRefreshHeaderView
