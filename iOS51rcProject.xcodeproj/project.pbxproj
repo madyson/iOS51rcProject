@@ -44,7 +44,6 @@
 		99B350BE199CB1F100CAEC71 /* welcom3-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B4199CB1F100CAEC71 /* welcom3-320x1136.png */; };
 		99B350BF199CB1F100CAEC71 /* welcom4-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B5199CB1F100CAEC71 /* welcom4-320x960.png */; };
 		99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */; };
-		99B350C6199CB29B00CAEC71 /* WelcomeUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B350C5199CB29B00CAEC71 /* WelcomeUIImage.m */; };
 		99B350C9199CB43A00CAEC71 /* welcom5-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */; };
 		99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */; };
 		99CFD818199B5F80009A5ABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD817199B5F80009A5ABA /* Foundation.framework */; };
@@ -175,6 +174,7 @@
 		99AF855419A1883400524B66 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		99AF855519A1883400524B66 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		99AF856019A1898B00524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
+		99AF856219A1918600524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WelcomeUIImage.m; path = iOS51rcProject/WelcomeUIImage.m; sourceTree = "<group>"; };
 		99B2F2FA199C43580066853D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		99B350AD199CB1F100CAEC71 /* index640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x960.png; sourceTree = "<group>"; };
 		99B350AE199CB1F100CAEC71 /* index640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x1136.png; sourceTree = "<group>"; };
@@ -184,7 +184,6 @@
 		99B350B4199CB1F100CAEC71 /* welcom3-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom3-320x1136.png"; sourceTree = "<group>"; };
 		99B350B5199CB1F100CAEC71 /* welcom4-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x960.png"; sourceTree = "<group>"; };
 		99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x1136.png"; sourceTree = "<group>"; };
-		99B350C5199CB29B00CAEC71 /* WelcomeUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
 		99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x960.png"; sourceTree = "<group>"; };
 		99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x1136.png"; sourceTree = "<group>"; };
 		99CFD814199B5F80009A5ABA /* iOS51rcProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS51rcProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -373,6 +372,18 @@
 		99AF855F19A188F100524B66 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				99AF854619A1883400524B66 /* FindPsdStep1ViewController.h */,
+				99AF854719A1883400524B66 /* FindPsdStep1ViewController.m */,
+				99AF854819A1883400524B66 /* FindPsdStep2ViewController.h */,
+				99AF854919A1883400524B66 /* FindPsdStep2ViewController.m */,
+				99AF854A19A1883400524B66 /* FindPsdStep3ViewController.h */,
+				99AF854B19A1883400524B66 /* FindPsdStep3ViewController.m */,
+				99AF854C19A1883400524B66 /* LoginDetailsViewController.h */,
+				99AF854D19A1883400524B66 /* LoginDetailsViewController.m */,
+				99AF854E19A1883400524B66 /* LoginViewController.h */,
+				99AF854F19A1883400524B66 /* LoginViewController.m */,
+				99AF855019A1883400524B66 /* RegisterViewController.h */,
+				99AF855119A1883400524B66 /* RegisterViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -380,6 +391,7 @@
 		99CFD80B199B5F80009A5ABA = {
 			isa = PBXGroup;
 			children = (
+				99AF856219A1918600524B66 /* WelcomeUIImage.m */,
 				99CFD81D199B5F80009A5ABA /* iOS51rcProject */,
 				99CFD83C199B5F80009A5ABA /* iOS51rcProjectTests */,
 				99CFD816199B5F80009A5ABA /* Frameworks */,
@@ -417,18 +429,6 @@
 			children = (
 				99AF855F19A188F100524B66 /* Login */,
 				99AF855E19A188D700524B66 /* WelCome */,
-				99AF854619A1883400524B66 /* FindPsdStep1ViewController.h */,
-				99AF854719A1883400524B66 /* FindPsdStep1ViewController.m */,
-				99AF854819A1883400524B66 /* FindPsdStep2ViewController.h */,
-				99AF854919A1883400524B66 /* FindPsdStep2ViewController.m */,
-				99AF854A19A1883400524B66 /* FindPsdStep3ViewController.h */,
-				99AF854B19A1883400524B66 /* FindPsdStep3ViewController.m */,
-				99AF854C19A1883400524B66 /* LoginDetailsViewController.h */,
-				99AF854D19A1883400524B66 /* LoginDetailsViewController.m */,
-				99AF854E19A1883400524B66 /* LoginViewController.h */,
-				99AF854F19A1883400524B66 /* LoginViewController.m */,
-				99AF855019A1883400524B66 /* RegisterViewController.h */,
-				99AF855119A1883400524B66 /* RegisterViewController.m */,
 				99CFD84E199B60D8009A5ABA /* Resource */,
 				99CFD826199B5F80009A5ABA /* AppDelegate.h */,
 				99CFD827199B5F80009A5ABA /* AppDelegate.m */,
@@ -744,7 +744,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99B350C6199CB29B00CAEC71 /* WelcomeUIImage.m in Sources */,
+				99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */,
 				99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */,
@@ -770,7 +770,6 @@
 				994454AD199C4A0800206482 /* MenuViewController.m in Sources */,
 				99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */,
 				99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */,
-				99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */,
 				997BF0ED199DB33C00FD0B12 /* NetWebServiceRequest.m in Sources */,
 				99AF855619A1883400524B66 /* FindPsdStep1ViewController.m in Sources */,
 				997BF0E7199DB33C00FD0B12 /* ASIFormDataRequest.m in Sources */,
@@ -896,7 +895,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOS51rcProject/iOS51rcProject-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -915,7 +914,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOS51rcProject/iOS51rcProject-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -937,7 +936,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOS51rcProject/iOS51rcProject-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -959,7 +958,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOS51rcProject/iOS51rcProject-Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "iOS51rcProjectTests/iOS51rcProjectTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
