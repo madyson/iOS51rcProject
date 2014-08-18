@@ -2,6 +2,7 @@
 #import "NetWebServiceRequest.h"
 #import "GDataXMLNode.h"
 #import "CommonController.h"
+#import "MJRefresh.h"
 
 @interface RecruitmentListViewController ()<NetWebServiceRequestDelegate>
     @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentList;
@@ -24,7 +25,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [recruitmentData retain];
     self.tvRecruitmentList.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tvRecruitmentList addFooterWithTarget:self action:@selector(footerRereshing)];
     begindate = @"";
     page = 1;
     placeid = @"0";
@@ -56,7 +59,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
@@ -91,7 +93,7 @@
     [lbTitle release];
     
     //显示举办时间 举办场馆 具体地址
-    UILabel *lbBegin = [[UILabel alloc] initWithFrame:CGRectMake(20, (labelSize.height + 15), titleWidth, 10)];
+    UILabel *lbBegin = [[UILabel alloc] initWithFrame:CGRectMake(20, (labelSize.height + 15), titleWidth, 15)];
     NSString *strBeginDate = rowData[@"BeginDate"];
     NSDate *dtBeginDate = [CommonController dateFromString:strBeginDate];
     strBeginDate = [CommonController stringFromDate:dtBeginDate];
@@ -101,68 +103,90 @@
     [cell.contentView addSubview:(lbBegin)];
     [lbBegin release];
     
-    UILabel *lbPlace = [[UILabel alloc] initWithFrame:CGRectMake(20, (labelSize.height + 35), titleWidth, 10)];
+    UILabel *lbPlace = [[UILabel alloc] initWithFrame:CGRectMake(20, (labelSize.height + 35), titleWidth, 15)];
     lbPlace.text = [NSString stringWithFormat:@"举办场馆：%@",rowData[@"PlaceName"]];
     lbPlace.font = [UIFont systemFontOfSize:12];
     [cell.contentView addSubview:(lbPlace)];
     [lbPlace release];
     
-    UILabel *lbAddress = [[UILabel alloc] initWithFrame:CGRectMake(20, (labelSize.height + 55), titleWidth, 10)];
+    UILabel *lbAddress = [[UILabel alloc] initWithFrame:CGRectMake(20, (labelSize.height + 55), titleWidth, 15)];
     lbAddress.text = [NSString stringWithFormat:@"举办场馆：%@",rowData[@"Address"]];
     lbAddress.font = [UIFont systemFontOfSize:12];
     [cell.contentView addSubview:(lbAddress)];
     [lbAddress release];
 
-    UILabel *lbSeparator = [[UILabel alloc] initWithFrame:CGRectMake(0, 115, 320, 1)];
+    UILabel *lbSeparator = [[UILabel alloc] initWithFrame:CGRectMake(0, 119, 320, 1)];
     lbSeparator.backgroundColor = [UIColor grayColor];
     [cell.contentView addSubview:(lbSeparator)];
     [lbSeparator release];
 
-//    //显示状态
-//    var strEndDate = rowData["EndDate"]["text"] as NSString
-//    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//    var dtEndDate = dateFormatter.dateFromString(strEndDate.stringByReplacingOccurrencesOfString("T", withString: " ").substringFrom(0, to: 18))
-//    
-//    dateFormatter.dateFormat = "yyyy-MM-dd"
-//    var compareResult = dtBeginDate.compare(NSDate())
-//    var recruitmentStatus = 0
-//    switch compareResult{
-//    case NSComparisonResult.OrderedAscending:
-//        var compareResult2 = dtEndDate.compare(NSDate())
-//        if(compareResult2 == NSComparisonResult.OrderedDescending){
-//            recruitmentStatus = 1
-//        }
-//        else{
-//            recruitmentStatus = 2
-//        }
-//    case NSComparisonResult.OrderedDescending:
-//        recruitmentStatus = 3
-//    case NSComparisonResult.OrderedSame:
-//        recruitmentStatus = 1
-//    default:
-//        recruitmentStatus = 0
-//    }
-//    recruitmentStatus = 1
-//    switch recruitmentStatus{
-//    case 1:
-//        println("ing")
-//        var viewGoing = UIView(frame: CGRect(x: 250, y: 60, width: 60, height: 60))
-//        var lbGoing = UILabel(frame: CGRect(x: 0, y: 30, width: 60, height: 10))
-//        lbGoing.font = UIFont(name: "Arial", size: 12.0)
-//        lbGoing.text = "正在进行"
-//        
-//        viewGoing.addSubview(lbGoing)
-//        viewGoing.backgroundColor = UIColor.yellowColor()
-//        cell.contentView.addSubview(viewGoing)
-//    case 2:
-//        println("expired")
-//    case 3:
-//        println("pre")
-//    default:
-//        println("error")
-//    }
-//    
+    //显示状态
+    int runStatus = 0;
+    NSDate *dtEndDate = [CommonController dateFromString:rowData[@"EndDate"]];
+    NSDate *dtNow = [NSDate date];
+    NSDate *dtCompare = [dtBeginDate earlierDate:dtNow];
+    if (dtNow == dtCompare) {
+        runStatus = 3; //未开始
+    }
+    else{
+        dtCompare = [dtEndDate earlierDate:dtNow];
+        if(dtNow == dtCompare){
+            runStatus = 1; //正在进行
+        }
+        else{
+            runStatus = 2; //已过期
+        }
+    }
+    if (runStatus == 1) {
+        UIView *rightContent = [[UIView alloc] initWithFrame:CGRectMake(260, 35, 30, 45)];
+        UILabel *lbRunning = [[UILabel alloc] initWithFrame:CGRectMake(0, 35, 30, 10)];
+        lbRunning.text = @"进行中";
+        lbRunning.font = [UIFont systemFontOfSize:10];
+        lbRunning.textColor = [UIColor colorWithRed:107.f/255.f green:217.f/255.f blue:70.f/255.f alpha:1];
+        lbRunning.textAlignment = NSTextAlignmentCenter;
+        [rightContent addSubview:lbRunning];
+        
+        UIImageView *imgRunning = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        imgRunning.image = [UIImage imageNamed:@"ico_clock.png"];
+        
+        [rightContent addSubview:imgRunning];
+        [cell.contentView addSubview:rightContent];
+        [rightContent release];
+        [lbRunning release];
+        [imgRunning release];
+    }
+    else if (runStatus == 2){
+        
+    }
+    else if (runStatus == 3){
+        UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 35, 30, 45)];
+        UILabel *lbWillRun = [[UILabel alloc] initWithFrame:CGRectMake(-5, 35, 40, 10)];
+        lbWillRun.text = @"我要参会";
+        lbWillRun.font = [UIFont systemFontOfSize:10];
+        lbWillRun.textColor = [UIColor colorWithRed:255.f/255.f green:90.f/255.f blue:40.f/255.f alpha:1];
+        lbWillRun.textAlignment = NSTextAlignmentCenter;
+        [rightButton addSubview:lbWillRun];
+        
+        UIImageView *imgWillRun = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        imgWillRun.image = [UIImage imageNamed:@"ico_rm_group.png"];
+        rightButton.tag = (NSInteger)rowData[@"ID"];
+        [rightButton addSubview:imgWillRun];
+        [rightButton addTarget:self action:@selector(joinRecruitment:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:rightButton];
+        [rightButton release];
+        [lbWillRun release];
+        [imgWillRun release];
+        
+    }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+-(void) joinRecruitment:(UIButton *)sender{
+    NSLog(@"%d",sender.tag);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -171,6 +195,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 120;
+}
+
+- (void)footerRereshing{
+    page++;
+    [self onSearch];
 }
 
 //失败
@@ -184,9 +213,16 @@
       finishedInfoToResult:(NSString *)result
               responseData:(NSArray *)requestData
 {
-    recruitmentData = requestData;
-    [recruitmentData retain];
+    if(page==1){
+        [recruitmentData removeAllObjects];
+        recruitmentData = requestData;
+    }
+    else{
+        [recruitmentData addObjectsFromArray:requestData];
+    }
+    //[recruitmentData arrayByAddingObjectsFromArray:requestData];
     [self.tvRecruitmentList reloadData];
+    [self.tvRecruitmentList footerEndRefreshing];
 }
 
 - (void)dealloc {
