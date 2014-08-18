@@ -18,6 +18,7 @@
 		9945C32519A1DBD60027E931 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C31B19A1DBD60027E931 /* UIScrollView+Extension.m */; };
 		9945C32619A1DBD60027E931 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C31D19A1DBD60027E931 /* UIScrollView+MJRefresh.m */; };
 		9945C32719A1DBD60027E931 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C31F19A1DBD60027E931 /* UIView+Extension.m */; };
+		9945C32B19A1E8FA0027E931 /* DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C32A19A1E8FA0027E931 /* DatePicker.m */; };
 		997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C5199DB33C00FD0B12 /* ASIAuthenticationDialog.m */; };
 		997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C8199DB33C00FD0B12 /* ASIDataCompressor.m */; };
 		997BF0E5199DB33C00FD0B12 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0CA199DB33C00FD0B12 /* ASIDataDecompressor.m */; };
@@ -115,7 +116,7 @@
 		99CFD8D7199B6196009A5ABA /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CFD8B7199B6196009A5ABA /* menu-button.png */; };
 		99CFD8D8199B6196009A5ABA /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CFD8B8199B6196009A5ABA /* menu-button@2x.png */; };
 		99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD8BA199B6196009A5ABA /* SlideNavigationController.m */; };
-		99CFD8DA199B6196009A5ABA /* TKLoadingAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD8BC199B6196009A5ABA /* TKLoadingAnimationView.m */; };
+		99CFD8DA199B6196009A5ABA /* LoadingAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD8BC199B6196009A5ABA /* LoadingAnimationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,8 @@
 		9945C31E19A1DBD60027E931 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		9945C31F19A1DBD60027E931 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		9945C32819A1E1C20027E931 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		9945C32919A1E8FA0027E931 /* DatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePicker.h; sourceTree = "<group>"; };
+		9945C32A19A1E8FA0027E931 /* DatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePicker.m; sourceTree = "<group>"; };
 		997BF0C4199DB33C00FD0B12 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		997BF0C5199DB33C00FD0B12 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		997BF0C6199DB33C00FD0B12 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -284,8 +287,8 @@
 		99CFD8B8199B6196009A5ABA /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button@2x.png"; sourceTree = "<group>"; };
 		99CFD8B9199B6196009A5ABA /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
 		99CFD8BA199B6196009A5ABA /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
-		99CFD8BB199B6196009A5ABA /* TKLoadingAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLoadingAnimationView.h; sourceTree = "<group>"; };
-		99CFD8BC199B6196009A5ABA /* TKLoadingAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLoadingAnimationView.m; sourceTree = "<group>"; };
+		99CFD8BB199B6196009A5ABA /* LoadingAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingAnimationView.h; sourceTree = "<group>"; };
+		99CFD8BC199B6196009A5ABA /* LoadingAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAnimationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -596,6 +599,8 @@
 				99CFD8A9199B6196009A5ABA /* SlideNavigation */,
 				997BF100199E248C00FD0B12 /* CommonController.h */,
 				997BF101199E248C00FD0B12 /* CommonController.m */,
+				9945C32919A1E8FA0027E931 /* DatePicker.h */,
+				9945C32A19A1E8FA0027E931 /* DatePicker.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -643,8 +648,8 @@
 			children = (
 				99CFD89B199B6196009A5ABA /* AnimatedGif.h */,
 				99CFD89C199B6196009A5ABA /* AnimatedGif.m */,
-				99CFD8BB199B6196009A5ABA /* TKLoadingAnimationView.h */,
-				99CFD8BC199B6196009A5ABA /* TKLoadingAnimationView.m */,
+				99CFD8BB199B6196009A5ABA /* LoadingAnimationView.h */,
+				99CFD8BC199B6196009A5ABA /* LoadingAnimationView.m */,
 			);
 			name = LoadingAnimate;
 			sourceTree = "<group>";
@@ -808,10 +813,11 @@
 				99CFD8D5199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				9945C32519A1DBD60027E931 /* UIScrollView+Extension.m in Sources */,
 				9945C32619A1DBD60027E931 /* UIScrollView+MJRefresh.m in Sources */,
+				9945C32B19A1E8FA0027E931 /* DatePicker.m in Sources */,
 				997BF0EC199DB33C00FD0B12 /* GDataXMLNode.m in Sources */,
 				997BF0E6199DB33C00FD0B12 /* ASIDownloadCache.m in Sources */,
 				997BF0E9199DB33C00FD0B12 /* ASIInputStream.m in Sources */,
-				99CFD8DA199B6196009A5ABA /* TKLoadingAnimationView.m in Sources */,
+				99CFD8DA199B6196009A5ABA /* LoadingAnimationView.m in Sources */,
 				99AF855D19A1883400524B66 /* WelcomeViewController.m in Sources */,
 				9945C32319A1DBD60027E931 /* MJRefreshFooterView.m in Sources */,
 				99AF855719A1883400524B66 /* FindPsdStep2ViewController.m in Sources */,

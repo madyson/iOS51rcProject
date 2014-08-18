@@ -1,13 +1,12 @@
-#import "TKLoadingAnimationView.h"
-@implementation TKLoadingAnimationView
+#import "LoadingAnimationView.h"
+@implementation LoadingAnimationView
 @synthesize gifs = _gifs;
 
 
-- (id)initWithFrame:(CGRect)frame tkLoadingAnimationViewStyle:(TKLoadingAnimationViewStyle)style{
+- (id)initWithFrame:(CGRect)frame loadingAnimationViewStyle:(LoadingAnimationViewStyle)style{
     
     self = [super initWithFrame:frame];
     if (self) {
-
 		self.backgroundColor = [UIColor clearColor];
 		AnimatedGif *aniGif = [[AnimatedGif alloc] init];
 		NSString *gifName = @"loading";

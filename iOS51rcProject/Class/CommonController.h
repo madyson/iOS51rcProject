@@ -16,5 +16,6 @@
 
 +(NSDate *)dateFromString:(NSString *)dateString;
 +(NSString *)getWeek:(NSDate *)date;
-+(NSString *)stringFromDate:(NSDate *)date;
++(NSString *)stringFromDate:(NSDate *)date
+                 formatType:(NSString *)formatType;
 @end

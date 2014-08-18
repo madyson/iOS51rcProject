@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DatePicker.h"
 
 @interface RecruitmentListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 {
@@ -14,5 +15,6 @@
     NSInteger page;
     NSString *begindate;
     NSString *placeid;
+    DatePicker *pickDate;
 }
 @end

@@ -4,12 +4,14 @@
 #import "CommonController.h"
 #import "MJRefresh.h"
 
-@interface RecruitmentListViewController ()<NetWebServiceRequestDelegate>
+@interface RecruitmentListViewController ()<NetWebServiceRequestDelegate,DatePickerDelegate>
     @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentList;
+    @property (retain, nonatomic) IBOutlet UIButton *btnProvinceSel;
+    @property (retain, nonatomic) IBOutlet UIButton *btnPlaceSel;
+    @property (retain, nonatomic) IBOutlet UILabel *lbDateSet;
+    @property (retain, nonatomic) IBOutlet UIButton *btnDateSet;
     @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @end
-
-
 
 @implementation RecruitmentListViewController
 @synthesize runningRequest = _runningRequest;
@@ -26,6 +28,9 @@
 {
     [super viewDidLoad];
     [recruitmentData retain];
+    pickDate = [[DatePicker alloc] init];
+    pickDate.delegate = self;
+    [self.btnDateSet addTarget:self action:@selector(showDateSelect) forControlEvents:UIControlEventTouchUpInside];
     self.tvRecruitmentList.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tvRecruitmentList addFooterWithTarget:self action:@selector(footerRereshing)];
     begindate = @"";
@@ -48,9 +53,7 @@
     [dicParam setObject:@"32" forKey:@"strRegionID"];
     [dicParam setObject:[NSString stringWithFormat:@"%ld",(long)page] forKey:@"page"];
     [dicParam setObject:@"0" forKey:@"code"];
-
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetRecruitMentList" Params:dicParam];
-
     [request startAsynchronous];
     [request setDelegate:self];
     self.runningRequest = request;
@@ -96,7 +99,7 @@
     UILabel *lbBegin = [[UILabel alloc] initWithFrame:CGRectMake(20, (labelSize.height + 15), titleWidth, 15)];
     NSString *strBeginDate = rowData[@"BeginDate"];
     NSDate *dtBeginDate = [CommonController dateFromString:strBeginDate];
-    strBeginDate = [CommonController stringFromDate:dtBeginDate];
+    strBeginDate = [CommonController stringFromDate:dtBeginDate formatType:@"yyyy-MM-dd HH:mm"];
     NSString *strWeek = [CommonController getWeek:dtBeginDate];
     lbBegin.text = [NSString stringWithFormat:@"举办时间：%@ %@",strBeginDate,strWeek];
     lbBegin.font = [UIFont systemFontOfSize:12];
@@ -202,32 +205,46 @@
     [self onSearch];
 }
 
-//失败
-- (void)netRequestFailed:(NetWebServiceRequest *)request didRequestError:(int *)error
-{
-    
-}
-
 //成功
 - (void)netRequestFinished:(NetWebServiceRequest *)request
       finishedInfoToResult:(NSString *)result
               responseData:(NSArray *)requestData
 {
-    if(page==1){
+    if(page == 1){
         [recruitmentData removeAllObjects];
         recruitmentData = requestData;
     }
     else{
         [recruitmentData addObjectsFromArray:requestData];
     }
-    //[recruitmentData arrayByAddingObjectsFromArray:requestData];
     [self.tvRecruitmentList reloadData];
     [self.tvRecruitmentList footerEndRefreshing];
 }
 
 - (void)dealloc {
     [recruitmentData release];
+    [pickDate release];
     [_tvRecruitmentList release];
+    [_btnDateSet release];
+    [_btnProvinceSel release];
+    [_btnPlaceSel release];
+    [_lbDateSet release];
     [super dealloc];
+}
+
+-(void)showDateSelect{
+    [pickDate showDatePicker:self dateTitle:@"请选择举办日期"];
+}
+
+-(void)saveDate:(NSDate *)selectDate{
+    NSString *strSelDate = [CommonController stringFromDate:selectDate formatType:@"MM-dd"];
+    self.lbDateSet.text = strSelDate;
+    begindate = [CommonController stringFromDate:selectDate formatType:@"yyyy-MM-dd"];
+    [self onSearch];
+    [pickDate removeDatePicker];
+}
+
+-(void)resetDate{
+    
 }
 @end
