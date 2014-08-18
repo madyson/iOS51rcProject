@@ -28,6 +28,18 @@
 		997BF102199E248C00FD0B12 /* CommonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF101199E248C00FD0B12 /* CommonController.m */; };
 		99A5D671199CB8D100466B0C /* RecruitmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */; };
 		99B2F2FB199C43580066853D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2F2FA199C43580066853D /* Login.storyboard */; };
+		99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AD199CB1F100CAEC71 /* index640x960.png */; };
+		99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AE199CB1F100CAEC71 /* index640x1136.png */; };
+		99B350BB199CB1F100CAEC71 /* welcom2-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B1199CB1F100CAEC71 /* welcom2-320x960.png */; };
+		99B350BC199CB1F100CAEC71 /* welcom2-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B2199CB1F100CAEC71 /* welcom2-320x1136.png */; };
+		99B350BD199CB1F100CAEC71 /* welcom3-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B3199CB1F100CAEC71 /* welcom3-320x960.png */; };
+		99B350BE199CB1F100CAEC71 /* welcom3-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B4199CB1F100CAEC71 /* welcom3-320x1136.png */; };
+		99B350BF199CB1F100CAEC71 /* welcom4-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B5199CB1F100CAEC71 /* welcom4-320x960.png */; };
+		99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */; };
+		99B350C3199CB28000CAEC71 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B350C2199CB28000CAEC71 /* WelcomeViewController.m */; };
+		99B350C6199CB29B00CAEC71 /* WelcomeUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B350C5199CB29B00CAEC71 /* WelcomeUIImage.m */; };
+		99B350C9199CB43A00CAEC71 /* welcom5-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */; };
+		99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */; };
 		99CFD818199B5F80009A5ABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD817199B5F80009A5ABA /* Foundation.framework */; };
 		99CFD81A199B5F80009A5ABA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD819199B5F80009A5ABA /* CoreGraphics.framework */; };
 		99CFD81C199B5F80009A5ABA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD81B199B5F80009A5ABA /* UIKit.framework */; };
@@ -141,6 +153,20 @@
 		99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecruitmentListViewController.h; sourceTree = "<group>"; };
 		99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruitmentListViewController.m; sourceTree = "<group>"; };
 		99B2F2FA199C43580066853D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		99B350AD199CB1F100CAEC71 /* index640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x960.png; sourceTree = "<group>"; };
+		99B350AE199CB1F100CAEC71 /* index640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x1136.png; sourceTree = "<group>"; };
+		99B350B1199CB1F100CAEC71 /* welcom2-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom2-320x960.png"; sourceTree = "<group>"; };
+		99B350B2199CB1F100CAEC71 /* welcom2-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom2-320x1136.png"; sourceTree = "<group>"; };
+		99B350B3199CB1F100CAEC71 /* welcom3-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom3-320x960.png"; sourceTree = "<group>"; };
+		99B350B4199CB1F100CAEC71 /* welcom3-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom3-320x1136.png"; sourceTree = "<group>"; };
+		99B350B5199CB1F100CAEC71 /* welcom4-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x960.png"; sourceTree = "<group>"; };
+		99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x1136.png"; sourceTree = "<group>"; };
+		99B350C1199CB28000CAEC71 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		99B350C2199CB28000CAEC71 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		99B350C4199CB29B00CAEC71 /* WelcomeUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeUIImage.h; sourceTree = "<group>"; };
+		99B350C5199CB29B00CAEC71 /* WelcomeUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
+		99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x960.png"; sourceTree = "<group>"; };
+		99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x1136.png"; sourceTree = "<group>"; };
 		99CFD814199B5F80009A5ABA /* iOS51rcProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS51rcProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CFD817199B5F80009A5ABA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99CFD819199B5F80009A5ABA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -399,6 +425,8 @@
 		99CFD84E199B60D8009A5ABA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				99291250199DD5A000AE459D /* Default-568h@2x.png */,
+				99291251199DD5A000AE459D /* Default@2x.png */,
 				99CFD84F199B60D8009A5ABA /* images */,
 			);
 			path = Resource;
@@ -407,6 +435,16 @@
 		99CFD84F199B60D8009A5ABA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */,
+				99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */,
+				99B350AD199CB1F100CAEC71 /* index640x960.png */,
+				99B350AE199CB1F100CAEC71 /* index640x1136.png */,
+				99B350B1199CB1F100CAEC71 /* welcom2-320x960.png */,
+				99B350B2199CB1F100CAEC71 /* welcom2-320x1136.png */,
+				99B350B3199CB1F100CAEC71 /* welcom3-320x960.png */,
+				99B350B4199CB1F100CAEC71 /* welcom3-320x1136.png */,
+				99B350B5199CB1F100CAEC71 /* welcom4-320x960.png */,
+				99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */,
 				99CFD850199B60D8009A5ABA /* bg_leftmenu.png */,
 				99CFD851199B60D8009A5ABA /* btn_leftmenu.png */,
 				99CFD852199B60D8009A5ABA /* checked.png */,
@@ -585,25 +623,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */,
 				99CFD87B199B60D8009A5ABA /* ico_leftmenu_head.png in Resources */,
+				99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */,
 				99CFD8D8199B6196009A5ABA /* menu-button@2x.png in Resources */,
 				99CFD892199B60D8009A5ABA /* main_pic_head.png in Resources */,
 				99CFD882199B60D8009A5ABA /* ico_leftmenu_search.png in Resources */,
 				99CFD889199B60D8009A5ABA /* ico_main_salary.png in Resources */,
 				99CFD830199B5F80009A5ABA /* Images.xcassets in Resources */,
+				99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */,
 				99CFD87C199B60D8009A5ABA /* ico_leftmenu_index.png in Resources */,
 				99CFD893199B60D8009A5ABA /* main_pic_jobnews.png in Resources */,
+				99291252199DD5A000AE459D /* Default-568h@2x.png in Resources */,
 				99CFD822199B5F80009A5ABA /* InfoPlist.strings in Resources */,
+				99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */,
 				99CFD87D199B60D8009A5ABA /* ico_leftmenu_jobnews.png in Resources */,
 				99CFD895199B60D8009A5ABA /* qq.png in Resources */,
 				99CFD879199B60D8009A5ABA /* ico_leftmenu_campus.png in Resources */,
+				99B350BF199CB1F100CAEC71 /* welcom4-320x960.png in Resources */,
+				99B350BE199CB1F100CAEC71 /* welcom3-320x1136.png in Resources */,
 				99CFD884199B60D8009A5ABA /* ico_main_membercenter.png in Resources */,
 				99CFD891199B60D8009A5ABA /* main_pic_govnews.png in Resources */,
+				99B350C9199CB43A00CAEC71 /* welcom5-320x960.png in Resources */,
 				99CFD87E199B60D8009A5ABA /* ico_leftmenu_mebercenter.png in Resources */,
 				99CFD878199B60D8009A5ABA /* color-orange.png in Resources */,
 				99CFD8D7199B6196009A5ABA /* menu-button.png in Resources */,
 				99CFD875199B60D8009A5ABA /* bg_leftmenu.png in Resources */,
+				99B350BD199CB1F100CAEC71 /* welcom3-320x960.png in Resources */,
+				99291253199DD5A000AE459D /* Default@2x.png in Resources */,
 				99CFD883199B60D8009A5ABA /* ico_main_jobapply.png in Resources */,
+				99B350BC199CB1F100CAEC71 /* welcom2-320x1136.png in Resources */,
 				99CFD890199B60D8009A5ABA /* main_pic_campus.png in Resources */,
 				99CFD894199B60D8009A5ABA /* password.png in Resources */,
 				99CFD885199B60D8009A5ABA /* ico_main_more.png in Resources */,
@@ -621,6 +670,7 @@
 				99CFD87A199B60D8009A5ABA /* ico_leftmenu_govnews.png in Resources */,
 				99CFD896199B60D8009A5ABA /* renren.png in Resources */,
 				99CFD880199B60D8009A5ABA /* ico_leftmenu_rm.png in Resources */,
+				99B350BB199CB1F100CAEC71 /* welcom2-320x960.png in Resources */,
 				99CFD899199B60D8009A5ABA /* weibo.png in Resources */,
 				99CFD88C199B60D8009A5ABA /* loading.gif in Resources */,
 				99CFD87F199B60D8009A5ABA /* ico_leftmenu_more.png in Resources */,
@@ -646,7 +696,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B350C6199CB29B00CAEC71 /* WelcomeUIImage.m in Sources */,
 				99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */,
+				99291256199DE4CB00AE459D /* LoginViewController.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
