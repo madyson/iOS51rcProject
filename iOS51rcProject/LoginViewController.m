@@ -10,6 +10,7 @@
 
 
 @interface LoginViewController ()
+@property (retain, nonatomic) IBOutlet UISegmentedControl *segment;
 
 @end
 
@@ -22,6 +23,18 @@
         // Custom initialization
     }
     return self;
+}
+
+- (IBAction)segmentChange:(id)sender {
+    NSInteger index = self.segment.selectedSegmentIndex;
+    if (index == 0){
+        [self.registerView removeFromParentViewController];
+        [self.view addSubview:self.loginDetailsView.view];
+    } else  {
+        [self.loginDetailsView removeFromParentViewController];
+        [self.view addSubview:self.registerView.view];
+    }
+
 }
 
 - (void)viewDidLoad
@@ -50,17 +63,15 @@
 }
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
 {
-    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
-        //CGPoint labelPosition = CGPointMake(self.swipeLabel.frame.origin.x - 100.0, self.swipeLabel.frame.origin.y);
-        //self.swipeLabel.frame = CGRectMake( labelPosition.x , labelPosition.y , self.swipeLabel.frame.size.width, self.swipeLabel.frame.size.height);
-        //self.swipeLabel.text = @"往左边跑啊....";
+    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         [self.registerView removeFromParentViewController];
         [self.view addSubview:self.loginDetailsView.view];
+        self.segment.selectedSegmentIndex = 0;
     }
-    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
         [self.loginDetailsView removeFromParentViewController];
         [self.view addSubview:self.registerView.view];
-
+        self.segment.selectedSegmentIndex = 1;
     }
 }
 - (void)didReceiveMemoryWarning
@@ -80,4 +91,8 @@
 }
 */
 
+- (void)dealloc {
+    [_segment release];
+    [super dealloc];
+}
 @end
