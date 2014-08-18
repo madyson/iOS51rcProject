@@ -174,7 +174,7 @@
 		99AF855419A1883400524B66 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		99AF855519A1883400524B66 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		99AF856019A1898B00524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
-		99AF856219A1918600524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WelcomeUIImage.m; path = iOS51rcProject/WelcomeUIImage.m; sourceTree = "<group>"; };
+		99AF856219A1918600524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
 		99B2F2FA199C43580066853D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		99B350AD199CB1F100CAEC71 /* index640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x960.png; sourceTree = "<group>"; };
 		99B350AE199CB1F100CAEC71 /* index640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x1136.png; sourceTree = "<group>"; };
@@ -361,6 +361,7 @@
 		99AF855E19A188D700524B66 /* WelCome */ = {
 			isa = PBXGroup;
 			children = (
+				99AF856219A1918600524B66 /* WelcomeUIImage.m */,
 				99AF856019A1898B00524B66 /* WelcomeUIImage.m */,
 				99AF855219A1883400524B66 /* WelcomeUIImage.h */,
 				99AF855419A1883400524B66 /* WelcomeViewController.h */,
@@ -391,7 +392,6 @@
 		99CFD80B199B5F80009A5ABA = {
 			isa = PBXGroup;
 			children = (
-				99AF856219A1918600524B66 /* WelcomeUIImage.m */,
 				99CFD81D199B5F80009A5ABA /* iOS51rcProject */,
 				99CFD83C199B5F80009A5ABA /* iOS51rcProjectTests */,
 				99CFD816199B5F80009A5ABA /* Frameworks */,
