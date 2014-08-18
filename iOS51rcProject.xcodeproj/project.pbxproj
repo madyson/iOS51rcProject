@@ -37,6 +37,8 @@
 		998025C319A23024001A7E84 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 998025B919A23024001A7E84 /* UIScrollView+Extension.m */; };
 		998025C419A23024001A7E84 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 998025BB19A23024001A7E84 /* UIScrollView+MJRefresh.m */; };
 		998025C519A23024001A7E84 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 998025BD19A23024001A7E84 /* UIView+Extension.m */; };
+		998025CF19A23528001A7E84 /* AnimatedGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 998025C819A23528001A7E84 /* AnimatedGif.m */; };
+		998025D019A23528001A7E84 /* LoadingAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 998025CA19A23528001A7E84 /* LoadingAnimationView.m */; };
 		99A5D671199CB8D100466B0C /* RecruitmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */; };
 		99AF855619A1883400524B66 /* FindPsdStep1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF854719A1883400524B66 /* FindPsdStep1ViewController.m */; };
 		99AF855719A1883400524B66 /* FindPsdStep2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF854919A1883400524B66 /* FindPsdStep2ViewController.m */; };
@@ -107,7 +109,6 @@
 		99CFD897199B60D8009A5ABA /* unChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CFD872199B60D8009A5ABA /* unChecked.png */; };
 		99CFD898199B60D8009A5ABA /* userName.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CFD873199B60D8009A5ABA /* userName.png */; };
 		99CFD899199B60D8009A5ABA /* weibo.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CFD874199B60D8009A5ABA /* weibo.png */; };
-		99CFD8C7199B6196009A5ABA /* AnimatedGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD89C199B6196009A5ABA /* AnimatedGif.m */; };
 		99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD8AD199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m */; };
 		99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD8AF199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m */; };
 		99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD8B1199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m */; };
@@ -116,7 +117,6 @@
 		99CFD8D7199B6196009A5ABA /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CFD8B7199B6196009A5ABA /* menu-button.png */; };
 		99CFD8D8199B6196009A5ABA /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CFD8B8199B6196009A5ABA /* menu-button@2x.png */; };
 		99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD8BA199B6196009A5ABA /* SlideNavigationController.m */; };
-		99CFD8DA199B6196009A5ABA /* LoadingAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD8BC199B6196009A5ABA /* LoadingAnimationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +187,10 @@
 		998025BB19A23024001A7E84 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		998025BC19A23024001A7E84 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		998025BD19A23024001A7E84 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		998025C719A23528001A7E84 /* AnimatedGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedGif.h; sourceTree = "<group>"; };
+		998025C819A23528001A7E84 /* AnimatedGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedGif.m; sourceTree = "<group>"; };
+		998025C919A23528001A7E84 /* LoadingAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingAnimationView.h; sourceTree = "<group>"; };
+		998025CA19A23528001A7E84 /* LoadingAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAnimationView.m; sourceTree = "<group>"; };
 		99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecruitmentListViewController.h; sourceTree = "<group>"; };
 		99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruitmentListViewController.m; sourceTree = "<group>"; };
 		99AF854619A1883400524B66 /* FindPsdStep1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPsdStep1ViewController.h; sourceTree = "<group>"; };
@@ -272,8 +276,6 @@
 		99CFD872199B60D8009A5ABA /* unChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unChecked.png; sourceTree = "<group>"; };
 		99CFD873199B60D8009A5ABA /* userName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userName.png; sourceTree = "<group>"; };
 		99CFD874199B60D8009A5ABA /* weibo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weibo.png; sourceTree = "<group>"; };
-		99CFD89B199B6196009A5ABA /* AnimatedGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedGif.h; sourceTree = "<group>"; };
-		99CFD89C199B6196009A5ABA /* AnimatedGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedGif.m; sourceTree = "<group>"; };
 		99CFD8AB199B6196009A5ABA /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
 		99CFD8AC199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
 		99CFD8AD199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorFade.m; sourceTree = "<group>"; };
@@ -289,8 +291,6 @@
 		99CFD8B8199B6196009A5ABA /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button@2x.png"; sourceTree = "<group>"; };
 		99CFD8B9199B6196009A5ABA /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
 		99CFD8BA199B6196009A5ABA /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
-		99CFD8BB199B6196009A5ABA /* LoadingAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingAnimationView.h; sourceTree = "<group>"; };
-		99CFD8BC199B6196009A5ABA /* LoadingAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingAnimationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -411,6 +411,17 @@
 				998025BD19A23024001A7E84 /* UIView+Extension.m */,
 			);
 			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		998025C619A23528001A7E84 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				998025C719A23528001A7E84 /* AnimatedGif.h */,
+				998025C819A23528001A7E84 /* AnimatedGif.m */,
+				998025C919A23528001A7E84 /* LoadingAnimationView.h */,
+				998025CA19A23528001A7E84 /* LoadingAnimationView.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		99AF855E19A188D700524B66 /* WelCome */ = {
@@ -597,9 +608,9 @@
 		99CFD89A199B6196009A5ABA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				998025C619A23528001A7E84 /* Classes */,
 				998025AD19A23024001A7E84 /* MJRefresh */,
 				997BF0C2199DB33C00FD0B12 /* NetworkConnect */,
-				99CFD8E1199B61E3009A5ABA /* LoadingAnimate */,
 				99CFD8A9199B6196009A5ABA /* SlideNavigation */,
 				997BF100199E248C00FD0B12 /* CommonController.h */,
 				997BF101199E248C00FD0B12 /* CommonController.m */,
@@ -645,17 +656,6 @@
 				99CFD8B8199B6196009A5ABA /* menu-button@2x.png */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		99CFD8E1199B61E3009A5ABA /* LoadingAnimate */ = {
-			isa = PBXGroup;
-			children = (
-				99CFD89B199B6196009A5ABA /* AnimatedGif.h */,
-				99CFD89C199B6196009A5ABA /* AnimatedGif.m */,
-				99CFD8BB199B6196009A5ABA /* LoadingAnimationView.h */,
-				99CFD8BC199B6196009A5ABA /* LoadingAnimationView.m */,
-			);
-			name = LoadingAnimate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -816,15 +816,14 @@
 				997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				997BF0EA199DB33C00FD0B12 /* ASINetworkQueue.m in Sources */,
-				99CFD8C7199B6196009A5ABA /* AnimatedGif.m in Sources */,
 				99CFD8D5199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
+				998025CF19A23528001A7E84 /* AnimatedGif.m in Sources */,
 				9945C32B19A1E8FA0027E931 /* DatePicker.m in Sources */,
 				997BF0EC199DB33C00FD0B12 /* GDataXMLNode.m in Sources */,
 				998025C119A23024001A7E84 /* MJRefreshFooterView.m in Sources */,
 				997BF0E6199DB33C00FD0B12 /* ASIDownloadCache.m in Sources */,
 				997BF0E9199DB33C00FD0B12 /* ASIInputStream.m in Sources */,
 				998025C319A23024001A7E84 /* UIScrollView+Extension.m in Sources */,
-				99CFD8DA199B6196009A5ABA /* LoadingAnimationView.m in Sources */,
 				99AF855D19A1883400524B66 /* WelcomeViewController.m in Sources */,
 				99AF855719A1883400524B66 /* FindPsdStep2ViewController.m in Sources */,
 				99AF855919A1883400524B66 /* LoginDetailsViewController.m in Sources */,
@@ -846,6 +845,7 @@
 				997BF0E7199DB33C00FD0B12 /* ASIFormDataRequest.m in Sources */,
 				997BF0EE199DB33C00FD0B12 /* SoapXmlParseHelper.m in Sources */,
 				998025C019A23024001A7E84 /* MJRefreshConst.m in Sources */,
+				998025D019A23528001A7E84 /* LoadingAnimationView.m in Sources */,
 				997BF0E5199DB33C00FD0B12 /* ASIDataDecompressor.m in Sources */,
 				99AF855819A1883400524B66 /* FindPsdStep3ViewController.m in Sources */,
 				99AF855A19A1883400524B66 /* LoginViewController.m in Sources */,

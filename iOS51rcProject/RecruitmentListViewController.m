@@ -35,6 +35,8 @@
     
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton];
+    loadView.center = self.view.center;
+    [self.view addSubview:loadView];
     
     //添加上拉加载更多
     [self.tvRecruitmentList addFooterWithTarget:self action:@selector(footerRereshing)];
