@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlideNavigationController.h"
+#import "MenuViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

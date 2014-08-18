@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="IDp-DD-dkI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="IDp-DD-dkI">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Menu View Controller-->
@@ -238,7 +238,7 @@
             </objects>
             <point key="canvasLocation" x="386" y="361"/>
         </scene>
-        <!--招聘会-->
+        <!--Recruitment List View Controller - 招聘会-->
         <scene sceneID="gWj-ld-vtU">
             <objects>
                 <viewController storyboardIdentifier="Recruitment" id="iDO-8n-Zik" customClass="RecruitmentListViewController" sceneMemberID="viewController">
@@ -267,6 +267,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="iDO-8n-Zik" id="X0t-8W-MbP"/>
+                                    <outlet property="delegate" destination="iDO-8n-Zik" id="yfE-4f-xya"/>
+                                </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_select_down.png" id="USA-CY-pin">
                                 <rect key="frame" x="62" y="82" width="12" height="6"/>
@@ -319,6 +323,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="招聘会" id="x4Q-Co-nUD"/>
+                    <connections>
+                        <outlet property="tvRecruitmentList" destination="AjB-ZV-5NE" id="HdS-86-3W2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4WO-q3-xZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -344,9 +351,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4">
-            <size key="portraitSize" width="320" height="568"/>
-            <size key="landscapeSize" width="568" height="320"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>

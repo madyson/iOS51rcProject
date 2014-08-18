@@ -12,7 +12,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Home"
+															 bundle: nil];
+	
+	MenuViewController *menuC = (MenuViewController*)[mainStoryboard
+                                                                 instantiateViewControllerWithIdentifier: @"MenuViewController"];
+	
+	[SlideNavigationController sharedInstance].rightMenu = menuC;
+	[SlideNavigationController sharedInstance].leftMenu = menuC;
     return YES;
 }
 							
