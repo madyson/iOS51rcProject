@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 Lucifer. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface CommonController : NSObject
 
@@ -15,4 +15,6 @@
              sizeDemand:(CGSize) size;
 
 +(NSDate *)dateFromString:(NSString *)dateString;
++(NSString *)getWeek:(NSDate *)date;
++(NSString *)stringFromDate:(NSDate *)date;
 @end

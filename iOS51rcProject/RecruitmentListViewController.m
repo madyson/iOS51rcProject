@@ -88,65 +88,36 @@
     lbTitle.numberOfLines = 0;
     lbTitle.font = titleFont;
     [cell.contentView addSubview:(lbTitle)];
-
+    [lbTitle release];
     
     //显示举办时间 举办场馆 具体地址
     UILabel *lbBegin = [[UILabel alloc] initWithFrame:CGRectMake(20, (labelSize.height + 15), titleWidth, 10)];
     NSString *strBeginDate = rowData[@"BeginDate"];
-    lbBegin.text = [NSString stringWithFormat:@"举办时间：%@",strBeginDate];
+    NSDate *dtBeginDate = [CommonController dateFromString:strBeginDate];
+    strBeginDate = [CommonController stringFromDate:dtBeginDate];
+    NSString *strWeek = [CommonController getWeek:dtBeginDate];
+    lbBegin.text = [NSString stringWithFormat:@"举办时间：%@ %@",strBeginDate,strWeek];
     lbBegin.font = [UIFont systemFontOfSize:12];
     [cell.contentView addSubview:(lbBegin)];
-//    var lbBegin = UILabel()
-//    var strBeginDate = rowData["BeginDate"]["text"] as NSString
-//    var dateFormatter = NSDateFormatter()
-//    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-//    var dtBeginDate = dateFormatter.dateFromString(strBeginDate.stringByReplacingOccurrencesOfString("T", withString: " ").substringFrom(0, to: 18))
-//    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-//    strBeginDate = dateFormatter.stringFromDate(dtBeginDate)
-//    var strWeek = ""
-//    var calDate:NSCalendar = NSCalendar(calendarIdentifier:NSCalendarIdentifierGregorian)
-//    var week = calDate.component(NSCalendarUnit.CalendarUnitWeekday, fromDate: dtBeginDate)
-//    switch week{
-//    case 1:
-//        strWeek = "周日"
-//    case 2:
-//        strWeek = "周一"
-//    case 3:
-//        strWeek = "周二"
-//    case 4:
-//        strWeek = "周三"
-//    case 5:
-//        strWeek = "周四"
-//    case 6:
-//        strWeek = "周五"
-//    case 7:
-//        strWeek = "周六"
-//    default:
-//        strWeek = "周日"
-//    }
-//    lbBegin.text = "举办时间：\(strBeginDate) \(strWeek)"
-//    lbBegin.font = UIFont.systemFontOfSize(12)
-//    lbBegin.frame = CGRectMake(20, (labelSize.height + 15), titleWidth, 10)
-//    cell.contentView.addSubview(lbBegin)
-//    
-//    var lbPlace = UILabel()
-//    var strPlace = rowData["PlaceName"]["text"] as String
-//    lbPlace.text = "举办场馆：\(strPlace)"
-//    lbPlace.font = UIFont.systemFontOfSize(12)
-//    lbPlace.frame = CGRectMake(20, (labelSize.height + 35), titleWidth, 10)
-//    cell.contentView.addSubview(lbPlace)
-//    
-//    var lbAddress = UILabel()
-//    var strAddress = rowData["Address"]["text"] as String
-//    lbAddress.text = "具体地址：\(strAddress)"
-//    lbAddress.font = UIFont.systemFontOfSize(12)
-//    lbAddress.frame = CGRectMake(20, (labelSize.height + 55), titleWidth, 10)
-//    cell.contentView.addSubview(lbAddress)
-//    
-//    var lbSeparator = UILabel(frame: CGRect(x: 0, y: 115, width: 320, height: 1))
-//    lbSeparator.backgroundColor = UIColor.grayColor()
-//    cell.contentView.addSubview(lbSeparator)
-//    
+    [lbBegin release];
+    
+    UILabel *lbPlace = [[UILabel alloc] initWithFrame:CGRectMake(20, (labelSize.height + 35), titleWidth, 10)];
+    lbPlace.text = [NSString stringWithFormat:@"举办场馆：%@",rowData[@"PlaceName"]];
+    lbPlace.font = [UIFont systemFontOfSize:12];
+    [cell.contentView addSubview:(lbPlace)];
+    [lbPlace release];
+    
+    UILabel *lbAddress = [[UILabel alloc] initWithFrame:CGRectMake(20, (labelSize.height + 55), titleWidth, 10)];
+    lbAddress.text = [NSString stringWithFormat:@"举办场馆：%@",rowData[@"Address"]];
+    lbAddress.font = [UIFont systemFontOfSize:12];
+    [cell.contentView addSubview:(lbAddress)];
+    [lbAddress release];
+
+    UILabel *lbSeparator = [[UILabel alloc] initWithFrame:CGRectMake(0, 115, 320, 1)];
+    lbSeparator.backgroundColor = [UIColor grayColor];
+    [cell.contentView addSubview:(lbSeparator)];
+    [lbSeparator release];
+
 //    //显示状态
 //    var strEndDate = rowData["EndDate"]["text"] as NSString
 //    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

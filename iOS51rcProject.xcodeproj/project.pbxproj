@@ -36,8 +36,6 @@
 		99B350BE199CB1F100CAEC71 /* welcom3-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B4199CB1F100CAEC71 /* welcom3-320x1136.png */; };
 		99B350BF199CB1F100CAEC71 /* welcom4-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B5199CB1F100CAEC71 /* welcom4-320x960.png */; };
 		99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */; };
-		99B350C3199CB28000CAEC71 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B350C2199CB28000CAEC71 /* WelcomeViewController.m */; };
-		99B350C6199CB29B00CAEC71 /* WelcomeUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B350C5199CB29B00CAEC71 /* WelcomeUIImage.m */; };
 		99B350C9199CB43A00CAEC71 /* welcom5-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */; };
 		99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */; };
 		99CFD818199B5F80009A5ABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD817199B5F80009A5ABA /* Foundation.framework */; };
@@ -161,10 +159,6 @@
 		99B350B4199CB1F100CAEC71 /* welcom3-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom3-320x1136.png"; sourceTree = "<group>"; };
 		99B350B5199CB1F100CAEC71 /* welcom4-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x960.png"; sourceTree = "<group>"; };
 		99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x1136.png"; sourceTree = "<group>"; };
-		99B350C1199CB28000CAEC71 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
-		99B350C2199CB28000CAEC71 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
-		99B350C4199CB29B00CAEC71 /* WelcomeUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeUIImage.h; sourceTree = "<group>"; };
-		99B350C5199CB29B00CAEC71 /* WelcomeUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
 		99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x960.png"; sourceTree = "<group>"; };
 		99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x1136.png"; sourceTree = "<group>"; };
 		99CFD814199B5F80009A5ABA /* iOS51rcProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS51rcProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -425,8 +419,6 @@
 		99CFD84E199B60D8009A5ABA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				99291250199DD5A000AE459D /* Default-568h@2x.png */,
-				99291251199DD5A000AE459D /* Default@2x.png */,
 				99CFD84F199B60D8009A5ABA /* images */,
 			);
 			path = Resource;
@@ -634,7 +626,6 @@
 				99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */,
 				99CFD87C199B60D8009A5ABA /* ico_leftmenu_index.png in Resources */,
 				99CFD893199B60D8009A5ABA /* main_pic_jobnews.png in Resources */,
-				99291252199DD5A000AE459D /* Default-568h@2x.png in Resources */,
 				99CFD822199B5F80009A5ABA /* InfoPlist.strings in Resources */,
 				99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */,
 				99CFD87D199B60D8009A5ABA /* ico_leftmenu_jobnews.png in Resources */,
@@ -650,7 +641,6 @@
 				99CFD8D7199B6196009A5ABA /* menu-button.png in Resources */,
 				99CFD875199B60D8009A5ABA /* bg_leftmenu.png in Resources */,
 				99B350BD199CB1F100CAEC71 /* welcom3-320x960.png in Resources */,
-				99291253199DD5A000AE459D /* Default@2x.png in Resources */,
 				99CFD883199B60D8009A5ABA /* ico_main_jobapply.png in Resources */,
 				99B350BC199CB1F100CAEC71 /* welcom2-320x1136.png in Resources */,
 				99CFD890199B60D8009A5ABA /* main_pic_campus.png in Resources */,
@@ -696,9 +686,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99B350C6199CB29B00CAEC71 /* WelcomeUIImage.m in Sources */,
 				99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */,
-				99291256199DE4CB00AE459D /* LoginViewController.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
@@ -839,6 +827,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS51rcProject/iOS51rcProject-Prefix.pch";
@@ -858,6 +847,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS51rcProject/iOS51rcProject-Prefix.pch";
