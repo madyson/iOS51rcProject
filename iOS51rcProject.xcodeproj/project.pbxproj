@@ -27,6 +27,14 @@
 		997BF0FC199DCB2B00FD0B12 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 997BF0FB199DCB2B00FD0B12 /* MobileCoreServices.framework */; };
 		997BF102199E248C00FD0B12 /* CommonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF101199E248C00FD0B12 /* CommonController.m */; };
 		99A5D671199CB8D100466B0C /* RecruitmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */; };
+		99AF855619A1883400524B66 /* FindPsdStep1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF854719A1883400524B66 /* FindPsdStep1ViewController.m */; };
+		99AF855719A1883400524B66 /* FindPsdStep2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF854919A1883400524B66 /* FindPsdStep2ViewController.m */; };
+		99AF855819A1883400524B66 /* FindPsdStep3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF854B19A1883400524B66 /* FindPsdStep3ViewController.m */; };
+		99AF855919A1883400524B66 /* LoginDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF854D19A1883400524B66 /* LoginDetailsViewController.m */; };
+		99AF855A19A1883400524B66 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF854F19A1883400524B66 /* LoginViewController.m */; };
+		99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF855119A1883400524B66 /* RegisterViewController.m */; };
+		99AF855D19A1883400524B66 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF855519A1883400524B66 /* WelcomeViewController.m */; };
+		99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF856019A1898B00524B66 /* WelcomeUIImage.m */; };
 		99B2F2FB199C43580066853D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2F2FA199C43580066853D /* Login.storyboard */; };
 		99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AD199CB1F100CAEC71 /* index640x960.png */; };
 		99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AE199CB1F100CAEC71 /* index640x1136.png */; };
@@ -150,6 +158,22 @@
 		997BF101199E248C00FD0B12 /* CommonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonController.m; sourceTree = "<group>"; };
 		99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecruitmentListViewController.h; sourceTree = "<group>"; };
 		99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruitmentListViewController.m; sourceTree = "<group>"; };
+		99AF854619A1883400524B66 /* FindPsdStep1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPsdStep1ViewController.h; sourceTree = "<group>"; };
+		99AF854719A1883400524B66 /* FindPsdStep1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPsdStep1ViewController.m; sourceTree = "<group>"; };
+		99AF854819A1883400524B66 /* FindPsdStep2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPsdStep2ViewController.h; sourceTree = "<group>"; };
+		99AF854919A1883400524B66 /* FindPsdStep2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPsdStep2ViewController.m; sourceTree = "<group>"; };
+		99AF854A19A1883400524B66 /* FindPsdStep3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPsdStep3ViewController.h; sourceTree = "<group>"; };
+		99AF854B19A1883400524B66 /* FindPsdStep3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPsdStep3ViewController.m; sourceTree = "<group>"; };
+		99AF854C19A1883400524B66 /* LoginDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDetailsViewController.h; sourceTree = "<group>"; };
+		99AF854D19A1883400524B66 /* LoginDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginDetailsViewController.m; sourceTree = "<group>"; };
+		99AF854E19A1883400524B66 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		99AF854F19A1883400524B66 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		99AF855019A1883400524B66 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		99AF855119A1883400524B66 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		99AF855219A1883400524B66 /* WelcomeUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeUIImage.h; sourceTree = "<group>"; };
+		99AF855419A1883400524B66 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		99AF855519A1883400524B66 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		99AF856019A1898B00524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
 		99B2F2FA199C43580066853D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		99B350AD199CB1F100CAEC71 /* index640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x960.png; sourceTree = "<group>"; };
 		99B350AE199CB1F100CAEC71 /* index640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x1136.png; sourceTree = "<group>"; };
@@ -333,6 +357,24 @@
 			path = XmlParse;
 			sourceTree = "<group>";
 		};
+		99AF855E19A188D700524B66 /* WelCome */ = {
+			isa = PBXGroup;
+			children = (
+				99AF856019A1898B00524B66 /* WelcomeUIImage.m */,
+				99AF855219A1883400524B66 /* WelcomeUIImage.h */,
+				99AF855419A1883400524B66 /* WelcomeViewController.h */,
+				99AF855519A1883400524B66 /* WelcomeViewController.m */,
+			);
+			name = WelCome;
+			sourceTree = "<group>";
+		};
+		99AF855F19A188F100524B66 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		99CFD80B199B5F80009A5ABA = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +413,20 @@
 		99CFD81D199B5F80009A5ABA /* iOS51rcProject */ = {
 			isa = PBXGroup;
 			children = (
+				99AF855F19A188F100524B66 /* Login */,
+				99AF855E19A188D700524B66 /* WelCome */,
+				99AF854619A1883400524B66 /* FindPsdStep1ViewController.h */,
+				99AF854719A1883400524B66 /* FindPsdStep1ViewController.m */,
+				99AF854819A1883400524B66 /* FindPsdStep2ViewController.h */,
+				99AF854919A1883400524B66 /* FindPsdStep2ViewController.m */,
+				99AF854A19A1883400524B66 /* FindPsdStep3ViewController.h */,
+				99AF854B19A1883400524B66 /* FindPsdStep3ViewController.m */,
+				99AF854C19A1883400524B66 /* LoginDetailsViewController.h */,
+				99AF854D19A1883400524B66 /* LoginDetailsViewController.m */,
+				99AF854E19A1883400524B66 /* LoginViewController.h */,
+				99AF854F19A1883400524B66 /* LoginViewController.m */,
+				99AF855019A1883400524B66 /* RegisterViewController.h */,
+				99AF855119A1883400524B66 /* RegisterViewController.m */,
 				99CFD84E199B60D8009A5ABA /* Resource */,
 				99CFD826199B5F80009A5ABA /* AppDelegate.h */,
 				99CFD827199B5F80009A5ABA /* AppDelegate.m */,
@@ -697,6 +753,9 @@
 				997BF0E6199DB33C00FD0B12 /* ASIDownloadCache.m in Sources */,
 				997BF0E9199DB33C00FD0B12 /* ASIInputStream.m in Sources */,
 				99CFD8DA199B6196009A5ABA /* TKLoadingAnimationView.m in Sources */,
+				99AF855D19A1883400524B66 /* WelcomeViewController.m in Sources */,
+				99AF855719A1883400524B66 /* FindPsdStep2ViewController.m in Sources */,
+				99AF855919A1883400524B66 /* LoginDetailsViewController.m in Sources */,
 				997BF0EB199DB33C00FD0B12 /* Reachability.m in Sources */,
 				99CFD828199B5F80009A5ABA /* AppDelegate.m in Sources */,
 				997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */,
@@ -706,11 +765,16 @@
 				99CFD824199B5F80009A5ABA /* main.m in Sources */,
 				99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				994454AD199C4A0800206482 /* MenuViewController.m in Sources */,
+				99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */,
 				99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */,
+				99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */,
 				997BF0ED199DB33C00FD0B12 /* NetWebServiceRequest.m in Sources */,
+				99AF855619A1883400524B66 /* FindPsdStep1ViewController.m in Sources */,
 				997BF0E7199DB33C00FD0B12 /* ASIFormDataRequest.m in Sources */,
 				997BF0EE199DB33C00FD0B12 /* SoapXmlParseHelper.m in Sources */,
 				997BF0E5199DB33C00FD0B12 /* ASIDataDecompressor.m in Sources */,
+				99AF855819A1883400524B66 /* FindPsdStep3ViewController.m in Sources */,
+				99AF855A19A1883400524B66 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
