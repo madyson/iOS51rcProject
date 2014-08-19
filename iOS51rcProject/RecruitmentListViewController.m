@@ -37,6 +37,8 @@
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton];
     loadView.center = self.view.center;
     [self.view addSubview:loadView];
+    //开始等待动画
+    [loadView startAnimating];
     
     //添加上拉加载更多
     [self.tvRecruitmentList addFooterWithTarget:self action:@selector(footerRereshing)];
@@ -68,8 +70,6 @@
     [request startAsynchronous];
     [request setDelegate:self];
     self.runningRequest = request;
-    //开始等待动画
-    [loadView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning
@@ -194,8 +194,6 @@
         [imgWillRun release];
         
     }
-    //结束等待动画
-    [loadView stopAnimating];
     return cell;
 }
 
@@ -234,6 +232,9 @@
     }
     [self.tvRecruitmentList reloadData];
     [self.tvRecruitmentList footerEndRefreshing];
+    
+    //结束等待动画
+    [loadView stopAnimating];
 }
 
 - (void)dealloc {
@@ -256,11 +257,20 @@
     NSString *strSelDate = [CommonController stringFromDate:selectDate formatType:@"MM-dd"];
     self.lbDateSet.text = strSelDate;
     begindate = [CommonController stringFromDate:selectDate formatType:@"yyyy-MM-dd"];
+    page = 1;
     [self onSearch];
     [pickDate removeDatePicker];
+    //开始等待动画
+    [loadView startAnimating];
 }
 
 -(void)resetDate{
-    
+    self.lbDateSet.text = @"日期";
+    begindate = @"";
+    page = 1;
+    [self onSearch];
+    [pickDate removeDatePicker];
+    //开始等待动画
+    [loadView startAnimating];
 }
 @end

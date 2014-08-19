@@ -9,7 +9,6 @@
     
     self = [super initWithFrame:frame];
     if (self) {
-
 		self.backgroundColor = [UIColor clearColor];
 		AnimatedGif *aniGif = [[AnimatedGif alloc] init];
 		NSString *gifName = @"loading";
