@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface FindPsdStep1ViewController : UIViewController
-
+@property (retain, nonatomic) NSString *phone;
 @end

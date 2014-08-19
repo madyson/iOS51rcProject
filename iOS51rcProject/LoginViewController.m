@@ -10,6 +10,7 @@
 #import "NetWebServiceRequest.h"
 #import "GDataXMLNode.h"
 #import "CommonController.h"
+#import "FindPsdStep1ViewController.h"
 
 
 @interface LoginViewController ()
@@ -73,7 +74,9 @@
 
 - (void) pushParentsFromLoginDetails
 {
-    NSLog(@"call login details");
+    //NSLog(@"call login details");
+    FindPsdStep1ViewController *findPsd1View =[self.storyboard instantiateViewControllerWithIdentifier: @"findPsd1View"];
+    [self.navigationController pushViewController:findPsd1View animated:YES];
 }
 
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender

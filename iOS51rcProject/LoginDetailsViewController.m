@@ -153,8 +153,8 @@
     //NSString *name = [result substringWithRange:NSMakeRange(0,4)];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setValue: userID forKey:@"UserID"];
-    [userDefaults setValue: userName forKey:@"userName"];
-    [userDefaults setValue: passWord forKey:@"passWord"];
+    [userDefaults setValue: userName forKey:@"UserName"];
+    [userDefaults setValue: passWord forKey:@"PassWord"];
     //[userDefaults setValue: name forKey:@"name"];
     [userDefaults setValue: @"1" forKey:@"BeLogined"];
     [userDefaults setValue:isAutoLogin forKey:@"isAutoLogin"];

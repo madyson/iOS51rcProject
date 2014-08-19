@@ -59,6 +59,12 @@
 		99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */; };
 		99B350C9199CB43A00CAEC71 /* welcom5-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */; };
 		99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */; };
+		99B74BF019A2DFFB00AC8852 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B74BE619A2DFFB00AC8852 /* Dialog.m */; };
+		99B74BF119A2DFFB00AC8852 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B74BE819A2DFFB00AC8852 /* MBProgressHUD.m */; };
+		99B74BF219A2DFFB00AC8852 /* MLTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B74BEA19A2DFFB00AC8852 /* MLTableAlert.m */; };
+		99B74BF319A2DFFB00AC8852 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99B74BEC19A2DFFB00AC8852 /* SVProgressHUD.bundle */; };
+		99B74BF419A2DFFB00AC8852 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B74BEE19A2DFFB00AC8852 /* SVProgressHUD.m */; };
+		99B74BF519A2DFFB00AC8852 /* SVProgressHUD.zip in Resources */ = {isa = PBXBuildFile; fileRef = 99B74BEF19A2DFFB00AC8852 /* SVProgressHUD.zip */; };
 		99CFD818199B5F80009A5ABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD817199B5F80009A5ABA /* Foundation.framework */; };
 		99CFD81A199B5F80009A5ABA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD819199B5F80009A5ABA /* CoreGraphics.framework */; };
 		99CFD81C199B5F80009A5ABA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD81B199B5F80009A5ABA /* UIKit.framework */; };
@@ -222,6 +228,16 @@
 		99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x1136.png"; sourceTree = "<group>"; };
 		99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x960.png"; sourceTree = "<group>"; };
 		99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x1136.png"; sourceTree = "<group>"; };
+		99B74BE519A2DFFB00AC8852 /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
+		99B74BE619A2DFFB00AC8852 /* Dialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
+		99B74BE719A2DFFB00AC8852 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		99B74BE819A2DFFB00AC8852 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		99B74BE919A2DFFB00AC8852 /* MLTableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTableAlert.h; sourceTree = "<group>"; };
+		99B74BEA19A2DFFB00AC8852 /* MLTableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTableAlert.m; sourceTree = "<group>"; };
+		99B74BEC19A2DFFB00AC8852 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		99B74BED19A2DFFB00AC8852 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		99B74BEE19A2DFFB00AC8852 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		99B74BEF19A2DFFB00AC8852 /* SVProgressHUD.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SVProgressHUD.zip; sourceTree = "<group>"; };
 		99CFD814199B5F80009A5ABA /* iOS51rcProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS51rcProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CFD817199B5F80009A5ABA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99CFD819199B5F80009A5ABA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -456,6 +472,31 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		99B74BE419A2DFFB00AC8852 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				99B74BE519A2DFFB00AC8852 /* Dialog.h */,
+				99B74BE619A2DFFB00AC8852 /* Dialog.m */,
+				99B74BE719A2DFFB00AC8852 /* MBProgressHUD.h */,
+				99B74BE819A2DFFB00AC8852 /* MBProgressHUD.m */,
+				99B74BE919A2DFFB00AC8852 /* MLTableAlert.h */,
+				99B74BEA19A2DFFB00AC8852 /* MLTableAlert.m */,
+				99B74BEB19A2DFFB00AC8852 /* SVProgressHUD */,
+				99B74BEF19A2DFFB00AC8852 /* SVProgressHUD.zip */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		99B74BEB19A2DFFB00AC8852 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				99B74BEC19A2DFFB00AC8852 /* SVProgressHUD.bundle */,
+				99B74BED19A2DFFB00AC8852 /* SVProgressHUD.h */,
+				99B74BEE19A2DFFB00AC8852 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		99CFD80B199B5F80009A5ABA = {
 			isa = PBXGroup;
 			children = (
@@ -608,6 +649,7 @@
 		99CFD89A199B6196009A5ABA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				99B74BE419A2DFFB00AC8852 /* MBProgressHUD */,
 				998025C619A23528001A7E84 /* Classes */,
 				998025AD19A23024001A7E84 /* MJRefresh */,
 				997BF0C2199DB33C00FD0B12 /* NetworkConnect */,
@@ -744,6 +786,7 @@
 				99CFD830199B5F80009A5ABA /* Images.xcassets in Resources */,
 				99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */,
 				99CFD87C199B60D8009A5ABA /* ico_leftmenu_index.png in Resources */,
+				99B74BF319A2DFFB00AC8852 /* SVProgressHUD.bundle in Resources */,
 				99CFD893199B60D8009A5ABA /* main_pic_jobnews.png in Resources */,
 				99CFD822199B5F80009A5ABA /* InfoPlist.strings in Resources */,
 				99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */,
@@ -784,6 +827,7 @@
 				99CFD880199B60D8009A5ABA /* ico_leftmenu_rm.png in Resources */,
 				99B350BB199CB1F100CAEC71 /* welcom2-320x960.png in Resources */,
 				99CFD899199B60D8009A5ABA /* weibo.png in Resources */,
+				99B74BF519A2DFFB00AC8852 /* SVProgressHUD.zip in Resources */,
 				99CFD88C199B60D8009A5ABA /* loading.gif in Resources */,
 				99CFD87F199B60D8009A5ABA /* ico_leftmenu_more.png in Resources */,
 				99CFD888199B60D8009A5ABA /* ico_main_rm.png in Resources */,
@@ -810,6 +854,7 @@
 			files = (
 				998025C219A23024001A7E84 /* MJRefreshHeaderView.m in Sources */,
 				99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */,
+				99B74BF219A2DFFB00AC8852 /* MLTableAlert.m in Sources */,
 				99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				998025BF19A23024001A7E84 /* MJRefreshBaseView.m in Sources */,
@@ -827,6 +872,7 @@
 				99AF855D19A1883400524B66 /* WelcomeViewController.m in Sources */,
 				99AF855719A1883400524B66 /* FindPsdStep2ViewController.m in Sources */,
 				99AF855919A1883400524B66 /* LoginDetailsViewController.m in Sources */,
+				99B74BF019A2DFFB00AC8852 /* Dialog.m in Sources */,
 				998025C519A23024001A7E84 /* UIView+Extension.m in Sources */,
 				997BF0EB199DB33C00FD0B12 /* Reachability.m in Sources */,
 				99CFD828199B5F80009A5ABA /* AppDelegate.m in Sources */,
@@ -837,6 +883,8 @@
 				99CFD824199B5F80009A5ABA /* main.m in Sources */,
 				99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				998025C419A23024001A7E84 /* UIScrollView+MJRefresh.m in Sources */,
+				99B74BF119A2DFFB00AC8852 /* MBProgressHUD.m in Sources */,
+				99B74BF419A2DFFB00AC8852 /* SVProgressHUD.m in Sources */,
 				994454AD199C4A0800206482 /* MenuViewController.m in Sources */,
 				99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */,
 				99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */,

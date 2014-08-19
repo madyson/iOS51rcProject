@@ -7,9 +7,18 @@
 //
 
 #import "FindPsdStep2ViewController.h"
+#import "Dialog.h"
+#import "CommonController.h"
+#import "NetWebServiceRequest.h"
+#import "GDataXMLNode.h"
+#import <UIKit/UIKit.h>
+#import "FindPsdStep3ViewController.h"
 
 @interface FindPsdStep2ViewController ()
-
+@property (retain, nonatomic) IBOutlet UITextField *txtUserName;
+@property (retain, nonatomic) IBOutlet UITextField *txtVerifyCode;
+@property (retain, nonatomic) IBOutlet UILabel *txtLabel;
+@property (retain, nonatomic) NetWebServiceRequest *runningRequest;
 @end
 
 @implementation FindPsdStep2ViewController
@@ -26,13 +35,88 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UIButton *button = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    [button setTitle: @"重置密码" forState: UIControlStateNormal];
+    [button sizeToFit];
+    self.navigationItem.titleView = button;
+    
+    if ([self.type  isEqual: @"1"]) {
+        self.txtLabel.text = @"您的邮箱";
+    }else    {
+        self.txtLabel.text = @"您的手机号";
+    }
+    self.txtUserName.text = self.name;//手机号或者邮箱
+    
+    //自定义从下一个视图左上角，“返回”本视图的按钮
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"后退" style:UIBarButtonItemStyleDone target:nil action:nil];
+    self.navigationItem.backBarButtonItem=backButton;
+    //[self GetCode];
+}
+- (IBAction)btnResetPsd:(id)sender {
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//输入激活码点击下一步
+- (void)GetCode {
+    NSString *receiveCode = self.txtVerifyCode.text;
+    
+    if([receiveCode isEqualToString:@"" ])
+    {
+        [Dialog alert:@"请输入验证码"];
+        return;
+    }
+    if(receiveCode.length != 6)
+    {
+        [Dialog alert:@"激活码为6位数字"];
+        return;
+    }
+
+    NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
+    [dicParam setObject:self.code forKey:@"UniqueId"];
+    [dicParam setObject:receiveCode forKey:@"type"];//第二个参数是手机或者邮箱收到的ID
+    NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetPasswordLog" Params:dicParam];
+    
+    [request startAsynchronous];
+    [request setDelegate:self];
+    self.runningRequest = request;    
+}
+
+//失败
+- (void)netRequestFailed:(NetWebServiceRequest *)request didRequestError:(int *)error
+{
+    [Dialog alert:@"出现意外错误"];
+    return;
+}
+
+//成功
+- (void)netRequestFinished:(NetWebServiceRequest *)request finishedInfoToResult:(NSString *)result
+              responseData:(NSArray *)requestData
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSDictionary *rowData = result;
+    
+    if (self.txtVerifyCode.text != rowData[@"ActivateCode"]) {
+        [Dialog alert:@"您输入的激活码信息不正确，请查证！"];
+    }
+    else
+    {
+        [userDefault setValue: rowData[@"PamainID"] forKeyPath:@"UserID"];
+        [userDefault setValue: rowData[@"UserName"] forKeyPath:@"UserName"];
+        [userDefault setValue: rowData[@"AddDate"] forKeyPath:@"AddDate"];
+        
+        FindPsdStep3ViewController *find3Ctr = [self.storyboard instantiateViewControllerWithIdentifier: @"findPsd3View"];
+        find3Ctr.userName = rowData[@"UserName"];
+        find3Ctr.paMainID = rowData[@"PamainID"];
+        [self.navigationController pushViewController:find3Ctr animated:YES];
+    }
+   
+    [result retain];
 }
 
 /*
@@ -46,4 +130,10 @@
 }
 */
 
+- (void)dealloc {
+    [_txtUserName release];
+    [_txtVerifyCode release];
+    [_txtLabel release];
+    [super dealloc];
+}
 @end
