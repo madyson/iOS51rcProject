@@ -99,12 +99,17 @@
                                 </state>
                                 <connections>
                                     <action selector="btnLoginClick:" destination="3LL-QA-RMo" eventType="touchUpInside" id="Tx5-h6-qeQ"/>
-                                    <action selector="btnRegisterClick:" destination="ZI2-di-8sc" eventType="touchUpInside" id="3HF-5B-zMB"/>
+                                    <action selector="btnRegisterClick:" destination="ZI2-di-8sc" eventType="touchUpInside" id="8jN-Br-oWd"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="txtPsd" destination="PTP-pR-A1P" id="JKT-ct-SS1"/>
+                        <outlet property="txtRePsd" destination="vxc-Q0-5j1" id="BSN-CC-zr2"/>
+                        <outlet property="txtUserName" destination="aWL-EV-ivP" id="clN-Uz-IlI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8N-A4-FKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
