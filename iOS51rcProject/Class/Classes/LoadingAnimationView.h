@@ -15,7 +15,8 @@ typedef enum _LoadingAnimationViewStyle {
 }
 
 @property(nonatomic, retain) NSMutableArray *gifs;
-
-- (id)initWithFrame:(CGRect)frame loadingAnimationViewStyle:(LoadingAnimationViewStyle)style;
+@property(nonatomic, retain) UIView *viewBack;
+- (id)initWithFrame:(CGRect)frame loadingAnimationViewStyle:(LoadingAnimationViewStyle)style
+             target:(UIViewController *)target;
 
 @end

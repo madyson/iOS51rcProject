@@ -1,6 +1,5 @@
 #import "RecruitmentListViewController.h"
 #import "NetWebServiceRequest.h"
-#import "GDataXMLNode.h"
 #import "CommonController.h"
 #import "MJRefresh.h"
 #import "DictionaryPickerView.h"
@@ -67,9 +66,7 @@
     [self.btnProvinceSel addTarget:self action:@selector(showRegionSelect) forControlEvents:UIControlEventTouchUpInside];
     [self.btnPlaceSel addTarget:self action:@selector(showPlaceSelect) forControlEvents:UIControlEventTouchUpInside];
     //数据加载等待控件初始化
-    loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton];
-    loadView.center = self.view.center;
-    [self.view addSubview:loadView];
+    loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     //开始等待动画
     [loadView startAnimating];
     
@@ -96,8 +93,10 @@
 
 - (void)onSearch
 {
-    [recruitmentData removeAllObjects];
-    [self.tvRecruitmentList reloadData];
+    if (page == 1) {
+        [recruitmentData removeAllObjects];
+        [self.tvRecruitmentList reloadData];
+    }
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
     [dicParam setObject:@"0" forKey:@"paMainID"];
     [dicParam setObject:begindate forKey:@"strBeginDate"];
@@ -240,12 +239,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    RecruitmentViewController *detailC = [[RecruitmentViewController alloc] init];
-//    detailC.recruitmentID = recruitmentData[indexPath.row][@"ID"];
-//    [self.navigationController pushViewController:detailC animated:true];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
     RecruitmentViewController *detailC = (RecruitmentViewController*)[mainStoryboard
                                                                       instantiateViewControllerWithIdentifier: @"RecruitmentView"];
+    detailC.recruitmentID = recruitmentData[indexPath.row][@"ID"];
     [self.navigationController pushViewController:detailC animated:true];
 }
 
