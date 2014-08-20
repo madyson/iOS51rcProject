@@ -21,6 +21,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //将字典存入到document内
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"dictionary.db"];
+    NSFileManager *file = [NSFileManager defaultManager];
+    if ([file fileExistsAtPath:dbPath]) {
+        
+    }
+    else {
+        NSString *originDbPath = [[NSBundle mainBundle] pathForResource:@"dictionary.db" ofType:nil];
+        NSData *mainBundleFile = [NSData dataWithContentsOfFile:originDbPath];
+        [file createFileAtPath:dbPath contents:mainBundleFile attributes:nil];
+    }
+    
     //判断当前设备屏幕尺寸
     CGSize iOSDeviceScreenSize = [[UIScreen mainScreen] bounds].size;
     UIStoryboard *mainStoryboard = nil;

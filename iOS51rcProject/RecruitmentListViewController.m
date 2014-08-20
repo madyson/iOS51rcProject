@@ -3,18 +3,22 @@
 #import "GDataXMLNode.h"
 #import "CommonController.h"
 #import "MJRefresh.h"
+#import "DictionaryPickerView.h"
 
-@interface RecruitmentListViewController ()<NetWebServiceRequestDelegate,DatePickerDelegate>
-    @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentList;
-    @property (retain, nonatomic) IBOutlet UIButton *btnProvinceSel;
-    @property (retain, nonatomic) IBOutlet UIButton *btnPlaceSel;
-    @property (retain, nonatomic) IBOutlet UILabel *lbDateSet;
-    @property (retain, nonatomic) IBOutlet UIButton *btnDateSet;
-    @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
+@interface RecruitmentListViewController ()<NetWebServiceRequestDelegate,DatePickerDelegate,DictionaryPickerDelegate>
+@property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentList;
+@property (retain, nonatomic) IBOutlet UIButton *btnProvinceSel;
+@property (retain, nonatomic) IBOutlet UIButton *btnPlaceSel;
+@property (retain, nonatomic) IBOutlet UILabel *lbDateSet;
+@property (retain, nonatomic) IBOutlet UIButton *btnDateSet;
+@property (nonatomic, retain) NetWebServiceRequest *runningRequest;
+@property (strong, nonatomic) DictionaryPickerView *DictionaryPicker;
+-(void)cancelLocatePicker;
 @end
 
 @implementation RecruitmentListViewController
 @synthesize runningRequest = _runningRequest;
+@synthesize DictionaryPicker= _DictionaryPicker;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -24,15 +28,23 @@
     return self;
 }
 
+-(void)cancelLocatePicker
+{
+    [self.DictionaryPicker cancelPicker];
+    self.DictionaryPicker.delegate = nil;
+    self.DictionaryPicker = nil;
+    [_DictionaryPicker release];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [recruitmentData retain];
+    recruitmentData = [[NSMutableArray alloc] init];
     //时间选择控件
     pickDate = [[DatePicker alloc] init];
     pickDate.delegate = self;
     [self.btnDateSet addTarget:self action:@selector(showDateSelect) forControlEvents:UIControlEventTouchUpInside];
-    
+    [self.btnProvinceSel addTarget:self action:@selector(showRegionSelect) forControlEvents:UIControlEventTouchUpInside];
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton];
     loadView.center = self.view.center;
@@ -272,5 +284,11 @@
     [pickDate removeDatePicker];
     //开始等待动画
     [loadView startAnimating];
+}
+
+-(void)showRegionSelect {
+    [self cancelLocatePicker];
+    _DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithRegionL2 pickerType:DictionaryPickerOne delegate:self];
+    [_DictionaryPicker showInView:self.view];
 }
 @end
