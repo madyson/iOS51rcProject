@@ -246,6 +246,7 @@ NSString* const NetWebServiceRequestErrorDomain = @"NetWebServiceRequestErrorDom
     }
     else{
         [self FaileddidRequestError:&statusCode];
+        NSLog(responseString);
     }
 }
 
