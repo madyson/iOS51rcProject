@@ -157,7 +157,7 @@
             FindPsdStep2ViewController *find2Ctr = [self.storyboard instantiateViewControllerWithIdentifier: @"findPsd2View"];
             find2Ctr.code = code;
             find2Ctr.type = @"1";
-            find2Ctr.name = email;
+            find2Ctr.name = self.txtName.text;
             [self.navigationController pushViewController:find2Ctr animated:YES];
             //[find2Ctr release];
         }
@@ -172,7 +172,7 @@
             FindPsdStep2ViewController *find2Ctr = [self.storyboard instantiateViewControllerWithIdentifier: @"findPsd2View"];
             find2Ctr.code = code;
             find2Ctr.type = @"2";
-            find2Ctr.name = self.phone;
+            find2Ctr.name = self.txtName.text;
             [self.navigationController pushViewController:find2Ctr animated:YES];
             //[find2Ctr release];
         }

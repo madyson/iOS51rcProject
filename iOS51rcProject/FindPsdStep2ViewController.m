@@ -53,7 +53,7 @@
     //[self GetCode];
 }
 - (IBAction)btnResetPsd:(id)sender {
-    
+    [self GetCode];
 }
 
 - (void)didReceiveMemoryWarning
