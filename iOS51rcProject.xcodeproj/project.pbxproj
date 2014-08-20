@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		991125A119A49DCE00C98173 /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 991125A019A49DCE00C98173 /* Toast+UIView.m */; };
+		991125A319A4D24F00C98173 /* ico_expire.png in Resources */ = {isa = PBXBuildFile; fileRef = 991125A219A4D24F00C98173 /* ico_expire.png */; };
+		991125AC19A4DB7C00C98173 /* RecruitmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 991125AB19A4DB7C00C98173 /* RecruitmentViewController.m */; };
 		994454AD199C4A0800206482 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994454AC199C4A0800206482 /* MenuViewController.m */; };
 		9945C30B19A1A4890027E931 /* ico_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9945C30A19A1A4890027E931 /* ico_clock.png */; };
 		9945C30D19A1AB370027E931 /* ico_rm_group.png in Resources */ = {isa = PBXBuildFile; fileRef = 9945C30C19A1AB370027E931 /* ico_rm_group.png */; };
@@ -139,6 +142,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9911259F19A49DCE00C98173 /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
+		991125A019A49DCE00C98173 /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
+		991125A219A4D24F00C98173 /* ico_expire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_expire.png; sourceTree = "<group>"; };
+		991125AA19A4DB7C00C98173 /* RecruitmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecruitmentViewController.h; sourceTree = "<group>"; };
+		991125AB19A4DB7C00C98173 /* RecruitmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruitmentViewController.m; sourceTree = "<group>"; };
 		994454AB199C4A0800206482 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		994454AC199C4A0800206482 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		9945C30A19A1A4890027E931 /* ico_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_clock.png; sourceTree = "<group>"; };
@@ -347,6 +355,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9911259E19A49DCE00C98173 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				9911259F19A49DCE00C98173 /* Toast+UIView.h */,
+				991125A019A49DCE00C98173 /* Toast+UIView.m */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		997BF0C2199DB33C00FD0B12 /* NetworkConnect */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,6 +578,8 @@
 				994454AC199C4A0800206482 /* MenuViewController.m */,
 				99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */,
 				99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */,
+				991125AA19A4DB7C00C98173 /* RecruitmentViewController.h */,
+				991125AB19A4DB7C00C98173 /* RecruitmentViewController.m */,
 			);
 			path = iOS51rcProject;
 			sourceTree = "<group>";
@@ -568,8 +587,8 @@
 		99CFD81E199B5F80009A5ABA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				99908A4919A34D7300137FDE /* dictionary.db */,
 				99CFD89A199B6196009A5ABA /* Class */,
+				99908A4919A34D7300137FDE /* dictionary.db */,
 				99CFD81F199B5F80009A5ABA /* iOS51rcProject-Info.plist */,
 				99CFD820199B5F80009A5ABA /* InfoPlist.strings */,
 				99CFD823199B5F80009A5ABA /* main.m */,
@@ -607,6 +626,7 @@
 		99CFD84F199B60D8009A5ABA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				991125A219A4D24F00C98173 /* ico_expire.png */,
 				9945C30C19A1AB370027E931 /* ico_rm_group.png */,
 				9945C30A19A1A4890027E931 /* ico_clock.png */,
 				99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */,
@@ -663,6 +683,7 @@
 		99CFD89A199B6196009A5ABA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				9911259E19A49DCE00C98173 /* Toast */,
 				99908A4B19A34DD300137FDE /* FMDB */,
 				99908A0719A3431200137FDE /* DictionaryPicker */,
 				998025C619A23528001A7E84 /* LoadingAnimation */,
@@ -831,6 +852,7 @@
 				99CFD898199B60D8009A5ABA /* userName.png in Resources */,
 				99CFD876199B60D8009A5ABA /* btn_leftmenu.png in Resources */,
 				99CFD88B199B60D8009A5ABA /* ico_select_down.png in Resources */,
+				991125A319A4D24F00C98173 /* ico_expire.png in Resources */,
 				99CFD897199B60D8009A5ABA /* unChecked.png in Resources */,
 				99CFD88A199B60D8009A5ABA /* ico_main_search.png in Resources */,
 				99CFD887199B60D8009A5ABA /* ico_main_near.png in Resources */,
@@ -876,6 +898,7 @@
 				997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */,
 				99908A5719A34DD300137FDE /* FMDatabaseAdditions.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
+				991125AC19A4DB7C00C98173 /* RecruitmentViewController.m in Sources */,
 				99908A5619A34DD300137FDE /* FMDatabase.m in Sources */,
 				99908A5A19A34DD300137FDE /* FMResultSet.m in Sources */,
 				997BF0EA199DB33C00FD0B12 /* ASINetworkQueue.m in Sources */,
@@ -891,6 +914,7 @@
 				99AF855719A1883400524B66 /* FindPsdStep2ViewController.m in Sources */,
 				99AF855919A1883400524B66 /* LoginDetailsViewController.m in Sources */,
 				99908A5819A34DD300137FDE /* FMDatabasePool.m in Sources */,
+				991125A119A49DCE00C98173 /* Toast+UIView.m in Sources */,
 				998025C519A23024001A7E84 /* UIView+Extension.m in Sources */,
 				997BF0EB199DB33C00FD0B12 /* Reachability.m in Sources */,
 				99CFD828199B5F80009A5ABA /* AppDelegate.m in Sources */,

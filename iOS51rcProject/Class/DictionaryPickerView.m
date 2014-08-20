@@ -18,20 +18,22 @@
 
 @synthesize delegate = _delegate;
 @synthesize pickerType = _pickerType;
-@synthesize locatePicker = _locatePicker;
+@synthesize pickerDictionary = _pickerDictionary;
 @synthesize btnSave = _btnSave;
 @synthesize btnCancel = _btnCancel;
+@synthesize selectValue = _selectValue;
+@synthesize selectName = _selectName;
 
 - (void)dealloc
 {
     [db close];
     [db release];
-    [_locatePicker release];
+    [_pickerDictionary release];
+    [_btnCancel release];
+    [_btnSave release];
     [arrDictionaryL1 release];
     [arrDictionaryL2 release];
     [arrDictionaryL3 release];
-    [_btnCancel release];
-    [_btnSave release];
     [super dealloc];
 }
 
@@ -39,45 +41,70 @@
 - (id)initWithCustom:(DictionaryPickerType)pickerType
          pickerType:(DictionaryPickerMode)pickerMode
            delegate:(id <DictionaryPickerDelegate>)delegate
+        defaultValue:(NSString *)defaultValue
 {
-    
     self = [[[[NSBundle mainBundle] loadNibNamed:@"DictionaryPickerView" owner:self options:nil] objectAtIndex:0] retain];
     if (self) {
         self.delegate = delegate;
         self.pickerType = pickerType;
-        self.locatePicker.dataSource = self;
-        self.locatePicker.delegate = self;
-        //加载数据
-        arrDictionaryL1 = [[NSMutableArray alloc] init];
-        arrDictionaryL2 = [[NSMutableArray alloc] init];
-        arrDictionaryL3 = [[NSMutableArray alloc] init];
-        NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"dictionary.db"];
-        
-        db = [FMDatabase databaseWithPath:dbPath];
-        [db open];
-        [db retain];
-        FMResultSet *provinceList = [db executeQuery:@"select * from dcregion where parentid=''"];
-        int i = 0;
-        while ([provinceList next]) {//有下一个的话，就取出它的数据，然后关闭数据库
-            if (i == 0) {
-                [self setRegionDictionary:[provinceList stringForColumn:@"_id"]];
-            }
-            NSDictionary *dicRegion = [[NSDictionary alloc] initWithObjectsAndKeys:
-             [provinceList stringForColumn:@"_id"],@"regionid",
-             [provinceList stringForColumn:@"description"],@"regionname"
-             , nil];
-            [arrDictionaryL1 addObject:dicRegion];
-            [dicRegion release];
-            i++;
-        }
+        self.pickerMode = pickerMode;
+        self.pickerDictionary.dataSource = self;
+        self.pickerDictionary.delegate = self;
         [self.btnCancel addTarget:self action:@selector(cancelPicker) forControlEvents:UIControlEventTouchUpInside];
-        
         [self.btnSave addTarget:self action:@selector(savePicker) forControlEvents:UIControlEventTouchUpInside];
+        _selectValue = defaultValue;
+        [self setupDictionary];
     }
     return self;
+}
+
+- (id)initWithDictionary:(id <DictionaryPickerDelegate>)delegate
+       defaultArray:(NSMutableArray *)defaultArray
+            defalutValue:(NSString *)defaultValue
+{
+    self = [[[[NSBundle mainBundle] loadNibNamed:@"DictionaryPickerView" owner:self options:nil] objectAtIndex:0] retain];
+    if (self) {
+        self.delegate = delegate;
+        self.pickerType = DictionaryPickerWithCommon;
+        self.pickerMode = DictionaryPickerOne;
+        self.pickerDictionary.dataSource = self;
+        self.pickerDictionary.delegate = self;
+        [self.btnCancel addTarget:self action:@selector(cancelPicker) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnSave addTarget:self action:@selector(savePicker) forControlEvents:UIControlEventTouchUpInside];
+        _selectValue = defaultValue;
+        arrDictionaryL1 = [defaultArray retain];
+    }
+    return self;
+}
+
+- (void) setupDictionary
+{
+    //加载数据
+    arrDictionaryL1 = [[NSMutableArray alloc] init];
+    arrDictionaryL2 = [[NSMutableArray alloc] init];
+    arrDictionaryL3 = [[NSMutableArray alloc] init];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"dictionary.db"];
+
+    db = [FMDatabase databaseWithPath:dbPath];
+    [db open];
+    [db retain];
     
+    switch (self.pickerType) {
+        case DictionaryPickerWithRegionL3:
+        {
+            [self setRegionDictionary:@""];
+            break;
+        }
+        case DictionaryPickerWithRegionL2:
+        {
+            [self setRegionDictionary:@""];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 #pragma mark - PickerView lifecycle
@@ -124,40 +151,52 @@
 
 - (void)setRegionDictionary:(NSString *)parentid
 {
-    if ([parentid length] == 2) {
+    if ([parentid length] == 0) {
+        FMResultSet *provinceList = [db executeQuery:@"select * from dcregion where parentid=''"];
+        int i = 0;
+        while ([provinceList next]) {
+            if (i == 0) {
+                if (self.pickerType == DictionaryPickerWithRegionL2 && [self isMunicipality:[provinceList stringForColumn:@"_id"]]) {
+                    
+                }
+                else {
+                    [self setRegionDictionary:[provinceList stringForColumn:@"_id"]];
+                }
+                
+            }
+            NSDictionary *dicRegion = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                       [provinceList stringForColumn:@"_id"],@"id",
+                                       [provinceList stringForColumn:@"description"],@"value"
+                                       , nil];
+            [arrDictionaryL1 addObject:dicRegion];
+            [dicRegion release];
+            i++;
+        }
+    }
+    else if ([parentid length] == 2) {
         [arrDictionaryL2 removeAllObjects];
-        [arrDictionaryL3 removeAllObjects];
         int i = 0;
         FMResultSet *cityList = [db executeQuery:[NSString stringWithFormat:@"select * from dcregion where parentid=%@",parentid]];
         while ([cityList next]) {//有下一个的话，就取出它的数据，然后关闭数据库
-            if (i == 0) {
-                FMResultSet *districtList = [db executeQuery:[NSString stringWithFormat:@"select * from dcregion where parentid=%@",[cityList stringForColumn:@"_id"]]];
-                while ([districtList next]) {//有下一个的话，就取出它的数据，然后关闭数据库
-                    NSDictionary *dicRegion = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                           [districtList stringForColumn:@"_id"],@"regionid",
-                                           [districtList stringForColumn:@"description"],@"regionname"
-                                           ,nil];
-                
-                    [arrDictionaryL3 addObject:dicRegion];
-                    [dicRegion release];
-                }
+            if (i == 0 && self.pickerType == DictionaryPickerWithRegionL3) {
+                [self setRegionDictionary:[cityList stringForColumn:@"_id"]];
             }
             NSDictionary *dicRegion = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                   [cityList stringForColumn:@"_id"],@"regionid",
-                                   [cityList stringForColumn:@"description"],@"regionname"
+                                   [cityList stringForColumn:@"_id"],@"id",
+                                   [cityList stringForColumn:@"description"],@"value"
                                    , nil];
             [arrDictionaryL2 addObject:dicRegion];
             [dicRegion release];
             i++;
         }
     }
-    else {
+    else if ([parentid length] == 4) {
         [arrDictionaryL3 removeAllObjects];
         FMResultSet *districtList = [db executeQuery:[NSString stringWithFormat:@"select * from dcregion where parentid=%@",parentid]];
         while ([districtList next]) {//有下一个的话，就取出它的数据，然后关闭数据库
             NSDictionary *dicRegion = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                       [districtList stringForColumn:@"_id"],@"regionid",
-                                       [districtList stringForColumn:@"description"],@"regionname"
+                                       [districtList stringForColumn:@"_id"],@"id",
+                                       [districtList stringForColumn:@"description"],@"value"
                                        ,nil];
             
             [arrDictionaryL3 addObject:dicRegion];
@@ -174,19 +213,23 @@
             switch (component) {
                 case 0:
                 {
-                    [self setRegionDictionary:[arrDictionaryL1[row] objectForKey:@"regionid"]];
-                    [self.locatePicker reloadComponent:1];
-                    [self.locatePicker reloadComponent:2];
-                    [self.locatePicker selectRow:0 inComponent:1 animated:YES];
-                    [self.locatePicker selectRow:0 inComponent:2 animated:YES];
+                    [self setRegionDictionary:[arrDictionaryL1[row] objectForKey:@"id"]];
+                    [self.pickerDictionary reloadComponent:1];
+                    [self.pickerDictionary reloadComponent:2];
+                    [self.pickerDictionary selectRow:0 inComponent:1 animated:YES];
+                    [self.pickerDictionary selectRow:0 inComponent:2 animated:YES];
                     break;
                 }
                 case 1:
                 {
-                    [self setRegionDictionary:[arrDictionaryL2[row] objectForKey:@"regionid"]];
-                    [self.locatePicker reloadComponent:2];
-                    [self.locatePicker selectRow:0 inComponent:2 animated:YES];
+                    [self setRegionDictionary:[arrDictionaryL2[row] objectForKey:@"id"]];
+                    [self.pickerDictionary reloadComponent:2];
+                    [self.pickerDictionary selectRow:0 inComponent:2 animated:YES];
                     break;
+                }
+                case 3:
+                {
+                    
                 }
                 default:
                     break;
@@ -196,59 +239,37 @@
         case DictionaryPickerWithRegionL2:
         {
             if (component == 0) {
-                [self setRegionDictionary:[arrDictionaryL1[row] objectForKey:@"regionid"]];
-                [self.locatePicker reloadComponent:1];
-                [self.locatePicker selectRow:0 inComponent:1 animated:YES];
+                if ([self isMunicipality:[arrDictionaryL1[row] objectForKey:@"id"]]) {
+                    [arrDictionaryL2 removeAllObjects];
+                }
+                else{
+                    [self setRegionDictionary:[arrDictionaryL1[row] objectForKey:@"id"]];
+                }
+                [self.pickerDictionary reloadComponent:1];
+                [self.pickerDictionary selectRow:0 inComponent:1 animated:YES];
                 break;
             }
         }
         default:
             break;
     }
-    
-    if([self.delegate respondsToSelector:@selector(pickerDidChangeStatus:)]) {
-        [self.delegate pickerDidChangeStatus:self];
-    }
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
     NSString *strTitle;
-    switch (self.pickerType) {
-        case DictionaryPickerWithRegionL3:
-        {
-            switch (component) {
-                case 0:
-                    strTitle = [arrDictionaryL1[row] objectForKey:@"regionname"];
-                    break;
-                case 1:
-                    strTitle = [arrDictionaryL2[row] objectForKey:@"regionname"];
-                    break;
-                case 2:
-                    strTitle = [arrDictionaryL3[row] objectForKey:@"regionname"];
-                    break;
-                default:
-                    strTitle =  @"";
-                    break;
-            }
+    switch (component) {
+        case 0:
+            strTitle = [arrDictionaryL1[row] objectForKey:@"value"];
             break;
-        }
-        case DictionaryPickerWithRegionL2:
-        {
-            switch (component) {
-                case 0:
-                    strTitle = [arrDictionaryL1[row] objectForKey:@"regionname"];
-                    break;
-                case 1:
-                    strTitle = [arrDictionaryL2[row] objectForKey:@"regionname"];
-                    break;
-                default:
-                    strTitle =  @"";
-                    break;
-            }
+        case 1:
+            strTitle = [arrDictionaryL2[row] objectForKey:@"value"];
             break;
-        }
+        case 2:
+            strTitle = [arrDictionaryL3[row] objectForKey:@"value"];
+            break;
         default:
+            strTitle =  @"";
             break;
     }
     UILabel *lbTest = [[UILabel alloc] init];
@@ -257,6 +278,25 @@
     return lbTest;
 }
 
+- (void)savePicker
+{
+    if ([self.delegate respondsToSelector:@selector(pickerDidChangeStatus:selectValue:selectName:)]) {
+        if (self.pickerMode == DictionaryPickerOne) {
+            NSDictionary *dicSelected;
+            if ([arrDictionaryL3 count] > 0) {
+                dicSelected = arrDictionaryL3[[self.pickerDictionary selectedRowInComponent:2]];
+            }
+            else if ([arrDictionaryL2 count] > 0) {
+                dicSelected = arrDictionaryL2[[self.pickerDictionary selectedRowInComponent:1]];
+            }
+            else {
+                dicSelected = arrDictionaryL1[[self.pickerDictionary selectedRowInComponent:0]];
+            }
+            
+            [self.delegate pickerDidChangeStatus:self selectValue:[NSString stringWithFormat:@"%@",dicSelected[@"id"]] selectName:[NSString stringWithFormat:@"%@",dicSelected[@"value"]]];
+        }
+    }
+}
 
 #pragma mark - animation
 
@@ -268,20 +308,27 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.frame = CGRectMake(0, view.frame.size.height - self.frame.size.height, self.frame.size.width, self.frame.size.height);
     }];
-    
 }
 
 - (void)cancelPicker
 {
-    
     [UIView animateWithDuration:0.3
                      animations:^{
                          self.frame = CGRectMake(0, self.frame.origin.y+self.frame.size.height, self.frame.size.width, self.frame.size.height);
                      }
                      completion:^(BOOL finished){
                          [self removeFromSuperview];
-                         
                      }];
+}
+
+- (BOOL)isMunicipality:(NSString *)regionId //是否是直辖市
+{
+    if ([regionId isEqual:@"10"]|[regionId isEqual:@"11"]|[regionId isEqual:@"30"]|[regionId isEqual:@"60"]|[regionId isEqual:@"90"]|[regionId isEqual:@"91"]|[regionId isEqual:@"92"]|[regionId isEqual:@"93"]) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 
 @end

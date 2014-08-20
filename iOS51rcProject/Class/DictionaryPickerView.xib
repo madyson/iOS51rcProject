@@ -46,7 +46,7 @@
             <connections>
                 <outlet property="btnCancel" destination="BOp-HA-1fa" id="eXA-tv-ZcG"/>
                 <outlet property="btnSave" destination="0rk-QN-M24" id="mwR-Tf-Mww"/>
-                <outlet property="locatePicker" destination="3" id="6"/>
+                <outlet property="pickerDictionary" destination="3" id="CMF-IX-mGU"/>
             </connections>
         </view>
     </objects>

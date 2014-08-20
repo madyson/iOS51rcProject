@@ -28,18 +28,6 @@ NSString* const NetWebServiceRequestErrorDomain = @"NetWebServiceRequestErrorDom
 @synthesize cancelLock = _cancelLock;
 @synthesize tag;
 
-
-
-
-//+ (id)serviceRequestUrl:(NSString *)WebURL
-//          SOAPActionURL:(NSString *)soapActionURL
-//      ServiceMethodName:(NSString *)strMethod
-//            SoapMessage:(NSString *)soapMsg
-//{
-//    return [[[self alloc] initWithUrl:WebURL SOAPActionURL:soapActionURL ServiceMethodName:strMethod SoapMessage:soapMsg] autorelease];
-//}
-
-
 + (id)serviceRequestUrl:(NSString *)strMethod
             Params:(NSDictionary *)params
 {
@@ -146,7 +134,10 @@ NSString* const NetWebServiceRequestErrorDomain = @"NetWebServiceRequestErrorDom
     [_runningRequest startAsynchronous];
 }
 
-
+- (void)startSynchronous
+{
+    [_runningRequest startSynchronous];
+}
 
 - (void) cancel
 {
@@ -173,7 +164,7 @@ NSString* const NetWebServiceRequestErrorDomain = @"NetWebServiceRequestErrorDom
 
 
 
-- (void)FinisheddidRecvedInfoToResult:(NSString *)result responseData:(NSArray*)requestData
+- (void)FinisheddidRecvedInfoToResult:(NSString *)result responseData:(NSMutableArray*)requestData
 {
     if (_delegate && [_delegate respondsToSelector:@selector(netRequestFinished: finishedInfoToResult: responseData:)]) {
 		[_delegate netRequestFinished:self finishedInfoToResult:result responseData:requestData];
@@ -221,7 +212,6 @@ NSString* const NetWebServiceRequestErrorDomain = @"NetWebServiceRequestErrorDom
     int count = (int)[arraySOAP count] - 1;
 	NSString *methodName = [arraySOAP objectAtIndex:count];
     
- 
 	// Use when fetching text data
 	NSString *responseString = [request responseString];
 	NSString *result = nil;
@@ -230,7 +220,9 @@ NSString* const NetWebServiceRequestErrorDomain = @"NetWebServiceRequestErrorDom
         result = [SoapXmlParseHelper SoapMessageResultXml:responseString ServiceMethodName:methodName];
         GDataXMLDocument *xmlContent = [[GDataXMLDocument alloc] initWithXMLString:responseString options:0 error:nil];
         NSArray *xmlTable = [xmlContent nodesForXPath:@"//Table1" error:nil];
-        
+        if ([xmlTable count] == 0) {
+            xmlTable = [xmlContent nodesForXPath:@"//ds" error:nil];
+        }
         NSMutableArray *arrXml = [[NSMutableArray alloc] init];
         for (int i=0; i<xmlTable.count; i++) {
             GDataXMLElement *oneXmlElement = [xmlTable objectAtIndex:i];
@@ -241,7 +233,6 @@ NSString* const NetWebServiceRequestErrorDomain = @"NetWebServiceRequestErrorDom
             }
             [arrXml addObject:dicOneXml];
         }
-        
         [self FinisheddidRecvedInfoToResult:result responseData:arrXml];
     }
     else{

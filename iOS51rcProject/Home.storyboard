@@ -8,7 +8,7 @@
         <!--Menu View Controller-->
         <scene sceneID="stG-Yv-5PA">
             <objects>
-                <viewController storyboardIdentifier="MenuViewController" id="kD7-Bc-pn5" customClass="MenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuView" id="kD7-Bc-pn5" customClass="MenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gsu-g2-ypP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,7 +241,7 @@
         <!--Recruitment List View Controller - 招聘会-->
         <scene sceneID="gWj-ld-vtU">
             <objects>
-                <viewController storyboardIdentifier="Recruitment" id="iDO-8n-Zik" customClass="RecruitmentListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecruitmentListView" id="iDO-8n-Zik" customClass="RecruitmentListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GE8-8k-52m">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,15 +254,15 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="25" sectionHeaderHeight="22" sectionFooterHeight="22" id="AjB-ZV-5NE">
-                                <rect key="frame" x="0.0" y="111" width="320" height="457"/>
+                                <rect key="frame" x="0.0" y="103" width="320" height="465"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="rmList" rowHeight="25" id="dFN-Of-DJd">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="rmList" rowHeight="25" id="dFN-Of-DJd">
                                         <rect key="frame" x="0.0" y="22" width="320" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dFN-Of-DJd" id="eeZ-YI-Pgl">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="24"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="24"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -328,12 +328,38 @@
                         <outlet property="btnPlaceSel" destination="ikZ-ws-yUA" id="UxF-gB-2oV"/>
                         <outlet property="btnProvinceSel" destination="bsQ-uW-0ZO" id="lVU-IP-QxB"/>
                         <outlet property="lbDateSet" destination="2uR-xc-rgP" id="ZL8-ts-XuB"/>
+                        <outlet property="lbPlace" destination="67d-0M-Iyf" id="Rg5-sZ-XPn"/>
+                        <outlet property="lbProvince" destination="Bz4-RJ-SMj" id="Ij8-Ts-cjN"/>
                         <outlet property="tvRecruitmentList" destination="AjB-ZV-5NE" id="HdS-86-3W2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4WO-q3-xZm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="763" y="361"/>
+        </scene>
+        <!--Recruitment View Controller-->
+        <scene sceneID="xqZ-0L-Bfy">
+            <objects>
+                <viewController storyboardIdentifier="RecruitmentView" id="PwY-6R-8LY" customClass="RecruitmentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CZW-Va-zZP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sTU-dZ-DPJ">
+                                <rect key="frame" x="59" y="182" width="203" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="E0a-db-ypB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PfR-9b-sda" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1147" y="362"/>
         </scene>
     </scenes>
     <resources>

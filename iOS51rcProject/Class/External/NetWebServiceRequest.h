@@ -49,6 +49,7 @@ extern NSString* const NetWebServiceRequestErrorDomain;
 - (BOOL)isFinished;
 
 - (void)startAsynchronous;
+- (void)startSynchronous;
 @end
 
 

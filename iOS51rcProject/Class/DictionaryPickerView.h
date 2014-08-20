@@ -4,7 +4,8 @@ typedef enum {
     DictionaryPickerWithRegionL3,
     DictionaryPickerWithRegionL2,
     DictionaryPickerWithJobType,
-    DictionaryPickerWithIndustry
+    DictionaryPickerWithIndustry,
+    DictionaryPickerWithCommon
 } DictionaryPickerType;
 
 typedef enum {
@@ -17,22 +18,32 @@ typedef enum {
 @protocol DictionaryPickerDelegate <NSObject>
 
 @optional
-- (void)pickerDidChangeStatus:(DictionaryPickerView *)picker;
+- (void)pickerDidChangeStatus:(DictionaryPickerView *)picker
+                  selectValue:(NSString *)selectValue
+                   selectName:(NSString *)selectName;
 
 @end
 
 @interface DictionaryPickerView : UIView <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (assign, nonatomic) id <DictionaryPickerDelegate> delegate;
-@property (strong, nonatomic) IBOutlet UIPickerView *locatePicker;
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerDictionary;
 @property (strong, nonatomic) IBOutlet UIButton *btnCancel;
 @property (strong, nonatomic) IBOutlet UIButton *btnSave;
 @property (nonatomic) DictionaryPickerType pickerType;
 @property (nonatomic) DictionaryPickerMode pickerMode;
+@property (assign, nonatomic) NSString *selectValue;
+@property (assign, nonatomic) NSString *selectName;
 
 - (id)initWithCustom:(DictionaryPickerType)pickerType
          pickerType:(DictionaryPickerMode)pickerMode
-           delegate:(id <DictionaryPickerDelegate>)delegate;
+           delegate:(id <DictionaryPickerDelegate>)delegate
+        defaultValue:(NSString *)defaultValue;
+
+- (id)initWithDictionary:(id <DictionaryPickerDelegate>)delegate
+       defaultArray:(NSMutableArray *)defaultArray
+            defalutValue:(NSString *)defaultValue;
+
 - (void)showInView:(UIView *)view;
 - (void)cancelPicker;
 

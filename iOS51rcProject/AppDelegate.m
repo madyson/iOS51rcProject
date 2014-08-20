@@ -46,7 +46,7 @@
     }
     
     MenuViewController *menuC = (MenuViewController*)[mainStoryboard
-                                                      instantiateViewControllerWithIdentifier: @"MenuViewController"];
+                                                      instantiateViewControllerWithIdentifier: @"MenuView"];
 	
 	[SlideNavigationController sharedInstance].rightMenu = menuC;
 	[SlideNavigationController sharedInstance].leftMenu = menuC;

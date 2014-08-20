@@ -4,20 +4,26 @@
 #import "CommonController.h"
 #import "MJRefresh.h"
 #import "DictionaryPickerView.h"
+#import "Toast+UIView.h"
+#import "RecruitmentViewController.h"
 
 @interface RecruitmentListViewController ()<NetWebServiceRequestDelegate,DatePickerDelegate,DictionaryPickerDelegate>
 @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentList;
 @property (retain, nonatomic) IBOutlet UIButton *btnProvinceSel;
 @property (retain, nonatomic) IBOutlet UIButton *btnPlaceSel;
+@property (retain, nonatomic) IBOutlet UILabel *lbPlace;
 @property (retain, nonatomic) IBOutlet UILabel *lbDateSet;
+@property (retain, nonatomic) IBOutlet UILabel *lbProvince;
 @property (retain, nonatomic) IBOutlet UIButton *btnDateSet;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
+@property (nonatomic, retain) NetWebServiceRequest *runningRequest2;
 @property (strong, nonatomic) DictionaryPickerView *DictionaryPicker;
--(void)cancelLocatePicker;
+-(void)cancelDicPicker;
 @end
 
 @implementation RecruitmentListViewController
 @synthesize runningRequest = _runningRequest;
+@synthesize runningRequest2 = _runningRequest2;
 @synthesize DictionaryPicker= _DictionaryPicker;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +34,7 @@
     return self;
 }
 
--(void)cancelLocatePicker
+-(void)cancelDicPicker
 {
     [self.DictionaryPicker cancelPicker];
     self.DictionaryPicker.delegate = nil;
@@ -40,11 +46,26 @@
 {
     [super viewDidLoad];
     recruitmentData = [[NSMutableArray alloc] init];
+    placeData = [[NSMutableArray alloc] init];
+    //添加检索边框
+    self.btnDateSet.layer.masksToBounds = YES;
+    self.btnDateSet.layer.borderWidth = 1.0;
+    self.btnDateSet.layer.borderColor = [[UIColor grayColor] CGColor];
+    
+    self.btnProvinceSel.layer.masksToBounds = YES;
+    self.btnProvinceSel.layer.borderWidth = 1.0;
+    self.btnProvinceSel.layer.borderColor = [[UIColor grayColor] CGColor];
+    
+    self.btnPlaceSel.layer.masksToBounds = YES;
+    self.btnPlaceSel.layer.borderWidth = 1.0;
+    self.btnPlaceSel.layer.borderColor = [[UIColor grayColor] CGColor];
+    
     //时间选择控件
     pickDate = [[DatePicker alloc] init];
     pickDate.delegate = self;
     [self.btnDateSet addTarget:self action:@selector(showDateSelect) forControlEvents:UIControlEventTouchUpInside];
     [self.btnProvinceSel addTarget:self action:@selector(showRegionSelect) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnPlaceSel addTarget:self action:@selector(showPlaceSelect) forControlEvents:UIControlEventTouchUpInside];
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton];
     loadView.center = self.view.center;
@@ -60,8 +81,12 @@
     //搜索初始化
     begindate = @"";
     page = 1;
-    placeid = @"0";
+    placeid = @"";
+    regionid = @"32";
     [self onSearch];
+    
+    //场馆初始化
+    [self reloadPlace];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -71,16 +96,19 @@
 
 - (void)onSearch
 {
+    [recruitmentData removeAllObjects];
+    [self.tvRecruitmentList reloadData];
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
     [dicParam setObject:@"0" forKey:@"paMainID"];
     [dicParam setObject:begindate forKey:@"strBeginDate"];
     [dicParam setObject:placeid forKey:@"strPlaceID"];
-    [dicParam setObject:@"32" forKey:@"strRegionID"];
+    [dicParam setObject:regionid forKey:@"strRegionID"];
     [dicParam setObject:[NSString stringWithFormat:@"%ld",(long)page] forKey:@"page"];
     [dicParam setObject:@"0" forKey:@"code"];
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetRecruitMentList" Params:dicParam];
-    [request startAsynchronous];
     [request setDelegate:self];
+    [request startAsynchronous];
+    request.tag = 1;
     self.runningRequest = request;
 }
 
@@ -184,7 +212,9 @@
         [imgRunning release];
     }
     else if (runStatus == 2){
-        
+        UIImageView *imgExpired = [[UIImageView alloc] initWithFrame:CGRectMake(280, 0, 40, 40)];
+        imgExpired.image = [UIImage imageNamed:@"ico_expire.png"];
+        [cell.contentView addSubview:imgExpired];
     }
     else if (runStatus == 3){
         UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 35, 30, 45)];
@@ -210,7 +240,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+//    RecruitmentViewController *detailC = [[RecruitmentViewController alloc] init];
+//    detailC.recruitmentID = recruitmentData[indexPath.row][@"ID"];
+//    [self.navigationController pushViewController:detailC animated:true];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+    RecruitmentViewController *detailC = (RecruitmentViewController*)[mainStoryboard
+                                                                      instantiateViewControllerWithIdentifier: @"RecruitmentView"];
+    [self.navigationController pushViewController:detailC animated:true];
 }
 
 -(void) joinRecruitment:(UIButton *)sender{
@@ -233,24 +269,38 @@
 //成功
 - (void)netRequestFinished:(NetWebServiceRequest *)request
       finishedInfoToResult:(NSString *)result
-              responseData:(NSArray *)requestData
+              responseData:(NSMutableArray *)requestData
 {
-    if(page == 1){
-        [recruitmentData removeAllObjects];
-        recruitmentData = requestData;
+    if (request.tag == 1) {
+        if(page == 1){
+            [recruitmentData removeAllObjects];
+            recruitmentData = requestData;
+        }
+        else{
+            [recruitmentData addObjectsFromArray:requestData];
+        }
+        [self.tvRecruitmentList reloadData];
+        [self.tvRecruitmentList footerEndRefreshing];
+        
+        //结束等待动画
+        [loadView stopAnimating];
     }
-    else{
-        [recruitmentData addObjectsFromArray:requestData];
+    else {
+        NSMutableArray *arrPlace = [[NSMutableArray alloc] init];
+        for (int i = 0; i < requestData.count; i++) {
+            NSDictionary *dicPlace = [[[NSDictionary alloc] initWithObjectsAndKeys:
+                                        requestData[i][@"id"],@"id",
+                                        requestData[i][@"PlaceName"],@"value"
+                                        ,nil] autorelease];
+            [arrPlace addObject:dicPlace];
+        }
+        placeData = arrPlace;
     }
-    [self.tvRecruitmentList reloadData];
-    [self.tvRecruitmentList footerEndRefreshing];
-    
-    //结束等待动画
-    [loadView stopAnimating];
 }
 
 - (void)dealloc {
     [recruitmentData release];
+    [placeData release];
     [pickDate release];
     [loadView release];
     [_tvRecruitmentList release];
@@ -258,6 +308,10 @@
     [_btnProvinceSel release];
     [_btnPlaceSel release];
     [_lbDateSet release];
+    [_lbProvince release];
+    [_lbPlace release];
+    [_runningRequest release];
+    [_runningRequest2 release];
     [super dealloc];
 }
 
@@ -287,8 +341,56 @@
 }
 
 -(void)showRegionSelect {
-    [self cancelLocatePicker];
-    _DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithRegionL2 pickerType:DictionaryPickerOne delegate:self];
+    [self cancelDicPicker];
+    _DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithRegionL2 pickerType:DictionaryPickerOne delegate:self defaultValue:@"32"];
+    _DictionaryPicker.tag = 1;
     [_DictionaryPicker showInView:self.view];
+}
+
+- (void)showPlaceSelect {
+    if ([placeData count] == 0) {
+        [self.view makeToast:@"没有该地区的场馆信息"];
+        return;
+    }
+    [self cancelDicPicker];
+    _DictionaryPicker = [[DictionaryPickerView alloc] initWithDictionary:self defaultArray:placeData defalutValue:@""];
+    _DictionaryPicker.tag = 2;
+    [_DictionaryPicker showInView:self.view];
+}
+
+- (void)pickerDidChangeStatus:(DictionaryPickerView *)picker
+                  selectValue:(NSString *)selectValue
+                   selectName:(NSString *)selectName {
+    [self cancelDicPicker];
+    if (picker.tag == 1) {
+        regionid = selectValue;
+        placeid = @"";
+        [self.lbPlace setText:@"全部场馆"];
+        [self.lbProvince setText:selectName];
+        //加载场馆
+        [self reloadPlace];
+        //重新加载列表
+        page = 1;
+        [self onSearch];
+        //开始等待动画
+        [loadView startAnimating];
+    }
+    else {
+        placeid = selectValue;
+        [self.lbPlace setText:selectName];
+        [self onSearch];
+    }
+}
+
+- (void)reloadPlace {
+    //加载场馆
+    NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
+    [dicParam setObject:begindate forKey:@"strBeginDate"];
+    [dicParam setObject:regionid forKey:@"RegionID"];
+    [dicParam setObject:@"1" forKey:@"isDistinct"];
+    NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetPlaceListByBeginDate" Params:dicParam];
+    [request setDelegate:self];
+    [request startAsynchronous];
+    self.runningRequest2 = request;
 }
 @end
