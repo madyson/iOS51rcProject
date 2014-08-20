@@ -48,6 +48,7 @@
 		99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF855119A1883400524B66 /* RegisterViewController.m */; };
 		99AF855D19A1883400524B66 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF855519A1883400524B66 /* WelcomeViewController.m */; };
 		99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF856019A1898B00524B66 /* WelcomeUIImage.m */; };
+		99B2C04D19A42A770077E4F0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C04C19A42A770077E4F0 /* HomeViewController.m */; };
 		99B2F2FB199C43580066853D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2F2FA199C43580066853D /* Login.storyboard */; };
 		99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AD199CB1F100CAEC71 /* index640x960.png */; };
 		99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AE199CB1F100CAEC71 /* index640x1136.png */; };
@@ -217,6 +218,8 @@
 		99AF856019A1898B00524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
 		99AF856219A1918600524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
 		99AF856319A1E6ED00524B66 /* LoginDetailsDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginDetailsDelegate.h; sourceTree = "<group>"; };
+		99B2C04B19A42A770077E4F0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		99B2C04C19A42A770077E4F0 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		99B2F2FA199C43580066853D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		99B350AD199CB1F100CAEC71 /* index640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x960.png; sourceTree = "<group>"; };
 		99B350AE199CB1F100CAEC71 /* index640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x1136.png; sourceTree = "<group>"; };
@@ -548,6 +551,8 @@
 				994454AC199C4A0800206482 /* MenuViewController.m */,
 				99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */,
 				99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */,
+				99B2C04B19A42A770077E4F0 /* HomeViewController.h */,
+				99B2C04C19A42A770077E4F0 /* HomeViewController.m */,
 			);
 			path = iOS51rcProject;
 			sourceTree = "<group>";
@@ -861,6 +866,7 @@
 				997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				997BF0EA199DB33C00FD0B12 /* ASINetworkQueue.m in Sources */,
+				99B2C04D19A42A770077E4F0 /* HomeViewController.m in Sources */,
 				99CFD8D5199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				998025CF19A23528001A7E84 /* AnimatedGif.m in Sources */,
 				9945C32B19A1E8FA0027E931 /* DatePicker.m in Sources */,
