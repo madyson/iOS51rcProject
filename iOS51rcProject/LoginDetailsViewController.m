@@ -71,12 +71,6 @@
 }
 
 - (IBAction)btnFindPsd:(id)sender {
-//    FindPsdStep1ViewController *findPsd1View =[self.storyboard instantiateViewControllerWithIdentifier: @"findPsd1View"];
-//    UIViewController *controller = self.parentViewController;
-//    UIViewController *controller2 = self.presentedViewController;
-//    UIViewController *controller3 = self.presentingViewController;
-//    UIView * view = self.view.superview;
-//    [controller pushViewController:findPsd1View animated:YES];
     [delegate pushParentsFromLoginDetails];//调用父界面的函数
 }
 

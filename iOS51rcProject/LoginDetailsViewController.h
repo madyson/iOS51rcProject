@@ -20,7 +20,7 @@
     NSString *browser;
     NSString *isAutoLogin;
     
-    NSString *wsName;
+    NSString *wsName;//当前调用的webservice名字
 }
 @property (assign, nonatomic) id<LoginDetailsDelegate> delegate;
 @end

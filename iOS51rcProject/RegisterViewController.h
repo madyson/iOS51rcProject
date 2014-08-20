@@ -9,5 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @interface RegisterViewController : UIViewController
+{
+    NSString *wsName;//当前调用的webservice名字
+    
+    NSString *userName;
+    NSString *userID;
+    NSString *password;
+    NSString *rePassword;
+    NSString *ip;
+    NSString *provinceID;
+    NSString *browser;
+    NSString *isAutoLogin;
+}
 
 @end
