@@ -12,7 +12,6 @@
 #import "NetWebServiceRequest.h"
 #import "GDataXMLNode.h"
 #import <UIKit/UIKit.h>
-#import "CreateResumeAlertView.h"
 
 
 #define TAG_CreateResumeOrNot 1

@@ -6,7 +6,6 @@
 //  Copyright (c) 2014年 Lucifer. All rights reserved.
 //
 #import <UIKit/UIKit.h>
-#import "TNRadioButtonGroup.h"
 
 //协议
 @protocol CreateResumeDelegate <NSObject>
@@ -19,6 +18,5 @@
     BOOL hasExp;
     id<CreateResumeDelegate> delegate;
 }
-@property (nonatomic, strong) TNRadioButtonGroup *hasExpGroup;//是否有经验
 @property (nonatomic, assign) id<CreateResumeDelegate> delegate;
 @end

@@ -74,27 +74,18 @@
 		99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */; };
 		99B350C9199CB43A00CAEC71 /* welcom5-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */; };
 		99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */; };
-		99B74BF019A2DFFB00AC8852 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B74BE619A2DFFB00AC8852 /* Dialog.m */; };
-		99B74BF119A2DFFB00AC8852 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B74BE819A2DFFB00AC8852 /* MBProgressHUD.m */; };
-		99B74BF219A2DFFB00AC8852 /* MLTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B74BEA19A2DFFB00AC8852 /* MLTableAlert.m */; };
-		99B74BF319A2DFFB00AC8852 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99B74BEC19A2DFFB00AC8852 /* SVProgressHUD.bundle */; };
-		99B74BF419A2DFFB00AC8852 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B74BEE19A2DFFB00AC8852 /* SVProgressHUD.m */; };
-		99B74BF519A2DFFB00AC8852 /* SVProgressHUD.zip in Resources */ = {isa = PBXBuildFile; fileRef = 99B74BEF19A2DFFB00AC8852 /* SVProgressHUD.zip */; };
-		99BDC58D19A5789200B2BDB1 /* TNCircularRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC57A19A5789200B2BDB1 /* TNCircularRadioButton.m */; };
-		99BDC58E19A5789200B2BDB1 /* TNCircularRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC57C19A5789200B2BDB1 /* TNCircularRadioButtonData.m */; };
-		99BDC58F19A5789200B2BDB1 /* TNImageRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC57E19A5789200B2BDB1 /* TNImageRadioButton.m */; };
-		99BDC59019A5789200B2BDB1 /* TNImageRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58019A5789200B2BDB1 /* TNImageRadioButtonData.m */; };
-		99BDC59119A5789200B2BDB1 /* TNRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58219A5789200B2BDB1 /* TNRadioButton.m */; };
-		99BDC59219A5789200B2BDB1 /* TNRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58419A5789200B2BDB1 /* TNRadioButtonData.m */; };
-		99BDC59319A5789200B2BDB1 /* TNRadioButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58719A5789200B2BDB1 /* TNRadioButtonGroup.m */; };
-		99BDC59419A5789200B2BDB1 /* TNRectangularRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58A19A5789200B2BDB1 /* TNRectangularRadioButton.m */; };
-		99BDC59519A5789200B2BDB1 /* TNRectangularRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58C19A5789200B2BDB1 /* TNRectangularRadioButtonData.m */; };
 		99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5A119A586A700B2BDB1 /* HomeViewController.m */; };
-		99BDC5A519A5893C00B2BDB1 /* CreateResumeAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5A419A5893C00B2BDB1 /* CreateResumeAlertView.m */; };
 		99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */; };
 		99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */; };
-		99BDC5B119A59C3700B2BDB1 /* radioChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5AF19A59C3700B2BDB1 /* radioChecked.png */; };
-		99BDC5B219A59C3700B2BDB1 /* radioUnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5B019A59C3700B2BDB1 /* radioUnChecked.png */; };
+		99BDC5E719A5F10D00B2BDB1 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5DD19A5F10D00B2BDB1 /* Dialog.m */; };
+		99BDC5E819A5F10D00B2BDB1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5DF19A5F10D00B2BDB1 /* MBProgressHUD.m */; };
+		99BDC5E919A5F10D00B2BDB1 /* MLTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5E119A5F10D00B2BDB1 /* MLTableAlert.m */; };
+		99BDC5EA19A5F10D00B2BDB1 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5E319A5F10D00B2BDB1 /* SVProgressHUD.bundle */; };
+		99BDC5EB19A5F10D00B2BDB1 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5E519A5F10D00B2BDB1 /* SVProgressHUD.m */; };
+		99BDC5EC19A5F10D00B2BDB1 /* SVProgressHUD.zip in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5E619A5F10D00B2BDB1 /* SVProgressHUD.zip */; };
+		99BDC5F019A5F2D600B2BDB1 /* SVProgressHUD.bundle in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5E319A5F10D00B2BDB1 /* SVProgressHUD.bundle */; };
+		99BDC5F419A5F4A900B2BDB1 /* radioChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5F219A5F4A900B2BDB1 /* radioChecked.png */; };
+		99BDC5F519A5F4A900B2BDB1 /* radioUnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5F319A5F4A900B2BDB1 /* radioUnChecked.png */; };
 		99CFD818199B5F80009A5ABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD817199B5F80009A5ABA /* Foundation.framework */; };
 		99CFD81A199B5F80009A5ABA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD819199B5F80009A5ABA /* CoreGraphics.framework */; };
 		99CFD81C199B5F80009A5ABA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD81B199B5F80009A5ABA /* UIKit.framework */; };
@@ -281,45 +272,26 @@
 		99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x1136.png"; sourceTree = "<group>"; };
 		99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x960.png"; sourceTree = "<group>"; };
 		99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x1136.png"; sourceTree = "<group>"; };
-		99B74BE519A2DFFB00AC8852 /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
-		99B74BE619A2DFFB00AC8852 /* Dialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
-		99B74BE719A2DFFB00AC8852 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		99B74BE819A2DFFB00AC8852 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		99B74BE919A2DFFB00AC8852 /* MLTableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTableAlert.h; sourceTree = "<group>"; };
-		99B74BEA19A2DFFB00AC8852 /* MLTableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTableAlert.m; sourceTree = "<group>"; };
-		99B74BEC19A2DFFB00AC8852 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		99B74BED19A2DFFB00AC8852 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		99B74BEE19A2DFFB00AC8852 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		99B74BEF19A2DFFB00AC8852 /* SVProgressHUD.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SVProgressHUD.zip; sourceTree = "<group>"; };
-		99BDC57919A5789200B2BDB1 /* TNCircularRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCircularRadioButton.h; sourceTree = "<group>"; };
-		99BDC57A19A5789200B2BDB1 /* TNCircularRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCircularRadioButton.m; sourceTree = "<group>"; };
-		99BDC57B19A5789200B2BDB1 /* TNCircularRadioButtonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCircularRadioButtonData.h; sourceTree = "<group>"; };
-		99BDC57C19A5789200B2BDB1 /* TNCircularRadioButtonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCircularRadioButtonData.m; sourceTree = "<group>"; };
-		99BDC57D19A5789200B2BDB1 /* TNImageRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageRadioButton.h; sourceTree = "<group>"; };
-		99BDC57E19A5789200B2BDB1 /* TNImageRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNImageRadioButton.m; sourceTree = "<group>"; };
-		99BDC57F19A5789200B2BDB1 /* TNImageRadioButtonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageRadioButtonData.h; sourceTree = "<group>"; };
-		99BDC58019A5789200B2BDB1 /* TNImageRadioButtonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNImageRadioButtonData.m; sourceTree = "<group>"; };
-		99BDC58119A5789200B2BDB1 /* TNRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRadioButton.h; sourceTree = "<group>"; };
-		99BDC58219A5789200B2BDB1 /* TNRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRadioButton.m; sourceTree = "<group>"; };
-		99BDC58319A5789200B2BDB1 /* TNRadioButtonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRadioButtonData.h; sourceTree = "<group>"; };
-		99BDC58419A5789200B2BDB1 /* TNRadioButtonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRadioButtonData.m; sourceTree = "<group>"; };
-		99BDC58519A5789200B2BDB1 /* TNRadioButtonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRadioButtonDelegate.h; sourceTree = "<group>"; };
-		99BDC58619A5789200B2BDB1 /* TNRadioButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRadioButtonGroup.h; sourceTree = "<group>"; };
-		99BDC58719A5789200B2BDB1 /* TNRadioButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRadioButtonGroup.m; sourceTree = "<group>"; };
-		99BDC58819A5789200B2BDB1 /* TNRadioButtonGroupProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRadioButtonGroupProtocol.h; sourceTree = "<group>"; };
-		99BDC58919A5789200B2BDB1 /* TNRectangularRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularRadioButton.h; sourceTree = "<group>"; };
-		99BDC58A19A5789200B2BDB1 /* TNRectangularRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularRadioButton.m; sourceTree = "<group>"; };
-		99BDC58B19A5789200B2BDB1 /* TNRectangularRadioButtonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularRadioButtonData.h; sourceTree = "<group>"; };
-		99BDC58C19A5789200B2BDB1 /* TNRectangularRadioButtonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularRadioButtonData.m; sourceTree = "<group>"; };
 		99BDC5A019A586A700B2BDB1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		99BDC5A119A586A700B2BDB1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		99BDC5A319A5893C00B2BDB1 /* CreateResumeAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertView.h; sourceTree = "<group>"; };
-		99BDC5A419A5893C00B2BDB1 /* CreateResumeAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateResumeAlertView.m; sourceTree = "<group>"; };
 		99BDC5AA19A5917200B2BDB1 /* CreateResumeAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertViewController.h; sourceTree = "<group>"; };
 		99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateResumeAlertViewController.m; sourceTree = "<group>"; };
 		99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateResumeAlertViewController.xib; sourceTree = "<group>"; };
-		99BDC5AF19A59C3700B2BDB1 /* radioChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioChecked.png; sourceTree = "<group>"; };
-		99BDC5B019A59C3700B2BDB1 /* radioUnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioUnChecked.png; sourceTree = "<group>"; };
+		99BDC5DC19A5F10D00B2BDB1 /* Dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dialog.h; sourceTree = "<group>"; };
+		99BDC5DD19A5F10D00B2BDB1 /* Dialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dialog.m; sourceTree = "<group>"; };
+		99BDC5DE19A5F10D00B2BDB1 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		99BDC5DF19A5F10D00B2BDB1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		99BDC5E019A5F10D00B2BDB1 /* MLTableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTableAlert.h; sourceTree = "<group>"; };
+		99BDC5E119A5F10D00B2BDB1 /* MLTableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTableAlert.m; sourceTree = "<group>"; };
+		99BDC5E319A5F10D00B2BDB1 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		99BDC5E419A5F10D00B2BDB1 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		99BDC5E519A5F10D00B2BDB1 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		99BDC5E619A5F10D00B2BDB1 /* SVProgressHUD.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SVProgressHUD.zip; sourceTree = "<group>"; };
+		99BDC5F119A5F47100B2BDB1 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = iOS51rcProject/Class/MBProgressHUD/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		99BDC5F219A5F4A900B2BDB1 /* radioChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioChecked.png; sourceTree = "<group>"; };
+		99BDC5F319A5F4A900B2BDB1 /* radioUnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioUnChecked.png; sourceTree = "<group>"; };
+		99BDC5F619A5F4E100B2BDB1 /* radioChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = radioChecked.png; path = iOS51rcProject/Resource/images/radioChecked.png; sourceTree = "<group>"; };
+		99BDC5F719A5F4E100B2BDB1 /* radioUnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = radioUnChecked.png; path = iOS51rcProject/Resource/images/radioUnChecked.png; sourceTree = "<group>"; };
 		99CFD814199B5F80009A5ABA /* iOS51rcProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS51rcProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CFD817199B5F80009A5ABA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99CFD819199B5F80009A5ABA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -592,87 +564,9 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-		99B74BE419A2DFFB00AC8852 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				99B74BE519A2DFFB00AC8852 /* Dialog.h */,
-				99B74BE619A2DFFB00AC8852 /* Dialog.m */,
-				99B74BE719A2DFFB00AC8852 /* MBProgressHUD.h */,
-				99B74BE819A2DFFB00AC8852 /* MBProgressHUD.m */,
-				99B74BE919A2DFFB00AC8852 /* MLTableAlert.h */,
-				99B74BEA19A2DFFB00AC8852 /* MLTableAlert.m */,
-				99B74BEB19A2DFFB00AC8852 /* SVProgressHUD */,
-				99B74BEF19A2DFFB00AC8852 /* SVProgressHUD.zip */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
-		99B74BEB19A2DFFB00AC8852 /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				99B74BEC19A2DFFB00AC8852 /* SVProgressHUD.bundle */,
-				99B74BED19A2DFFB00AC8852 /* SVProgressHUD.h */,
-				99B74BEE19A2DFFB00AC8852 /* SVProgressHUD.m */,
-			);
-			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
-		99BDC57819A5789200B2BDB1 /* TNRadioButtonGroup */ = {
-			isa = PBXGroup;
-			children = (
-				99BDC59819A578C800B2BDB1 /* Types */,
-				99BDC59719A578BF00B2BDB1 /* Data */,
-				99BDC59619A578B200B2BDB1 /* Protocol */,
-				99BDC58619A5789200B2BDB1 /* TNRadioButtonGroup.h */,
-				99BDC58719A5789200B2BDB1 /* TNRadioButtonGroup.m */,
-			);
-			path = TNRadioButtonGroup;
-			sourceTree = "<group>";
-		};
-		99BDC59619A578B200B2BDB1 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				99BDC58819A5789200B2BDB1 /* TNRadioButtonGroupProtocol.h */,
-			);
-			name = Protocol;
-			sourceTree = "<group>";
-		};
-		99BDC59719A578BF00B2BDB1 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				99BDC57D19A5789200B2BDB1 /* TNImageRadioButton.h */,
-				99BDC57E19A5789200B2BDB1 /* TNImageRadioButton.m */,
-			);
-			name = Data;
-			sourceTree = "<group>";
-		};
-		99BDC59819A578C800B2BDB1 /* Types */ = {
-			isa = PBXGroup;
-			children = (
-				99BDC58119A5789200B2BDB1 /* TNRadioButton.h */,
-				99BDC58219A5789200B2BDB1 /* TNRadioButton.m */,
-				99BDC57919A5789200B2BDB1 /* TNCircularRadioButton.h */,
-				99BDC57A19A5789200B2BDB1 /* TNCircularRadioButton.m */,
-				99BDC57B19A5789200B2BDB1 /* TNCircularRadioButtonData.h */,
-				99BDC57C19A5789200B2BDB1 /* TNCircularRadioButtonData.m */,
-				99BDC57F19A5789200B2BDB1 /* TNImageRadioButtonData.h */,
-				99BDC58019A5789200B2BDB1 /* TNImageRadioButtonData.m */,
-				99BDC58319A5789200B2BDB1 /* TNRadioButtonData.h */,
-				99BDC58419A5789200B2BDB1 /* TNRadioButtonData.m */,
-				99BDC58519A5789200B2BDB1 /* TNRadioButtonDelegate.h */,
-				99BDC58919A5789200B2BDB1 /* TNRectangularRadioButton.h */,
-				99BDC58A19A5789200B2BDB1 /* TNRectangularRadioButton.m */,
-				99BDC58B19A5789200B2BDB1 /* TNRectangularRadioButtonData.h */,
-				99BDC58C19A5789200B2BDB1 /* TNRectangularRadioButtonData.m */,
-			);
-			name = Types;
-			sourceTree = "<group>";
-		};
 		99BDC59C19A57FAD00B2BDB1 /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
-				99BDC5A319A5893C00B2BDB1 /* CreateResumeAlertView.h */,
-				99BDC5A419A5893C00B2BDB1 /* CreateResumeAlertView.m */,
 				99BDC5AA19A5917200B2BDB1 /* CreateResumeAlertViewController.h */,
 				99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */,
 				99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */,
@@ -680,9 +574,37 @@
 			path = CustomControl;
 			sourceTree = "<group>";
 		};
+		99BDC5DB19A5F10D00B2BDB1 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				99BDC5DC19A5F10D00B2BDB1 /* Dialog.h */,
+				99BDC5DD19A5F10D00B2BDB1 /* Dialog.m */,
+				99BDC5DE19A5F10D00B2BDB1 /* MBProgressHUD.h */,
+				99BDC5DF19A5F10D00B2BDB1 /* MBProgressHUD.m */,
+				99BDC5E019A5F10D00B2BDB1 /* MLTableAlert.h */,
+				99BDC5E119A5F10D00B2BDB1 /* MLTableAlert.m */,
+				99BDC5E219A5F10D00B2BDB1 /* SVProgressHUD */,
+				99BDC5E619A5F10D00B2BDB1 /* SVProgressHUD.zip */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		99BDC5E219A5F10D00B2BDB1 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				99BDC5E319A5F10D00B2BDB1 /* SVProgressHUD.bundle */,
+				99BDC5E419A5F10D00B2BDB1 /* SVProgressHUD.h */,
+				99BDC5E519A5F10D00B2BDB1 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		99CFD80B199B5F80009A5ABA = {
 			isa = PBXGroup;
 			children = (
+				99BDC5F619A5F4E100B2BDB1 /* radioChecked.png */,
+				99BDC5F719A5F4E100B2BDB1 /* radioUnChecked.png */,
+				99BDC5F119A5F47100B2BDB1 /* SVProgressHUD.bundle */,
 				99CFD81D199B5F80009A5ABA /* iOS51rcProject */,
 				99CFD83C199B5F80009A5ABA /* iOS51rcProjectTests */,
 				99CFD816199B5F80009A5ABA /* Frameworks */,
@@ -783,6 +705,8 @@
 		99CFD84F199B60D8009A5ABA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				99BDC5F219A5F4A900B2BDB1 /* radioChecked.png */,
+				99BDC5F319A5F4A900B2BDB1 /* radioUnChecked.png */,
 				99512F5F19A5C64800E56EF4 /* ico_calltelphone.png */,
 				991125AD19A4EE9800C98173 /* ico_rm_pa.png */,
 				991125AE19A4EE9800C98173 /* ico_rm_cp.png */,
@@ -843,6 +767,7 @@
 		99CFD89A199B6196009A5ABA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				99BDC5DB19A5F10D00B2BDB1 /* MBProgressHUD */,
 				9911259E19A49DCE00C98173 /* Toast */,
 				99908A4B19A34DD300137FDE /* FMDB */,
 				99908A0719A3431200137FDE /* DictionaryPicker */,
@@ -972,6 +897,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99BDC5F419A5F4A900B2BDB1 /* radioChecked.png in Resources */,
+				99BDC5F519A5F4A900B2BDB1 /* radioUnChecked.png in Resources */,
+				99BDC5EA19A5F10D00B2BDB1 /* SVProgressHUD.bundle in Resources */,
 				99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */,
 				99CFD87B199B60D8009A5ABA /* ico_leftmenu_head.png in Resources */,
 				99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */,
@@ -983,11 +911,11 @@
 				99CFD830199B5F80009A5ABA /* Images.xcassets in Resources */,
 				99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */,
 				99CFD87C199B60D8009A5ABA /* ico_leftmenu_index.png in Resources */,
-				99B74BF319A2DFFB00AC8852 /* SVProgressHUD.bundle in Resources */,
 				99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */,
 				99CFD893199B60D8009A5ABA /* main_pic_jobnews.png in Resources */,
 				99CFD822199B5F80009A5ABA /* InfoPlist.strings in Resources */,
 				99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */,
+				99BDC5EC19A5F10D00B2BDB1 /* SVProgressHUD.zip in Resources */,
 				99CFD87D199B60D8009A5ABA /* ico_leftmenu_jobnews.png in Resources */,
 				99CFD895199B60D8009A5ABA /* qq.png in Resources */,
 				99CFD879199B60D8009A5ABA /* ico_leftmenu_campus.png in Resources */,
@@ -1021,17 +949,14 @@
 				99CFD887199B60D8009A5ABA /* ico_main_near.png in Resources */,
 				99CFD88E199B60D8009A5ABA /* loginRenRen.png in Resources */,
 				99CFD84D199B6082009A5ABA /* Home.storyboard in Resources */,
-				99BDC5B119A59C3700B2BDB1 /* radioChecked.png in Resources */,
 				99CFD881199B60D8009A5ABA /* ico_leftmenu_salary.png in Resources */,
 				99CFD87A199B60D8009A5ABA /* ico_leftmenu_govnews.png in Resources */,
-				99BDC5B219A59C3700B2BDB1 /* radioUnChecked.png in Resources */,
 				9945C30D19A1AB370027E931 /* ico_rm_group.png in Resources */,
 				991125AF19A4EE9800C98173 /* ico_rm_pa.png in Resources */,
 				99CFD896199B60D8009A5ABA /* renren.png in Resources */,
 				99CFD880199B60D8009A5ABA /* ico_leftmenu_rm.png in Resources */,
 				99B350BB199CB1F100CAEC71 /* welcom2-320x960.png in Resources */,
 				99CFD899199B60D8009A5ABA /* weibo.png in Resources */,
-				99B74BF519A2DFFB00AC8852 /* SVProgressHUD.zip in Resources */,
 				99CFD88C199B60D8009A5ABA /* loading.gif in Resources */,
 				99CFD87F199B60D8009A5ABA /* ico_leftmenu_more.png in Resources */,
 				99CFD888199B60D8009A5ABA /* ico_main_rm.png in Resources */,
@@ -1057,11 +982,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99BDC5F019A5F2D600B2BDB1 /* SVProgressHUD.bundle in Sources */,
 				998025C219A23024001A7E84 /* MJRefreshHeaderView.m in Sources */,
 				99908A0519A3430900137FDE /* DictionaryPickerView.m in Sources */,
+				99BDC5E919A5F10D00B2BDB1 /* MLTableAlert.m in Sources */,
 				99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */,
-				99BDC58F19A5789200B2BDB1 /* TNImageRadioButton.m in Sources */,
-				99B74BF219A2DFFB00AC8852 /* MLTableAlert.m in Sources */,
 				99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				998025BF19A23024001A7E84 /* MJRefreshBaseView.m in Sources */,
@@ -1073,12 +998,13 @@
 				99908A5619A34DD300137FDE /* FMDatabase.m in Sources */,
 				99908A5A19A34DD300137FDE /* FMResultSet.m in Sources */,
 				997BF0EA199DB33C00FD0B12 /* ASINetworkQueue.m in Sources */,
+				99BDC5EB19A5F10D00B2BDB1 /* SVProgressHUD.m in Sources */,
 				99CFD8D5199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
-				99BDC59219A5789200B2BDB1 /* TNRadioButtonData.m in Sources */,
 				998025CF19A23528001A7E84 /* AnimatedGif.m in Sources */,
 				9945C32B19A1E8FA0027E931 /* DatePicker.m in Sources */,
 				997BF0EC199DB33C00FD0B12 /* GDataXMLNode.m in Sources */,
 				998025C119A23024001A7E84 /* MJRefreshFooterView.m in Sources */,
+				99BDC5E819A5F10D00B2BDB1 /* MBProgressHUD.m in Sources */,
 				997BF0E6199DB33C00FD0B12 /* ASIDownloadCache.m in Sources */,
 				997BF0E9199DB33C00FD0B12 /* ASIInputStream.m in Sources */,
 				998025C319A23024001A7E84 /* UIScrollView+Extension.m in Sources */,
@@ -1090,24 +1016,17 @@
 				998025C519A23024001A7E84 /* UIView+Extension.m in Sources */,
 				997BF0EB199DB33C00FD0B12 /* Reachability.m in Sources */,
 				99CFD828199B5F80009A5ABA /* AppDelegate.m in Sources */,
-				99BDC58E19A5789200B2BDB1 /* TNCircularRadioButtonData.m in Sources */,
 				997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */,
 				99A5D671199CB8D100466B0C /* RecruitmentListViewController.m in Sources */,
-				99BDC59319A5789200B2BDB1 /* TNRadioButtonGroup.m in Sources */,
 				997BF102199E248C00FD0B12 /* CommonController.m in Sources */,
 				997BF0E8199DB33C00FD0B12 /* ASIHTTPRequest.m in Sources */,
 				99CFD824199B5F80009A5ABA /* main.m in Sources */,
 				99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
-				99BDC59019A5789200B2BDB1 /* TNImageRadioButtonData.m in Sources */,
-				99BDC59519A5789200B2BDB1 /* TNRectangularRadioButtonData.m in Sources */,
-				99BDC5A519A5893C00B2BDB1 /* CreateResumeAlertView.m in Sources */,
-				99BDC59119A5789200B2BDB1 /* TNRadioButton.m in Sources */,
 				998025C419A23024001A7E84 /* UIScrollView+MJRefresh.m in Sources */,
-				99B74BF119A2DFFB00AC8852 /* MBProgressHUD.m in Sources */,
-				99B74BF419A2DFFB00AC8852 /* SVProgressHUD.m in Sources */,
 				994454AD199C4A0800206482 /* MenuViewController.m in Sources */,
 				99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */,
 				99908A5919A34DD300137FDE /* FMDatabaseQueue.m in Sources */,
+				99BDC5E719A5F10D00B2BDB1 /* Dialog.m in Sources */,
 				99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */,
 				997BF0ED199DB33C00FD0B12 /* NetWebServiceRequest.m in Sources */,
 				99AF855619A1883400524B66 /* FindPsdStep1ViewController.m in Sources */,
@@ -1118,7 +1037,6 @@
 				998025D019A23528001A7E84 /* LoadingAnimationView.m in Sources */,
 				997BF0E5199DB33C00FD0B12 /* ASIDataDecompressor.m in Sources */,
 				99AF855819A1883400524B66 /* FindPsdStep3ViewController.m in Sources */,
-				99BDC59419A5789200B2BDB1 /* TNRectangularRadioButton.m in Sources */,
 				99AF855A19A1883400524B66 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

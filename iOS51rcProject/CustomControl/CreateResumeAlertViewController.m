@@ -59,7 +59,6 @@
 - (void)dealloc {
     [_imgHasNoExp release];
     [_imgHasExp release];
-    [_btnOK release];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:SELECTED_RADIO_BUTTON_CHANGED object:self.hasExpGroup];
+    [_btnOK release];   
 }
 @end
