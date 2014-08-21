@@ -71,12 +71,6 @@
 }
 
 - (IBAction)btnFindPsd:(id)sender {
-//    FindPsdStep1ViewController *findPsd1View =[self.storyboard instantiateViewControllerWithIdentifier: @"findPsd1View"];
-//    UIViewController *controller = self.parentViewController;
-//    UIViewController *controller2 = self.presentedViewController;
-//    UIViewController *controller3 = self.presentingViewController;
-//    UIView * view = self.view.superview;
-//    [controller pushViewController:findPsd1View animated:YES];
     [delegate pushParentsFromLoginDetails];//调用父界面的函数
 }
 
@@ -153,8 +147,8 @@
     //NSString *name = [result substringWithRange:NSMakeRange(0,4)];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setValue: userID forKey:@"UserID"];
-    [userDefaults setValue: userName forKey:@"userName"];
-    [userDefaults setValue: passWord forKey:@"passWord"];
+    [userDefaults setValue: userName forKey:@"UserName"];
+    [userDefaults setValue: passWord forKey:@"PassWord"];
     //[userDefaults setValue: name forKey:@"name"];
     [userDefaults setValue: @"1" forKey:@"BeLogined"];
     [userDefaults setValue:isAutoLogin forKey:@"isAutoLogin"];

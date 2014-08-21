@@ -10,4 +10,7 @@
 
 @interface FindPsdStep2ViewController : UIViewController
 
+@property (retain,nonatomic) NSString *type;  //本次找回的类型：用户名，邮箱 1  手机号
+@property (retain,nonatomic) NSString *code;
+@property (retain,nonatomic) NSString *name; //上一步找回时输入的邮箱名或者手机号
 @end

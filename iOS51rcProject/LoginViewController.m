@@ -10,11 +10,12 @@
 #import "NetWebServiceRequest.h"
 #import "GDataXMLNode.h"
 #import "CommonController.h"
+#import "FindPsdStep1ViewController.h"
 
 
 @interface LoginViewController ()
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segment;
-@property (retain, nonatomic) IBOutlet UINavigationItem *ni;
+//@property (retain, nonatomic) IBOutlet UINavigationItem *ni;
 
 @end
 
@@ -35,22 +36,26 @@
         [self.registerView removeFromParentViewController];
         [self.view addSubview:self.loginDetailsView.view];
         // = self;
-        self.ni.title = @"登录";
+        self.navigationItem.title = @"登录";
     } else  {
         [self.loginDetailsView removeFromParentViewController];
         [self.view addSubview:self.registerView.view];
-        self.ni.title = @"注册";
+        self.navigationItem.title = @"注册";
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+    self.navigationItem.title = @"登录";
+    //返回按钮
+    UIBarButtonItem *btnBack = [[UIBarButtonItem alloc] initWithTitle:@"后退" style:UIBarButtonItemStyleDone target:nil action:nil];
+    self.navigationItem.backBarButtonItem = btnBack;
     
-    self.ni.titleView.backgroundColor = [UIColor orangeColor];
-    self.ni.title = @"登录";
     self.loginDetailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginDetailsView"];
     self.registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
+    
     
     CGRect frame = [[UIScreen mainScreen] bounds];
     frame.origin.y = 100;//状态栏和切换栏的高度
@@ -59,7 +64,7 @@
     self.loginDetailsView.view.frame = frame;
     self.registerView.view.frame = frame;
     
-    // Do any additional setup after loading the view.
+    //初始化左侧和右侧的登录以及注册子View
     self.leftSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     self.rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     self.leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -73,7 +78,8 @@
 
 - (void) pushParentsFromLoginDetails
 {
-    NSLog(@"call login details");
+    FindPsdStep1ViewController *findPsd1View =[self.storyboard instantiateViewControllerWithIdentifier: @"findPsd1View"];
+    [self.navigationController pushViewController:findPsd1View animated:YES];
 }
 
 - (void)handleSwipes:(UISwipeGestureRecognizer *)sender
@@ -82,13 +88,13 @@
         [self.registerView removeFromParentViewController];
         [self.view addSubview:self.loginDetailsView.view];
         self.segment.selectedSegmentIndex = 0;
-        self.ni.title = @"登录";
+        self.navigationItem.title = @"登录";
     }
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
         [self.loginDetailsView removeFromParentViewController];
         [self.view addSubview:self.registerView.view];
         self.segment.selectedSegmentIndex = 1;
-        self.ni.title = @"注册";
+        self.navigationItem.title = @"注册";
     }
 }
 - (void)didReceiveMemoryWarning
@@ -110,7 +116,7 @@
 
 - (void)dealloc {
     [_segment release];
-    [_ni release];
+    //[_ni release];
     [super dealloc];
 }
 @end
