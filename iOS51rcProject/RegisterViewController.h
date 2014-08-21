@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomControl/CreateResumeAlertViewController.h"
 
 @interface RegisterViewController : UIViewController
 {
@@ -20,6 +21,8 @@
     NSString *provinceID;
     NSString *browser;
     NSString *isAutoLogin;
+    CreateResumeAlertViewController *createResumeCtrl;
+    UIView *backGroundView;
 }
 
 @end
