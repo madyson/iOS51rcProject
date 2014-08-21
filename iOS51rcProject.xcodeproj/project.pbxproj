@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		993434A319A49EEF0056071A /* CreateResumeAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993434A519A49EEF0056071A /* CreateResumeAlert.xib */; };
 		994454AD199C4A0800206482 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994454AC199C4A0800206482 /* MenuViewController.m */; };
 		9945C30B19A1A4890027E931 /* ico_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9945C30A19A1A4890027E931 /* ico_clock.png */; };
 		9945C30D19A1AB370027E931 /* ico_rm_group.png in Resources */ = {isa = PBXBuildFile; fileRef = 9945C30C19A1AB370027E931 /* ico_rm_group.png */; };
@@ -48,7 +49,6 @@
 		99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF855119A1883400524B66 /* RegisterViewController.m */; };
 		99AF855D19A1883400524B66 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF855519A1883400524B66 /* WelcomeViewController.m */; };
 		99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF856019A1898B00524B66 /* WelcomeUIImage.m */; };
-		99B2C04D19A42A770077E4F0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C04C19A42A770077E4F0 /* HomeViewController.m */; };
 		99B2F2FB199C43580066853D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B2F2FA199C43580066853D /* Login.storyboard */; };
 		99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AD199CB1F100CAEC71 /* index640x960.png */; };
 		99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350AE199CB1F100CAEC71 /* index640x1136.png */; };
@@ -66,6 +66,17 @@
 		99B74BF319A2DFFB00AC8852 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99B74BEC19A2DFFB00AC8852 /* SVProgressHUD.bundle */; };
 		99B74BF419A2DFFB00AC8852 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B74BEE19A2DFFB00AC8852 /* SVProgressHUD.m */; };
 		99B74BF519A2DFFB00AC8852 /* SVProgressHUD.zip in Resources */ = {isa = PBXBuildFile; fileRef = 99B74BEF19A2DFFB00AC8852 /* SVProgressHUD.zip */; };
+		99BDC58D19A5789200B2BDB1 /* TNCircularRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC57A19A5789200B2BDB1 /* TNCircularRadioButton.m */; };
+		99BDC58E19A5789200B2BDB1 /* TNCircularRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC57C19A5789200B2BDB1 /* TNCircularRadioButtonData.m */; };
+		99BDC58F19A5789200B2BDB1 /* TNImageRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC57E19A5789200B2BDB1 /* TNImageRadioButton.m */; };
+		99BDC59019A5789200B2BDB1 /* TNImageRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58019A5789200B2BDB1 /* TNImageRadioButtonData.m */; };
+		99BDC59119A5789200B2BDB1 /* TNRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58219A5789200B2BDB1 /* TNRadioButton.m */; };
+		99BDC59219A5789200B2BDB1 /* TNRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58419A5789200B2BDB1 /* TNRadioButtonData.m */; };
+		99BDC59319A5789200B2BDB1 /* TNRadioButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58719A5789200B2BDB1 /* TNRadioButtonGroup.m */; };
+		99BDC59419A5789200B2BDB1 /* TNRectangularRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58A19A5789200B2BDB1 /* TNRectangularRadioButton.m */; };
+		99BDC59519A5789200B2BDB1 /* TNRectangularRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58C19A5789200B2BDB1 /* TNRectangularRadioButtonData.m */; };
+		99BDC59F19A57FAD00B2BDB1 /* CreateResumeAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC59E19A57FAD00B2BDB1 /* CreateResumeAlertViewController.m */; };
+		99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5A119A586A700B2BDB1 /* HomeViewController.m */; };
 		99CFD818199B5F80009A5ABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD817199B5F80009A5ABA /* Foundation.framework */; };
 		99CFD81A199B5F80009A5ABA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD819199B5F80009A5ABA /* CoreGraphics.framework */; };
 		99CFD81C199B5F80009A5ABA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD81B199B5F80009A5ABA /* UIKit.framework */; };
@@ -137,6 +148,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		993434A419A49EEF0056071A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreateResumeAlert.xib; sourceTree = "<group>"; };
 		994454AB199C4A0800206482 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		994454AC199C4A0800206482 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		9945C30A19A1A4890027E931 /* ico_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_clock.png; sourceTree = "<group>"; };
@@ -218,8 +230,6 @@
 		99AF856019A1898B00524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
 		99AF856219A1918600524B66 /* WelcomeUIImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeUIImage.m; sourceTree = "<group>"; };
 		99AF856319A1E6ED00524B66 /* LoginDetailsDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginDetailsDelegate.h; sourceTree = "<group>"; };
-		99B2C04B19A42A770077E4F0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		99B2C04C19A42A770077E4F0 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		99B2F2FA199C43580066853D /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		99B350AD199CB1F100CAEC71 /* index640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x960.png; sourceTree = "<group>"; };
 		99B350AE199CB1F100CAEC71 /* index640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index640x1136.png; sourceTree = "<group>"; };
@@ -241,6 +251,30 @@
 		99B74BED19A2DFFB00AC8852 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		99B74BEE19A2DFFB00AC8852 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		99B74BEF19A2DFFB00AC8852 /* SVProgressHUD.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SVProgressHUD.zip; sourceTree = "<group>"; };
+		99BDC57919A5789200B2BDB1 /* TNCircularRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCircularRadioButton.h; sourceTree = "<group>"; };
+		99BDC57A19A5789200B2BDB1 /* TNCircularRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCircularRadioButton.m; sourceTree = "<group>"; };
+		99BDC57B19A5789200B2BDB1 /* TNCircularRadioButtonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNCircularRadioButtonData.h; sourceTree = "<group>"; };
+		99BDC57C19A5789200B2BDB1 /* TNCircularRadioButtonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNCircularRadioButtonData.m; sourceTree = "<group>"; };
+		99BDC57D19A5789200B2BDB1 /* TNImageRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageRadioButton.h; sourceTree = "<group>"; };
+		99BDC57E19A5789200B2BDB1 /* TNImageRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNImageRadioButton.m; sourceTree = "<group>"; };
+		99BDC57F19A5789200B2BDB1 /* TNImageRadioButtonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNImageRadioButtonData.h; sourceTree = "<group>"; };
+		99BDC58019A5789200B2BDB1 /* TNImageRadioButtonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNImageRadioButtonData.m; sourceTree = "<group>"; };
+		99BDC58119A5789200B2BDB1 /* TNRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRadioButton.h; sourceTree = "<group>"; };
+		99BDC58219A5789200B2BDB1 /* TNRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRadioButton.m; sourceTree = "<group>"; };
+		99BDC58319A5789200B2BDB1 /* TNRadioButtonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRadioButtonData.h; sourceTree = "<group>"; };
+		99BDC58419A5789200B2BDB1 /* TNRadioButtonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRadioButtonData.m; sourceTree = "<group>"; };
+		99BDC58519A5789200B2BDB1 /* TNRadioButtonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRadioButtonDelegate.h; sourceTree = "<group>"; };
+		99BDC58619A5789200B2BDB1 /* TNRadioButtonGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRadioButtonGroup.h; sourceTree = "<group>"; };
+		99BDC58719A5789200B2BDB1 /* TNRadioButtonGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRadioButtonGroup.m; sourceTree = "<group>"; };
+		99BDC58819A5789200B2BDB1 /* TNRadioButtonGroupProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRadioButtonGroupProtocol.h; sourceTree = "<group>"; };
+		99BDC58919A5789200B2BDB1 /* TNRectangularRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularRadioButton.h; sourceTree = "<group>"; };
+		99BDC58A19A5789200B2BDB1 /* TNRectangularRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularRadioButton.m; sourceTree = "<group>"; };
+		99BDC58B19A5789200B2BDB1 /* TNRectangularRadioButtonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularRadioButtonData.h; sourceTree = "<group>"; };
+		99BDC58C19A5789200B2BDB1 /* TNRectangularRadioButtonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularRadioButtonData.m; sourceTree = "<group>"; };
+		99BDC59D19A57FAD00B2BDB1 /* CreateResumeAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertViewController.h; sourceTree = "<group>"; };
+		99BDC59E19A57FAD00B2BDB1 /* CreateResumeAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateResumeAlertViewController.m; sourceTree = "<group>"; };
+		99BDC5A019A586A700B2BDB1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		99BDC5A119A586A700B2BDB1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		99CFD814199B5F80009A5ABA /* iOS51rcProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS51rcProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CFD817199B5F80009A5ABA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99CFD819199B5F80009A5ABA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -500,6 +534,67 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		99BDC57819A5789200B2BDB1 /* TNRadioButtonGroup */ = {
+			isa = PBXGroup;
+			children = (
+				99BDC59819A578C800B2BDB1 /* Types */,
+				99BDC59719A578BF00B2BDB1 /* Data */,
+				99BDC59619A578B200B2BDB1 /* Protocol */,
+				99BDC58619A5789200B2BDB1 /* TNRadioButtonGroup.h */,
+				99BDC58719A5789200B2BDB1 /* TNRadioButtonGroup.m */,
+			);
+			path = TNRadioButtonGroup;
+			sourceTree = "<group>";
+		};
+		99BDC59619A578B200B2BDB1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				99BDC58819A5789200B2BDB1 /* TNRadioButtonGroupProtocol.h */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		99BDC59719A578BF00B2BDB1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				99BDC57D19A5789200B2BDB1 /* TNImageRadioButton.h */,
+				99BDC57E19A5789200B2BDB1 /* TNImageRadioButton.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		99BDC59819A578C800B2BDB1 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				99BDC58119A5789200B2BDB1 /* TNRadioButton.h */,
+				99BDC58219A5789200B2BDB1 /* TNRadioButton.m */,
+				99BDC57919A5789200B2BDB1 /* TNCircularRadioButton.h */,
+				99BDC57A19A5789200B2BDB1 /* TNCircularRadioButton.m */,
+				99BDC57B19A5789200B2BDB1 /* TNCircularRadioButtonData.h */,
+				99BDC57C19A5789200B2BDB1 /* TNCircularRadioButtonData.m */,
+				99BDC57F19A5789200B2BDB1 /* TNImageRadioButtonData.h */,
+				99BDC58019A5789200B2BDB1 /* TNImageRadioButtonData.m */,
+				99BDC58319A5789200B2BDB1 /* TNRadioButtonData.h */,
+				99BDC58419A5789200B2BDB1 /* TNRadioButtonData.m */,
+				99BDC58519A5789200B2BDB1 /* TNRadioButtonDelegate.h */,
+				99BDC58919A5789200B2BDB1 /* TNRectangularRadioButton.h */,
+				99BDC58A19A5789200B2BDB1 /* TNRectangularRadioButton.m */,
+				99BDC58B19A5789200B2BDB1 /* TNRectangularRadioButtonData.h */,
+				99BDC58C19A5789200B2BDB1 /* TNRectangularRadioButtonData.m */,
+			);
+			name = Types;
+			sourceTree = "<group>";
+		};
+		99BDC59C19A57FAD00B2BDB1 /* CustomControl */ = {
+			isa = PBXGroup;
+			children = (
+				993434A519A49EEF0056071A /* CreateResumeAlert.xib */,
+				99BDC59D19A57FAD00B2BDB1 /* CreateResumeAlertViewController.h */,
+				99BDC59E19A57FAD00B2BDB1 /* CreateResumeAlertViewController.m */,
+			);
+			path = CustomControl;
+			sourceTree = "<group>";
+		};
 		99CFD80B199B5F80009A5ABA = {
 			isa = PBXGroup;
 			children = (
@@ -538,6 +633,9 @@
 		99CFD81D199B5F80009A5ABA /* iOS51rcProject */ = {
 			isa = PBXGroup;
 			children = (
+				99BDC5A019A586A700B2BDB1 /* HomeViewController.h */,
+				99BDC5A119A586A700B2BDB1 /* HomeViewController.m */,
+				99BDC59C19A57FAD00B2BDB1 /* CustomControl */,
 				99AF855F19A188F100524B66 /* Login */,
 				99AF855E19A188D700524B66 /* WelCome */,
 				99CFD84E199B60D8009A5ABA /* Resource */,
@@ -551,8 +649,6 @@
 				994454AC199C4A0800206482 /* MenuViewController.m */,
 				99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */,
 				99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */,
-				99B2C04B19A42A770077E4F0 /* HomeViewController.h */,
-				99B2C04C19A42A770077E4F0 /* HomeViewController.m */,
 			);
 			path = iOS51rcProject;
 			sourceTree = "<group>";
@@ -654,6 +750,7 @@
 		99CFD89A199B6196009A5ABA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				99BDC57819A5789200B2BDB1 /* TNRadioButtonGroup */,
 				99B74BE419A2DFFB00AC8852 /* MBProgressHUD */,
 				998025C619A23528001A7E84 /* Classes */,
 				998025AD19A23024001A7E84 /* MJRefresh */,
@@ -782,6 +879,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */,
+				993434A319A49EEF0056071A /* CreateResumeAlert.xib in Resources */,
 				99CFD87B199B60D8009A5ABA /* ico_leftmenu_head.png in Resources */,
 				99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */,
 				99CFD8D8199B6196009A5ABA /* menu-button@2x.png in Resources */,
@@ -859,15 +957,18 @@
 			files = (
 				998025C219A23024001A7E84 /* MJRefreshHeaderView.m in Sources */,
 				99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */,
+				99BDC58F19A5789200B2BDB1 /* TNImageRadioButton.m in Sources */,
 				99B74BF219A2DFFB00AC8852 /* MLTableAlert.m in Sources */,
 				99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				998025BF19A23024001A7E84 /* MJRefreshBaseView.m in Sources */,
 				997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */,
+				99BDC58D19A5789200B2BDB1 /* TNCircularRadioButton.m in Sources */,
+				99BDC59F19A57FAD00B2BDB1 /* CreateResumeAlertViewController.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				997BF0EA199DB33C00FD0B12 /* ASINetworkQueue.m in Sources */,
-				99B2C04D19A42A770077E4F0 /* HomeViewController.m in Sources */,
 				99CFD8D5199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
+				99BDC59219A5789200B2BDB1 /* TNRadioButtonData.m in Sources */,
 				998025CF19A23528001A7E84 /* AnimatedGif.m in Sources */,
 				9945C32B19A1E8FA0027E931 /* DatePicker.m in Sources */,
 				997BF0EC199DB33C00FD0B12 /* GDataXMLNode.m in Sources */,
@@ -882,12 +983,17 @@
 				998025C519A23024001A7E84 /* UIView+Extension.m in Sources */,
 				997BF0EB199DB33C00FD0B12 /* Reachability.m in Sources */,
 				99CFD828199B5F80009A5ABA /* AppDelegate.m in Sources */,
+				99BDC58E19A5789200B2BDB1 /* TNCircularRadioButtonData.m in Sources */,
 				997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */,
 				99A5D671199CB8D100466B0C /* RecruitmentListViewController.m in Sources */,
+				99BDC59319A5789200B2BDB1 /* TNRadioButtonGroup.m in Sources */,
 				997BF102199E248C00FD0B12 /* CommonController.m in Sources */,
 				997BF0E8199DB33C00FD0B12 /* ASIHTTPRequest.m in Sources */,
 				99CFD824199B5F80009A5ABA /* main.m in Sources */,
 				99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
+				99BDC59019A5789200B2BDB1 /* TNImageRadioButtonData.m in Sources */,
+				99BDC59519A5789200B2BDB1 /* TNRectangularRadioButtonData.m in Sources */,
+				99BDC59119A5789200B2BDB1 /* TNRadioButton.m in Sources */,
 				998025C419A23024001A7E84 /* UIScrollView+MJRefresh.m in Sources */,
 				99B74BF119A2DFFB00AC8852 /* MBProgressHUD.m in Sources */,
 				99B74BF419A2DFFB00AC8852 /* SVProgressHUD.m in Sources */,
@@ -896,12 +1002,14 @@
 				99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */,
 				997BF0ED199DB33C00FD0B12 /* NetWebServiceRequest.m in Sources */,
 				99AF855619A1883400524B66 /* FindPsdStep1ViewController.m in Sources */,
+				99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */,
 				997BF0E7199DB33C00FD0B12 /* ASIFormDataRequest.m in Sources */,
 				997BF0EE199DB33C00FD0B12 /* SoapXmlParseHelper.m in Sources */,
 				998025C019A23024001A7E84 /* MJRefreshConst.m in Sources */,
 				998025D019A23528001A7E84 /* LoadingAnimationView.m in Sources */,
 				997BF0E5199DB33C00FD0B12 /* ASIDataDecompressor.m in Sources */,
 				99AF855819A1883400524B66 /* FindPsdStep3ViewController.m in Sources */,
+				99BDC59419A5789200B2BDB1 /* TNRectangularRadioButton.m in Sources */,
 				99AF855A19A1883400524B66 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -925,6 +1033,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		993434A519A49EEF0056071A /* CreateResumeAlert.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				993434A419A49EEF0056071A /* en */,
+			);
+			name = CreateResumeAlert.xib;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		99CFD820199B5F80009A5ABA /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -951,7 +1068,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -989,7 +1106,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;

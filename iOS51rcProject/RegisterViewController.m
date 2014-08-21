@@ -12,7 +12,9 @@
 #import "NetWebServiceRequest.h"
 #import "GDataXMLNode.h"
 #import <UIKit/UIKit.h>
-//#import "Class/CXAlertView/CXAlertView.h"
+
+#define TAG_DEV 1
+#define TAG_RESUME 2
 
 @interface RegisterViewController ()
 @property (retain, nonatomic) IBOutlet UITextField *txtUserName;
@@ -53,9 +55,12 @@
 }
 
 - (IBAction)btnRegisterClick:(id)sender {
+    
+    //CreateResumeAlertViewController *alertCtrl =[[CreateResumeAlertViewController alloc] init];
     //测试
-    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"测试测试？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil] ;
-    //[alert show];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"帐号已经注册成功，立即创建简历？。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"确定", nil] ;
+    [alert show];
+    alert.tag = TAG_DEV;
     
     userName=self.txtUserName.text;
     password= self.txtPsd.text;
@@ -179,9 +184,31 @@
     [userDefaults setValue:isAutoLogin forKey:@"isAutoLogin"];
     [userDefaults setObject:realCode forKey:@"code"];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"帐号已经注册成功，立即创建简历？。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil] ;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"帐号已经注册成功，立即创建简历？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"确定", nil] ;
+    alert.tag = TAG_DEV;
     [alert show];
+}
 
+//注册成功后
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == TAG_DEV) {
+        if (buttonIndex == 0) {//取消，直接返回首页
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        else {
+            UIAlertView *alertResume = [[UIAlertView alloc] initWithTitle:@"您有没有工作经历" message:nil delegate:self cancelButtonTitle:@"有工作经历" otherButtonTitles: @"没有工作经历", nil] ;
+            alertResume.tag = TAG_RESUME;
+            [alertResume show];
+        }
+    }
+    else if (alertView.tag == TAG_RESUME){
+        if (buttonIndex == 0) {//有工作经历
+            //[self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        else {
+            
+        }
+    }
 }
 - (BOOL)checkInput:(NSString *)userName Password:(NSString*) passWord RePassword:(NSString*) rePsd
 {
