@@ -23,6 +23,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *txtPsd;
 @property (retain, nonatomic) IBOutlet UITextField *txtRePsd;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
+@property (retain, nonatomic) IBOutlet UILabel *labelBg;
 
 @end
 
@@ -40,8 +41,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.txtUserName.layer.borderWidth = 1;
+    self.txtRePsd.layer.borderWidth = 1;
+    self.txtPsd.layer.borderWidth = 1;
+    self.txtUserName.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.txtRePsd.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.txtPsd.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    self.labelBg.layer.borderWidth = 0.3;
+    self.labelBg.layer.borderColor = [UIColor grayColor].CGColor;
+    self.labelBg.layer.cornerRadius = 5;
+
     createResumeCtrl =[[CreateResumeAlertViewController alloc] init];
-    //[self.view addSubview:alertCtrl.view];
     createResumeCtrl.delegate = self;
 
 }
@@ -270,6 +281,7 @@
     [_txtUserName release];
     [_txtPsd release];
     [_txtRePsd release];
+    [_labelBg release];
     [super dealloc];
 }
 @end

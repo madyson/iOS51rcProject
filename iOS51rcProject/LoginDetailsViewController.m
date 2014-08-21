@@ -12,11 +12,13 @@
 #import "GDataXMLNode.h"
 #import "CommonController.h"
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface LoginDetailsViewController ()
 @property (retain, nonatomic) IBOutlet UITextField *txtName;
 @property (retain, nonatomic) IBOutlet UITextField *txtPsd;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
+@property (retain, nonatomic) IBOutlet UILabel *labelNameBg;
 @end
 
 
@@ -35,6 +37,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.txtName.layer.borderWidth = 1;
+    self.txtName.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.txtPsd.layer.borderWidth = 1;
+    self.txtPsd.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    self.labelNameBg.layer.borderWidth = 0.3;
+    self.labelNameBg.layer.borderColor = [UIColor grayColor].CGColor;
+    self.labelNameBg.layer.cornerRadius = 5;
 }
 
 - (void)didReceiveMemoryWarning
@@ -173,6 +183,7 @@
 - (void)dealloc {
     [_txtName release];
     [_txtPsd release];
+    [_labelNameBg release];   
     [super dealloc];
 }
 @end

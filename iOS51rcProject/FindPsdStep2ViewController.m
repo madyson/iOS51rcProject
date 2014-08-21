@@ -94,29 +94,30 @@
     return;
 }
 
-//成功
+//验证激活码返回成功后操作
 - (void)netRequestFinished:(NetWebServiceRequest *)request finishedInfoToResult:(NSString *)result
               responseData:(NSArray *)requestData
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSDictionary *rowData = result;
-    
-    if (self.txtVerifyCode.text != rowData[@"ActivateCode"]) {
-        [Dialog alert:@"您输入的激活码信息不正确，请查证！"];
-    }
-    else
-    {
-        [userDefault setValue: rowData[@"PamainID"] forKeyPath:@"UserID"];
-        [userDefault setValue: rowData[@"UserName"] forKeyPath:@"UserName"];
-        [userDefault setValue: rowData[@"AddDate"] forKeyPath:@"AddDate"];
-        
-        FindPsdStep3ViewController *find3Ctr = [self.storyboard instantiateViewControllerWithIdentifier: @"findPsd3View"];
-        find3Ctr.userName = rowData[@"UserName"];
-        find3Ctr.paMainID = rowData[@"PamainID"];
-        [self.navigationController pushViewController:find3Ctr animated:YES];
-    }
-   
-    [result retain];
+    NSLog(result);
+    NSMutableArray *Array = requestData;
+//    NSDictionary rowData = Array[0];
+//    if (self.txtVerifyCode.text != rowData[@"ActivateCode"]) {
+//        [Dialog alert:@"您输入的激活码信息不正确，请查证！"];
+//    }
+//    else
+//    {
+//        [userDefault setValue: rowData[@"PamainID"] forKeyPath:@"UserID"];
+//        [userDefault setValue: rowData[@"UserName"] forKeyPath:@"UserName"];
+//        [userDefault setValue: rowData[@"AddDate"] forKeyPath:@"AddDate"];
+//        
+//        FindPsdStep3ViewController *find3Ctr = [self.storyboard instantiateViewControllerWithIdentifier: @"findPsd3View"];
+//        find3Ctr.userName = rowData[@"UserName"];
+//        find3Ctr.paMainID = rowData[@"PamainID"];
+//        [self.navigationController pushViewController:find3Ctr animated:YES];
+//    }
+//   
+//    [result retain];
 }
 
 /*

@@ -35,20 +35,6 @@
     return self;
 }
 
-//- (IBAction)segmentChange:(id)sender {
-//    NSInteger index = self.segment.selectedSegmentIndex;
-//    if (index == 0){
-//        [self.registerView removeFromParentViewController];
-//        [self.view addSubview:self.loginDetailsView.view];
-//        // = self;
-//        self.navigationItem.title = @"登录";
-//    } else  {
-//        [self.loginDetailsView removeFromParentViewController];
-//        [self.view addSubview:self.registerView.view];
-//        self.navigationItem.title = @"注册";
-//    }
-//}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -59,14 +45,12 @@
     UIBarButtonItem *btnBack = [[UIBarButtonItem alloc] initWithTitle:@"后退" style:UIBarButtonItemStyleDone target:nil action:nil];
     self.navigationItem.backBarButtonItem = btnBack;
     
-    self.loginDetailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginDetailsView"];
-    self.registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
-    
-    
     CGRect frame = [[UIScreen mainScreen] bounds];
     frame.origin.y = 102;//状态栏和切换栏的高度
-    frame.size.height = frame.size.height - 100;
-    
+    frame.size.height = frame.size.height - 102;
+    //获得子View
+    self.loginDetailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginDetailsView"];
+    self.registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
     self.loginDetailsView.view.frame = frame;
     self.registerView.view.frame = frame;
     
@@ -75,6 +59,7 @@
     self.rightSwipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipes:)];
     self.leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     self.rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    
     [self.view addGestureRecognizer:self.leftSwipeGestureRecognizer];
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
     self.loginDetailsView.delegate = self;
@@ -82,6 +67,7 @@
     //默认加载登录页面
     [self.view addSubview: self.loginDetailsView.view];
 }
+
 - (IBAction)btnLoginClick:(id)sender {
     [self.registerView removeFromParentViewController];
     [self.view addSubview:self.loginDetailsView.view];
@@ -100,6 +86,28 @@
     self.labelBgLogin.backgroundColor = [UIColor clearColor];
     self.btnLogin.titleLabel.textColor = [UIColor blackColor];
     self.btnRegister.titleLabel.textColor = [UIColor orangeColor];
+}
+
+- (void)handleSwipes:(UISwipeGestureRecognizer *)sender
+{
+    if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
+        [self.registerView removeFromParentViewController];
+        [self.view addSubview:self.loginDetailsView.view];
+        self.navigationItem.title = @"登录";
+        self.labelBgRegister.backgroundColor = [UIColor clearColor];
+        self.labelBgLogin.backgroundColor = [UIColor orangeColor];
+        self.btnLogin.titleLabel.textColor = [UIColor orangeColor];
+        self.btnRegister.titleLabel.textColor = [UIColor blackColor];
+    }
+    if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
+        [self.loginDetailsView removeFromParentViewController];
+        [self.view addSubview:self.registerView.view];
+        self.navigationItem.title = @"注册";
+        self.labelBgRegister.backgroundColor = [UIColor orangeColor];
+        self.labelBgLogin.backgroundColor = [UIColor clearColor];
+        self.btnLogin.titleLabel.textColor = [UIColor blackColor];
+        self.btnRegister.titleLabel.textColor = [UIColor orangeColor];
+    }
 }
 
 - (void) pushParentsFromLoginDetails
