@@ -16,17 +16,40 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="4Ge-Rp-EP6">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="40"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QJH-EJ-4zU">
+                                        <rect key="frame" x="0.0" y="100" width="160" height="4"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <segments>
-                                            <segment title="登录"/>
-                                            <segment title="注册"/>
-                                        </segments>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7zo-sK-vtN">
+                                        <rect key="frame" x="158" y="100" width="162" height="4"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t9V-4X-yMT">
+                                        <rect key="frame" x="0.0" y="66" width="160" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="登录">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
-                                            <action selector="segmentChange:" destination="My1-PP-fg4" eventType="valueChanged" id="hYO-ms-jlv"/>
+                                            <action selector="btnLoginClick:" destination="My1-PP-fg4" eventType="touchUpInside" id="unC-4m-p3q"/>
                                         </connections>
-                                    </segmentedControl>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="x3M-P0-AL2">
+                                        <rect key="frame" x="158" y="66" width="162" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="注册">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnRegisterClick:" destination="My1-PP-fg4" eventType="touchUpInside" id="u6z-g8-K18"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -35,7 +58,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="39t-Jr-erI"/>
                     <connections>
-                        <outlet property="segment" destination="4Ge-Rp-EP6" id="uFO-s6-pkt"/>
+                        <outlet property="btnLogin" destination="t9V-4X-yMT" id="tr9-gg-GLF"/>
+                        <outlet property="btnRegister" destination="x3M-P0-AL2" id="bfS-dQ-ClX"/>
+                        <outlet property="labelBgLogin" destination="QJH-EJ-4zU" id="QP2-aa-Nsc"/>
+                        <outlet property="labelBgRegister" destination="7zo-sK-vtN" id="R5A-bL-IyV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFM-dh-fmh" userLabel="First Responder" sceneMemberID="firstResponder"/>
