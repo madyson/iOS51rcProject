@@ -12,15 +12,18 @@
 #import "NetWebServiceRequest.h"
 #import "GDataXMLNode.h"
 #import <UIKit/UIKit.h>
+#import "CreateResumeAlertView.h"
 
-#define TAG_DEV 1
+
+#define TAG_CreateResumeOrNot 1
 #define TAG_RESUME 2
 
-@interface RegisterViewController ()
+@interface RegisterViewController () <CreateResumeDelegate>
 @property (retain, nonatomic) IBOutlet UITextField *txtUserName;
 @property (retain, nonatomic) IBOutlet UITextField *txtPsd;
 @property (retain, nonatomic) IBOutlet UITextField *txtRePsd;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
+
 @end
 
 @implementation RegisterViewController
@@ -37,14 +40,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    // Do any additional setup after loading the view.
-//    [[CXAlertView appearance] setTitleFont:[UIFont boldSystemFontOfSize:18.]];
-//    [[CXAlertView appearance] setTitleColor:[UIColor orangeColor]];
-//    [[CXAlertView appearance] setCornerRadius:12];
-//    [[CXAlertView appearance] setShadowRadius:20];
-//    [[CXAlertView appearance] setButtonColor:[UIColor colorWithRed:0.039 green:0.380 blue:0.992 alpha:1.000]];
-//    [[CXAlertView appearance] setCancelButtonColor:[UIColor colorWithRed:0.047 green:0.337 blue:1.000 alpha:1.000]];
-//    [[CXAlertView appearance] setCustomButtonColor:[UIColor orangeColor]];
+    createResumeCtrl =[[CreateResumeAlertViewController alloc] init];
+    //[self.view addSubview:alertCtrl.view];
+    createResumeCtrl.delegate = self;
 
 }
 
@@ -55,15 +53,18 @@
 }
 
 - (IBAction)btnRegisterClick:(id)sender {
-    
-    //CreateResumeAlertViewController *alertCtrl =[[CreateResumeAlertViewController alloc] init];
-    //测试
+    //[self.view addSubview:createResumeCtrl.view];
+    //createResumeCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    //[self presentModalViewController:createResumeCtrl animated:YES];
+    //[self.view addSubview:backGroundView];
+    //createResumeCtrl.view.superview.bounds  = [[UIScreen mainScreen] bounds];
+
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"帐号已经注册成功，立即创建简历？。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"确定", nil] ;
     [alert show];
-    alert.tag = TAG_DEV;
+    alert.tag = TAG_CreateResumeOrNot;
     
     userName=self.txtUserName.text;
-    password= self.txtPsd.text;
+    password= self.txtPsd.text; 
     rePassword=self.txtRePsd.text;
     
     //检查参数
@@ -166,6 +167,13 @@
     wsName = @"GetPaAddDate";
 }
 
+//当点击创建简历
+-(void) CreateResume:(BOOL) hasExp
+{
+    [createResumeCtrl.view removeFromSuperview];
+    [backGroundView removeFromSuperview];
+}
+
 -(void) didReceiveGetCode:(NSString *) result
 {
     NSString *realCode=@"";
@@ -173,43 +181,36 @@
     [realCode stringByAppendingFormat:@"%@%@%@%@%@",[result substringWithRange:NSMakeRange(11,2)],
      [result substringWithRange:NSMakeRange(0,4)],[result substringWithRange:NSMakeRange(14,2)],
      [result substringWithRange:NSMakeRange(8,2)],[result substringWithRange:NSMakeRange(5,2)]];
-    //NSLog(result);
-    //NSString *name = [result substringWithRange:NSMakeRange(0,4)];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setValue: userID forKey:@"UserID"];
     [userDefaults setValue: userName forKey:@"UserName"];
     [userDefaults setValue: password forKey:@"PassWord"];
-    //[userDefaults setValue: name forKey:@"name"];
     [userDefaults setValue: @"1" forKey:@"BeLogined"];
     [userDefaults setValue:isAutoLogin forKey:@"isAutoLogin"];
     [userDefaults setObject:realCode forKey:@"code"];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"帐号已经注册成功，立即创建简历？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"确定", nil] ;
-    alert.tag = TAG_DEV;
+    alert.tag = TAG_CreateResumeOrNot;
     [alert show];
 }
 
 //注册成功后
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (alertView.tag == TAG_DEV) {
-        if (buttonIndex == 0) {//取消，直接返回首页
+    //第一个alert，是否创建简历
+    if (alertView.tag == TAG_CreateResumeOrNot) {
+        if (buttonIndex == 0) {
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
         else {
-            UIAlertView *alertResume = [[UIAlertView alloc] initWithTitle:@"您有没有工作经历" message:nil delegate:self cancelButtonTitle:@"有工作经历" otherButtonTitles: @"没有工作经历", nil] ;
-            alertResume.tag = TAG_RESUME;
-            [alertResume show];
-        }
-    }
-    else if (alertView.tag == TAG_RESUME){
-        if (buttonIndex == 0) {//有工作经历
-            //[self.navigationController popToRootViewControllerAnimated:YES];
-        }
-        else {
-            
+            backGroundView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+            backGroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+            [self.view addSubview:backGroundView];
+            createResumeCtrl.view.frame = CGRectMake(20, 60, 280, 180);
+            [self.view addSubview:createResumeCtrl.view];
         }
     }
 }
+
 - (BOOL)checkInput:(NSString *)userName Password:(NSString*) passWord RePassword:(NSString*) rePsd
 {
     BOOL result = true;

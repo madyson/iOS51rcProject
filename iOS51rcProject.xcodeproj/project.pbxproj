@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		993434A319A49EEF0056071A /* CreateResumeAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993434A519A49EEF0056071A /* CreateResumeAlert.xib */; };
 		994454AD199C4A0800206482 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994454AC199C4A0800206482 /* MenuViewController.m */; };
 		9945C30B19A1A4890027E931 /* ico_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9945C30A19A1A4890027E931 /* ico_clock.png */; };
 		9945C30D19A1AB370027E931 /* ico_rm_group.png in Resources */ = {isa = PBXBuildFile; fileRef = 9945C30C19A1AB370027E931 /* ico_rm_group.png */; };
@@ -75,8 +74,12 @@
 		99BDC59319A5789200B2BDB1 /* TNRadioButtonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58719A5789200B2BDB1 /* TNRadioButtonGroup.m */; };
 		99BDC59419A5789200B2BDB1 /* TNRectangularRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58A19A5789200B2BDB1 /* TNRectangularRadioButton.m */; };
 		99BDC59519A5789200B2BDB1 /* TNRectangularRadioButtonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC58C19A5789200B2BDB1 /* TNRectangularRadioButtonData.m */; };
-		99BDC59F19A57FAD00B2BDB1 /* CreateResumeAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC59E19A57FAD00B2BDB1 /* CreateResumeAlertViewController.m */; };
 		99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5A119A586A700B2BDB1 /* HomeViewController.m */; };
+		99BDC5A519A5893C00B2BDB1 /* CreateResumeAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5A419A5893C00B2BDB1 /* CreateResumeAlertView.m */; };
+		99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */; };
+		99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */; };
+		99BDC5B119A59C3700B2BDB1 /* radioChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5AF19A59C3700B2BDB1 /* radioChecked.png */; };
+		99BDC5B219A59C3700B2BDB1 /* radioUnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5B019A59C3700B2BDB1 /* radioUnChecked.png */; };
 		99CFD818199B5F80009A5ABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD817199B5F80009A5ABA /* Foundation.framework */; };
 		99CFD81A199B5F80009A5ABA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD819199B5F80009A5ABA /* CoreGraphics.framework */; };
 		99CFD81C199B5F80009A5ABA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD81B199B5F80009A5ABA /* UIKit.framework */; };
@@ -148,7 +151,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		993434A419A49EEF0056071A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreateResumeAlert.xib; sourceTree = "<group>"; };
 		994454AB199C4A0800206482 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		994454AC199C4A0800206482 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		9945C30A19A1A4890027E931 /* ico_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_clock.png; sourceTree = "<group>"; };
@@ -271,10 +273,15 @@
 		99BDC58A19A5789200B2BDB1 /* TNRectangularRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularRadioButton.m; sourceTree = "<group>"; };
 		99BDC58B19A5789200B2BDB1 /* TNRectangularRadioButtonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRectangularRadioButtonData.h; sourceTree = "<group>"; };
 		99BDC58C19A5789200B2BDB1 /* TNRectangularRadioButtonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRectangularRadioButtonData.m; sourceTree = "<group>"; };
-		99BDC59D19A57FAD00B2BDB1 /* CreateResumeAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertViewController.h; sourceTree = "<group>"; };
-		99BDC59E19A57FAD00B2BDB1 /* CreateResumeAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateResumeAlertViewController.m; sourceTree = "<group>"; };
 		99BDC5A019A586A700B2BDB1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		99BDC5A119A586A700B2BDB1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		99BDC5A319A5893C00B2BDB1 /* CreateResumeAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertView.h; sourceTree = "<group>"; };
+		99BDC5A419A5893C00B2BDB1 /* CreateResumeAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateResumeAlertView.m; sourceTree = "<group>"; };
+		99BDC5AA19A5917200B2BDB1 /* CreateResumeAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertViewController.h; sourceTree = "<group>"; };
+		99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateResumeAlertViewController.m; sourceTree = "<group>"; };
+		99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateResumeAlertViewController.xib; sourceTree = "<group>"; };
+		99BDC5AF19A59C3700B2BDB1 /* radioChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioChecked.png; sourceTree = "<group>"; };
+		99BDC5B019A59C3700B2BDB1 /* radioUnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioUnChecked.png; sourceTree = "<group>"; };
 		99CFD814199B5F80009A5ABA /* iOS51rcProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS51rcProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CFD817199B5F80009A5ABA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99CFD819199B5F80009A5ABA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -588,9 +595,11 @@
 		99BDC59C19A57FAD00B2BDB1 /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
-				993434A519A49EEF0056071A /* CreateResumeAlert.xib */,
-				99BDC59D19A57FAD00B2BDB1 /* CreateResumeAlertViewController.h */,
-				99BDC59E19A57FAD00B2BDB1 /* CreateResumeAlertViewController.m */,
+				99BDC5A319A5893C00B2BDB1 /* CreateResumeAlertView.h */,
+				99BDC5A419A5893C00B2BDB1 /* CreateResumeAlertView.m */,
+				99BDC5AA19A5917200B2BDB1 /* CreateResumeAlertViewController.h */,
+				99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */,
+				99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */,
 			);
 			path = CustomControl;
 			sourceTree = "<group>";
@@ -694,6 +703,8 @@
 		99CFD84F199B60D8009A5ABA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				99BDC5AF19A59C3700B2BDB1 /* radioChecked.png */,
+				99BDC5B019A59C3700B2BDB1 /* radioUnChecked.png */,
 				9945C30C19A1AB370027E931 /* ico_rm_group.png */,
 				9945C30A19A1A4890027E931 /* ico_clock.png */,
 				99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */,
@@ -879,7 +890,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */,
-				993434A319A49EEF0056071A /* CreateResumeAlert.xib in Resources */,
 				99CFD87B199B60D8009A5ABA /* ico_leftmenu_head.png in Resources */,
 				99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */,
 				99CFD8D8199B6196009A5ABA /* menu-button@2x.png in Resources */,
@@ -890,6 +900,7 @@
 				99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */,
 				99CFD87C199B60D8009A5ABA /* ico_leftmenu_index.png in Resources */,
 				99B74BF319A2DFFB00AC8852 /* SVProgressHUD.bundle in Resources */,
+				99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */,
 				99CFD893199B60D8009A5ABA /* main_pic_jobnews.png in Resources */,
 				99CFD822199B5F80009A5ABA /* InfoPlist.strings in Resources */,
 				99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */,
@@ -923,8 +934,10 @@
 				99CFD887199B60D8009A5ABA /* ico_main_near.png in Resources */,
 				99CFD88E199B60D8009A5ABA /* loginRenRen.png in Resources */,
 				99CFD84D199B6082009A5ABA /* Home.storyboard in Resources */,
+				99BDC5B119A59C3700B2BDB1 /* radioChecked.png in Resources */,
 				99CFD881199B60D8009A5ABA /* ico_leftmenu_salary.png in Resources */,
 				99CFD87A199B60D8009A5ABA /* ico_leftmenu_govnews.png in Resources */,
+				99BDC5B219A59C3700B2BDB1 /* radioUnChecked.png in Resources */,
 				9945C30D19A1AB370027E931 /* ico_rm_group.png in Resources */,
 				99CFD896199B60D8009A5ABA /* renren.png in Resources */,
 				99CFD880199B60D8009A5ABA /* ico_leftmenu_rm.png in Resources */,
@@ -962,9 +975,9 @@
 				99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				998025BF19A23024001A7E84 /* MJRefreshBaseView.m in Sources */,
+				99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */,
 				997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */,
 				99BDC58D19A5789200B2BDB1 /* TNCircularRadioButton.m in Sources */,
-				99BDC59F19A57FAD00B2BDB1 /* CreateResumeAlertViewController.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				997BF0EA199DB33C00FD0B12 /* ASINetworkQueue.m in Sources */,
 				99CFD8D5199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
@@ -993,6 +1006,7 @@
 				99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				99BDC59019A5789200B2BDB1 /* TNImageRadioButtonData.m in Sources */,
 				99BDC59519A5789200B2BDB1 /* TNRectangularRadioButtonData.m in Sources */,
+				99BDC5A519A5893C00B2BDB1 /* CreateResumeAlertView.m in Sources */,
 				99BDC59119A5789200B2BDB1 /* TNRadioButton.m in Sources */,
 				998025C419A23024001A7E84 /* UIScrollView+MJRefresh.m in Sources */,
 				99B74BF119A2DFFB00AC8852 /* MBProgressHUD.m in Sources */,
@@ -1033,15 +1047,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		993434A519A49EEF0056071A /* CreateResumeAlert.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				993434A419A49EEF0056071A /* en */,
-			);
-			name = CreateResumeAlert.xib;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		99CFD820199B5F80009A5ABA /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
