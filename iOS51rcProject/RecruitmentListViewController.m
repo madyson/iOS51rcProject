@@ -374,6 +374,7 @@
     }
     else {
         placeid = selectValue;
+        page = 1;
         [self.lbPlace setText:selectName];
         [self onSearch];
     }
