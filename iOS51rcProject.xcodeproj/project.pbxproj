@@ -73,7 +73,6 @@
 		99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */; };
 		99B350C9199CB43A00CAEC71 /* welcom5-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */; };
 		99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */; };
-		99B385D219A6E7CA00B3C734 /* UserCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B385D119A6E7CA00B3C734 /* UserCenter.storyboard */; };
 		99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5A119A586A700B2BDB1 /* HomeViewController.m */; };
 		99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */; };
 		99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */; };
@@ -142,6 +141,7 @@
 		99CFD8D8199B6196009A5ABA /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CFD8B8199B6196009A5ABA /* menu-button@2x.png */; };
 		99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD8BA199B6196009A5ABA /* SlideNavigationController.m */; };
 		99FA8B7519A6DBD500F8B1B9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FA8B7419A6DBD500F8B1B9 /* MenuViewController.m */; };
+		99FA8B7D19A7132700F8B1B9 /* UserCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FA8B7C19A7132700F8B1B9 /* UserCenter.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,7 +268,6 @@
 		99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x1136.png"; sourceTree = "<group>"; };
 		99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x960.png"; sourceTree = "<group>"; };
 		99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x1136.png"; sourceTree = "<group>"; };
-		99B385D119A6E7CA00B3C734 /* UserCenter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserCenter.storyboard; sourceTree = "<group>"; };
 		99B385D319A6EB6100B3C734 /* GoToHomeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoToHomeDelegate.h; sourceTree = "<group>"; };
 		99BDC5A019A586A700B2BDB1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		99BDC5A119A586A700B2BDB1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -359,6 +358,7 @@
 		99CFD8BA199B6196009A5ABA /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
 		99FA8B7319A6DBD500F8B1B9 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		99FA8B7419A6DBD500F8B1B9 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		99FA8B7C19A7132700F8B1B9 /* UserCenter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserCenter.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -562,14 +562,6 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
-		99B385D019A6E51700B3C734 /* UserCenter */ = {
-			isa = PBXGroup;
-			children = (
-				99B385D119A6E7CA00B3C734 /* UserCenter.storyboard */,
-			);
-			name = UserCenter;
-			sourceTree = "<group>";
-		};
 		99B385D419A6F1A000B3C734 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +644,7 @@
 		99CFD81D199B5F80009A5ABA /* iOS51rcProject */ = {
 			isa = PBXGroup;
 			children = (
+				99FA8B7E19A7132C00F8B1B9 /* UserCenter */,
 				99BDC59C19A57FAD00B2BDB1 /* CustomControl */,
 				99AF855F19A188F100524B66 /* Login */,
 				99AF855E19A188D700524B66 /* WelCome */,
@@ -834,6 +827,14 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		99FA8B7E19A7132C00F8B1B9 /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				99FA8B7C19A7132700F8B1B9 /* UserCenter.storyboard */,
+			);
+			name = UserCenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -910,9 +911,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99B385D219A6E7CA00B3C734 /* UserCenter.storyboard in Resources */,
 				99BDC5F419A5F4A900B2BDB1 /* radioChecked.png in Resources */,
 				99BDC5F519A5F4A900B2BDB1 /* radioUnChecked.png in Resources */,
+				99FA8B7D19A7132700F8B1B9 /* UserCenter.storyboard in Resources */,
 				99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */,
 				99CFD87B199B60D8009A5ABA /* ico_leftmenu_head.png in Resources */,
 				99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */,
