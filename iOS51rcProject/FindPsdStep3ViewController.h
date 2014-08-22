@@ -10,4 +10,6 @@
 
 @interface FindPsdStep3ViewController : UIViewController
 
+@property (retain, nonatomic) NSString *userName;//邮箱
+@property (retain, nonatomic) NSString *paMainID;
 @end

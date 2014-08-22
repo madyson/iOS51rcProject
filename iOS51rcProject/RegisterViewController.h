@@ -7,7 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomControl/CreateResumeAlertViewController.h"
 
 @interface RegisterViewController : UIViewController
+{
+    NSString *wsName;//当前调用的webservice名字
+    
+    NSString *userName;
+    NSString *userID;
+    NSString *password;
+    NSString *rePassword;
+    NSString *ip;
+    NSString *provinceID;
+    NSString *browser;
+    NSString *isAutoLogin;
+    CreateResumeAlertViewController *createResumeCtrl;
+    UIView *backGroundView;
+}
 
 @end
