@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginDetailsDelegate.h"
+#import "GoToHomeDelegate.h"
 
 @interface LoginDetailsViewController : UIViewController
 {
     id<LoginDetailsDelegate> delegate;
+    id<GoToHomeDelegate> gotoHomeDelegate;
     NSString *userName;
     NSString *userID;
     NSString *passWord;
@@ -23,4 +25,6 @@
     NSString *wsName;//当前调用的webservice名字
 }
 @property (assign, nonatomic) id<LoginDetailsDelegate> delegate;
+@property (assign, nonatomic) id<GoToHomeDelegate> gotoHomeDelegate;
+- (IBAction)textFiledReturnEditing:(id)sender;
 @end

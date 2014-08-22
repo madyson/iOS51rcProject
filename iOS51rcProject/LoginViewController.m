@@ -19,9 +19,6 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnLogin;
 @property (retain, nonatomic) IBOutlet UIButton *btnRegister;
 
-
-//@property (retain, nonatomic) IBOutlet UINavigationItem *ni;
-
 @end
 
 @implementation LoginViewController
@@ -63,6 +60,8 @@
     [self.view addGestureRecognizer:self.leftSwipeGestureRecognizer];
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
     self.loginDetailsView.delegate = self;
+    self.loginDetailsView.gotoHomeDelegate = self;;
+    self.registerView.gotoHomeDelegate = self;
     
     //默认加载登录页面
     [self.view addSubview: self.loginDetailsView.view];
@@ -114,6 +113,11 @@
 {
     FindPsdStep1ViewController *findPsd1View =[self.storyboard instantiateViewControllerWithIdentifier: @"findPsd1View"];
     [self.navigationController pushViewController:findPsd1View animated:YES];
+}
+
+- (void) gotoHome
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

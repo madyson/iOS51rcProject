@@ -30,7 +30,7 @@
 @end
 
 @implementation RegisterViewController
-
+@synthesize gotoHomeDelegate;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -63,7 +63,7 @@
     self.labelLine1.layer.borderColor = [UIColor lightGrayColor].CGColor;
     [self.labelLine1 setFrame:CGRectMake(24, 75, 273, 0.5f)];
     self.labelLine2.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    [self.labelLine2 setFrame:CGRectMake(24, 115, 273, 0.5f)];
+    [self.labelLine2 setFrame:CGRectMake(24, 115, 273, 0.5f)];    
 }
 
 - (void)didReceiveMemoryWarning
@@ -204,12 +204,11 @@
     [alert show];
 }
 
-//注册成功后
+//注册成功后， 是否创建简历
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    //第一个alert，是否创建简历
     if (alertView.tag == TAG_CreateResumeOrNot) {
         if (buttonIndex == 0) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
+           [gotoHomeDelegate gotoHome];
         }
         else {
             backGroundView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

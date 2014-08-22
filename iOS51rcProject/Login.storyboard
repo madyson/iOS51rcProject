@@ -189,6 +189,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFiledReturnEditing:" destination="3LL-QA-RMo" eventType="editingDidEndOnExit" id="63z-LV-ay1"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ao9-iN-M6c">
                                 <rect key="frame" x="222" y="142" width="72" height="30"/>
@@ -274,6 +277,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="textFiledReturnEditing:" destination="3LL-QA-RMo" eventType="editingDidEndOnExit" id="ebC-Ff-aCm"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mxo-qZ-N41">
                                 <rect key="frame" x="12" y="195" width="297" height="37"/>

@@ -74,6 +74,7 @@
 		99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */; };
 		99B350C9199CB43A00CAEC71 /* welcom5-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */; };
 		99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */; };
+		99B385D219A6E7CA00B3C734 /* UserCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B385D119A6E7CA00B3C734 /* UserCenter.storyboard */; };
 		99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5A119A586A700B2BDB1 /* HomeViewController.m */; };
 		99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */; };
 		99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */; };
@@ -272,6 +273,8 @@
 		99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom4-320x1136.png"; sourceTree = "<group>"; };
 		99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x960.png"; sourceTree = "<group>"; };
 		99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x1136.png"; sourceTree = "<group>"; };
+		99B385D119A6E7CA00B3C734 /* UserCenter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserCenter.storyboard; sourceTree = "<group>"; };
+		99B385D319A6EB6100B3C734 /* GoToHomeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoToHomeDelegate.h; sourceTree = "<group>"; };
 		99BDC5A019A586A700B2BDB1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		99BDC5A119A586A700B2BDB1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		99BDC5AA19A5917200B2BDB1 /* CreateResumeAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertViewController.h; sourceTree = "<group>"; };
@@ -547,6 +550,7 @@
 		99AF855F19A188F100524B66 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				99B385D419A6F1A000B3C734 /* Delegate */,
 				99AF854619A1883400524B66 /* FindPsdStep1ViewController.h */,
 				99AF854719A1883400524B66 /* FindPsdStep1ViewController.m */,
 				99AF854819A1883400524B66 /* FindPsdStep2ViewController.h */,
@@ -559,9 +563,25 @@
 				99AF854F19A1883400524B66 /* LoginViewController.m */,
 				99AF855019A1883400524B66 /* RegisterViewController.h */,
 				99AF855119A1883400524B66 /* RegisterViewController.m */,
-				99AF856319A1E6ED00524B66 /* LoginDetailsDelegate.h */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		99B385D019A6E51700B3C734 /* UserCenter */ = {
+			isa = PBXGroup;
+			children = (
+				99B385D119A6E7CA00B3C734 /* UserCenter.storyboard */,
+			);
+			name = UserCenter;
+			sourceTree = "<group>";
+		};
+		99B385D419A6F1A000B3C734 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				99AF856319A1E6ED00524B66 /* LoginDetailsDelegate.h */,
+				99B385D319A6EB6100B3C734 /* GoToHomeDelegate.h */,
+			);
+			name = Delegate;
 			sourceTree = "<group>";
 		};
 		99BDC59C19A57FAD00B2BDB1 /* CustomControl */ = {
@@ -641,6 +661,7 @@
 		99CFD81D199B5F80009A5ABA /* iOS51rcProject */ = {
 			isa = PBXGroup;
 			children = (
+				99B385D019A6E51700B3C734 /* UserCenter */,
 				99BDC5A019A586A700B2BDB1 /* HomeViewController.h */,
 				99BDC5A119A586A700B2BDB1 /* HomeViewController.m */,
 				99BDC59C19A57FAD00B2BDB1 /* CustomControl */,
@@ -897,6 +918,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B385D219A6E7CA00B3C734 /* UserCenter.storyboard in Resources */,
 				99BDC5F419A5F4A900B2BDB1 /* radioChecked.png in Resources */,
 				99BDC5F519A5F4A900B2BDB1 /* radioUnChecked.png in Resources */,
 				99BDC5EA19A5F10D00B2BDB1 /* SVProgressHUD.bundle in Resources */,
