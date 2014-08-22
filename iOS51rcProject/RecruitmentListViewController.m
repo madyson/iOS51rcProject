@@ -5,8 +5,9 @@
 #import "DictionaryPickerView.h"
 #import "Toast+UIView.h"
 #import "RecruitmentViewController.h"
+#import "SlideNavigationController.h"
 
-@interface RecruitmentListViewController ()<NetWebServiceRequestDelegate,DatePickerDelegate,DictionaryPickerDelegate>
+@interface RecruitmentListViewController ()<NetWebServiceRequestDelegate,DatePickerDelegate,DictionaryPickerDelegate,SlideNavigationControllerDelegate>
 @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentList;
 @property (retain, nonatomic) IBOutlet UIButton *btnProvinceSel;
 @property (retain, nonatomic) IBOutlet UIButton *btnPlaceSel;
@@ -339,7 +340,7 @@
 
 -(void)showRegionSelect {
     [self cancelDicPicker];
-    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithRegionL2 pickerType:DictionaryPickerOne delegate:self defaultValue:@"32"];
+    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithJobType pickerType:DictionaryPickerOne delegate:self defaultValue:@"32"];
 
     self.DictionaryPicker.tag = 1;
     [self.DictionaryPicker showInView:self.view];
@@ -389,4 +390,15 @@
     [request startAsynchronous];
     self.runningRequest2 = request;
 }
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
+
+- (int)slideMenuItem
+{
+    return 5;
+}
+
 @end

@@ -12,7 +12,6 @@
 		991125AC19A4DB7C00C98173 /* RecruitmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 991125AB19A4DB7C00C98173 /* RecruitmentViewController.m */; };
 		991125AF19A4EE9800C98173 /* ico_rm_pa.png in Resources */ = {isa = PBXBuildFile; fileRef = 991125AD19A4EE9800C98173 /* ico_rm_pa.png */; };
 		991125B019A4EE9800C98173 /* ico_rm_cp.png in Resources */ = {isa = PBXBuildFile; fileRef = 991125AE19A4EE9800C98173 /* ico_rm_cp.png */; };
-		994454AD199C4A0800206482 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 994454AC199C4A0800206482 /* MenuViewController.m */; };
 		9945C30B19A1A4890027E931 /* ico_clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 9945C30A19A1A4890027E931 /* ico_clock.png */; };
 		9945C30D19A1AB370027E931 /* ico_rm_group.png in Resources */ = {isa = PBXBuildFile; fileRef = 9945C30C19A1AB370027E931 /* ico_rm_group.png */; };
 		9945C32B19A1E8FA0027E931 /* DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 9945C32A19A1E8FA0027E931 /* DatePicker.m */; };
@@ -80,10 +79,7 @@
 		99BDC5E719A5F10D00B2BDB1 /* Dialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5DD19A5F10D00B2BDB1 /* Dialog.m */; };
 		99BDC5E819A5F10D00B2BDB1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5DF19A5F10D00B2BDB1 /* MBProgressHUD.m */; };
 		99BDC5E919A5F10D00B2BDB1 /* MLTableAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5E119A5F10D00B2BDB1 /* MLTableAlert.m */; };
-		99BDC5EA19A5F10D00B2BDB1 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5E319A5F10D00B2BDB1 /* SVProgressHUD.bundle */; };
 		99BDC5EB19A5F10D00B2BDB1 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5E519A5F10D00B2BDB1 /* SVProgressHUD.m */; };
-		99BDC5EC19A5F10D00B2BDB1 /* SVProgressHUD.zip in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5E619A5F10D00B2BDB1 /* SVProgressHUD.zip */; };
-		99BDC5F019A5F2D600B2BDB1 /* SVProgressHUD.bundle in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5E319A5F10D00B2BDB1 /* SVProgressHUD.bundle */; };
 		99BDC5F419A5F4A900B2BDB1 /* radioChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5F219A5F4A900B2BDB1 /* radioChecked.png */; };
 		99BDC5F519A5F4A900B2BDB1 /* radioUnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5F319A5F4A900B2BDB1 /* radioUnChecked.png */; };
 		99CFD818199B5F80009A5ABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD817199B5F80009A5ABA /* Foundation.framework */; };
@@ -144,6 +140,7 @@
 		99CFD8D7199B6196009A5ABA /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CFD8B7199B6196009A5ABA /* menu-button.png */; };
 		99CFD8D8199B6196009A5ABA /* menu-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99CFD8B8199B6196009A5ABA /* menu-button@2x.png */; };
 		99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD8BA199B6196009A5ABA /* SlideNavigationController.m */; };
+		99FA8B7519A6DBD500F8B1B9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FA8B7419A6DBD500F8B1B9 /* MenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,8 +161,6 @@
 		991125AB19A4DB7C00C98173 /* RecruitmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruitmentViewController.m; sourceTree = "<group>"; };
 		991125AD19A4EE9800C98173 /* ico_rm_pa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_rm_pa.png; sourceTree = "<group>"; };
 		991125AE19A4EE9800C98173 /* ico_rm_cp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_rm_cp.png; sourceTree = "<group>"; };
-		994454AB199C4A0800206482 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		994454AC199C4A0800206482 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		9945C30A19A1A4890027E931 /* ico_clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_clock.png; sourceTree = "<group>"; };
 		9945C30C19A1AB370027E931 /* ico_rm_group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_rm_group.png; sourceTree = "<group>"; };
 		9945C32919A1E8FA0027E931 /* DatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePicker.h; sourceTree = "<group>"; };
@@ -283,15 +278,13 @@
 		99BDC5DF19A5F10D00B2BDB1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		99BDC5E019A5F10D00B2BDB1 /* MLTableAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLTableAlert.h; sourceTree = "<group>"; };
 		99BDC5E119A5F10D00B2BDB1 /* MLTableAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLTableAlert.m; sourceTree = "<group>"; };
-		99BDC5E319A5F10D00B2BDB1 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		99BDC5E419A5F10D00B2BDB1 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		99BDC5E519A5F10D00B2BDB1 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		99BDC5E619A5F10D00B2BDB1 /* SVProgressHUD.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SVProgressHUD.zip; sourceTree = "<group>"; };
-		99BDC5F119A5F47100B2BDB1 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = iOS51rcProject/Class/MBProgressHUD/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		99BDC5F119A5F47100B2BDB1 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		99BDC5F219A5F4A900B2BDB1 /* radioChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioChecked.png; sourceTree = "<group>"; };
 		99BDC5F319A5F4A900B2BDB1 /* radioUnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioUnChecked.png; sourceTree = "<group>"; };
-		99BDC5F619A5F4E100B2BDB1 /* radioChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = radioChecked.png; path = iOS51rcProject/Resource/images/radioChecked.png; sourceTree = "<group>"; };
-		99BDC5F719A5F4E100B2BDB1 /* radioUnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = radioUnChecked.png; path = iOS51rcProject/Resource/images/radioUnChecked.png; sourceTree = "<group>"; };
+		99BDC5F619A5F4E100B2BDB1 /* radioChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioChecked.png; sourceTree = "<group>"; };
+		99BDC5F719A5F4E100B2BDB1 /* radioUnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioUnChecked.png; sourceTree = "<group>"; };
 		99CFD814199B5F80009A5ABA /* iOS51rcProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS51rcProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CFD817199B5F80009A5ABA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99CFD819199B5F80009A5ABA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -361,6 +354,8 @@
 		99CFD8B8199B6196009A5ABA /* menu-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button@2x.png"; sourceTree = "<group>"; };
 		99CFD8B9199B6196009A5ABA /* SlideNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationController.h; sourceTree = "<group>"; };
 		99CFD8BA199B6196009A5ABA /* SlideNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationController.m; sourceTree = "<group>"; };
+		99FA8B7319A6DBD500F8B1B9 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		99FA8B7419A6DBD500F8B1B9 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -584,7 +579,6 @@
 				99BDC5E019A5F10D00B2BDB1 /* MLTableAlert.h */,
 				99BDC5E119A5F10D00B2BDB1 /* MLTableAlert.m */,
 				99BDC5E219A5F10D00B2BDB1 /* SVProgressHUD */,
-				99BDC5E619A5F10D00B2BDB1 /* SVProgressHUD.zip */,
 			);
 			path = MBProgressHUD;
 			sourceTree = "<group>";
@@ -592,7 +586,7 @@
 		99BDC5E219A5F10D00B2BDB1 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				99BDC5E319A5F10D00B2BDB1 /* SVProgressHUD.bundle */,
+				99BDC5F119A5F47100B2BDB1 /* SVProgressHUD.bundle */,
 				99BDC5E419A5F10D00B2BDB1 /* SVProgressHUD.h */,
 				99BDC5E519A5F10D00B2BDB1 /* SVProgressHUD.m */,
 			);
@@ -602,9 +596,6 @@
 		99CFD80B199B5F80009A5ABA = {
 			isa = PBXGroup;
 			children = (
-				99BDC5F619A5F4E100B2BDB1 /* radioChecked.png */,
-				99BDC5F719A5F4E100B2BDB1 /* radioUnChecked.png */,
-				99BDC5F119A5F47100B2BDB1 /* SVProgressHUD.bundle */,
 				99CFD81D199B5F80009A5ABA /* iOS51rcProject */,
 				99CFD83C199B5F80009A5ABA /* iOS51rcProjectTests */,
 				99CFD816199B5F80009A5ABA /* Frameworks */,
@@ -641,8 +632,6 @@
 		99CFD81D199B5F80009A5ABA /* iOS51rcProject */ = {
 			isa = PBXGroup;
 			children = (
-				99BDC5A019A586A700B2BDB1 /* HomeViewController.h */,
-				99BDC5A119A586A700B2BDB1 /* HomeViewController.m */,
 				99BDC59C19A57FAD00B2BDB1 /* CustomControl */,
 				99AF855F19A188F100524B66 /* Login */,
 				99AF855E19A188D700524B66 /* WelCome */,
@@ -653,12 +642,14 @@
 				99CFD81E199B5F80009A5ABA /* Supporting Files */,
 				99CFD84C199B6082009A5ABA /* Home.storyboard */,
 				99B2F2FA199C43580066853D /* Login.storyboard */,
-				994454AB199C4A0800206482 /* MenuViewController.h */,
-				994454AC199C4A0800206482 /* MenuViewController.m */,
+				99BDC5A019A586A700B2BDB1 /* HomeViewController.h */,
+				99BDC5A119A586A700B2BDB1 /* HomeViewController.m */,
 				99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */,
 				99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */,
 				991125AA19A4DB7C00C98173 /* RecruitmentViewController.h */,
 				991125AB19A4DB7C00C98173 /* RecruitmentViewController.m */,
+				99FA8B7319A6DBD500F8B1B9 /* MenuViewController.h */,
+				99FA8B7419A6DBD500F8B1B9 /* MenuViewController.m */,
 			);
 			path = iOS51rcProject;
 			sourceTree = "<group>";
@@ -705,6 +696,8 @@
 		99CFD84F199B60D8009A5ABA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				99BDC5F619A5F4E100B2BDB1 /* radioChecked.png */,
+				99BDC5F719A5F4E100B2BDB1 /* radioUnChecked.png */,
 				99BDC5F219A5F4A900B2BDB1 /* radioChecked.png */,
 				99BDC5F319A5F4A900B2BDB1 /* radioUnChecked.png */,
 				99512F5F19A5C64800E56EF4 /* ico_calltelphone.png */,
@@ -899,7 +892,6 @@
 			files = (
 				99BDC5F419A5F4A900B2BDB1 /* radioChecked.png in Resources */,
 				99BDC5F519A5F4A900B2BDB1 /* radioUnChecked.png in Resources */,
-				99BDC5EA19A5F10D00B2BDB1 /* SVProgressHUD.bundle in Resources */,
 				99B350B7199CB1F100CAEC71 /* index640x960.png in Resources */,
 				99CFD87B199B60D8009A5ABA /* ico_leftmenu_head.png in Resources */,
 				99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */,
@@ -915,7 +907,6 @@
 				99CFD893199B60D8009A5ABA /* main_pic_jobnews.png in Resources */,
 				99CFD822199B5F80009A5ABA /* InfoPlist.strings in Resources */,
 				99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */,
-				99BDC5EC19A5F10D00B2BDB1 /* SVProgressHUD.zip in Resources */,
 				99CFD87D199B60D8009A5ABA /* ico_leftmenu_jobnews.png in Resources */,
 				99CFD895199B60D8009A5ABA /* qq.png in Resources */,
 				99CFD879199B60D8009A5ABA /* ico_leftmenu_campus.png in Resources */,
@@ -982,7 +973,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99BDC5F019A5F2D600B2BDB1 /* SVProgressHUD.bundle in Sources */,
 				998025C219A23024001A7E84 /* MJRefreshHeaderView.m in Sources */,
 				99908A0519A3430900137FDE /* DictionaryPickerView.m in Sources */,
 				99BDC5E919A5F10D00B2BDB1 /* MLTableAlert.m in Sources */,
@@ -992,6 +982,7 @@
 				998025BF19A23024001A7E84 /* MJRefreshBaseView.m in Sources */,
 				99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */,
 				997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */,
+				99FA8B7519A6DBD500F8B1B9 /* MenuViewController.m in Sources */,
 				99908A5719A34DD300137FDE /* FMDatabaseAdditions.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				991125AC19A4DB7C00C98173 /* RecruitmentViewController.m in Sources */,
@@ -1023,7 +1014,6 @@
 				99CFD824199B5F80009A5ABA /* main.m in Sources */,
 				99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				998025C419A23024001A7E84 /* UIScrollView+MJRefresh.m in Sources */,
-				994454AD199C4A0800206482 /* MenuViewController.m in Sources */,
 				99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */,
 				99908A5919A34DD300137FDE /* FMDatabaseQueue.m in Sources */,
 				99BDC5E719A5F10D00B2BDB1 /* Dialog.m in Sources */,
