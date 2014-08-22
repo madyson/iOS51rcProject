@@ -12,7 +12,7 @@
 #import "NetWebServiceRequest.h"
 #import "GDataXMLNode.h"
 #import <UIKit/UIKit.h>
-
+#import "LoadingAnimationView.h"
 
 #define TAG_CreateResumeOrNot 1
 #define TAG_RESUME 2
@@ -27,6 +27,7 @@
 
 @property (retain, nonatomic) IBOutlet UILabel *labelLine1;
 @property (retain, nonatomic) IBOutlet UILabel *labelLine2;
+@property (retain, nonatomic) LoadingAnimationView *loadingView;
 @end
 
 @implementation RegisterViewController
@@ -72,6 +73,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+//隐藏键盘
+-(IBAction)textFiledReturnEditing:(id)sender {
+    [sender resignFirstResponder];
+}
+
 - (IBAction)btnRegisterClick:(id)sender {
     userName=self.txtUserName.text;
     password= self.txtPsd.text; 
@@ -97,11 +103,15 @@
         self.runningRequest = request;
         wsName = @"Register";
     }
+    //缓冲界面
+    self.loadingView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
+    [self.loadingView startAnimating];
 }
 
 //失败
 - (void)netRequestFailed:(NetWebServiceRequest *)request didRequestError:(int *)error
 {
+    [self.loadingView stopAnimating];
     [Dialog alert:@"出现意外错误"];
     return;
 }
@@ -117,6 +127,7 @@
     }
     else if ([wsName isEqualToString:@"GetPaAddDate"])
     {
+        [self.loadingView stopAnimating];
         [self didReceiveGetCode:result];
     }
     

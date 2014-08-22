@@ -14,5 +14,6 @@
 +(BOOL) checkPassword:(NSString *) strPsd;
 +(BOOL) isBlankString:(NSString *)string;
 -(BOOL)isMobileNumber:(NSString *)mobileNum;
--(BOOL)checkEmail:(NSString *) userName;
+-(BOOL) checkEmail:(NSString *) userName;
++(BOOL) isValidateMobile:(NSString *)mobile;
 @end
