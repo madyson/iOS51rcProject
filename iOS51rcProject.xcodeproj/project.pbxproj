@@ -142,6 +142,8 @@
 		99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CFD8BA199B6196009A5ABA /* SlideNavigationController.m */; };
 		99FA8B7519A6DBD500F8B1B9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FA8B7419A6DBD500F8B1B9 /* MenuViewController.m */; };
 		99FA8B7D19A7132700F8B1B9 /* UserCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FA8B7C19A7132700F8B1B9 /* UserCenter.storyboard */; };
+		99FA8B8B19A744DF00F8B1B9 /* ALPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FA8B8819A744DF00F8B1B9 /* ALPickerView.m */; };
+		99FA8B8C19A744DF00F8B1B9 /* ALPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FA8B8A19A744DF00F8B1B9 /* ALPickerViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -359,6 +361,10 @@
 		99FA8B7319A6DBD500F8B1B9 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		99FA8B7419A6DBD500F8B1B9 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		99FA8B7C19A7132700F8B1B9 /* UserCenter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserCenter.storyboard; sourceTree = "<group>"; };
+		99FA8B8719A744DF00F8B1B9 /* ALPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPickerView.h; sourceTree = "<group>"; };
+		99FA8B8819A744DF00F8B1B9 /* ALPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPickerView.m; sourceTree = "<group>"; };
+		99FA8B8919A744DF00F8B1B9 /* ALPickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPickerViewCell.h; sourceTree = "<group>"; };
+		99FA8B8A19A744DF00F8B1B9 /* ALPickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPickerViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,6 +512,7 @@
 		99908A0719A3431200137FDE /* DictionaryPicker */ = {
 			isa = PBXGroup;
 			children = (
+				99FA8B8619A744DF00F8B1B9 /* MultiPicker */,
 				99908A0219A3430900137FDE /* DictionaryPickerView.m */,
 				99908A0319A3430900137FDE /* DictionaryPickerView.h */,
 				99908A0419A3430900137FDE /* DictionaryPickerView.xib */,
@@ -835,6 +842,17 @@
 			name = UserCenter;
 			sourceTree = "<group>";
 		};
+		99FA8B8619A744DF00F8B1B9 /* MultiPicker */ = {
+			isa = PBXGroup;
+			children = (
+				99FA8B8719A744DF00F8B1B9 /* ALPickerView.h */,
+				99FA8B8819A744DF00F8B1B9 /* ALPickerView.m */,
+				99FA8B8919A744DF00F8B1B9 /* ALPickerViewCell.h */,
+				99FA8B8A19A744DF00F8B1B9 /* ALPickerViewCell.m */,
+			);
+			path = MultiPicker;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -996,6 +1014,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				998025C219A23024001A7E84 /* MJRefreshHeaderView.m in Sources */,
+				99FA8B8C19A744DF00F8B1B9 /* ALPickerViewCell.m in Sources */,
 				99908A0519A3430900137FDE /* DictionaryPickerView.m in Sources */,
 				99BDC5E919A5F10D00B2BDB1 /* MLTableAlert.m in Sources */,
 				99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */,
@@ -1018,6 +1037,7 @@
 				997BF0EC199DB33C00FD0B12 /* GDataXMLNode.m in Sources */,
 				998025C119A23024001A7E84 /* MJRefreshFooterView.m in Sources */,
 				99BDC5E819A5F10D00B2BDB1 /* MBProgressHUD.m in Sources */,
+				99FA8B8B19A744DF00F8B1B9 /* ALPickerView.m in Sources */,
 				997BF0E6199DB33C00FD0B12 /* ASIDownloadCache.m in Sources */,
 				997BF0E9199DB33C00FD0B12 /* ASIInputStream.m in Sources */,
 				998025C319A23024001A7E84 /* UIScrollView+Extension.m in Sources */,

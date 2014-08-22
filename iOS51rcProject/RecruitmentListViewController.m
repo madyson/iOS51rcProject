@@ -340,7 +340,7 @@
 
 -(void)showRegionSelect {
     [self cancelDicPicker];
-    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithJobType pickerType:DictionaryPickerOne delegate:self defaultValue:@"32"];
+    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithRegionL2 pickerType:DictionaryPickerOne pickerInclude:DictionaryPickerIncludeParent delegate:self defaultValue:@"32"];
 
     self.DictionaryPicker.tag = 1;
     [self.DictionaryPicker showInView:self.view];
@@ -371,6 +371,7 @@
     }
     else { //场馆选择
         placeid = selectValue;
+        [self.lbPlace setText:selectName];
     }
     //重新加载列表
     page = 1;

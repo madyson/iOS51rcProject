@@ -12,6 +12,11 @@ typedef enum {
     DictionaryPickerOne
 } DictionaryPickerMode;
 
+typedef enum {
+    DictionaryPickerIncludeParent,
+    DictionaryPickerNoIncludeParent
+} DictionaryPickerInclude;
+
 @class DictionaryPickerView;
 
 @protocol DictionaryPickerDelegate <NSObject>
@@ -31,12 +36,14 @@ typedef enum {
 @property (strong, nonatomic) IBOutlet UIButton *btnSave;
 @property (nonatomic) DictionaryPickerType pickerType;
 @property (nonatomic) DictionaryPickerMode pickerMode;
+@property (nonatomic) DictionaryPickerInclude pickerInclude;
 @property (assign, nonatomic) NSString *selectValue;
 @property (assign, nonatomic) NSString *selectName;
 @property (assign, nonatomic) NSString *selectTableName;
 
 - (id)initWithCustom:(DictionaryPickerType)pickerType
          pickerType:(DictionaryPickerMode)pickerMode
+       pickerInclude:(DictionaryPickerInclude)pickerInclude
            delegate:(id <DictionaryPickerDelegate>)delegate
         defaultValue:(NSString *)defaultValue;
 
