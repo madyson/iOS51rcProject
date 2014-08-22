@@ -1,5 +1,6 @@
 #import "SlideNavigationController.h"
 #import "SlideNavigationContorllerAnimator.h"
+#import "MenuViewController.h"
 
 typedef enum {
 	PopTypeAll,
@@ -16,7 +17,7 @@ typedef enum {
 @implementation SlideNavigationController
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
-#define MENU_SLIDE_ANIMATION_DURATION .3
+#define MENU_SLIDE_ANIMATION_DURATION .4
 #define MENU_QUICK_SLIDE_ANIMATION_DURATION .18
 #define MENU_IMAGE @"menu-button"
 #define MENU_SHADOW_RADIUS 10
@@ -397,6 +398,10 @@ static SlideNavigationController *singletonInstance;
 
 - (BOOL)shouldDisplayMenu:(Menu)menu forViewController:(UIViewController *)vc
 {
+    if ([vc respondsToSelector:@selector(slideMenuItem)])
+    {
+        [(MenuViewController *)self.leftMenu changeMenuItem:[(UIViewController<SlideNavigationControllerDelegate> *)vc slideMenuItem]];
+	}
 	if (menu == MenuRight)
 	{
 		if ([vc respondsToSelector:@selector(slideNavigationControllerShouldDisplayRightMenu)] &&
@@ -413,7 +418,6 @@ static SlideNavigationController *singletonInstance;
 			return YES;
 		}
 	}
-	
 	return NO;
 }
 
@@ -441,7 +445,7 @@ static SlideNavigationController *singletonInstance;
 - (void)closeMenuWithDuration:(float)duration andCompletion:(void (^)())completion
 {
 	[self enableTapGestureToCloseMenu:NO];
-	
+
 	[UIView animateWithDuration:duration
 						  delay:0
 						options:UIViewAnimationOptionCurveEaseOut

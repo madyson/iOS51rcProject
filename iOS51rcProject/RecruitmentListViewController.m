@@ -5,8 +5,9 @@
 #import "DictionaryPickerView.h"
 #import "Toast+UIView.h"
 #import "RecruitmentViewController.h"
+#import "SlideNavigationController.h"
 
-@interface RecruitmentListViewController ()<NetWebServiceRequestDelegate,DatePickerDelegate,DictionaryPickerDelegate>
+@interface RecruitmentListViewController ()<NetWebServiceRequestDelegate,DatePickerDelegate,DictionaryPickerDelegate,SlideNavigationControllerDelegate>
 @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentList;
 @property (retain, nonatomic) IBOutlet UIButton *btnProvinceSel;
 @property (retain, nonatomic) IBOutlet UIButton *btnPlaceSel;
@@ -339,9 +340,10 @@
 
 -(void)showRegionSelect {
     [self cancelDicPicker];
-    _DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithRegionL2 pickerType:DictionaryPickerOne delegate:self defaultValue:@"32"];
-    _DictionaryPicker.tag = 1;
-    [_DictionaryPicker showInView:self.view];
+    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithJobType pickerType:DictionaryPickerOne delegate:self defaultValue:@"32"];
+
+    self.DictionaryPicker.tag = 1;
+    [self.DictionaryPicker showInView:self.view];
 }
 
 - (void)showPlaceSelect {
@@ -350,34 +352,31 @@
         return;
     }
     [self cancelDicPicker];
-    _DictionaryPicker = [[DictionaryPickerView alloc] initWithDictionary:self defaultArray:placeData defalutValue:@""];
-    _DictionaryPicker.tag = 2;
-    [_DictionaryPicker showInView:self.view];
+    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithDictionary:self defaultArray:placeData defalutValue:@""];
+    self.DictionaryPicker.tag = 2;
+    [self.DictionaryPicker showInView:self.view];
 }
 
 - (void)pickerDidChangeStatus:(DictionaryPickerView *)picker
                   selectValue:(NSString *)selectValue
                    selectName:(NSString *)selectName {
     [self cancelDicPicker];
-    if (picker.tag == 1) {
+    if (picker.tag == 1) { //地区选择
         regionid = selectValue;
         placeid = @"";
         [self.lbPlace setText:@"全部场馆"];
         [self.lbProvince setText:selectName];
         //加载场馆
         [self reloadPlace];
-        //重新加载列表
-        page = 1;
-        [self onSearch];
-        //开始等待动画
-        [loadView startAnimating];
     }
-    else {
+    else { //场馆选择
         placeid = selectValue;
-        page = 1;
-        [self.lbPlace setText:selectName];
-        [self onSearch];
     }
+    //重新加载列表
+    page = 1;
+    [self onSearch];
+    //开始等待动画
+    [loadView startAnimating];
 }
 
 - (void)reloadPlace {
@@ -391,4 +390,15 @@
     [request startAsynchronous];
     self.runningRequest2 = request;
 }
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
+
+- (int)slideMenuItem
+{
+    return 5;
+}
+
 @end

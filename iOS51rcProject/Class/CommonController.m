@@ -54,7 +54,7 @@
 }
 
 //检查密码格式
-+ (BOOL) checkPassword:(NSString *) strPsd
++ (BOOL)checkPassword:(NSString *) strPsd
 {
     NSString *passwordreg=@"^[a-zA-Z0-9\\-_\\.]+$";
     NSPredicate *passreg = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passwordreg];
@@ -67,7 +67,7 @@
 }
 
 //验证邮箱
-- (BOOL) checkEmail:(NSString *) strEmail
+- (BOOL)checkEmail:(NSString *) strEmail
 {
     BOOL result = true;
     NSString * regex = @"^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";

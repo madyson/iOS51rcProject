@@ -123,7 +123,7 @@
     //联系人信息
     if ([dicRecruitment objectForKey:@"LinkMan"]) {
         UIView *viewLink = [[UIView alloc] initWithFrame:CGRectMake(0, fltHeight, 320, 500)];
-        viewLink.backgroundColor = [UIColor blueColor];
+        //viewLink.backgroundColor = [UIColor blueColor];
         
         //添加头部分割线
         float fltLinkHeight = 0;
@@ -237,7 +237,7 @@
     if ([dicRecruitment objectForKey:@"BusLine"]) {
         fltHeight += 10;
         UILabel *lbBusLine = [[UILabel alloc] initWithFrame:CGRectMake(20, fltHeight, 280, 20)];
-        lbBusLine.backgroundColor = [UIColor grayColor];
+//        lbBusLine.backgroundColor = [UIColor grayColor];
         NSString *recruitmentBusLine = [NSString stringWithFormat:@"乘车线路：\n\n%@",dicRecruitment[@"BusLine"]];
         labelSize = [CommonController CalculateFrame:recruitmentBusLine fontDemond:font sizeDemand:CGSizeMake(lbBusLine.frame.size.width, 500)];
         [lbBusLine setFrame:CGRectMake(lbBusLine.frame.origin.x, lbBusLine.frame.origin.y, lbBusLine.frame.size.width, labelSize.height)];
@@ -255,7 +255,7 @@
     if ([dicRecruitment objectForKey:@"Brief"]) {
         fltHeight += 10;
         UILabel *lbBrief = [[UILabel alloc] initWithFrame:CGRectMake(20, fltHeight, 280, 20)];
-        lbBrief.backgroundColor = [UIColor grayColor];
+//        lbBrief.backgroundColor = [UIColor grayColor];
         NSString *recruitmentBrief = [NSString stringWithFormat:@"招聘会详情：\n\n%@",dicRecruitment[@"Brief"]];
         labelSize = [CommonController CalculateFrame:recruitmentBrief fontDemond:font sizeDemand:CGSizeMake(lbBrief.frame.size.width, 500)];
         [lbBrief setFrame:CGRectMake(lbBrief.frame.origin.x, lbBrief.frame.origin.y, lbBrief.frame.size.width, labelSize.height)];
@@ -267,6 +267,28 @@
         [lbBrief release];
         
         fltHeight += labelSize.height;
+    }
+    
+    if ([dtBeginDate laterDate:[NSDate date]] == dtBeginDate) {
+        //加底部菜单
+        UIView *viewBottom = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-50, 320, 50)];
+        viewBottom.backgroundColor = [UIColor colorWithRed:255.f/255.f green:255.f/255.f blue:255.f/255.f alpha:1];
+        
+        //加我要参会按钮
+        UIButton *btnJoin = [[UIButton alloc] initWithFrame:CGRectMake(110, 10, 100, 30)];
+        [btnJoin setBackgroundColor:[UIColor colorWithRed:255.f/255.f green:90.f/255.f blue:39.f/255.f alpha:1]];
+        [btnJoin setTitle:@"我要参会" forState:UIControlStateNormal];
+        [btnJoin.titleLabel setFont:[UIFont systemFontOfSize:15]];
+        [btnJoin.layer setMasksToBounds:YES];
+        [btnJoin.layer setCornerRadius:10.0]; //设置矩形四个圆角半径
+        [btnJoin.layer setBorderWidth:1.0]; //边框宽度
+        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+        CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 1, 0, 0, 1 });
+        [btnJoin.layer setBorderColor:colorref];//边框颜色
+        
+        [viewBottom addSubview:btnJoin];
+        [self.view addSubview:viewBottom];
+        self.scrollRecruitment.frame = CGRectMake(self.scrollRecruitment.frame.origin.x, self.scrollRecruitment.frame.origin.y, self.scrollRecruitment.frame.size.width, self.scrollRecruitment.frame.size.height-50);
     }
     
     [self.scrollRecruitment setContentSize:CGSizeMake(320, fltHeight+20)];
@@ -282,14 +304,10 @@
         strCallNumber = self.recruitmentTelephone;
     }
     UIWebView*callWebview =[[UIWebView alloc] init];
-    NSURL *telURL =[NSURL URLWithString:@"tel:10086"];// 貌似tel:// 或者 tel: 都行
+    NSURL *telURL =[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",strCallNumber]];
     [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
     //记得添加到view上
     [self.view addSubview:callWebview];
-    
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://10086"]];
-//    NSLog(@"%@",strCallNumber);
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",strCallNumber]]];
 }
 
 - (void)dealloc {

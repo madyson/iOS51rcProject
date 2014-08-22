@@ -23,6 +23,7 @@
 @synthesize btnCancel = _btnCancel;
 @synthesize selectValue = _selectValue;
 @synthesize selectName = _selectName;
+@synthesize selectTableName = _selectTableName;
 
 - (void)dealloc
 {
@@ -31,6 +32,9 @@
     [_pickerDictionary release];
     [_btnCancel release];
     [_btnSave release];
+    [_selectValue release];
+    [_selectName release];
+    [_selectTableName release];
     [arrDictionaryL1 release];
     [arrDictionaryL2 release];
     [arrDictionaryL3 release];
@@ -52,7 +56,27 @@
         self.pickerDictionary.delegate = self;
         [self.btnCancel addTarget:self action:@selector(cancelPicker) forControlEvents:UIControlEventTouchUpInside];
         [self.btnSave addTarget:self action:@selector(savePicker) forControlEvents:UIControlEventTouchUpInside];
-        _selectValue = defaultValue;
+        self.selectValue = defaultValue;
+        [self setupDictionary];
+    }
+    return self;
+}
+
+- (id)initWithCommon:(id <DictionaryPickerDelegate>)delegate
+           tableName:(NSString *)tableName
+        defalutValue:(NSString *)defaultValue
+{
+    self = [[[[NSBundle mainBundle] loadNibNamed:@"DictionaryPickerView" owner:self options:nil] objectAtIndex:0] retain];
+    if (self) {
+        self.delegate = delegate;
+        self.pickerType = DictionaryPickerWithCommon;
+        self.pickerMode = DictionaryPickerOne;
+        self.pickerDictionary.dataSource = self;
+        self.pickerDictionary.delegate = self;
+        [self.btnCancel addTarget:self action:@selector(cancelPicker) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnSave addTarget:self action:@selector(savePicker) forControlEvents:UIControlEventTouchUpInside];
+        self.selectValue = defaultValue;
+        self.selectTableName = tableName;
         [self setupDictionary];
     }
     return self;
@@ -71,7 +95,7 @@
         self.pickerDictionary.delegate = self;
         [self.btnCancel addTarget:self action:@selector(cancelPicker) forControlEvents:UIControlEventTouchUpInside];
         [self.btnSave addTarget:self action:@selector(savePicker) forControlEvents:UIControlEventTouchUpInside];
-        _selectValue = defaultValue;
+        self.selectValue = defaultValue;
         arrDictionaryL1 = [defaultArray retain];
     }
     return self;
@@ -101,6 +125,14 @@
         {
             [self setRegionDictionary:@""];
             break;
+        }
+        case DictionaryPickerWithJobType:
+        {
+            [self setJobTypeDictionary:@""];
+        }
+        case DictionaryPickerWithCommon:
+        {
+            [self setCommonDictionary];
         }
         default:
             break;
@@ -139,13 +171,45 @@
             return [arrDictionaryL2 count];
             break;
         case 2:
-            if (self.pickerType == DictionaryPickerWithRegionL3) {
-                return [arrDictionaryL3 count];
-                break;
-            }
+            return [arrDictionaryL3 count];
+            break;
         default:
             return 0;
             break;
+    }
+}
+
+- (void)setJobTypeDictionary:(NSString *)parentid
+{
+    if ([parentid length] == 0) {
+        FMResultSet *jobTypeList = [db executeQuery:@"select * from dcjobtype where parentid is null and _id<>0"];
+        int i = 0;
+        while ([jobTypeList next]) {
+            if (i == 0) {
+                [self setJobTypeDictionary:[jobTypeList stringForColumn:@"_id"]];
+            }
+            NSDictionary *dicJobType = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                       [jobTypeList stringForColumn:@"_id"],@"id",
+                                       [jobTypeList stringForColumn:@"description"],@"value"
+                                       , nil];
+            [arrDictionaryL1 addObject:dicJobType];
+            [dicJobType release];
+            i++;
+        }
+    }
+    else if ([parentid length] == 2) {
+        [arrDictionaryL2 removeAllObjects];
+        int i = 0;
+        FMResultSet *cityList = [db executeQuery:[NSString stringWithFormat:@"select * from dcjobtype where parentid=%@",parentid]];
+        while ([cityList next]) {//有下一个的话，就取出它的数据，然后关闭数据库
+            NSDictionary *dicJobType = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                       [cityList stringForColumn:@"_id"],@"id",
+                                       [cityList stringForColumn:@"description"],@"value"
+                                       , nil];
+            [arrDictionaryL2 addObject:dicJobType];
+            [dicJobType release];
+            i++;
+        }
     }
 }
 
@@ -205,6 +269,24 @@
     }
 }
 
+- (void)setCommonDictionary
+{
+    FMResultSet *commonList = [db executeQuery:[NSString stringWithFormat:@"select * from %@",self.selectTableName]];
+    int i = 0;
+    while ([commonList next]) {
+        if (i == 0) {
+            [self setJobTypeDictionary:[commonList stringForColumn:@"_id"]];
+        }
+        NSDictionary *dicCommon = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                   [commonList stringForColumn:@"_id"],@"id",
+                                   [commonList stringForColumn:@"description"],@"value"
+                                   , nil];
+        [arrDictionaryL1 addObject:dicCommon];
+        [dicCommon release];
+        i++;
+    }
+}
+
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     switch (self.pickerType) {
@@ -250,6 +332,15 @@
                 break;
             }
         }
+        case DictionaryPickerWithJobType:
+        {
+            if (component == 0) {
+                [self setJobTypeDictionary:[arrDictionaryL1[row] objectForKey:@"id"]];
+                [self.pickerDictionary reloadComponent:1];
+                [self.pickerDictionary selectRow:0 inComponent:1 animated:YES];
+                break;
+            }
+        }
         default:
             break;
     }
@@ -272,10 +363,16 @@
             strTitle =  @"";
             break;
     }
-    UILabel *lbTest = [[UILabel alloc] init];
-    lbTest.text = strTitle;
-    lbTest.textAlignment = NSTextAlignmentCenter;
-    return lbTest;
+    UILabel *lbTitle = [[UILabel alloc] init];
+    lbTitle.text = strTitle;
+    lbTitle.textAlignment = NSTextAlignmentCenter;
+    lbTitle.userInteractionEnabled = true;
+    return lbTitle;
+}
+
+- (void)itemClick 
+{
+    NSLog(@"123123123");
 }
 
 - (void)savePicker

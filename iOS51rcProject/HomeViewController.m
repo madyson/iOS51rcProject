@@ -1,15 +1,8 @@
-//
-//  HomeViewController.m
-//  iOS51rcProject
-//
-//  Created by qlrc on 14-8-20.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
-
 #import "HomeViewController.h"
 #import "LoginViewController.h"
+#import "SlideNavigationController.h"
 
-@interface HomeViewController ()
+@interface HomeViewController() <SlideNavigationControllerDelegate>
 
 @end
 
@@ -42,6 +35,16 @@
     LoginViewController *loginCtrl = [login instantiateViewControllerWithIdentifier:@"LoginView"];
     [self.navigationController pushViewController:loginCtrl animated:YES];
     //[loginCtrl release];//加release会报错
+}
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
+
+- (int)slideMenuItem
+{
+    return 1;
 }
 
 /*
