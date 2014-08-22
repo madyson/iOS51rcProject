@@ -19,9 +19,6 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnLogin;
 @property (retain, nonatomic) IBOutlet UIButton *btnRegister;
 
-
-//@property (retain, nonatomic) IBOutlet UINavigationItem *ni;
-
 @end
 
 @implementation LoginViewController
@@ -46,8 +43,8 @@
     self.navigationItem.backBarButtonItem = btnBack;
     
     CGRect frame = [[UIScreen mainScreen] bounds];
-    frame.origin.y = 102;//状态栏和切换栏的高度
-    frame.size.height = frame.size.height - 102;
+    frame.origin.y = 106;//状态栏和切换栏的高度
+    frame.size.height = frame.size.height - 106;
     //获得子View
     self.loginDetailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginDetailsView"];
     self.registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
@@ -63,6 +60,8 @@
     [self.view addGestureRecognizer:self.leftSwipeGestureRecognizer];
     [self.view addGestureRecognizer:self.rightSwipeGestureRecognizer];
     self.loginDetailsView.delegate = self;
+    self.loginDetailsView.gotoHomeDelegate = self;;
+    self.registerView.gotoHomeDelegate = self;
     
     //默认加载登录页面
     [self.view addSubview: self.loginDetailsView.view];
@@ -114,6 +113,11 @@
 {
     FindPsdStep1ViewController *findPsd1View =[self.storyboard instantiateViewControllerWithIdentifier: @"findPsd1View"];
     [self.navigationController pushViewController:findPsd1View animated:YES];
+}
+
+- (void) gotoHome
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
