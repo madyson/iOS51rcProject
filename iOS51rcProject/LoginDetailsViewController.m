@@ -19,6 +19,10 @@
 @property (retain, nonatomic) IBOutlet UITextField *txtPsd;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UILabel *labelNameBg;
+@property (retain, nonatomic) IBOutlet UIButton *btnLogin;
+@property (retain, nonatomic) IBOutlet UILabel *labelLine;
+@property (retain, nonatomic) IBOutlet UIImageView *imgAutoLogin;
+@property (retain, nonatomic) IBOutlet UIButton *btnAutoLogin;
 @end
 
 
@@ -43,8 +47,24 @@
     self.txtPsd.layer.borderColor = [UIColor whiteColor].CGColor;
     
     self.labelNameBg.layer.borderWidth = 0.3;
-    self.labelNameBg.layer.borderColor = [UIColor grayColor].CGColor;
+    self.labelNameBg.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.labelNameBg.layer.cornerRadius = 5;
+    
+    self.btnLogin.layer.cornerRadius = 5;
+    self.btnLogin.layer.backgroundColor = [UIColor colorWithRed:255/255.0 green:90/255.0 blue:39/255.0 alpha:1].CGColor;
+    
+    self.labelLine.layer.borderWidth = 0.15;
+    self.labelLine.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [self.labelLine setFrame:CGRectMake(24, 76.5, 273, 0.5)];
+    isAutoLogin = true;
+}
+- (IBAction)btnAutoLoginClick:(id)sender {
+    isAutoLogin = !isAutoLogin;
+    if (isAutoLogin) {
+        self.imgAutoLogin.image = [UIImage imageNamed:@"unChecked.png" ];
+    }else{
+        self.imgAutoLogin.image = [UIImage imageNamed:@"checked.png"];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -151,23 +171,22 @@
     NSString *realCode=@"";
     realCode =
     [realCode stringByAppendingFormat:@"%@%@%@%@%@",[result substringWithRange:NSMakeRange(11,2)],
-     [result substringWithRange:NSMakeRange(0,4)],[result substringWithRange:NSMakeRange(14,2)],
-     [result substringWithRange:NSMakeRange(8,2)],[result substringWithRange:NSMakeRange(5,2)]];
-    //NSLog(result);
-    //NSString *name = [result substringWithRange:NSMakeRange(0,4)];
+    [result substringWithRange:NSMakeRange(0,4)],[result substringWithRange:NSMakeRange(14,2)],
+    [result substringWithRange:NSMakeRange(8,2)],[result substringWithRange:NSMakeRange(5,2)]];
+   
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setValue: userID forKey:@"UserID"];
+    [userDefaults setValue: userID forKey:@"UserID"];//PamainID
     [userDefaults setValue: userName forKey:@"UserName"];
-    [userDefaults setValue: passWord forKey:@"PassWord"];
-    //[userDefaults setValue: name forKey:@"name"];
+    [userDefaults setValue: passWord forKey:@"PassWord"];    
     [userDefaults setValue: @"1" forKey:@"BeLogined"];
-    [userDefaults setValue:isAutoLogin forKey:@"isAutoLogin"];
+    [userDefaults setBool: isAutoLogin forKey:@"isAutoLogin"];
     [userDefaults setObject:realCode forKey:@"code"];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"登录成功。" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil] ;
     [alert show];
 }
 
+//从webservice获取code
 -(void) getCode:(NSString* ) userID
 {
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
@@ -184,6 +203,10 @@
     [_txtName release];
     [_txtPsd release];
     [_labelNameBg release];   
+    [_btnLogin release];
+    [_labelLine release];
+    [_imgAutoLogin release];
+    [_btnAutoLogin release];
     [super dealloc];
 }
 @end

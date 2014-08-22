@@ -23,7 +23,10 @@
 @property (retain, nonatomic) IBOutlet UITextField *txtRePsd;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UILabel *labelBg;
+@property (retain, nonatomic) IBOutlet UIButton *btnRegister;
 
+@property (retain, nonatomic) IBOutlet UILabel *labelLine1;
+@property (retain, nonatomic) IBOutlet UILabel *labelLine2;
 @end
 
 @implementation RegisterViewController
@@ -51,9 +54,16 @@
     self.labelBg.layer.borderColor = [UIColor grayColor].CGColor;
     self.labelBg.layer.cornerRadius = 5;
 
+    self.btnRegister.layer.cornerRadius = 5;
     createResumeCtrl =[[CreateResumeAlertViewController alloc] init];
+    self.btnRegister.layer.backgroundColor = [UIColor colorWithRed:255/255.0 green:90/255.0 blue:39/255.0 alpha:1].CGColor;
     createResumeCtrl.delegate = self;
 
+    //设置中间的横线
+    self.labelLine1.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [self.labelLine1 setFrame:CGRectMake(24, 75, 273, 0.5f)];
+    self.labelLine2.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [self.labelLine2 setFrame:CGRectMake(24, 115, 273, 0.5f)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,16 +73,6 @@
 }
 
 - (IBAction)btnRegisterClick:(id)sender {
-    //[self.view addSubview:createResumeCtrl.view];
-    //createResumeCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
-    //[self presentModalViewController:createResumeCtrl animated:YES];
-    //[self.view addSubview:backGroundView];
-    //createResumeCtrl.view.superview.bounds  = [[UIScreen mainScreen] bounds];
-
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"帐号已经注册成功，立即创建简历？。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"确定", nil] ;
-    [alert show];
-    alert.tag = TAG_CreateResumeOrNot;
-    
     userName=self.txtUserName.text;
     password= self.txtPsd.text; 
     rePassword=self.txtRePsd.text;
@@ -196,7 +196,7 @@
     [userDefaults setValue: userName forKey:@"UserName"];
     [userDefaults setValue: password forKey:@"PassWord"];
     [userDefaults setValue: @"1" forKey:@"BeLogined"];
-    [userDefaults setValue:isAutoLogin forKey:@"isAutoLogin"];
+    [userDefaults setBool: true forKey:@"isAutoLogin"];
     [userDefaults setObject:realCode forKey:@"code"];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"帐号已经注册成功，立即创建简历？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles: @"确定", nil] ;
@@ -281,6 +281,9 @@
     [_txtPsd release];
     [_txtRePsd release];
     [_labelBg release];
+    [_btnRegister release];
+    [_labelLine1 release];
+    [_labelLine2 release];
     [super dealloc];
 }
 @end

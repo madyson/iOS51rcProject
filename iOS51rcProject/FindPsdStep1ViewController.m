@@ -17,6 +17,7 @@
 @interface FindPsdStep1ViewController ()
 @property (retain, nonatomic) IBOutlet UITextField *txtName;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
+@property (retain, nonatomic) IBOutlet UIButton *btnOK;
 @end
 
 @implementation FindPsdStep1ViewController
@@ -33,6 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.btnOK.layer.cornerRadius = 5;
+    self.btnOK.layer.backgroundColor = [UIColor colorWithRed:255/255.0 green:90/255.0 blue:39/255.0 alpha:1].CGColor;
     UIButton *button = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [button setTitle: @"找回密码" forState: UIControlStateNormal];
     [button sizeToFit];
@@ -191,6 +195,7 @@
 
 - (void)dealloc {
     [_txtName release];
+    [_btnOK release];
     [super dealloc];
 }
 @end

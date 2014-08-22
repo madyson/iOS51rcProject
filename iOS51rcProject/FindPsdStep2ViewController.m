@@ -19,6 +19,8 @@
 @property (retain, nonatomic) IBOutlet UITextField *txtVerifyCode;
 @property (retain, nonatomic) IBOutlet UILabel *txtLabel;
 @property (retain, nonatomic) NetWebServiceRequest *runningRequest;
+@property (retain, nonatomic) IBOutlet UIButton *btnNext;
+
 @end
 
 @implementation FindPsdStep2ViewController
@@ -50,7 +52,8 @@
     //自定义从下一个视图左上角，“返回”本视图的按钮
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"后退" style:UIBarButtonItemStyleDone target:nil action:nil];
     self.navigationItem.backBarButtonItem=backButton;
-    //[self GetCode];
+    self.btnNext.layer.cornerRadius = 5;
+    self.btnNext.layer.backgroundColor = [UIColor colorWithRed:255/255.0 green:90/255.0 blue:39/255.0 alpha:1].CGColor;
 }
 - (IBAction)btnResetPsd:(id)sender {
     [self GetCode];
@@ -77,6 +80,7 @@
         return;
     }
 
+    verifyCode = receiveCode;
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
     [dicParam setObject:self.code forKey:@"UniqueId"];
     [dicParam setObject:receiveCode forKey:@"type"];//第二个参数是手机或者邮箱收到的ID
@@ -99,25 +103,26 @@
               responseData:(NSArray *)requestData
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSLog(result);
+    //NSLog(result);
     NSMutableArray *Array = requestData;
-//    NSDictionary rowData = Array[0];
-//    if (self.txtVerifyCode.text != rowData[@"ActivateCode"]) {
-//        [Dialog alert:@"您输入的激活码信息不正确，请查证！"];
-//    }
-//    else
-//    {
-//        [userDefault setValue: rowData[@"PamainID"] forKeyPath:@"UserID"];
-//        [userDefault setValue: rowData[@"UserName"] forKeyPath:@"UserName"];
-//        [userDefault setValue: rowData[@"AddDate"] forKeyPath:@"AddDate"];
-//        
-//        FindPsdStep3ViewController *find3Ctr = [self.storyboard instantiateViewControllerWithIdentifier: @"findPsd3View"];
-//        find3Ctr.userName = rowData[@"UserName"];
-//        find3Ctr.paMainID = rowData[@"PamainID"];
-//        [self.navigationController pushViewController:find3Ctr animated:YES];
-//    }
-//   
-//    [result retain];
+    NSDictionary *rowData = Array[0];
+    NSString *strTmp = rowData[@"ActivateCode"];
+    if (![verifyCode isEqualToString:strTmp]) {
+        [Dialog alert:@"您输入的激活码信息不正确，请查证！"];
+    }
+    else
+    {
+        [userDefault setValue: rowData[@"PamainID"] forKeyPath:@"UserID"];
+        [userDefault setValue: rowData[@"UserName"] forKeyPath:@"UserName"];
+        [userDefault setValue: rowData[@"AddDate"] forKeyPath:@"AddDate"];
+        
+        FindPsdStep3ViewController *find3Ctr = [self.storyboard instantiateViewControllerWithIdentifier: @"findPsd3View"];
+        find3Ctr.userName = rowData[@"UserName"];
+        find3Ctr.paMainID = rowData[@"PamainID"];
+        [self.navigationController pushViewController:find3Ctr animated:YES];
+    }
+   
+    [result retain];
 }
 
 /*
@@ -135,6 +140,7 @@
     [_txtUserName release];
     [_txtVerifyCode release];
     [_txtLabel release];
+    [_btnNext release];
     [super dealloc];
 }
 @end

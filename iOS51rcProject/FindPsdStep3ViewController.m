@@ -18,6 +18,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *txtPsd;
 @property (retain, nonatomic) IBOutlet UITextField *txtRePsd;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
+@property (retain, nonatomic) IBOutlet UIButton *btnOK;
 @end
 
 @implementation FindPsdStep3ViewController
@@ -34,7 +35,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     UIButton *button = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [button setTitle: @"重置密码" forState: UIControlStateNormal];
@@ -45,12 +45,13 @@
     //自定义从下一个视图左上角，“返回”本视图的按钮
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"后退" style:UIBarButtonItemStyleDone target:nil action:nil];
     self.navigationItem.backBarButtonItem=backButton;
+    self.btnOK.layer.cornerRadius = 5;
+    self.btnOK.layer.backgroundColor = [UIColor colorWithRed:255/255.0 green:90/255.0 blue:39/255.0 alpha:1].CGColor;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -65,9 +66,9 @@
     }
     
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
-    [dicParam setObject:@"" forKey:@"PaMainID"];
+    [dicParam setObject:self.paMainID forKey:@"PaMainID"];
     [dicParam setObject:passWord forKey:@"Password"];
-    [dicParam setObject:@"" forKey:@"ip"];
+    [dicParam setObject:@"IOS" forKey:@"ip"];
     [dicParam setObject:@"" forKey:@"Code"];
     
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"ResetPassword" Params:dicParam];
@@ -193,6 +194,7 @@
     [_txtUserName release];
     [_txtPsd release];
     [_txtRePsd release];
+    [_btnOK release];
     [super dealloc];
 }
 @end

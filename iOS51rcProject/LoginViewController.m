@@ -46,8 +46,8 @@
     self.navigationItem.backBarButtonItem = btnBack;
     
     CGRect frame = [[UIScreen mainScreen] bounds];
-    frame.origin.y = 102;//状态栏和切换栏的高度
-    frame.size.height = frame.size.height - 102;
+    frame.origin.y = 106;//状态栏和切换栏的高度
+    frame.size.height = frame.size.height - 106;
     //获得子View
     self.loginDetailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginDetailsView"];
     self.registerView = [self.storyboard instantiateViewControllerWithIdentifier:@"RegisterView"];
