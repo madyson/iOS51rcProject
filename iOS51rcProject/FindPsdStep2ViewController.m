@@ -123,13 +123,13 @@
     }
     else
     {
-        [userDefault setValue: rowData[@"PamainID"] forKeyPath:@"UserID"];
+        [userDefault setValue: rowData[@"paMainID"] forKeyPath:@"UserID"];
         [userDefault setValue: rowData[@"UserName"] forKeyPath:@"UserName"];
         [userDefault setValue: rowData[@"AddDate"] forKeyPath:@"AddDate"];
         
         FindPsdStep3ViewController *find3Ctr = [self.storyboard instantiateViewControllerWithIdentifier: @"findPsd3View"];
         find3Ctr.userName = rowData[@"UserName"];
-        find3Ctr.paMainID = rowData[@"PamainID"];
+        find3Ctr.paMainID = rowData[@"paMainID"];
         [self.navigationController pushViewController:find3Ctr animated:YES];
     }
    
