@@ -13,11 +13,13 @@
 #import "GDataXMLNode.h"
 #import <UIKit/UIKit.h>
 #import "FindPsdStep2ViewController.h"
+#import "LoadingAnimationView.h"
 
 @interface FindPsdStep1ViewController ()
 @property (retain, nonatomic) IBOutlet UITextField *txtName;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UIButton *btnOK;
+@property (retain, nonatomic) LoadingAnimationView *loadingView;
 @end
 
 @implementation FindPsdStep1ViewController
@@ -47,6 +49,11 @@
     self.navigationItem.backBarButtonItem=backButton;
 }
 
+//隐藏键盘
+-(IBAction)textFiledReturnEditing:(id)sender {
+    [sender resignFirstResponder];
+}
+
 //发送验证码
 - (IBAction)btnGetCode:(id)sender {
     if(self.txtName.text==nil||[self.txtName.text isEqualToString:@""]){
@@ -55,12 +62,11 @@
         return;
     }
 
-    NSString *userName = @"";
-    self.phone = @"";
-    CommonController *commonCtrl = [[CommonController alloc] init];
-    if([commonCtrl isMobileNumber:self.txtName.text])
+    userName = @"";
+    phone = @"";
+    if([CommonController isValidateMobile:self.txtName.text])
     {
-        self.phone = self.txtName.text;
+        phone = self.txtName.text;
     }
     else{
         userName = self.txtName.text;
@@ -73,8 +79,8 @@
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
     [dicParam setObject:userName forKey:@"userName"];
     [dicParam setObject:userName forKey:@"email"];
-    [dicParam setObject:self.phone forKey:@"mobile"];
-    [dicParam setObject:@"" forKey:@"ip"];
+    [dicParam setObject:phone forKey:@"mobile"];
+    [dicParam setObject:@"IOS" forKey:@"ip"];
     [dicParam setObject:@"" forKey:@"strPageHost"];
     [dicParam setObject:@"" forKey:@"subsiteName"];
     [dicParam setObject:provinceID forKey:@"provinceID"];
@@ -84,10 +90,14 @@
     [request startAsynchronous];
     [request setDelegate:self];
     self.runningRequest = request;
+    //缓冲界面
+    self.loadingView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
+    [self.loadingView startAnimating];
 }
 //失败
 - (void)netRequestFailed:(NetWebServiceRequest *)request didRequestError:(int *)error
 {
+    [self.loadingView stopAnimating];
     [Dialog alert:@"出现意外错误"];
     return;
 }
@@ -97,6 +107,7 @@
       finishedInfoToResult:(NSString *)result
               responseData:(NSArray *)requestData
 {
+    [self.loadingView stopAnimating];
     
     if([result isEqualToString:@"1"])
     {
@@ -147,30 +158,25 @@
             temp =[temp stringByAppendingString:email];
             temp = [temp stringByAppendingString:@"，请注意查收！"];
             [Dialog alert:temp];
-            //[temp release];
             //转到下一个视图
-            //FindPsdStep2ViewController *find2Ctr = [[FindPsdStep2ViewController alloc] init];//这种方法不能找到
             FindPsdStep2ViewController *find2Ctr = [self.storyboard instantiateViewControllerWithIdentifier: @"findPsd2View"];
             find2Ctr.code = code;
             find2Ctr.type = @"1";
-            find2Ctr.name = self.txtName.text;
+            find2Ctr.name = userName;
             [self.navigationController pushViewController:find2Ctr animated:YES];
-            //[find2Ctr release];
         }
         else
         {
             NSString *temp = @"激活码将发送到您的手机";
-            temp =[temp stringByAppendingString:self.phone];
+            temp =[temp stringByAppendingString: phone];
             temp = [temp stringByAppendingString:@"，请注意查收！"];
             [Dialog alert:temp];
-            //[temp release];
             
             FindPsdStep2ViewController *find2Ctr = [self.storyboard instantiateViewControllerWithIdentifier: @"findPsd2View"];
             find2Ctr.code = code;
             find2Ctr.type = @"2";
-            find2Ctr.name = self.txtName.text;
+            find2Ctr.name = phone;
             [self.navigationController pushViewController:find2Ctr animated:YES];
-            //[find2Ctr release];
         }
     }
     

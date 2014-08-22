@@ -12,6 +12,7 @@
 #import "NetWebServiceRequest.h"
 #import "GDataXMLNode.h"
 #import <UIKit/UIKit.h>
+#import "LoadingAnimationView.h"
 
 @interface FindPsdStep3ViewController ()
 @property (retain, nonatomic) IBOutlet UITextField *txtUserName;
@@ -19,6 +20,7 @@
 @property (retain, nonatomic) IBOutlet UITextField *txtRePsd;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UIButton *btnOK;
+@property (retain, nonatomic) LoadingAnimationView *loadingView;
 @end
 
 @implementation FindPsdStep3ViewController
@@ -49,6 +51,11 @@
     self.btnOK.layer.backgroundColor = [UIColor colorWithRed:255/255.0 green:90/255.0 blue:39/255.0 alpha:1].CGColor;
 }
 
+//隐藏键盘
+-(IBAction)textFiledReturnEditing:(id)sender {
+    [sender resignFirstResponder];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -77,11 +84,15 @@
     [request setDelegate:self];
     self.runningRequest = request;
 
+    //缓冲界面
+    self.loadingView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
+    [self.loadingView startAnimating];
 }
 
 //失败
 - (void)netRequestFailed:(NetWebServiceRequest *)request didRequestError:(int *)error
 {
+    [self.loadingView stopAnimating];
     [Dialog alert:@"出现意外错误"];
     return;
 }
@@ -91,7 +102,7 @@
       finishedInfoToResult:(NSString *)result
               responseData:(NSArray *)requestData
 {
-    
+    [self.loadingView stopAnimating];
     if([result isEqualToString:@"-3"] || [result isEqualToString:@""])
     {
         [Dialog alert:@"提交错误，请检查您的网络链接，并稍后重试……"];

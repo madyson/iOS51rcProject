@@ -13,6 +13,7 @@
 #import "GDataXMLNode.h"
 #import <UIKit/UIKit.h>
 #import "FindPsdStep3ViewController.h"
+#import "LoadingAnimationView.h"
 
 @interface FindPsdStep2ViewController ()
 @property (retain, nonatomic) IBOutlet UITextField *txtUserName;
@@ -20,7 +21,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *txtLabel;
 @property (retain, nonatomic) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UIButton *btnNext;
-
+@property (retain, nonatomic) LoadingAnimationView *loadingView;
 @end
 
 @implementation FindPsdStep2ViewController
@@ -32,6 +33,11 @@
         // Custom initialization
     }
     return self;
+}
+
+//隐藏键盘
+-(IBAction)textFiledReturnEditing:(id)sender {
+    [sender resignFirstResponder];
 }
 
 - (void)viewDidLoad
@@ -88,12 +94,17 @@
     
     [request startAsynchronous];
     [request setDelegate:self];
-    self.runningRequest = request;    
+    self.runningRequest = request;
+    
+    //缓冲界面
+    self.loadingView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
+    [self.loadingView startAnimating];
 }
 
 //失败
 - (void)netRequestFailed:(NetWebServiceRequest *)request didRequestError:(int *)error
 {
+    [self.loadingView stopAnimating];
     [Dialog alert:@"出现意外错误"];
     return;
 }
@@ -102,8 +113,8 @@
 - (void)netRequestFinished:(NetWebServiceRequest *)request finishedInfoToResult:(NSString *)result
               responseData:(NSArray *)requestData
 {
+    [self.loadingView stopAnimating];
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    //NSLog(result);
     NSMutableArray *Array = requestData;
     NSDictionary *rowData = Array[0];
     NSString *strTmp = rowData[@"ActivateCode"];
