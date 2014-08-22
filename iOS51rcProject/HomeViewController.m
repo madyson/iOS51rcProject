@@ -1,6 +1,7 @@
 #import "HomeViewController.h"
 #import "LoginViewController.h"
 #import "SlideNavigationController.h"
+#import "JobSearch/SearchMainViewController.h"
 
 @interface HomeViewController() <SlideNavigationControllerDelegate>
 
@@ -27,6 +28,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//点击职位搜索
+- (IBAction)btnSearchJob:(id)sender {
+    UIStoryboard *search = [UIStoryboard storyboardWithName:@"JobSearch" bundle:nil];
+    SearchMainViewController *searchCtrl = [search instantiateViewControllerWithIdentifier:@"SearchMain"];
+    [self.navigationController pushViewController:searchCtrl animated:YES];
 }
 
 //点击我的简历按钮
