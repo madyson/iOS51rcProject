@@ -400,8 +400,8 @@ static SlideNavigationController *singletonInstance;
 {
     if ([vc respondsToSelector:@selector(slideMenuItem)])
     {
-        [(MenuViewController *)self.leftMenu changeMenuItem:[(UIViewController<SlideNavigationControllerDelegate> *)vc slideMenuItem]];
-	}
+        self.selectMenuItem = [(UIViewController<SlideNavigationControllerDelegate> *)vc slideMenuItem];
+    }
 	if (menu == MenuRight)
 	{
 		if ([vc respondsToSelector:@selector(slideNavigationControllerShouldDisplayRightMenu)] &&
@@ -523,8 +523,10 @@ static SlideNavigationController *singletonInstance;
 - (void)prepareMenuForReveal:(Menu)menu
 {
 	// Only prepare menu if it has changed (ex: from MenuLeft to MenuRight or vice versa)
-    if (self.lastRevealedMenu && menu == self.lastRevealedMenu)
+    if (self.lastRevealedMenu && menu == self.lastRevealedMenu) {
+        [(MenuViewController *)self.leftMenu changeMenuItem:self.selectMenuItem];
         return;
+    }
     
     UIViewController *menuViewController = (menu == MenuLeft) ? self.leftMenu : self.rightMenu;
 	UIViewController *removingMenuViewController = (menu == MenuLeft) ? self.rightMenu : self.leftMenu;
@@ -536,6 +538,7 @@ static SlideNavigationController *singletonInstance;
 	[self updateMenuFrameAndTransformAccordingToOrientation];
 	
 	[self.menuRevealAnimator prepareMenuForAnimation:menu];
+    [(MenuViewController *)self.leftMenu changeMenuItem:self.selectMenuItem];
 }
 
 - (CGFloat)horizontalLocation

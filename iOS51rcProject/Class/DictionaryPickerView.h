@@ -8,8 +8,8 @@ typedef enum {
 } DictionaryPickerType;
 
 typedef enum {
-    DictionaryPickerMulti,
-    DictionaryPickerOne
+    DictionaryPickerModeOne,
+    DictionaryPickerModeMulti
 } DictionaryPickerMode;
 
 typedef enum {
@@ -23,29 +23,39 @@ typedef enum {
 
 @optional
 - (void)pickerDidChangeStatus:(DictionaryPickerView *)picker
-                  selectValue:(NSString *)selectValue
-                   selectName:(NSString *)selectName;
+                  selectedValue:(NSString *)selectedValue
+                   selectedName:(NSString *)selectedName;
 
 @end
 
 @interface DictionaryPickerView : UIView <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (assign, nonatomic) id <DictionaryPickerDelegate> delegate;
+@property (retain, nonatomic) IBOutlet UIButton *btnMultiClear;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerDictionary;
 @property (strong, nonatomic) IBOutlet UIButton *btnCancel;
 @property (strong, nonatomic) IBOutlet UIButton *btnSave;
+@property (retain, nonatomic) IBOutlet UIScrollView *scrollMulti;
+@property (retain, nonatomic) IBOutlet UIButton *btnMultiAdd;
+@property (retain, nonatomic) IBOutlet UIView *viewMultiTop;
+@property (retain, nonatomic) IBOutlet UIView *viewOneTop;
+@property (retain, nonatomic) IBOutlet UIView *viewMultiBottom;
+@property (retain, nonatomic) IBOutlet UILabel *lbMulti;
+@property (retain, nonatomic) IBOutlet UIButton *btnMultiSave;
+@property (retain, nonatomic) IBOutlet UIButton *btnMultiCancel;
 @property (nonatomic) DictionaryPickerType pickerType;
 @property (nonatomic) DictionaryPickerMode pickerMode;
 @property (nonatomic) DictionaryPickerInclude pickerInclude;
-@property (assign, nonatomic) NSString *selectValue;
-@property (assign, nonatomic) NSString *selectName;
+@property (retain, nonatomic) NSMutableArray *arrSelectValue;
+@property (retain, nonatomic) NSMutableArray *arrSelectName;
 @property (assign, nonatomic) NSString *selectTableName;
 
 - (id)initWithCustom:(DictionaryPickerType)pickerType
-         pickerType:(DictionaryPickerMode)pickerMode
+          pickerMode:(DictionaryPickerMode)pickerMode
        pickerInclude:(DictionaryPickerInclude)pickerInclude
            delegate:(id <DictionaryPickerDelegate>)delegate
-        defaultValue:(NSString *)defaultValue;
+        defaultValue:(NSString *)defaultValue
+         defaultName:(NSString *)defalutName;
 
 - (id)initWithDictionary:(id <DictionaryPickerDelegate>)delegate
        defaultArray:(NSMutableArray *)defaultArray
