@@ -19,6 +19,8 @@
 		99512F6019A5C64800E56EF4 /* ico_calltelphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 99512F5F19A5C64800E56EF4 /* ico_calltelphone.png */; };
 		9952A06719AACCED00F6452C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9952A06619AACCED00F6452C /* SearchViewController.m */; };
 		9952A06919AAD5F200F6452C /* ico_select_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 9952A06819AAD5F200F6452C /* ico_select_right.png */; };
+		9952A06D19AAF71000F6452C /* SearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9952A06C19AAF71000F6452C /* SearchMainViewController.m */; };
+		9952A06F19AAF72B00F6452C /* JobSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9952A06E19AAF72B00F6452C /* JobSearch.storyboard */; };
 		997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C5199DB33C00FD0B12 /* ASIAuthenticationDialog.m */; };
 		997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C8199DB33C00FD0B12 /* ASIDataCompressor.m */; };
 		997BF0E5199DB33C00FD0B12 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0CA199DB33C00FD0B12 /* ASIDataDecompressor.m */; };
@@ -76,8 +78,6 @@
 		99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */; };
 		99B350C9199CB43A00CAEC71 /* welcom5-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */; };
 		99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */; };
-		99B385D619A7407300B3C734 /* JobSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B385D519A7407300B3C734 /* JobSearch.storyboard */; };
-		99B385D919A744C600B3C734 /* SearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B385D819A744C600B3C734 /* SearchMainViewController.m */; };
 		99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5A119A586A700B2BDB1 /* HomeViewController.m */; };
 		99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */; };
 		99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */; };
@@ -176,6 +176,9 @@
 		9952A06519AACCED00F6452C /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		9952A06619AACCED00F6452C /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		9952A06819AAD5F200F6452C /* ico_select_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_select_right.png; sourceTree = "<group>"; };
+		9952A06B19AAF71000F6452C /* SearchMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchMainViewController.h; sourceTree = "<group>"; };
+		9952A06C19AAF71000F6452C /* SearchMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchMainViewController.m; sourceTree = "<group>"; };
+		9952A06E19AAF72B00F6452C /* JobSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JobSearch.storyboard; sourceTree = "<group>"; };
 		997BF0C4199DB33C00FD0B12 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		997BF0C5199DB33C00FD0B12 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		997BF0C6199DB33C00FD0B12 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -278,9 +281,6 @@
 		99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x960.png"; sourceTree = "<group>"; };
 		99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x1136.png"; sourceTree = "<group>"; };
 		99B385D319A6EB6100B3C734 /* GoToHomeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoToHomeDelegate.h; sourceTree = "<group>"; };
-		99B385D519A7407300B3C734 /* JobSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JobSearch.storyboard; sourceTree = "<group>"; };
-		99B385D719A744C600B3C734 /* SearchMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchMainViewController.h; path = JobSearch/SearchMainViewController.h; sourceTree = "<group>"; };
-		99B385D819A744C600B3C734 /* SearchMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchMainViewController.m; path = JobSearch/SearchMainViewController.m; sourceTree = "<group>"; };
 		99BDC5A019A586A700B2BDB1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		99BDC5A119A586A700B2BDB1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		99BDC5AA19A5917200B2BDB1 /* CreateResumeAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertViewController.h; sourceTree = "<group>"; };
@@ -410,6 +410,15 @@
 				991125A019A49DCE00C98173 /* Toast+UIView.m */,
 			);
 			path = Toast;
+			sourceTree = "<group>";
+		};
+		9952A06A19AAF71000F6452C /* JobSearch */ = {
+			isa = PBXGroup;
+			children = (
+				9952A06B19AAF71000F6452C /* SearchMainViewController.h */,
+				9952A06C19AAF71000F6452C /* SearchMainViewController.m */,
+			);
+			path = JobSearch;
 			sourceTree = "<group>";
 		};
 		997BF0C2199DB33C00FD0B12 /* NetworkConnect */ = {
@@ -656,6 +665,8 @@
 		99CFD81D199B5F80009A5ABA /* iOS51rcProject */ = {
 			isa = PBXGroup;
 			children = (
+				9952A06E19AAF72B00F6452C /* JobSearch.storyboard */,
+				9952A06A19AAF71000F6452C /* JobSearch */,
 				99FA8B7E19A7132C00F8B1B9 /* UserCenter */,
 				99BDC59C19A57FAD00B2BDB1 /* CustomControl */,
 				99AF855F19A188F100524B66 /* Login */,
@@ -992,9 +1003,9 @@
 				99CFD87F199B60D8009A5ABA /* ico_leftmenu_more.png in Resources */,
 				99CFD888199B60D8009A5ABA /* ico_main_rm.png in Resources */,
 				99CFD88D199B60D8009A5ABA /* loginQQ.png in Resources */,
-				99B385D619A7407300B3C734 /* JobSearch.storyboard in Resources */,
 				991125B019A4EE9800C98173 /* ico_rm_cp.png in Resources */,
 				99B2F2FB199C43580066853D /* Login.storyboard in Resources */,
+				9952A06F19AAF72B00F6452C /* JobSearch.storyboard in Resources */,
 				99CFD88F199B60D8009A5ABA /* loginWeiBo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1041,6 +1052,7 @@
 				997BF0E6199DB33C00FD0B12 /* ASIDownloadCache.m in Sources */,
 				997BF0E9199DB33C00FD0B12 /* ASIInputStream.m in Sources */,
 				998025C319A23024001A7E84 /* UIScrollView+Extension.m in Sources */,
+				9952A06D19AAF71000F6452C /* SearchMainViewController.m in Sources */,
 				99AF855D19A1883400524B66 /* WelcomeViewController.m in Sources */,
 				99AF855719A1883400524B66 /* FindPsdStep2ViewController.m in Sources */,
 				99AF855919A1883400524B66 /* LoginDetailsViewController.m in Sources */,
@@ -1062,7 +1074,6 @@
 				99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */,
 				997BF0ED199DB33C00FD0B12 /* NetWebServiceRequest.m in Sources */,
 				99AF855619A1883400524B66 /* FindPsdStep1ViewController.m in Sources */,
-				99B385D919A744C600B3C734 /* SearchMainViewController.m in Sources */,
 				99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */,
 				997BF0E7199DB33C00FD0B12 /* ASIFormDataRequest.m in Sources */,
 				997BF0EE199DB33C00FD0B12 /* SoapXmlParseHelper.m in Sources */,
