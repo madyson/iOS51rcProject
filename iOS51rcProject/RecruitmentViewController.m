@@ -20,11 +20,6 @@
 @end
 
 @implementation RecruitmentViewController
-@synthesize recruitmentID = _recruitmentID;
-@synthesize runningRequest = _runningRequest;
-@synthesize loading = _loading;
-@synthesize recruitmentMobile = _recruitmentMobile;
-@synthesize recruitmentTelephone = _recruitmentTelephone;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     NSLog(@"123");

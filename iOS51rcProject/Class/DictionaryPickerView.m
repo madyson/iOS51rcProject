@@ -89,25 +89,35 @@
 }
 
 - (id)initWithCommon:(id <DictionaryPickerDelegate>)delegate
+          pickerMode:(DictionaryPickerMode)pickerMode
            tableName:(NSString *)tableName
         defalutValue:(NSString *)defaultValue
+         defaultName:(NSString *)defalutName
 {
     self = [[[[NSBundle mainBundle] loadNibNamed:@"DictionaryPickerView" owner:self options:nil] objectAtIndex:0] retain];
     if (self) {
         self.delegate = delegate;
         self.pickerType = DictionaryPickerWithCommon;
-        self.pickerMode = DictionaryPickerModeOne;
+        self.pickerMode = pickerMode;
         self.pickerInclude = DictionaryPickerNoIncludeParent;
         self.pickerDictionary.dataSource = self;
         self.pickerDictionary.delegate = self;
         [self.btnCancel addTarget:self action:@selector(cancelPicker) forControlEvents:UIControlEventTouchUpInside];
         [self.btnSave addTarget:self action:@selector(savePicker) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.btnMultiCancel addTarget:self action:@selector(cancelPicker) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnMultiSave addTarget:self action:@selector(saveMultiPicker) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.btnMultiAdd addTarget:self action:@selector(addPickerSelect) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnMultiClear addTarget:self action:@selector(removeAllMultiSelect) forControlEvents:UIControlEventTouchUpInside];
+        
         self.selectTableName = tableName;
         self.arrSelectValue = [NSMutableArray arrayWithCapacity:10];
         self.arrSelectName = [NSMutableArray arrayWithCapacity:10];
-        if (defaultValue.length > 0) {
-            self.arrSelectValue = [[defaultValue componentsSeparatedByString:@" "] mutableCopy];
-        }
+//        if (defaultValue.length > 0) {
+//            self.arrSelectValue = [[defaultValue componentsSeparatedByString:@" "] mutableCopy];
+//        }
+        
         [self setupDictionary];
     }
     return self;
@@ -127,12 +137,17 @@
         self.pickerDictionary.delegate = self;
         [self.btnCancel addTarget:self action:@selector(cancelPicker) forControlEvents:UIControlEventTouchUpInside];
         [self.btnSave addTarget:self action:@selector(savePicker) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnMultiCancel addTarget:self action:@selector(cancelPicker) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnMultiSave addTarget:self action:@selector(saveMultiPicker) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.btnMultiAdd addTarget:self action:@selector(addPickerSelect) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnMultiClear addTarget:self action:@selector(removeAllMultiSelect) forControlEvents:UIControlEventTouchUpInside];
         arrDictionaryL1 = [defaultArray retain];
         self.arrSelectValue = [NSMutableArray arrayWithCapacity:10];
         self.arrSelectName = [NSMutableArray arrayWithCapacity:10];
-        if (defaultValue.length > 0) {
-            self.arrSelectValue = [[defaultValue componentsSeparatedByString:@" "] mutableCopy];
-        }
+//        if (defaultValue.length > 0) {
+//            self.arrSelectValue = [[defaultValue componentsSeparatedByString:@" "] mutableCopy];
+//        }
     }
     return self;
 }
@@ -462,6 +477,11 @@
     switch (component) {
         case 0:
             strTitle = [arrDictionaryL1[row] objectForKey:@"value"];
+            if (self.pickerMode == DictionaryPickerModeMulti && self.pickerType == DictionaryPickerWithCommon && [self.arrSelectValue containsObject:[arrDictionaryL1[row] objectForKey:@"id"]]) {
+                UIImageView *imgChecked = [[UIImageView alloc] initWithFrame:CGRectMake(0, 7, 15, 15)];
+                [imgChecked setImage:[UIImage imageNamed:@"check.png"]];
+                [viewContent addSubview:imgChecked];
+            }
             break;
         case 1:
             strTitle = [arrDictionaryL2[row] objectForKey:@"value"];
@@ -480,11 +500,11 @@
             }
             break;
         default:
-            strTitle =  @"";
+            strTitle = @"";
             break;
     }
     UILabel *lbTitle = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, rowSize.width-15, rowSize.height)];
-    if (self.pickerMode == DictionaryPickerModeMulti) {
+    if (self.pickerMode == DictionaryPickerModeMulti && component != 0) {
         lbTitle.textAlignment = NSTextAlignmentLeft;
     }
     else {

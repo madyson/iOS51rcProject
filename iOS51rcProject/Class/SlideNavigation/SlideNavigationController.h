@@ -2,10 +2,11 @@
 #import <QuartzCore/QuartzCore.h>
 
 @protocol SlideNavigationControllerDelegate <NSObject>
+@required
+- (int)slideMenuItem;
 @optional
 - (BOOL)slideNavigationControllerShouldDisplayRightMenu;
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu;
-- (int)slideMenuItem;
 @end
 
 typedef  enum{

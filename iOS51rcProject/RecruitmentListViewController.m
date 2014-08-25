@@ -22,9 +22,6 @@
 @end
 
 @implementation RecruitmentListViewController
-@synthesize runningRequest = _runningRequest;
-@synthesize runningRequest2 = _runningRequest2;
-@synthesize DictionaryPicker= _DictionaryPicker;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
