@@ -17,7 +17,7 @@
 #import "LoadingAnimationView.h"
 #import "Toast+UIView.h"
 
-@interface LoginDetailsViewController ()
+@interface LoginDetailsViewController ()<NetWebServiceRequestDelegate>
 @property (retain, nonatomic) IBOutlet UITextField *txtName;
 @property (retain, nonatomic) IBOutlet UITextField *txtPsd;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
@@ -199,10 +199,10 @@
 }
 
 //从webservice获取code
--(void) getCode:(NSString* ) userID
+-(void) getCode:(NSString* ) _userID
 {
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
-    [dicParam setObject:userID forKey:@"paMainID"];
+    [dicParam setObject:_userID forKey:@"paMainID"];
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetPaAddDate" Params:dicParam];
     
     [request startAsynchronous];

@@ -14,7 +14,7 @@
 #import <UIKit/UIKit.h>
 #import "LoadingAnimationView.h"
 
-@interface FindPsdStep3ViewController ()
+@interface FindPsdStep3ViewController () <NetWebServiceRequestDelegate>
 @property (retain, nonatomic) IBOutlet UITextField *txtUserName;
 @property (retain, nonatomic) IBOutlet UITextField *txtPsd;
 @property (retain, nonatomic) IBOutlet UITextField *txtRePsd;

@@ -15,7 +15,7 @@
 #import "FindPsdStep2ViewController.h"
 #import "LoadingAnimationView.h"
 
-@interface FindPsdStep1ViewController ()
+@interface FindPsdStep1ViewController ()<NetWebServiceRequestDelegate>
 @property (retain, nonatomic) IBOutlet UITextField *txtName;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UIButton *btnOK;

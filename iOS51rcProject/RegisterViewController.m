@@ -17,7 +17,7 @@
 #define TAG_CreateResumeOrNot 1
 #define TAG_RESUME 2
 
-@interface RegisterViewController () <CreateResumeDelegate>
+@interface RegisterViewController () <CreateResumeDelegate, NetWebServiceRequestDelegate>
 @property (retain, nonatomic) IBOutlet UITextField *txtUserName;
 @property (retain, nonatomic) IBOutlet UITextField *txtPsd;
 @property (retain, nonatomic) IBOutlet UITextField *txtRePsd;
@@ -231,31 +231,31 @@
     }
 }
 
-- (BOOL)checkInput:(NSString *)userName Password:(NSString*) passWord RePassword:(NSString*) rePsd
+- (BOOL)checkInput:(NSString *)_userName Password:(NSString*) _passWord RePassword:(NSString*) rePsd
 {
     BOOL result = true;
-    if(userName==nil||[userName isEqualToString:@""]){
+    if(_userName==nil||[_userName isEqualToString:@""]){
         //提示输入信息
         [Dialog alert:@"请输入邮箱"];
         result = false;
     }
-    else if(passWord==nil
-       ||[passWord isEqualToString:@""]){
+    else if(_passWord==nil
+       ||[_passWord isEqualToString:@""]){
         
         [Dialog alert:@"请输入密码"];
         result = false;
     }
-    else if([userName length]>50){
+    else if([_userName length]>50){
         
         [Dialog alert:@"邮箱长度不能超过50位"];
         result = false;
     }
     
-    else if (![[CommonController alloc] checkEmail:userName]) {
+    else if (![[CommonController alloc] checkEmail:_userName]) {
         [Dialog alert:@"邮箱格式不正确"];
         result = false;
     }
-    else if(![rePsd isEqualToString:passWord]){
+    else if(![rePsd isEqualToString:_passWord]){
         if(rePsd==nil||[rePsd length]==0){
             [Dialog alert:@"重复密码不能为空"];
             result = false;
@@ -264,11 +264,11 @@
             result = false;
         }
     }
-    else if([passWord length]<6|| [passWord length]>20){
+    else if([_passWord length]<6|| [_passWord length]>20){
         [Dialog alert:@"密码长度为6-20！"];
         result = false;
     }
-    else if (![CommonController checkPassword:passWord]) {
+    else if (![CommonController checkPassword:_passWord]) {
         [Dialog alert:@"密码只能使用字母、数字、横线、下划线、点"];
         result = false;
     }

@@ -11,7 +11,7 @@
 +(NSString *)stringFromDate:(NSDate *)date
                  formatType:(NSString *)formatType;
 +(BOOL)checkPassword:(NSString *) strPsd;
-+(BOOL) checkPassword:(NSString *) strPsd;
+//+(BOOL) checkPassword:(NSString *) strPsd;
 +(BOOL) isBlankString:(NSString *)string;
 -(BOOL)isMobileNumber:(NSString *)mobileNum;
 -(BOOL) checkEmail:(NSString *) userName;
