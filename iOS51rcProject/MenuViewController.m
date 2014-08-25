@@ -154,6 +154,9 @@
 
 -(void)changeMenuItem:(int)item
 {
+    if (!self.tvMenu) {
+        NSLog(@"fffffffff");
+    }
     [self.tvMenu selectRowAtIndexPath:[NSIndexPath indexPathForRow:item inSection:0] animated:false scrollPosition:UITableViewScrollPositionNone];
 }
 

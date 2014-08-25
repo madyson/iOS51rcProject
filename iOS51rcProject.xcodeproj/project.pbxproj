@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990CCC8519A998620022B44B /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 990CCC8419A998620022B44B /* check.png */; };
 		991125A119A49DCE00C98173 /* Toast+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 991125A019A49DCE00C98173 /* Toast+UIView.m */; };
 		991125A319A4D24F00C98173 /* ico_expire.png in Resources */ = {isa = PBXBuildFile; fileRef = 991125A219A4D24F00C98173 /* ico_expire.png */; };
 		991125AC19A4DB7C00C98173 /* RecruitmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 991125AB19A4DB7C00C98173 /* RecruitmentViewController.m */; };
@@ -157,6 +158,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		990CCC8419A998620022B44B /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		9911259F19A49DCE00C98173 /* Toast+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Toast+UIView.h"; sourceTree = "<group>"; };
 		991125A019A49DCE00C98173 /* Toast+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Toast+UIView.m"; sourceTree = "<group>"; };
 		991125A219A4D24F00C98173 /* ico_expire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_expire.png; sourceTree = "<group>"; };
@@ -717,6 +719,7 @@
 		99CFD84F199B60D8009A5ABA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				990CCC8419A998620022B44B /* check.png */,
 				99BDC5F619A5F4E100B2BDB1 /* radioChecked.png */,
 				99BDC5F719A5F4E100B2BDB1 /* radioUnChecked.png */,
 				99BDC5F219A5F4A900B2BDB1 /* radioChecked.png */,
@@ -974,6 +977,7 @@
 				99CFD87A199B60D8009A5ABA /* ico_leftmenu_govnews.png in Resources */,
 				9945C30D19A1AB370027E931 /* ico_rm_group.png in Resources */,
 				991125AF19A4EE9800C98173 /* ico_rm_pa.png in Resources */,
+				990CCC8519A998620022B44B /* check.png in Resources */,
 				99CFD896199B60D8009A5ABA /* renren.png in Resources */,
 				99CFD880199B60D8009A5ABA /* ico_leftmenu_rm.png in Resources */,
 				99B350BB199CB1F100CAEC71 /* welcom2-320x960.png in Resources */,

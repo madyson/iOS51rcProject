@@ -340,7 +340,7 @@
 
 -(void)showRegionSelect {
     [self cancelDicPicker];
-    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithJobType pickerType:DictionaryPickerOne delegate:self defaultValue:@"32"];
+    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithRegionL2 pickerMode:DictionaryPickerModeOne pickerInclude:DictionaryPickerIncludeParent delegate:self defaultValue:regionid defaultName:@"山东省"];
 
     self.DictionaryPicker.tag = 1;
     [self.DictionaryPicker showInView:self.view];
@@ -352,25 +352,26 @@
         return;
     }
     [self cancelDicPicker];
-    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithDictionary:self defaultArray:placeData defalutValue:@""];
+    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithDictionary:self defaultArray:placeData defalutValue:placeid];
     self.DictionaryPicker.tag = 2;
     [self.DictionaryPicker showInView:self.view];
 }
 
 - (void)pickerDidChangeStatus:(DictionaryPickerView *)picker
-                  selectValue:(NSString *)selectValue
-                   selectName:(NSString *)selectName {
+                  selectedValue:(NSString *)selectedValue
+                   selectedName:(NSString *)selectedName {
     [self cancelDicPicker];
     if (picker.tag == 1) { //地区选择
-        regionid = selectValue;
+        regionid = selectedValue;
         placeid = @"";
         [self.lbPlace setText:@"全部场馆"];
-        [self.lbProvince setText:selectName];
+        [self.lbProvince setText:selectedName];
         //加载场馆
         [self reloadPlace];
     }
     else { //场馆选择
-        placeid = selectValue;
+        placeid = selectedValue;
+        [self.lbPlace setText:selectedName];
     }
     //重新加载列表
     page = 1;

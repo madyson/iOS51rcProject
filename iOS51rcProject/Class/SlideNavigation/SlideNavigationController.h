@@ -26,6 +26,7 @@ typedef  enum{
 @property (nonatomic, assign) CGFloat portraitSlideOffset;
 @property (nonatomic, assign) CGFloat landscapeSlideOffset;
 @property (nonatomic, assign) CGFloat panGestureSideOffset;
+@property (nonatomic, assign) int selectMenuItem;
 @property (nonatomic, strong) id <SlideNavigationContorllerAnimator> menuRevealAnimator;
 
 + (SlideNavigationController *)sharedInstance;
