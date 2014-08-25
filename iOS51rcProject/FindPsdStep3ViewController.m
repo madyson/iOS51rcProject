@@ -14,13 +14,18 @@
 #import <UIKit/UIKit.h>
 #import "LoadingAnimationView.h"
 
-@interface FindPsdStep3ViewController ()
+@interface FindPsdStep3ViewController () <NetWebServiceRequestDelegate>
 @property (retain, nonatomic) IBOutlet UITextField *txtUserName;
 @property (retain, nonatomic) IBOutlet UITextField *txtPsd;
 @property (retain, nonatomic) IBOutlet UITextField *txtRePsd;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UIButton *btnOK;
 @property (retain, nonatomic) LoadingAnimationView *loadingView;
+@property (retain, nonatomic) NSString *code;
+@property (retain, nonatomic) NSString *wsName;
+@property (retain, nonatomic) IBOutlet UILabel *labelLine1;
+@property (retain, nonatomic) IBOutlet UILabel *labelLine2;
+@property (retain, nonatomic) IBOutlet UILabel *labelBg;
 @end
 
 @implementation FindPsdStep3ViewController
@@ -37,6 +42,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //设置样式
+    self.txtUserName.layer.borderWidth = 1;
+    self.txtUserName.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.txtPsd.layer.borderWidth = 1;
+    self.txtPsd.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.txtRePsd.layer.borderWidth = 1;
+    self.txtRePsd.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    self.labelBg.layer.borderWidth = 0.3;
+    self.labelBg.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.labelBg.layer.cornerRadius = 5;
+    
+    self.labelLine1.layer.borderWidth = 0.15;
+    self.labelLine1.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [self.labelLine1 setFrame:CGRectMake(24, 125.5, 273, 0.5)];
+   
+    self.labelLine2.layer.borderWidth = 0.15;
+    self.labelLine2.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    [self.labelLine2 setFrame:CGRectMake(24, 170.5, 273, 0.5)];
     
     UIButton *button = [UIButton buttonWithType: UIButtonTypeRoundedRect];
     [button setTitle: @"重置密码" forState: UIControlStateNormal];
@@ -71,19 +96,9 @@
     if (!result) {
         return;
     }
+    //首先getcode
+    [self getCode:self.paMainID];
     
-    NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
-    [dicParam setObject:self.paMainID forKey:@"PaMainID"];
-    [dicParam setObject:passWord forKey:@"Password"];
-    [dicParam setObject:@"IOS" forKey:@"ip"];
-    [dicParam setObject:@"" forKey:@"Code"];
-    
-    NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"ResetPassword" Params:dicParam];
-    
-    [request startAsynchronous];
-    [request setDelegate:self];
-    self.runningRequest = request;
-
     //缓冲界面
     self.loadingView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     [self.loadingView startAnimating];
@@ -102,6 +117,20 @@
       finishedInfoToResult:(NSString *)result
               responseData:(NSArray *)requestData
 {
+    if ([self.wsName isEqual: @"ResetPassword"]) {
+        [self didResetPsd:result];
+        [result retain];
+    }
+    else if ([self.wsName isEqual: @"GetPaAddDate"]){
+        [self didReceiveGetCodeData: result];
+        [result retain];
+    }
+    //[result retain];
+}
+
+//成功设置密码
+-(void) didResetPsd:(NSString*) result
+{
     [self.loadingView stopAnimating];
     if([result isEqualToString:@"-3"] || [result isEqualToString:@""])
     {
@@ -117,29 +146,47 @@
     {
         [Dialog alert:@"修改成功"];
         return;
-//            NSString *temp = @"激活码将发送到您的手机";
-//            temp =[temp stringByAppendingString:self.phone];
-//            temp = [temp stringByAppendingString:@"，请注意查收！"];
-//            [Dialog alert:temp];
-//            //[temp release];
-//            
-//            FindPsdStep2ViewController *find2Ctr = [self.storyboard instantiateViewControllerWithIdentifier: @"findPsd2View"];
-//            find2Ctr.code = code;
-//            find2Ctr.type = @"2";
-//            find2Ctr.name = self.phone;
-//            [self.navigationController pushViewController:find2Ctr animated:YES];
-            //[find2Ctr release];
-        
     }
     else
     {
         [Dialog alert:@"未知错误"];
         return;
     }
+}
+//成功获取code
+-(void) didReceiveGetCodeData:(NSString*) result
+{
+    self.code = @"";
+    self.code = [self.code stringByAppendingFormat:@"%@%@%@%@%@",[result substringWithRange:NSMakeRange(11,2)],
+     [result substringWithRange:NSMakeRange(0,4)],[result substringWithRange:NSMakeRange(14,2)],
+     [result substringWithRange:NSMakeRange(8,2)],[result substringWithRange:NSMakeRange(5,2)]];
     
-    [result retain];
+    NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
+    [dicParam setObject:self.paMainID forKey:@"paMainID"];
+    [dicParam setObject:self.txtRePsd.text forKey:@"password"];
+    [dicParam setObject:@"IOS" forKey:@"ip"];
+    [dicParam setObject:self.code forKey:@"code"];
+    
+    NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"ResetPassword" Params:dicParam];
+    
+    [request startAsynchronous];
+    [request setDelegate:self];
+    self.runningRequest = request;
+    self.wsName = @"ResetPassword";
 }
 
+//从webservice获取code
+-(void) getCode:(NSString* ) userID
+{
+    NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
+    [dicParam setObject:userID forKey:@"paMainID"];
+    NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetPaAddDate" Params:dicParam];
+    
+    [request startAsynchronous];
+    [request setDelegate:self];
+    self.runningRequest = request;
+    self.wsName = @"GetPaAddDate";
+}
 
 /*
 #pragma mark - Navigation
@@ -206,6 +253,9 @@
     [_txtPsd release];
     [_txtRePsd release];
     [_btnOK release];
+    [_labelLine1 release];
+    [_labelLine2 release];
+    [_labelBg release];
     [super dealloc];
 }
 @end

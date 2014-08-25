@@ -59,6 +59,7 @@
 - (void)dealloc {
     [_imgHasNoExp release];
     [_imgHasExp release];
-    [_btnOK release];   
+    [_btnOK release];
+    [super dealloc];
 }
 @end

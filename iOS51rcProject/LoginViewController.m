@@ -11,6 +11,7 @@
 #import "GDataXMLNode.h"
 #import "CommonController.h"
 #import "FindPsdStep1ViewController.h"
+#import "FindPsdStep3ViewController.h"
 
 
 @interface LoginViewController ()
@@ -112,6 +113,9 @@
 - (void) pushParentsFromLoginDetails
 {
     FindPsdStep1ViewController *findPsd1View =[self.storyboard instantiateViewControllerWithIdentifier: @"findPsd1View"];
+    //FindPsdStep3ViewController *findPsd1View =[self.storyboard instantiateViewControllerWithIdentifier: @"findPsd3View"];
+    //findPsd1View.userName = @"qlrctest3@163.com";
+    //findPsd1View.paMainID = @"21142013";
     [self.navigationController pushViewController:findPsd1View animated:YES];
 }
 

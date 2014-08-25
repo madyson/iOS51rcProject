@@ -76,6 +76,8 @@
 		99B350C0199CB1F100CAEC71 /* welcom4-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350B6199CB1F100CAEC71 /* welcom4-320x1136.png */; };
 		99B350C9199CB43A00CAEC71 /* welcom5-320x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */; };
 		99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */; };
+		99B385D619A7407300B3C734 /* JobSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99B385D519A7407300B3C734 /* JobSearch.storyboard */; };
+		99B385D919A744C600B3C734 /* SearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B385D819A744C600B3C734 /* SearchMainViewController.m */; };
 		99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5A119A586A700B2BDB1 /* HomeViewController.m */; };
 		99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */; };
 		99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */; };
@@ -276,6 +278,9 @@
 		99B350C7199CB43A00CAEC71 /* welcom5-320x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x960.png"; sourceTree = "<group>"; };
 		99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcom5-320x1136.png"; sourceTree = "<group>"; };
 		99B385D319A6EB6100B3C734 /* GoToHomeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoToHomeDelegate.h; sourceTree = "<group>"; };
+		99B385D519A7407300B3C734 /* JobSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JobSearch.storyboard; sourceTree = "<group>"; };
+		99B385D719A744C600B3C734 /* SearchMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchMainViewController.h; path = JobSearch/SearchMainViewController.h; sourceTree = "<group>"; };
+		99B385D819A744C600B3C734 /* SearchMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchMainViewController.m; path = JobSearch/SearchMainViewController.m; sourceTree = "<group>"; };
 		99BDC5A019A586A700B2BDB1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		99BDC5A119A586A700B2BDB1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		99BDC5AA19A5917200B2BDB1 /* CreateResumeAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertViewController.h; sourceTree = "<group>"; };
@@ -987,6 +992,7 @@
 				99CFD87F199B60D8009A5ABA /* ico_leftmenu_more.png in Resources */,
 				99CFD888199B60D8009A5ABA /* ico_main_rm.png in Resources */,
 				99CFD88D199B60D8009A5ABA /* loginQQ.png in Resources */,
+				99B385D619A7407300B3C734 /* JobSearch.storyboard in Resources */,
 				991125B019A4EE9800C98173 /* ico_rm_cp.png in Resources */,
 				99B2F2FB199C43580066853D /* Login.storyboard in Resources */,
 				99CFD88F199B60D8009A5ABA /* loginWeiBo.png in Resources */,
@@ -1056,6 +1062,7 @@
 				99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */,
 				997BF0ED199DB33C00FD0B12 /* NetWebServiceRequest.m in Sources */,
 				99AF855619A1883400524B66 /* FindPsdStep1ViewController.m in Sources */,
+				99B385D919A744C600B3C734 /* SearchMainViewController.m in Sources */,
 				99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */,
 				997BF0E7199DB33C00FD0B12 /* ASIFormDataRequest.m in Sources */,
 				997BF0EE199DB33C00FD0B12 /* SoapXmlParseHelper.m in Sources */,
