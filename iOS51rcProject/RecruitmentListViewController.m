@@ -100,7 +100,7 @@
     [dicParam setObject:begindate forKey:@"strBeginDate"];
     [dicParam setObject:placeid forKey:@"strPlaceID"];
     [dicParam setObject:regionid forKey:@"strRegionID"];
-    [dicParam setObject:[NSString stringWithFormat:@"%ld",(long)page] forKey:@"page"];
+    [dicParam setObject:[NSString stringWithFormat:@"%d",page] forKey:@"page"];
     [dicParam setObject:@"0" forKey:@"code"];
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetRecruitMentList" Params:dicParam];
     [request setDelegate:self];

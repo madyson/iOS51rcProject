@@ -2,7 +2,6 @@
 #import "UIScrollView+MJRefresh.h"
 
 /**
- MJ友情提示：
  1. 添加头部控件的方法
  [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
  或者
