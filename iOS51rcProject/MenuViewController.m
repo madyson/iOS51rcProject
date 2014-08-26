@@ -10,7 +10,6 @@
 @end
 
 @implementation MenuViewController
-@synthesize tvMenu = _tvMenu;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

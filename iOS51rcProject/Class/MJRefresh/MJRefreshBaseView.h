@@ -1,10 +1,3 @@
-//
-//  MJRefreshBaseView.h
-//  MJRefresh
-//  
-//  Created by mj on 13-3-4.
-//  Copyright (c) 2013年 itcast. All rights reserved.
-
 #import <UIKit/UIKit.h>
 
 @class MJRefreshBaseView;

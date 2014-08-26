@@ -428,6 +428,15 @@
 			path = Toast;
 			sourceTree = "<group>";
 		};
+		9952A06A19AAF71000F6452C /* JobSearch */ = {
+			isa = PBXGroup;
+			children = (
+				9952A06B19AAF71000F6452C /* SearchMainViewController.h */,
+				9952A06C19AAF71000F6452C /* SearchMainViewController.m */,
+			);
+			path = JobSearch;
+			sourceTree = "<group>";
+		};
 		997BF0C2199DB33C00FD0B12 /* NetworkConnect */ = {
 			isa = PBXGroup;
 			children = (
@@ -672,6 +681,7 @@
 		99CFD81D199B5F80009A5ABA /* iOS51rcProject */ = {
 			isa = PBXGroup;
 			children = (
+				9952A06A19AAF71000F6452C /* JobSearch */,
 				99FA8B7E19A7132C00F8B1B9 /* UserCenter */,
 				99BDC59C19A57FAD00B2BDB1 /* CustomControl */,
 				99AF855F19A188F100524B66 /* Login */,
@@ -683,6 +693,7 @@
 				99CFD81E199B5F80009A5ABA /* Supporting Files */,
 				99CFD84C199B6082009A5ABA /* Home.storyboard */,
 				99B2F2FA199C43580066853D /* Login.storyboard */,
+				9952A06E19AAF72B00F6452C /* JobSearch.storyboard */,
 				99BDC5A019A586A700B2BDB1 /* HomeViewController.h */,
 				99BDC5A119A586A700B2BDB1 /* HomeViewController.m */,
 				99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */,
@@ -972,6 +983,7 @@
 				99CFD830199B5F80009A5ABA /* Images.xcassets in Resources */,
 				99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */,
 				99CFD87C199B60D8009A5ABA /* ico_leftmenu_index.png in Resources */,
+				9952A06919AAD5F200F6452C /* ico_select_right.png in Resources */,
 				99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */,
 				99CFD893199B60D8009A5ABA /* main_pic_jobnews.png in Resources */,
 				99CFD822199B5F80009A5ABA /* InfoPlist.strings in Resources */,
@@ -1023,9 +1035,9 @@
 				995575BB19AC56A800B73E4A /* ico_coordinate_red.png in Resources */,
 				99CFD888199B60D8009A5ABA /* ico_main_rm.png in Resources */,
 				99CFD88D199B60D8009A5ABA /* loginQQ.png in Resources */,
-				99B385D619A7407300B3C734 /* JobSearch.storyboard in Resources */,
 				991125B019A4EE9800C98173 /* ico_rm_cp.png in Resources */,
 				99B2F2FB199C43580066853D /* Login.storyboard in Resources */,
+				9952A06F19AAF72B00F6452C /* JobSearch.storyboard in Resources */,
 				99CFD88F199B60D8009A5ABA /* loginWeiBo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1051,6 +1063,7 @@
 				99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */,
 				99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				9952A06719AACCED00F6452C /* SearchViewController.m in Sources */,
 				998025BF19A23024001A7E84 /* MJRefreshBaseView.m in Sources */,
 				99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */,
 				997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */,
@@ -1073,12 +1086,14 @@
 				997BF0E6199DB33C00FD0B12 /* ASIDownloadCache.m in Sources */,
 				997BF0E9199DB33C00FD0B12 /* ASIInputStream.m in Sources */,
 				998025C319A23024001A7E84 /* UIScrollView+Extension.m in Sources */,
+				9952A06D19AAF71000F6452C /* SearchMainViewController.m in Sources */,
 				99AF855D19A1883400524B66 /* WelcomeViewController.m in Sources */,
 				99AF855719A1883400524B66 /* FindPsdStep2ViewController.m in Sources */,
 				99AF855919A1883400524B66 /* LoginDetailsViewController.m in Sources */,
 				99908A5819A34DD300137FDE /* FMDatabasePool.m in Sources */,
 				991125A119A49DCE00C98173 /* Toast+UIView.m in Sources */,
 				998025C519A23024001A7E84 /* UIView+Extension.m in Sources */,
+				9952A07219AB0E2200F6452C /* SearchListViewController.m in Sources */,
 				997BF0EB199DB33C00FD0B12 /* Reachability.m in Sources */,
 				99CFD828199B5F80009A5ABA /* AppDelegate.m in Sources */,
 				997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */,

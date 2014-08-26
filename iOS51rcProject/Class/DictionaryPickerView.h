@@ -62,8 +62,10 @@ typedef enum {
             defalutValue:(NSString *)defaultValue;
 
 - (id)initWithCommon:(id <DictionaryPickerDelegate>)delegate
+          pickerMode:(DictionaryPickerMode)pickerMode
            tableName:(NSString *)tableName
-        defalutValue:(NSString *)defaultValue;
+        defalutValue:(NSString *)defaultValue
+         defaultName:(NSString *)defalutName;
 
 - (void)showInView:(UIView *)view;
 - (void)cancelPicker;

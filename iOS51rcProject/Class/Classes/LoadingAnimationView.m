@@ -16,7 +16,7 @@
 		NSString *path = [[NSBundle mainBundle] pathForResource:gifName ofType:@"gif"];
 		[aniGif decodeGIF:[NSData dataWithContentsOfFile:path]];
 	
-		_gifs = [[aniGif frames] retain];
+		_gifs = [[aniGif frames] mutableCopy];
 		self.animationImages = _gifs;
 		self.animationDuration = 0.05f*[_gifs count];
 		self.animationRepeatCount = 9999;

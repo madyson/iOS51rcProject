@@ -22,9 +22,6 @@
 @end
 
 @implementation RecruitmentListViewController
-@synthesize runningRequest = _runningRequest;
-@synthesize runningRequest2 = _runningRequest2;
-@synthesize DictionaryPicker= _DictionaryPicker;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -103,7 +100,7 @@
     [dicParam setObject:begindate forKey:@"strBeginDate"];
     [dicParam setObject:placeid forKey:@"strPlaceID"];
     [dicParam setObject:regionid forKey:@"strRegionID"];
-    [dicParam setObject:[NSString stringWithFormat:@"%ld",(long)page] forKey:@"page"];
+    [dicParam setObject:[NSString stringWithFormat:@"%d",page] forKey:@"page"];
     [dicParam setObject:@"0" forKey:@"code"];
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetRecruitMentList" Params:dicParam];
     [request setDelegate:self];
