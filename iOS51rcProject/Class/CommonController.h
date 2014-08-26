@@ -16,4 +16,6 @@
 -(BOOL)isMobileNumber:(NSString *)mobileNum;
 -(BOOL) checkEmail:(NSString *) userName;
 +(BOOL) isValidateMobile:(NSString *)mobile;
++(NSString *)getDictionaryDesc:(NSString *)value
+               tableName:(NSString *)tableName;
 @end

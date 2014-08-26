@@ -11,7 +11,7 @@
 
 + (instancetype)footer
 {
-    return [[MJRefreshFooterView alloc] init];
+    return [[[MJRefreshFooterView alloc] init] autorelease];
 }
 
 - (id)initWithFrame:(CGRect)frame

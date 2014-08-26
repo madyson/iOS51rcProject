@@ -32,6 +32,7 @@
     [datePanel addSubview:dateReset];
     [viewC.view addSubview:datePanel];
 
+    [dateLabel release];
     [dateConfirm release];
     [dateReset release];
     [locale release];

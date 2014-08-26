@@ -34,7 +34,7 @@
 
 + (instancetype)header
 {
-    return [[MJRefreshHeaderView alloc] init];
+    return [[[MJRefreshHeaderView alloc] init] autorelease];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -109,7 +109,7 @@
         formatter.dateFormat = @"yyyy-MM-dd HH:mm";
     }
     NSString *time = [formatter stringFromDate:self.lastUpdateTime];
-    
+    [formatter release];
     // 3.显示日期
     self.lastUpdateTimeLabel.text = [NSString stringWithFormat:@"最后更新：%@", time];
 }

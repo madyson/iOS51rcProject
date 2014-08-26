@@ -1,7 +1,9 @@
 #import "SearchListViewController.h"
 #import "NetWebServiceRequest.h"
 #import "LoadingAnimationView.h"
+#import "CommonController.h"
 #import "MJRefresh.h"
+#import "DictionaryPickerView.h"
 
 @interface SearchListViewController () <NetWebServiceRequestDelegate,UITableViewDataSource,UITableViewDelegate>
 {
@@ -22,7 +24,8 @@
 @property (nonatomic, retain) NSString *welfare;
 @property (nonatomic, retain) NSString *isOnline;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
-
+@property (nonatomic, retain) UILabel *lbSearchResult;
+@property (nonatomic, retain) DictionaryPickerView *dictionaryPicker;
 @end
 
 @implementation SearchListViewController
@@ -40,24 +43,52 @@
 {
     [super viewDidLoad];
 
-    //设置导航标题
-    UIView *viewTitle = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 50)];
-    UILabel *lbTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, viewTitle.frame.size.width, 20)];
+    //设置导航标题(搜索条件)
+    UIView *viewTitle = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 125, 45)];
+    UILabel *lbTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, viewTitle.frame.size.width, 20)];
     [lbTitle setFont:[UIFont systemFontOfSize:12]];
     [lbTitle setText:self.searchCondition];
     [lbTitle setTextAlignment:NSTextAlignmentCenter];
     [viewTitle setBackgroundColor:[UIColor blueColor]];
     [viewTitle addSubview:lbTitle];
+    //设置导航标题(搜索结果)
+    self.lbSearchResult = [[[UILabel alloc] initWithFrame:CGRectMake(0, 22, viewTitle.frame.size.width, 20)] autorelease];
+    [self.lbSearchResult setText:@"正在获取职位列表"];
+    [self.lbSearchResult setFont:[UIFont systemFontOfSize:10]];
+    [self.lbSearchResult setTextAlignment:NSTextAlignmentCenter];
+    [viewTitle addSubview:self.lbSearchResult];
     [self.navigationItem setTitleView:viewTitle];
     [viewTitle release];
     [lbTitle release];
-    
+    //设置底部功能栏
+    self.btnApply.layer.cornerRadius = 5;
+    self.viewBottom.layer.borderWidth = 1.0;
+    self.viewBottom.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     //加载等待动画
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     //添加上拉加载更多
     [self.tvJobList addFooterWithTarget:self action:@selector(footerRereshing)];
     //不显示列表分隔线
     self.tvJobList.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    //添加检索功能
+    [self.btnRegionFilter addTarget:self action:@selector(regionFilter) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnJobTypeFilter addTarget:self action:@selector(jobtypeFilter) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnSalaryFilter addTarget:self action:@selector(salaryFilter) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnOtherFilter addTarget:self action:@selector(otherFilter) forControlEvents:UIControlEventTouchUpInside];
+    //添加检索边框
+    self.btnRegionFilter.layer.masksToBounds = YES;
+    self.btnRegionFilter.layer.borderWidth = 1.0;
+    self.btnRegionFilter.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.btnJobTypeFilter.layer.masksToBounds = YES;
+    self.btnJobTypeFilter.layer.borderWidth = 1.0;
+    self.btnJobTypeFilter.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.btnSalaryFilter.layer.masksToBounds = YES;
+    self.btnSalaryFilter.layer.borderWidth = 1.0;
+    self.btnSalaryFilter.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.btnOtherFilter.layer.masksToBounds = YES;
+    self.btnOtherFilter.layer.borderWidth = 1.0;
+    self.btnOtherFilter.layer.borderColor = [[UIColor grayColor] CGColor];
     
     //搜索条件赋值
     self.jobType = @"";
@@ -116,6 +147,7 @@
     [request setDelegate:self];
     [request startAsynchronous];
     self.runningRequest = request;
+    [dicParam autorelease];
 }
 
 - (void)footerRereshing{
@@ -148,17 +180,97 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"jobList"];
-    
-    
+    UIFont *fontCell = [UIFont systemFontOfSize:12];
+    UIColor *colorText = [UIColor colorWithRed:120.f/255.f green:120.f/255.f blue:120.f/255.f alpha:1];
+    UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"jobList"] autorelease];
     NSDictionary *rowData = self.jobListData[indexPath.row];
-    cell.textLabel.text = rowData[@"JobName"];
+    if (indexPath.row == 1) {
+        [self.lbSearchResult setText:[NSString stringWithFormat:@"[找到%@个职位]",rowData[@"JobNumber"]]];
+    }
+    //职位名称
+    UILabel *lbJobName = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, 200, 20)];
+    [lbJobName setText:rowData[@"JobName"]];
+    [lbJobName setFont:[UIFont systemFontOfSize:14]];
+    [cell.contentView addSubview:lbJobName];
+    [lbJobName release];
+    
+    //公司名称
+    UILabel *lbCompanyName = [[UILabel alloc] initWithFrame:CGRectMake(30, 28, 200, 20)];
+    [lbCompanyName setText:rowData[@"cpName"]];
+    [lbCompanyName setFont:fontCell];
+    [lbCompanyName setTextColor:colorText];
+    [cell.contentView addSubview:lbCompanyName];
+    [lbCompanyName release];
+    
+    //刷新时间
+    UILabel *lbRefreshDate = [[UILabel alloc] initWithFrame:CGRectMake(230, 28, 85, 20)];
+    [lbRefreshDate setText:[CommonController stringFromDate:[CommonController dateFromString:rowData[@"RefreshDate"]] formatType:@"MM-dd HH:mm"]];
+    [lbRefreshDate setFont:fontCell];
+    [lbRefreshDate setTextColor:colorText];
+    [lbRefreshDate setTextAlignment:NSTextAlignmentRight];
+    [cell.contentView addSubview:lbRefreshDate];
+    [lbRefreshDate release];
+    
+    //地区|学历
+    NSString *strRegionAndEducation = [NSString stringWithFormat:@"%@|%@",[CommonController getDictionaryDesc:rowData[@"dcRegionID"] tableName:@"dcRegion"],[CommonController getDictionaryDesc:rowData[@"dcEducationID"] tableName:@"dcEducation"]];
+    UILabel *lbRegionAndEducation = [[UILabel alloc] initWithFrame:CGRectMake(30, 51, 200, 20)];
+    [lbRegionAndEducation setText:strRegionAndEducation];
+    [lbRegionAndEducation setFont:fontCell];
+    [lbRegionAndEducation setTextColor:colorText];
+    [cell.contentView addSubview:lbRegionAndEducation];
+    [lbRegionAndEducation release];
+    
+    //月薪
+    NSString *strSalary = [CommonController getDictionaryDesc:rowData[@"dcSalaryID"] tableName:@"dcSalary"];
+    if (strSalary.length == 0) {
+        strSalary = @"面议";
+    }
+    UILabel *lbSalary = [[UILabel alloc] initWithFrame:CGRectMake(230, 51, 85, 20)];
+    [lbSalary setText:strSalary];
+    [lbSalary setFont:fontCell];
+    [lbSalary setTextColor:[UIColor redColor]];
+    [lbSalary setTextAlignment:NSTextAlignmentRight];
+    [cell.contentView addSubview:lbSalary];
+    [lbSalary release];
+    
+    //分割线
+    UIView *viewSeparate = [[UIView alloc] initWithFrame:CGRectMake(0, 76, 320, 1)];
+    [viewSeparate setBackgroundColor:[UIColor lightGrayColor]];
+    [cell.contentView addSubview:viewSeparate];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 77;
+}
+
+- (void)regionFilter
+{
+    NSMutableArray *arrFilter = [[NSMutableArray alloc] init];
+    NSArray *arrRegionFilter = [self.searchRegion componentsSeparatedByString:@","];
+    NSArray *arrRegionNameFilter = [self.searchRegion componentsSeparatedByString:@" "];
+    for (int i=0; i<arrRegionFilter.count; i++) {
+        [arrFilter addObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
+                              arrRegionFilter[i],@"id",
+                               arrRegionNameFilter[i],@"value", nil] autorelease]];
+    }
+    self.dictionaryPicker = [[DictionaryPickerView alloc] initWithDictionary:self defaultArray:arrFilter defalutValue:self.lbRegionFilter];
+}
+
+- (void)jobtypeFilter
+{
+    
+}
+
+- (void)salaryFilter
+{
+    
+}
+
+- (void)otherFilter
+{
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -205,6 +317,11 @@
     [_searchJobType release];
     [_searchIndustry release];
     [_searchCondition release];
+    [_lbSearchResult release];
+    [_btnApply release];
+    [_btnFavorite release];
+    [_viewBottom release];
+    [_dictionaryPicker release];
     [super dealloc];
 }
 @end

@@ -24,8 +24,8 @@
 {
 	if (self = [super init])
 	{
-		self.fadeAnimation = [[SlideNavigationContorllerAnimatorFade alloc] initWithMaximumFadeAlpha:maximumFadeAlpha andFadeColor:fadeColor];
-		self.slideAnimation = [[SlideNavigationContorllerAnimatorSlide alloc] initWithSlideMovement:slideMovement];
+		self.fadeAnimation = [[[SlideNavigationContorllerAnimatorFade alloc] initWithMaximumFadeAlpha:maximumFadeAlpha andFadeColor:fadeColor] autorelease];
+		self.slideAnimation = [[[SlideNavigationContorllerAnimatorSlide alloc] initWithSlideMovement:slideMovement] autorelease];
 	}
 	
 	return self;

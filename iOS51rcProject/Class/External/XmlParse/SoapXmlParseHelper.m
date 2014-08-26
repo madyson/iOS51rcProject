@@ -72,6 +72,7 @@
         return arr;
     }
     GDataXMLElement* rootNode = [document rootElement];
+    [document release];
     NSArray *rootChilds=[rootNode children];
     for (GDataXMLNode *node in rootChilds) {
         NSString *nodeName=node.name;

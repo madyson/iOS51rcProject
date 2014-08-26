@@ -51,25 +51,24 @@
 
 -(void)showRegionSelect:(UIButton *)sender {
     [self cancelDicPicker];
-    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithRegionL3 pickerMode:DictionaryPickerModeMulti pickerInclude:DictionaryPickerIncludeParent delegate:self defaultValue:self.regionSelect defaultName:self.lbRegionSelect.text];
-    
-    self.DictionaryPicker.tag = 1;
+    self.DictionaryPicker = [[[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithRegionL3 pickerMode:DictionaryPickerModeMulti pickerInclude:DictionaryPickerIncludeParent delegate:self defaultValue:self.regionSelect defaultName:self.lbRegionSelect.text] autorelease];
+    [self.DictionaryPicker setTag:1];
     [self.DictionaryPicker showInView:self.view];
 }
 
 -(void)showJobTypeSelect:(UIButton *)sender {
     [self cancelDicPicker];
-    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithJobType pickerMode:DictionaryPickerModeMulti pickerInclude:DictionaryPickerIncludeParent delegate:self defaultValue:self.jobTypeSelect defaultName:self.lbJobTypeSelect.text];
-    
-    self.DictionaryPicker.tag = 2;
+    self.DictionaryPicker = [[[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithJobType pickerMode:DictionaryPickerModeMulti pickerInclude:DictionaryPickerIncludeParent delegate:self defaultValue:self.jobTypeSelect defaultName:self.lbJobTypeSelect.text] autorelease];
+    [self.DictionaryPicker setTag:2];
     [self.DictionaryPicker showInView:self.view];
 }
 
 -(void)showIndustrySelect:(UIButton *)sender {
     [self cancelDicPicker];
-    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithCommon:self pickerMode:DictionaryPickerModeMulti tableName:@"dcIndustry" defalutValue:self.industrySelect defaultName:self.lbIndustrySelect.text];
+    self.DictionaryPicker = [[[DictionaryPickerView alloc] initWithCommon:self pickerMode:DictionaryPickerModeMulti tableName:@"dcIndustry" defalutValue:self.industrySelect defaultName:self.lbIndustrySelect.text] autorelease];
     
-    self.DictionaryPicker.tag = 3;
+    [self.DictionaryPicker setTag:3];
+    NSLog(@"%d",[self.DictionaryPicker retainCount]);
     [self.DictionaryPicker showInView:self.view];
 }
 
@@ -120,6 +119,8 @@
     destinationController.searchJobType = self.jobTypeSelect;
     destinationController.searchIndustry = self.industrySelect;
     destinationController.searchKeyword = self.txtKeyWord.text;
+    destinationController.searchRegionName = self.lbRegionSelect.text;
+    destinationController.searchJobTypeName = self.lbJobTypeSelect.text;
     NSString *strSearchCondition = self.lbRegionSelect.text;
     if (self.jobTypeSelect.length > 0) {
         strSearchCondition = [strSearchCondition stringByAppendingFormat:@"+%@",self.lbJobTypeSelect.text];
@@ -162,6 +163,7 @@
     [_regionSelect release];
     [_jobTypeSelect release];
     [_industrySelect release];
+    [_DictionaryPicker release];
     [super dealloc];
 }
 @end

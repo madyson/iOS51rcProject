@@ -23,7 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tvMenu = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, 320, 600)];
+    self.tvMenu = [[[UITableView alloc] initWithFrame:CGRectMake(0, 40, 320, 600)] autorelease];
     self.tvMenu.delegate = self;
     self.tvMenu.dataSource = self;
     [self.tvMenu setBackgroundColor:[UIColor clearColor]];
@@ -101,7 +101,7 @@
         default:
             break;
     }
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"menu"];
+    UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"menu"] autorelease];
     [cell.contentView addSubview:ivTitle];
     [cell.contentView addSubview:lbTitle];
     [lbTitle setTextColor:[UIColor whiteColor]];
@@ -117,6 +117,8 @@
         [viewBackground addSubview:viewSelect];
         [cell setSelectedBackgroundView:viewBackground];
     }
+    [ivTitle release];
+    [lbTitle release];
     return cell;
 }
 

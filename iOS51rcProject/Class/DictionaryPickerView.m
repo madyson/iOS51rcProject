@@ -80,8 +80,8 @@
         self.arrSelectValue = [NSMutableArray arrayWithCapacity:10];
         self.arrSelectName = [NSMutableArray arrayWithCapacity:10];
         if (defaultValue.length > 0) {
-            self.arrSelectValue = [[defaultValue componentsSeparatedByString:@" "] mutableCopy];
-            self.arrSelectName = [[defalutName componentsSeparatedByString:@" "] mutableCopy];
+            self.arrSelectValue = [[[defaultValue componentsSeparatedByString:@" "] mutableCopy] autorelease];
+            self.arrSelectName = [[[defalutName componentsSeparatedByString:@" "] mutableCopy] autorelease];
             [self setupScollMulti];
         }
         [self setupDictionary];
@@ -117,8 +117,8 @@
         self.arrSelectName = [NSMutableArray arrayWithCapacity:10];
         
         if (defaultValue.length > 0) {
-            self.arrSelectValue = [[defaultValue componentsSeparatedByString:@" "] mutableCopy];
-            self.arrSelectName = [[defalutName componentsSeparatedByString:@" "] mutableCopy];
+            self.arrSelectValue = [[[defaultValue componentsSeparatedByString:@" "] mutableCopy] autorelease];
+            self.arrSelectName = [[[defalutName componentsSeparatedByString:@" "] mutableCopy] autorelease];
             [self setupScollMulti];
         }
         [self setupDictionary];
@@ -472,7 +472,7 @@
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
     CGSize rowSize = [self.pickerDictionary rowSizeForComponent:component];
-    UIView *viewContent = [[UIView alloc] initWithFrame:CGRectMake(0, 0, rowSize.width, rowSize.height)];
+    UIView *viewContent = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, rowSize.width, rowSize.height)] autorelease];
     NSString *strTitle;
     bool blnSelected = NO;
     switch (component) {
@@ -510,8 +510,10 @@
         UIImageView *imgChecked = [[UIImageView alloc] initWithFrame:CGRectMake(fltLeft, 7, 15, 15)];
         [imgChecked setImage:[UIImage imageNamed:@"check.png"]];
         [viewContent addSubview:imgChecked];
+        [imgChecked release];
     }
     [viewContent addSubview:lbTitle];
+    [lbTitle release];
     return viewContent;
 }
 
@@ -603,6 +605,7 @@
         UIImageView *imgMultiSelect = [[UIImageView alloc] initWithFrame:CGRectMake(3, 5, 10, 10)];
         [imgMultiSelect setImage:[UIImage imageNamed:@"check.png"]];
         [btnMultiSelect addSubview:imgMultiSelect];
+        [imgMultiSelect release];
         btnMultiSelect.tag = [self.arrSelectValue[i] intValue];
         [btnMultiSelect addTarget:self action:@selector(removeMultiSelect:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollMulti addSubview:btnMultiSelect];
@@ -611,7 +614,7 @@
         [lbMultiSelect setFont:scrollFont];
         [lbMultiSelect setText:self.arrSelectName[i]];
         [btnMultiSelect addSubview:lbMultiSelect];
-        
+        [lbMultiSelect release];
         fltMultiWidth += labelSize.width+20;
     }
     [self.scrollMulti setContentSize:CGSizeMake(fltMultiWidth, 22)];

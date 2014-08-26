@@ -24,7 +24,7 @@
 		self.maximumFadeAlpha = maximumFadeAlpha;
 		self.fadeColor = fadeColor;
 		
-		self.fadeAnimationView = [[UIView alloc] init];
+		self.fadeAnimationView = [[[UIView alloc] init] autorelease];
 		self.fadeAnimationView.backgroundColor = self.fadeColor;
 	}
 	

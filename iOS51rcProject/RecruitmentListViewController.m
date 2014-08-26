@@ -107,6 +107,7 @@
     [request startAsynchronous];
     request.tag = 1;
     self.runningRequest = request;
+    [dicParam release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,7 +129,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell =
-        [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:@"rmList"];
+        [[[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:@"rmList"] autorelease];
     
     NSDictionary *rowData = recruitmentData[indexPath.row];
     //显示标题
@@ -212,6 +213,7 @@
         UIImageView *imgExpired = [[UIImageView alloc] initWithFrame:CGRectMake(280, 0, 40, 40)];
         imgExpired.image = [UIImage imageNamed:@"ico_expire.png"];
         [cell.contentView addSubview:imgExpired];
+        [imgExpired release];
     }
     else if (runStatus == 3){
         UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 35, 30, 45)];
@@ -337,7 +339,7 @@
 
 -(void)showRegionSelect {
     [self cancelDicPicker];
-    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithRegionL2 pickerMode:DictionaryPickerModeOne pickerInclude:DictionaryPickerIncludeParent delegate:self defaultValue:regionid defaultName:@"山东省"];
+    self.DictionaryPicker = [[[DictionaryPickerView alloc] initWithCustom:DictionaryPickerWithRegionL2 pickerMode:DictionaryPickerModeOne pickerInclude:DictionaryPickerIncludeParent delegate:self defaultValue:regionid defaultName:@"山东省"] autorelease];
 
     self.DictionaryPicker.tag = 1;
     [self.DictionaryPicker showInView:self.view];
@@ -349,7 +351,7 @@
         return;
     }
     [self cancelDicPicker];
-    self.DictionaryPicker = [[DictionaryPickerView alloc] initWithDictionary:self defaultArray:placeData defalutValue:placeid];
+    self.DictionaryPicker = [[[DictionaryPickerView alloc] initWithDictionary:self defaultArray:placeData defalutValue:placeid] autorelease];
     self.DictionaryPicker.tag = 2;
     [self.DictionaryPicker showInView:self.view];
 }
@@ -387,6 +389,7 @@
     [request setDelegate:self];
     [request startAsynchronous];
     self.runningRequest2 = request;
+    [dicParam release];
 }
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu

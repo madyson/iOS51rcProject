@@ -1,4 +1,5 @@
 #import "CommonController.h"
+#import "FMDatabase.h"
 
 @implementation CommonController
 
@@ -181,4 +182,22 @@
     [calendar release];
     return strWeek;
 }
+
++(NSString *)getDictionaryDesc:(NSString *)value
+               tableName:(NSString *)tableName
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"dictionary.db"];
+    NSString *strDesc = @"";
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    [db open];
+    FMResultSet *dictionaryList = [db executeQuery:[NSString stringWithFormat:@"select * from %@ where _id=%@",tableName,value]];
+    while ([dictionaryList next]) {
+        strDesc = [dictionaryList stringForColumn:@"description"];
+    }
+    [db close];
+    return strDesc;
+}
+
 @end

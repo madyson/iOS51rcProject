@@ -54,8 +54,9 @@
     [request startAsynchronous];
     self.runningRequest = request;
     
-    self.loading = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
+    self.loading = [[[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self] autorelease];
     [self.loading startAnimating];
+    [dicParam release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -224,7 +225,7 @@
         fltLinkHeight += 5;
         [viewLink setFrame:CGRectMake(viewLink.frame.origin.x, viewLink.frame.origin.y, viewLink.frame.size.width, fltLinkHeight)];
         [self.scrollRecruitment addSubview:viewLink];
-        
+        [viewLink release];
         fltHeight += fltLinkHeight;
     }
     
@@ -266,21 +267,16 @@
     
     if ([dtBeginDate laterDate:[NSDate date]] == dtBeginDate) {
         //加底部菜单
-        UIView *viewBottom = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-50, 320, 50)];
+        UIView *viewBottom = [[[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-50, 320, 50)] autorelease];
         viewBottom.backgroundColor = [UIColor colorWithRed:255.f/255.f green:255.f/255.f blue:255.f/255.f alpha:1];
         
         //加我要参会按钮
-        UIButton *btnJoin = [[UIButton alloc] initWithFrame:CGRectMake(110, 10, 100, 30)];
+        UIButton *btnJoin = [[[UIButton alloc] initWithFrame:CGRectMake(110, 10, 100, 30)] autorelease];
         [btnJoin setBackgroundColor:[UIColor colorWithRed:255.f/255.f green:90.f/255.f blue:39.f/255.f alpha:1]];
         [btnJoin setTitle:@"我要参会" forState:UIControlStateNormal];
         [btnJoin.titleLabel setFont:[UIFont systemFontOfSize:15]];
         [btnJoin.layer setMasksToBounds:YES];
         [btnJoin.layer setCornerRadius:10.0]; //设置矩形四个圆角半径
-        [btnJoin.layer setBorderWidth:1.0]; //边框宽度
-        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-        CGColorRef colorref = CGColorCreate(colorSpace,(CGFloat[]){ 1, 0, 0, 1 });
-        [btnJoin.layer setBorderColor:colorref];//边框颜色
-        
         [viewBottom addSubview:btnJoin];
         [self.view addSubview:viewBottom];
         self.scrollRecruitment.frame = CGRectMake(self.scrollRecruitment.frame.origin.x, self.scrollRecruitment.frame.origin.y, self.scrollRecruitment.frame.size.width, self.scrollRecruitment.frame.size.height-50);
@@ -298,7 +294,7 @@
     else {
         strCallNumber = self.recruitmentTelephone;
     }
-    UIWebView*callWebview =[[UIWebView alloc] init];
+    UIWebView*callWebview =[[[UIWebView alloc] init] autorelease];
     NSURL *telURL =[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",strCallNumber]];
     [callWebview loadRequest:[NSURLRequest requestWithURL:telURL]];
     //记得添加到view上
@@ -315,6 +311,7 @@
     [_lbRmTitle release];
     [_btnRmCp release];
     [_btnRmPa release];
+    [_loading release];
     [_scrollRecruitment release];
     [super dealloc];
 }
