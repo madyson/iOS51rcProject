@@ -11,10 +11,12 @@
 #import "LoadingAnimationView.h"
 #import "CommonController.h"
 #import "MJRefresh.h"
+#import "CpMainViewController.h"
 
 @interface RecruitmentCpListViewController ()<NetWebServiceRequestDelegate>
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentCpList;
+
 @end
 
 @implementation RecruitmentCpListViewController
@@ -31,10 +33,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    checkedCpArray = [[NSMutableArray alloc] init];//选择的企业
     page = 1;
     pageSize = 20;
-    rmID = @"95935";
+    self.rmID = @"95935";
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     [self onSearch];
@@ -52,7 +54,7 @@
         [self.tvRecruitmentCpList reloadData];
     }
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
-    [dicParam setObject:rmID forKey:@"ID"];
+    [dicParam setObject:self.rmID forKey:@"ID"];
     [dicParam setObject:[NSString stringWithFormat:@"%d",page] forKey:@"pageNum"];
     [dicParam setObject:[NSString stringWithFormat:@"%d",pageSize] forKey:@"pageSize"];
     [dicParam setObject:@"123456" forKey:@"paMainID"];
@@ -84,20 +86,30 @@
     [loadView stopAnimating];
 }
 
+//绑定数据
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell =
     [[[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:@"cpList"] autorelease];
     
     NSDictionary *rowData = recruitmentCpData[indexPath.row];
+    int isBooked = [rowData[@"isBooked"] integerValue];
     //选择图标
     UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 22, 30, 45)];
-    
+    leftButton.tag = [rowData[@"cpMainID"] integerValue];
     UIImageView *imgCheck = [[UIImageView alloc] initWithFrame:CGRectMake(7, 15, 15, 15)];
+    imgCheck.tag = isBooked;
+    if (isBooked == 1) {
+        //已经预约
+        imgCheck.image = [UIImage imageNamed:@"checked.png"];
+    }else{
+        //没有预约才可以点击
+        [leftButton addTarget:self action:@selector(checkBoxBookinginterviewClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
     imgCheck.image = [UIImage imageNamed:@"unChecked.png"];
-    imgCheck.tag = (NSInteger)rowData[@"ID"];
     [leftButton addSubview:imgCheck];
-    [leftButton addTarget:self action:@selector(bookinginterview:) forControlEvents:UIControlEventTouchUpInside];
+   
     [cell.contentView addSubview:leftButton];
     [leftButton release];
     [imgCheck release];
@@ -141,18 +153,31 @@
     
     //预约面试按钮
     UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 22, 30, 45)];
-    UILabel *lbWillRun = [[UILabel alloc] initWithFrame:CGRectMake(-5, 35, 40, 10)];
-    lbWillRun.text = @"预约面试";
-    lbWillRun.font = [UIFont systemFontOfSize:10];
-    lbWillRun.textColor = [UIColor colorWithRed:255.f/255.f green:90.f/255.f blue:40.f/255.f alpha:1];
-    lbWillRun.textAlignment = NSTextAlignmentCenter;
-    [rightButton addSubview:lbWillRun];
-    
+    UILabel *lbWillRun;
     UIImageView *imgWillRun = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    imgWillRun.image = [UIImage imageNamed:@"ico_rm_group.png"];
-    rightButton.tag = (NSInteger)rowData[@"ID"];
-    [rightButton addSubview:imgWillRun];
-    [rightButton addTarget:self action:@selector(bookinginterview:) forControlEvents:UIControlEventTouchUpInside];
+    if (isBooked == 1) {
+        //没有图片，只显示“已预约”三个字
+        lbWillRun = [[UILabel alloc] initWithFrame:CGRectMake(0, 18, 40, 10)];
+        lbWillRun.text = @"已预约";
+        lbWillRun.font = [UIFont systemFontOfSize:12];
+        lbWillRun.textColor = [UIColor grayColor];
+        lbWillRun.textAlignment = NSTextAlignmentCenter;
+    }else{
+        //文字
+        lbWillRun = [[UILabel alloc] initWithFrame:CGRectMake(-5, 35, 40, 10)];
+        lbWillRun.text = @"预约面试";
+        lbWillRun.font = [UIFont systemFontOfSize:10];
+        lbWillRun.textColor = [UIColor colorWithRed:255.f/255.f green:90.f/255.f blue:40.f/255.f alpha:1];
+        lbWillRun.textAlignment = NSTextAlignmentCenter;
+        //图片
+        imgWillRun.image = [UIImage imageNamed:@"ico_rm_group.png"];
+        [rightButton addSubview:imgWillRun];
+        //没有预约才可以点击
+        [rightButton addTarget:self action:@selector(bookinginterview:) forControlEvents:UIControlEventTouchUpInside];
+    }
+   
+    [rightButton addSubview:lbWillRun];
+    rightButton.tag = [rowData[@"cpMainID"] integerValue];
     [cell.contentView addSubview:rightButton];
     
     [rightButton release];
@@ -164,19 +189,62 @@
     return cell;
 }
 
+//点击某一行,到达企业页面
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard *jobSearchStoryboard = [UIStoryboard storyboardWithName:@"JobSearch" bundle:nil];
+    CpMainViewController *cpMainCtrl = (CpMainViewController*)[jobSearchStoryboard instantiateViewControllerWithIdentifier: @"CpMainView"];
+    cpMainCtrl.cpMainID = recruitmentCpData[indexPath.row][@"cpMainID"];
+    [self.navigationController pushViewController:cpMainCtrl animated:true];
+}
+
+//点击下方预约面试
+- (IBAction)btnBookAll:(id)sender {
+    //先检查是否登陆
+    //转到邀请企业参会
+//    NSMutableArray *dic = [[NSMutableArray alloc] init];
+//    NSLog(@"111 %d", [self.tvRecruitmentCpList subviews].count);
+//    UITableViewCell *cell = [self.tvRecruitmentCpList subviews][0];
+//    NSLog(@"2222 %d", [cell subviews].count);
+//    for (int i = 0; i<[cell subviews].count; i++) {
+//        //找到每一个行
+//        UITableViewCell *tmpCell = [cell subviews][i];
+//        UIButton *leftBtn = (UIButton*)[tmpCell subviews][0];
+//        NSInteger cpID = leftBtn.tag;
+//        NSLog(@"333 %d", cpID);
+//
+//        UIImageView *leftImg = [leftBtn subviews][0];
+//        
+//        if (leftImg.tag == 1) {//如果是已经预约
+//            [dic addObject:cpID];
+//        }
+//    }    
+}
+
+//点击我要参会
 -(void) bookinginterview:(UIButton *)sender{
     NSLog(@"%d",sender.tag);
 }
 
+//点击左侧小图标
 -(void) checkBoxBookinginterviewClick:(UIButton *)sender{
-    NSLog(@"%d",sender.tag);
-    
+    NSLog(@"选择的企业为：%d",sender.tag);
+    NSInteger cpID = [@(sender.tag) integerValue];
+     UIImageView *imgView = [sender subviews][0];
+    if (imgView.tag == 1) {//如果是已经预约
+        imgView.image = [UIImage imageNamed:@"unChecked.png"];
+        [checkedCpArray removeObject:@(cpID)];
+    }else{
+        imgView.image = [UIImage imageNamed:@"checked.png"];
+        [checkedCpArray addObject: @(cpID)];
+    }
+    sender.tag = !sender.tag;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [recruitmentCpData count];
 }
 
+//每一行的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
 }

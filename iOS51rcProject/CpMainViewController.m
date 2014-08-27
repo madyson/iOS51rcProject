@@ -53,7 +53,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.cpMainID = @"8047194";
+    //self.cpMainID = @"8047194";
     
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
     [dicParam setObject:self.cpMainID forKey:@"CpMainID"];

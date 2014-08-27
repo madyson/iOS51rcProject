@@ -331,13 +331,13 @@
         <!--Recruitment Cp List View Controller-->
         <scene sceneID="Qd3-od-8nt">
             <objects>
-                <viewController id="REW-qE-DFZ" customClass="RecruitmentCpListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RmCpListView" id="REW-qE-DFZ" customClass="RecruitmentCpListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NSo-8h-0l5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gSG-fv-cuh">
-                                <rect key="frame" x="0.0" y="26" width="320" height="492"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="511"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -356,13 +356,16 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="l6f-IW-zSC">
-                                <rect key="frame" x="115" y="526" width="90" height="36"/>
+                                <rect key="frame" x="115" y="519" width="90" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.35294117650000001" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="预约面试">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnBookAll:" destination="REW-qE-DFZ" eventType="touchUpInside" id="ogU-U1-dLA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -373,12 +376,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LE5-Ao-fKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1098" y="-281"/>
+            <point key="canvasLocation" x="1098" y="-293"/>
         </scene>
         <!--Recruitment Pa List View Controller-->
         <scene sceneID="nrZ-fh-Pt4">
             <objects>
-                <viewController id="4ZF-xt-yWI" customClass="RecruitmentPaListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RmPaListView" id="4ZF-xt-yWI" customClass="RecruitmentPaListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A1v-zx-MKi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -412,6 +415,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7GB-b9-Py3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1449" y="-280"/>
+        </scene>
+        <!--My Recruitment View Controller-->
+        <scene sceneID="Rxw-n0-NNu">
+            <objects>
+                <viewController storyboardIdentifier="MyRecruitmentView" id="TVe-px-k7s" customClass="MyRecruitmentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Osb-af-7uj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pji-dJ-SgD">
+                                <rect key="frame" x="-2" y="91" width="160" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ix3-lM-cAl">
+                                <rect key="frame" x="-2" y="53" width="160" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="我的预约">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="THY-aR-pIl">
+                                <rect key="frame" x="158" y="91" width="162" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DaD-Ao-fPE">
+                                <rect key="frame" x="158" y="53" width="162" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="收到的邀请">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mAJ-D7-Zf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1821" y="-280"/>
         </scene>
         <!--Slide Navigation Controller-->
         <scene sceneID="ZVW-oo-lv7">
@@ -768,6 +815,9 @@
                                                 <state key="normal">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnRmCpClick:" destination="PwY-6R-8LY" eventType="touchUpInside" id="e96-q1-LG2"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WZL-gh-O8V">
                                                 <rect key="frame" x="159" y="87" width="140" height="45"/>
@@ -776,6 +826,9 @@
                                                 <state key="normal">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnRmPaClick:" destination="PwY-6R-8LY" eventType="touchUpInside" id="OJM-rW-pZP"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico_rm_cp.png" id="Ue4-ls-w9j">
                                                 <rect key="frame" x="30" y="94" width="30" height="30"/>

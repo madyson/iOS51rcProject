@@ -11,6 +11,7 @@
 #import "LoadingAnimationView.h"
 #import "CommonController.h"
 #import "MJRefresh.h"
+#import "MyRecruitmentViewController.h"
 
 @interface RecruitmentPaListViewController ()<NetWebServiceRequestDelegate>
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
@@ -31,13 +32,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+   
+    UIBarButtonItem *btnMyRecruitment = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(btnMyRecruitmentClick:)];
+    btnMyRecruitment.title = @"我的招聘会";
+    self.navigationItem.rightBarButtonItem=btnMyRecruitment;
     page = 1;
     pageSize = 20;
-    rmID = @"95935";
+    self.rmID = @"95935";
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     [self onSearch];
+}
+
+-(void) btnMyRecruitmentClick:(UIBarButtonItem *)sender
+{
+    MyRecruitmentViewController *myRmCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"MyRecruitmentView"];
+    [self.navigationController pushViewController:myRmCtrl animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,7 +62,7 @@
         [self.tvRecruitmentPaList reloadData];
     }
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
-    [dicParam setObject:rmID forKey:@"ID"];
+    [dicParam setObject:self.rmID forKey:@"ID"];
     [dicParam setObject:[NSString stringWithFormat:@"%d",page] forKey:@"pageNum"];
     [dicParam setObject:[NSString stringWithFormat:@"%d",pageSize] forKey:@"pageSize"];   
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetRmPersonList" Params:dicParam];
