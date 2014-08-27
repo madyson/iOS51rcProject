@@ -1,30 +1,17 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-    DictionaryPickerWithRegionL3,
-    DictionaryPickerWithRegionL2,
-    DictionaryPickerWithJobType,
-    DictionaryPickerWithCommon,
-    DictionaryPickerWithSearchRegion,
-    DictionaryPickerWithSearchJobType
-} DictionaryPickerType;
-
-typedef enum {
-    DictionaryPickerModeOne,
-    DictionaryPickerModeMulti
-} DictionaryPickerMode;
-
-typedef enum {
-    DictionaryPickerIncludeParent,
-    DictionaryPickerNoIncludeParent
-} DictionaryPickerInclude;
+    SearchPickerWithRegion,
+    SearchPickerWithJobType,
+    SearchPickerWithOther
+} SearchPickerType;
 
 @class SearchPickerView;
 
 @protocol SearchPickerDelegate <NSObject>
 
 @optional
-- (void)pickerDidChangeStatus:(SearchPickerView *)picker
+- (void)searchPickerDidChangeStatus:(SearchPickerView *)picker
                 selectedValue:(NSString *)selectedValue
                  selectedName:(NSString *)selectedName;
 
@@ -42,9 +29,10 @@ typedef enum {
 @property (retain, nonatomic) IBOutlet UILabel *lbMulti;
 @property (retain, nonatomic) IBOutlet UIButton *btnMultiSave;
 @property (retain, nonatomic) IBOutlet UIButton *btnMultiCancel;
-@property (nonatomic) DictionaryPickerType pickerType;
-@property (nonatomic) DictionaryPickerMode pickerMode;
-@property (nonatomic) DictionaryPickerInclude pickerInclude;
+@property (strong, nonatomic) IBOutlet UIButton *btnCancel;
+@property (strong, nonatomic) IBOutlet UIButton *btnSave;
+@property (retain, nonatomic) IBOutlet UIView *viewOneTop;
+@property (nonatomic) SearchPickerType pickerType;
 @property (retain, nonatomic) NSMutableArray *arrSelectValue;
 @property (retain, nonatomic) NSMutableArray *arrSelectName;
 @property (assign, nonatomic) NSString *selectTableName;
@@ -53,6 +41,14 @@ typedef enum {
                      selectValue:(NSString *)selectValue
                       selectName:(NSString *)selectName
                     defalutValue:(NSString *)defaultValue;
+
+- (id)initWithSearchJobTypeFilter:(id <SearchPickerDelegate>)delegate
+                     selectValue:(NSString *)selectValue
+                      selectName:(NSString *)selectName
+                    defalutValue:(NSString *)defaultValue;
+
+- (id)initWithSearchOtherFilter:(id <SearchPickerDelegate>)delegate
+                   defalutValue:(NSString *)defaultValue;
 
 - (void)showInView:(UIView *)view;
 - (void)cancelPicker;
