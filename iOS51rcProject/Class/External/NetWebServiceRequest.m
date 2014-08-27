@@ -219,9 +219,12 @@ NSString* const NetWebServiceRequestErrorDomain = @"NetWebServiceRequestErrorDom
         //表示正常请求
         result = [SoapXmlParseHelper SoapMessageResultXml:responseString ServiceMethodName:methodName];
         GDataXMLDocument *xmlContent = [[GDataXMLDocument alloc] initWithXMLString:responseString options:0 error:nil];
-        NSArray *xmlTable = [xmlContent nodesForXPath:@"//Table" error:nil];
+        NSArray *xmlTable = [xmlContent nodesForXPath:@"//Table1" error:nil];
         if ([xmlTable count] == 0) {
             xmlTable = [xmlContent nodesForXPath:@"//ds" error:nil];
+        }
+        if ([xmlTable count] == 0) {
+            xmlTable = [xmlContent nodesForXPath:@"//Table" error:nil];
         }
         NSMutableArray *arrXml = [[NSMutableArray alloc] init];
         for (int i=0; i<xmlTable.count; i++) {

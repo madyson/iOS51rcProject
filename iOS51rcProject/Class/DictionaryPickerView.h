@@ -4,9 +4,7 @@ typedef enum {
     DictionaryPickerWithRegionL3,
     DictionaryPickerWithRegionL2,
     DictionaryPickerWithJobType,
-    DictionaryPickerWithCommon,
-    DictionaryPickerWithSearchRegion,
-    DictionaryPickerWithSearchJobType
+    DictionaryPickerWithCommon
 } DictionaryPickerType;
 
 typedef enum {
@@ -68,11 +66,6 @@ typedef enum {
            tableName:(NSString *)tableName
         defalutValue:(NSString *)defaultValue
          defaultName:(NSString *)defaultName;
-
-- (id)initWithSearchRegionFilter:(id <DictionaryPickerDelegate>)delegate
-                     selectValue:(NSString *)selectValue
-                     selectName:(NSString *)selectName
-                    defalutValue:(NSString *)defaultValue;
 
 - (void)showInView:(UIView *)view;
 - (void)cancelPicker;
