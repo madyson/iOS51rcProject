@@ -25,6 +25,8 @@
 		9952A07219AB0E2200F6452C /* SearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9952A07119AB0E2200F6452C /* SearchListViewController.m */; };
 		995575BA19AC56A800B73E4A /* ico_coordinate_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 995575B819AC56A800B73E4A /* ico_coordinate_blue.png */; };
 		995575BD19AC582600B73E4A /* ico_cp_hasLincence.png in Resources */ = {isa = PBXBuildFile; fileRef = 995575BC19AC582600B73E4A /* ico_cp_hasLincence.png */; };
+		995575C019AC64CE00B73E4A /* RecruitmentPaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995575BF19AC64CE00B73E4A /* RecruitmentPaListViewController.m */; };
+		995575C319AC64EA00B73E4A /* RecruitmentCpListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995575C219AC64EA00B73E4A /* RecruitmentCpListViewController.m */; };
 		997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C5199DB33C00FD0B12 /* ASIAuthenticationDialog.m */; };
 		997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C8199DB33C00FD0B12 /* ASIDataCompressor.m */; };
 		997BF0E5199DB33C00FD0B12 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0CA199DB33C00FD0B12 /* ASIDataDecompressor.m */; };
@@ -196,6 +198,10 @@
 		995575B819AC56A800B73E4A /* ico_coordinate_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_coordinate_blue.png; sourceTree = "<group>"; };
 		995575B919AC56A800B73E4A /* ico_coordinate_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_coordinate_red.png; sourceTree = "<group>"; };
 		995575BC19AC582600B73E4A /* ico_cp_hasLincence.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_cp_hasLincence.png; sourceTree = "<group>"; };
+		995575BE19AC64CE00B73E4A /* RecruitmentPaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecruitmentPaListViewController.h; path = Recruitment/RecruitmentPaListViewController.h; sourceTree = "<group>"; };
+		995575BF19AC64CE00B73E4A /* RecruitmentPaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecruitmentPaListViewController.m; path = Recruitment/RecruitmentPaListViewController.m; sourceTree = "<group>"; };
+		995575C119AC64EA00B73E4A /* RecruitmentCpListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecruitmentCpListViewController.h; path = Recruitment/RecruitmentCpListViewController.h; sourceTree = "<group>"; };
+		995575C219AC64EA00B73E4A /* RecruitmentCpListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecruitmentCpListViewController.m; path = Recruitment/RecruitmentCpListViewController.m; sourceTree = "<group>"; };
 		997BF0C4199DB33C00FD0B12 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		997BF0C5199DB33C00FD0B12 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		997BF0C6199DB33C00FD0B12 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -727,6 +733,10 @@
 				99B4ED9119AB067C004C9068 /* JobViewController.m */,
 				99AC903919AC395400165D88 /* CpMainViewController.h */,
 				99AC903A19AC395400165D88 /* CpMainViewController.m */,
+				995575BE19AC64CE00B73E4A /* RecruitmentPaListViewController.h */,
+				995575BF19AC64CE00B73E4A /* RecruitmentPaListViewController.m */,
+				995575C119AC64EA00B73E4A /* RecruitmentCpListViewController.h */,
+				995575C219AC64EA00B73E4A /* RecruitmentCpListViewController.m */,
 			);
 			path = iOS51rcProject;
 			sourceTree = "<group>";
@@ -1085,6 +1095,7 @@
 				99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */,
 				99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				995575C319AC64EA00B73E4A /* RecruitmentCpListViewController.m in Sources */,
 				9952A06719AACCED00F6452C /* SearchViewController.m in Sources */,
 				998025BF19A23024001A7E84 /* MJRefreshBaseView.m in Sources */,
 				99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */,
@@ -1093,6 +1104,7 @@
 				99908A5719A34DD300137FDE /* FMDatabaseAdditions.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				991125AC19A4DB7C00C98173 /* RecruitmentViewController.m in Sources */,
+				995575C019AC64CE00B73E4A /* RecruitmentPaListViewController.m in Sources */,
 				99908A5619A34DD300137FDE /* FMDatabase.m in Sources */,
 				99908A5A19A34DD300137FDE /* FMResultSet.m in Sources */,
 				997BF0EA199DB33C00FD0B12 /* ASINetworkQueue.m in Sources */,
