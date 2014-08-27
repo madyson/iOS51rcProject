@@ -70,7 +70,7 @@
         <!--Cp Main View Controller-->
         <scene sceneID="onE-3z-dp1">
             <objects>
-                <viewController id="rFa-q5-beJ" customClass="CpMainViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CpMainView" id="rFa-q5-beJ" customClass="CpMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Etd-W4-5kW"/>
                         <viewControllerLayoutGuide type="bottom" id="mLg-D3-cb4"/>

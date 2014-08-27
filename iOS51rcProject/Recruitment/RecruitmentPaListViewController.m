@@ -34,7 +34,7 @@
     // Do any additional setup after loading the view.
     page = 1;
     pageSize = 20;
-    rmID = @"95935";
+    self.rmID = @"95935";
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     [self onSearch];
@@ -52,7 +52,7 @@
         [self.tvRecruitmentPaList reloadData];
     }
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
-    [dicParam setObject:rmID forKey:@"ID"];
+    [dicParam setObject:self.rmID forKey:@"ID"];
     [dicParam setObject:[NSString stringWithFormat:@"%d",page] forKey:@"pageNum"];
     [dicParam setObject:[NSString stringWithFormat:@"%d",pageSize] forKey:@"pageSize"];   
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetRmPersonList" Params:dicParam];

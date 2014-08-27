@@ -247,7 +247,7 @@
 }
 
 -(void) joinRecruitment:(UIButton *)sender{
-    NSLog(@"%d",sender.tag);
+    NSLog(@"点击我要参会：%d",sender.tag);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

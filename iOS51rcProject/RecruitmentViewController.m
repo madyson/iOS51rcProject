@@ -2,6 +2,9 @@
 #import "NetWebServiceRequest.h"
 #import "LoadingAnimationView.h"
 #import "CommonController.h"
+#import "RecruitmentPaListViewController.h"
+#import "RecruitmentCpListViewController.h"
+
 
 @interface RecruitmentViewController () <NetWebServiceRequestDelegate,UIScrollViewDelegate>
 
@@ -284,6 +287,20 @@
     
     [self.scrollRecruitment setContentSize:CGSizeMake(320, fltHeight+20)];
     [self.loading stopAnimating];
+}
+
+//点击参会企业
+- (IBAction)btnRmCpClick:(id)sender {
+    RecruitmentCpListViewController *cpListCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmCpListView"];
+    cpListCtrl.rmID = self.recruitmentID;
+    [self.navigationController pushViewController:cpListCtrl animated:YES];
+}
+
+//点击参会个人
+- (IBAction)btnRmPaClick:(id)sender {
+    RecruitmentPaListViewController *paListCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmPaListView"];
+    paListCtrl.rmID = self.recruitmentID;
+    [self.navigationController pushViewController:paListCtrl animated:YES];
 }
 
 - (void)call:(UIButton *)sender {
