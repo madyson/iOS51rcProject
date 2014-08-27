@@ -198,7 +198,7 @@
 }
 
 //点击下方预约面试
-- (IBAction)btnBookAll:(id)sender {    
+- (IBAction)btnBookAll:(id)sender {
     //先检查是否登陆
     //转到邀请企业参会
 //    NSMutableArray *dic = [[NSMutableArray alloc] init];

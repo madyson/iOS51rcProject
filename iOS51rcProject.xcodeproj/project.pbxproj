@@ -99,6 +99,7 @@
 		99BDC5EB19A5F10D00B2BDB1 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5E519A5F10D00B2BDB1 /* SVProgressHUD.m */; };
 		99BDC5F419A5F4A900B2BDB1 /* radioChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5F219A5F4A900B2BDB1 /* radioChecked.png */; };
 		99BDC5F519A5F4A900B2BDB1 /* radioUnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5F319A5F4A900B2BDB1 /* radioUnChecked.png */; };
+		99BEE43D19ADAEDE0090C9E1 /* MyRecruitmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEE43C19ADAEDE0090C9E1 /* MyRecruitmentViewController.m */; };
 		99CFD818199B5F80009A5ABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD817199B5F80009A5ABA /* Foundation.framework */; };
 		99CFD81A199B5F80009A5ABA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD819199B5F80009A5ABA /* CoreGraphics.framework */; };
 		99CFD81C199B5F80009A5ABA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD81B199B5F80009A5ABA /* UIKit.framework */; };
@@ -337,6 +338,8 @@
 		99BDC5F319A5F4A900B2BDB1 /* radioUnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioUnChecked.png; sourceTree = "<group>"; };
 		99BDC5F619A5F4E100B2BDB1 /* radioChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioChecked.png; sourceTree = "<group>"; };
 		99BDC5F719A5F4E100B2BDB1 /* radioUnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioUnChecked.png; sourceTree = "<group>"; };
+		99BEE43B19ADAEDE0090C9E1 /* MyRecruitmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyRecruitmentViewController.h; path = Recruitment/MyRecruitmentViewController.h; sourceTree = "<group>"; };
+		99BEE43C19ADAEDE0090C9E1 /* MyRecruitmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyRecruitmentViewController.m; path = Recruitment/MyRecruitmentViewController.m; sourceTree = "<group>"; };
 		99CFD814199B5F80009A5ABA /* iOS51rcProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS51rcProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CFD817199B5F80009A5ABA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99CFD819199B5F80009A5ABA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -670,6 +673,23 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		99BEE43E19ADB0130090C9E1 /* Recruitment */ = {
+			isa = PBXGroup;
+			children = (
+				99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */,
+				99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */,
+				991125AA19A4DB7C00C98173 /* RecruitmentViewController.h */,
+				991125AB19A4DB7C00C98173 /* RecruitmentViewController.m */,
+				995575BE19AC64CE00B73E4A /* RecruitmentPaListViewController.h */,
+				995575BF19AC64CE00B73E4A /* RecruitmentPaListViewController.m */,
+				995575C119AC64EA00B73E4A /* RecruitmentCpListViewController.h */,
+				995575C219AC64EA00B73E4A /* RecruitmentCpListViewController.m */,
+				99BEE43B19ADAEDE0090C9E1 /* MyRecruitmentViewController.h */,
+				99BEE43C19ADAEDE0090C9E1 /* MyRecruitmentViewController.m */,
+			);
+			name = Recruitment;
+			sourceTree = "<group>";
+		};
 		99CFD80B199B5F80009A5ABA = {
 			isa = PBXGroup;
 			children = (
@@ -709,6 +729,7 @@
 		99CFD81D199B5F80009A5ABA /* iOS51rcProject */ = {
 			isa = PBXGroup;
 			children = (
+				99BEE43E19ADB0130090C9E1 /* Recruitment */,
 				9952A06A19AAF71000F6452C /* JobSearch */,
 				99FA8B7E19A7132C00F8B1B9 /* UserCenter */,
 				99BDC59C19A57FAD00B2BDB1 /* CustomControl */,
@@ -724,10 +745,6 @@
 				9952A06E19AAF72B00F6452C /* JobSearch.storyboard */,
 				99BDC5A019A586A700B2BDB1 /* HomeViewController.h */,
 				99BDC5A119A586A700B2BDB1 /* HomeViewController.m */,
-				99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */,
-				99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */,
-				991125AA19A4DB7C00C98173 /* RecruitmentViewController.h */,
-				991125AB19A4DB7C00C98173 /* RecruitmentViewController.m */,
 				99FA8B7319A6DBD500F8B1B9 /* MenuViewController.h */,
 				99FA8B7419A6DBD500F8B1B9 /* MenuViewController.m */,
 				9952A06519AACCED00F6452C /* SearchViewController.h */,
@@ -741,10 +758,6 @@
 				99B4ED9119AB067C004C9068 /* JobViewController.m */,
 				99AC903919AC395400165D88 /* CpMainViewController.h */,
 				99AC903A19AC395400165D88 /* CpMainViewController.m */,
-				995575BE19AC64CE00B73E4A /* RecruitmentPaListViewController.h */,
-				995575BF19AC64CE00B73E4A /* RecruitmentPaListViewController.m */,
-				995575C119AC64EA00B73E4A /* RecruitmentCpListViewController.h */,
-				995575C219AC64EA00B73E4A /* RecruitmentCpListViewController.m */,
 			);
 			path = iOS51rcProject;
 			sourceTree = "<group>";
@@ -1098,6 +1111,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99BEE43D19ADAEDE0090C9E1 /* MyRecruitmentViewController.m in Sources */,
 				998025C219A23024001A7E84 /* MJRefreshHeaderView.m in Sources */,
 				99908A0519A3430900137FDE /* DictionaryPickerView.m in Sources */,
 				99BDC5E919A5F10D00B2BDB1 /* MLTableAlert.m in Sources */,
