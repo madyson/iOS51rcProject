@@ -24,7 +24,6 @@
 		9952A06F19AAF72B00F6452C /* JobSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9952A06E19AAF72B00F6452C /* JobSearch.storyboard */; };
 		9952A07219AB0E2200F6452C /* SearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9952A07119AB0E2200F6452C /* SearchListViewController.m */; };
 		995575BA19AC56A800B73E4A /* ico_coordinate_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 995575B819AC56A800B73E4A /* ico_coordinate_blue.png */; };
-		995575BB19AC56A800B73E4A /* ico_coordinate_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 995575B919AC56A800B73E4A /* ico_coordinate_red.png */; };
 		995575BD19AC582600B73E4A /* ico_cp_hasLincence.png in Resources */ = {isa = PBXBuildFile; fileRef = 995575BC19AC582600B73E4A /* ico_cp_hasLincence.png */; };
 		997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C5199DB33C00FD0B12 /* ASIAuthenticationDialog.m */; };
 		997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C8199DB33C00FD0B12 /* ASIDataCompressor.m */; };

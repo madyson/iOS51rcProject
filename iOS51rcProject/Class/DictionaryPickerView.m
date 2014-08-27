@@ -93,7 +93,7 @@
           pickerMode:(DictionaryPickerMode)pickerMode
            tableName:(NSString *)tableName
         defalutValue:(NSString *)defaultValue
-         defaultName:(NSString *)defalutName
+         defaultName:(NSString *)defaultName
 {
     self = [[[[NSBundle mainBundle] loadNibNamed:@"DictionaryPickerView" owner:self options:nil] objectAtIndex:0] retain];
     if (self) {
@@ -118,7 +118,7 @@
         
         if (defaultValue.length > 0) {
             self.arrSelectValue = [[[defaultValue componentsSeparatedByString:@" "] mutableCopy] autorelease];
-            self.arrSelectName = [[[defalutName componentsSeparatedByString:@" "] mutableCopy] autorelease];
+            self.arrSelectName = [[[defaultName componentsSeparatedByString:@" "] mutableCopy] autorelease];
             [self setupScollMulti];
         }
         [self setupDictionary];
@@ -152,20 +152,67 @@
     return self;
 }
 
-- (void) setupDictionary
+- (id)initWithSearchRegionFilter:(id <DictionaryPickerDelegate>)delegate
+                     selectValue:(NSString *)selectValue
+                      selectName:(NSString *)selectName
+                    defalutValue:(NSString *)defaultValue
 {
-    //加载数据
-    arrDictionaryL1 = [[NSMutableArray alloc] init];
-    arrDictionaryL2 = [[NSMutableArray alloc] init];
-    arrDictionaryL3 = [[NSMutableArray alloc] init];
+    self = [[[[NSBundle mainBundle] loadNibNamed:@"DictionaryPickerView" owner:self options:nil] objectAtIndex:0] retain];
+    if (self) {
+        self.pickerType = DictionaryPickerWithSearchRegion;
+        self.pickerInclude = DictionaryPickerIncludeParent;
+        [self connectDbAndInit];
+        if ([selectValue rangeOfString:@","].location == NSNotFound) {
+            [self setRegionDictionary:selectValue];
+            if (arrDictionaryL3.count > 0) {
+                arrDictionaryL1 = [arrDictionaryL2 mutableCopy];
+                [arrDictionaryL2 removeAllObjects];
+                [arrDictionaryL3 removeAllObjects];
+            }
+            else if (arrDictionaryL2.count > 0) {
+                arrDictionaryL1 = [arrDictionaryL2 mutableCopy];
+                [arrDictionaryL2 removeAllObjects];
+            }
+            [arrDictionaryL1 insertObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
+                                           @"",@"id",
+                                           @"全部工作地点",@"value", nil] autorelease] atIndex:0];
+        }
+//        NSMutableArray *arrFilter = [[NSMutableArray alloc] init];
+//        NSArray *arrRegionFilter = [selectValue componentsSeparatedByString:@","];
+//        NSArray *arrRegionNameFilter = [selectValue componentsSeparatedByString:@" "];
+//        for (int i=0; i<arrRegionFilter.count; i++) {
+//            [arrFilter addObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
+//                                   arrRegionFilter[i],@"id",
+//                                   arrRegionNameFilter[i],@"value", nil] autorelease]];
+//        }
+    }
+    return self;
+}
+
+-(void)setSearchRegionDictionary
+{
+    
+}
+
+-(void)connectDbAndInit
+{
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"dictionary.db"];
-
+    
     db = [FMDatabase databaseWithPath:dbPath];
     [db open];
     [db retain];
     
+    //加载数据
+    arrDictionaryL1 = [[NSMutableArray alloc] init];
+    arrDictionaryL2 = [[NSMutableArray alloc] init];
+    arrDictionaryL3 = [[NSMutableArray alloc] init];
+}
+
+- (void) setupDictionary
+{
+    [self connectDbAndInit];
     switch (self.pickerType) {
         case DictionaryPickerWithRegionL3:
         {
@@ -363,6 +410,12 @@
         case DictionaryPickerWithJobType:
             return 2;
             break;
+        case DictionaryPickerWithSearchRegion:
+            return 3;
+            break;
+        case DictionaryPickerWithSearchJobType:
+            return 2;
+            break;
         default:
             return 1;
             break;
@@ -463,6 +516,30 @@
                 }
                 break;
             }
+        }
+        case DictionaryPickerWithSearchRegion:
+        {
+            if (component == 0) {
+                [arrDictionaryL2 removeAllObjects];
+                [arrDictionaryL3 removeAllObjects];
+                if ([[arrDictionaryL1[row] objectForKey:@"id"] length] > 0) {
+                    [self setRegionDictionary:[arrDictionaryL1[row] objectForKey:@"id"]];
+                    if (arrDictionaryL2.count == 0) {
+                        if (arrDictionaryL3.count > 0) {
+                            arrDictionaryL2 = [arrDictionaryL3 mutableCopy];
+                            [arrDictionaryL3 removeAllObjects];
+                        }
+                    }
+                }
+                [self.pickerDictionary reloadComponent:1];
+                [self.pickerDictionary reloadComponent:2];
+            }
+            break;
+        }
+        case DictionaryPickerWithSearchJobType:
+        {
+            
+            break;
         }
         default:
             break;
@@ -664,12 +741,12 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.frame = CGRectMake(0, view.frame.size.height - self.frame.size.height, self.frame.size.width, self.frame.size.height);
     }];
-    if (self.pickerInclude == DictionaryPickerIncludeParent) {
-        [self.pickerDictionary selectRow:1 inComponent:1 animated:YES];
-        if (self.pickerType == DictionaryPickerWithRegionL3) {
-            [self.pickerDictionary selectRow:1 inComponent:2 animated:YES];
-        }
-    }
+//    if (self.pickerInclude == DictionaryPickerIncludeParent) {
+//        [self.pickerDictionary selectRow:1 inComponent:1 animated:YES];
+//        if (self.pickerType == DictionaryPickerWithRegionL3) {
+//            [self.pickerDictionary selectRow:1 inComponent:2 animated:YES];
+//        }
+//    }
     
     //根据默认值显示
     if (self.pickerMode == DictionaryPickerModeOne) {

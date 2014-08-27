@@ -4,8 +4,9 @@
 #import "CommonController.h"
 #import "MJRefresh.h"
 #import "DictionaryPickerView.h"
+#import "Toast+UIView.h"
 
-@interface SearchListViewController () <NetWebServiceRequestDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface SearchListViewController () <NetWebServiceRequestDelegate,UITableViewDataSource,UITableViewDelegate,DictionaryPickerDelegate>
 {
     LoadingAnimationView *loadView;
 }
@@ -247,15 +248,14 @@
 
 - (void)regionFilter
 {
-    NSMutableArray *arrFilter = [[NSMutableArray alloc] init];
-    NSArray *arrRegionFilter = [self.searchRegion componentsSeparatedByString:@","];
-    NSArray *arrRegionNameFilter = [self.searchRegion componentsSeparatedByString:@" "];
-    for (int i=0; i<arrRegionFilter.count; i++) {
-        [arrFilter addObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                              arrRegionFilter[i],@"id",
-                               arrRegionNameFilter[i],@"value", nil] autorelease]];
+    if ([self.searchRegion rangeOfString:@","].location == NSNotFound) {
+        if (![CommonController hasParentOfRegion:self.searchRegion]) {
+            [self.view makeToast:@"您选择的地区已经到最后一级，不能再继续筛选了"];
+            return;
+        }
     }
-    self.dictionaryPicker = [[DictionaryPickerView alloc] initWithDictionary:self defaultArray:arrFilter defalutValue:self.lbRegionFilter];
+    self.dictionaryPicker = [[DictionaryPickerView alloc] initWithSearchRegionFilter:self selectValue:self.searchRegion selectName:self.searchRegionName defalutValue:self.workPlace];
+    [self.dictionaryPicker showInView:self.view];
 }
 
 - (void)jobtypeFilter

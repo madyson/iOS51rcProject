@@ -200,4 +200,17 @@
     return strDesc;
 }
 
++(BOOL)hasParentOfRegion:(NSString *)regionId
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"dictionary.db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    [db open];
+    FMResultSet *regionList = [db executeQuery:[NSString stringWithFormat:@"select * from dcRegion where parentid=%@",regionId]];
+    BOOL hasRow = [regionList next];
+    [db close];
+    return hasRow;
+}
+
 @end
