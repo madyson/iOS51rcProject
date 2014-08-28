@@ -8,7 +8,7 @@
 
 #import "MyRecruitmentViewController.h"
 #import "RecruitmentViewController.h"
-
+#import "MyRmInviteCpListViewController.h"
 
 @interface MyRecruitmentViewController ()
 @property (retain, nonatomic) IBOutlet UILabel *lbBgLeft;
@@ -55,7 +55,6 @@
     
     //默认加载登录页面
     [self.view addSubview: self.myRmCpListViewCtrl.view];
-
 }
 
 //从我的预约页面到招聘会详情页面
@@ -69,8 +68,7 @@
 //从我的预约页面到我邀请的企业页面
 -(void) GoToMyInvitedCpView:(NSString *) paMainID
 {
-    RecruitmentViewController *rmViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RecruitmentView"];
-    rmViewCtrl.recruitmentID = paMainID;
+    MyRmInviteCpListViewController *rmViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"MyRmInviteCpListView"];
     [self.navigationController pushViewController:rmViewCtrl animated:true];
 }
 
