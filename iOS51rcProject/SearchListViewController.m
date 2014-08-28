@@ -277,12 +277,14 @@
 - (void)salaryFilter
 {
     self.dictionaryPicker = [[[DictionaryPickerView alloc] initWithCommon:self pickerMode:DictionaryPickerModeOne tableName:@"dcSalary" defalutValue:self.salary defaultName:@""] autorelease];
+    self.dictionaryPicker.tag = 1;
     [self.dictionaryPicker showInView:self.view];
 }
 
 - (void)otherFilter
 {
-    self.searchPicker = [[[SearchPickerView alloc] initWithSearchOtherFilter:self defalutValue:@""] autorelease];
+    self.searchPicker = [[[SearchPickerView alloc] initWithSearchOtherFilter:self defalutValue:self.selectOther defaultName:self.selectOtherName] autorelease];
+    self.searchPicker.tag = 3;
     [self.searchPicker showInView:self.view];
 }
 
@@ -290,14 +292,77 @@
                 selectedValue:(NSString *)selectedValue
                  selectedName:(NSString *)selectedName
 {
-    NSLog(@"%@",selectedValue);
+    [self cancelPicker];
+    if (picker.tag == 1) {
+        self.workPlace = selectedValue;
+        self.lbRegionFilter.text = selectedName;
+    }
+    else if (picker.tag == 2) {
+        self.jobType = selectedValue;
+        self.lbJobTypeFilter.text = selectedName;
+    }
+    else if (picker.tag == 3) {
+        self.selectOther = selectedValue;
+        self.selectOtherName = selectedName;
+        self.experience = @"";
+        self.education = @"";
+        self.employType = @"";
+        self.companySize = @"";
+        self.welfare = @"";
+        self.isOnline = @"";
+        if (selectedValue.length > 0) {
+            NSArray *arrSelectValue = [selectedValue componentsSeparatedByString:@","];
+            for (NSString* value in arrSelectValue) {
+                if ([[value substringToIndex:1] isEqualToString:@"a"]) {
+                    self.isOnline = @"1";
+                }
+                if ([[value substringToIndex:1] isEqualToString:@"b"]) {
+                    self.education = [value substringFromIndex:1];
+                }
+                if ([[value substringToIndex:1] isEqualToString:@"c"]) {
+                    self.experience = [value substringFromIndex:1];
+                }
+                if ([[value substringToIndex:1] isEqualToString:@"d"]) {
+                    self.employType = [value substringFromIndex:1];
+                }
+                if ([[value substringToIndex:1] isEqualToString:@"e"]) {
+                    self.companySize = [value substringFromIndex:1];
+                }
+                if ([[value substringToIndex:1] isEqualToString:@"f"]) {
+                    self.welfare = [self.welfare stringByAppendingString:[NSString stringWithFormat:@"%@,",[value substringFromIndex:1]]];
+                }
+            }
+            if (self.welfare.length > 0) {
+                self.welfare = [self.welfare substringToIndex:self.welfare.length-1];
+            }
+        }
+    }
+    self.pageNumber = 1;
+    [self onSearch];
 }
 
 - (void)pickerDidChangeStatus:(DictionaryPickerView *)picker
                 selectedValue:(NSString *)selectedValue
                  selectedName:(NSString *)selectedName
 {
-    NSLog(@"%@",selectedValue);
+    [self cancelPicker];
+    if (picker.tag == 1) {
+        self.salary = selectedValue;
+        self.lbSalaryFilter.text = selectedName;
+    }
+    self.pageNumber = 1;
+    [self onSearch];
+}
+
+-(void)cancelPicker
+{
+    [self.dictionaryPicker cancelPicker];
+    self.dictionaryPicker.delegate = nil;
+    self.dictionaryPicker = nil;
+    
+    [self.searchPicker cancelPicker];
+    self.searchPicker.delegate = nil;
+    self.searchPicker = nil;
 }
 
 - (void)didReceiveMemoryWarning

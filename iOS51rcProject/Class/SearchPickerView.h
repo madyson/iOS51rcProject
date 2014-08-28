@@ -36,6 +36,7 @@ typedef enum {
 @property (retain, nonatomic) NSMutableArray *arrSelectValue;
 @property (retain, nonatomic) NSMutableArray *arrSelectName;
 @property (assign, nonatomic) NSString *selectTableName;
+@property (assign, nonatomic) NSString *selectIdentify;
 
 - (id)initWithSearchRegionFilter:(id <SearchPickerDelegate>)delegate
                      selectValue:(NSString *)selectValue
@@ -48,7 +49,8 @@ typedef enum {
                     defalutValue:(NSString *)defaultValue;
 
 - (id)initWithSearchOtherFilter:(id <SearchPickerDelegate>)delegate
-                   defalutValue:(NSString *)defaultValue;
+                   defalutValue:(NSString *)defaultValue
+                    defaultName:(NSString *)defaultName;
 
 - (void)showInView:(UIView *)view;
 - (void)cancelPicker;

@@ -108,10 +108,17 @@
 
 - (id)initWithSearchOtherFilter:(id <SearchPickerDelegate>)delegate
                    defalutValue:(NSString *)defaultValue
+                    defaultName:(NSString *)defaultName
 {
     self = [[[[NSBundle mainBundle] loadNibNamed:@"SearchPickerView" owner:self options:nil] objectAtIndex:0] retain];
     if (self) {
         [self connectDbAndInit];
+        self.arrSelectValue = [NSMutableArray arrayWithCapacity:10];
+        self.arrSelectName = [NSMutableArray arrayWithCapacity:10];
+        if (defaultValue.length > 0) {
+            self.arrSelectValue = [[defaultValue componentsSeparatedByString:@","] mutableCopy];
+            self.arrSelectName = [[defaultName componentsSeparatedByString:@" "] mutableCopy];
+        }
         self.delegate = delegate;
         [self.viewOneTop setHidden:true];
         [self.viewMultiTop setHidden:false];
@@ -147,7 +154,7 @@
                                      @"福利待遇",@"value", nil] autorelease]];
         
         [arrDictionaryL2 addObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                     @"1",@"id",
+                                     @"a1",@"id",
                                      @"在线",@"value", nil] autorelease]];
     }
     return self;
@@ -308,7 +315,7 @@
             [self setJobTypeDictionary:[commonList stringForColumn:@"_id"]];
         }
         NSDictionary *dicCommon = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                   [commonList stringForColumn:@"_id"],@"id",
+                                   [NSString stringWithFormat:@"%@%@",self.selectIdentify,[commonList stringForColumn:@"_id"]],@"id",
                                    [commonList stringForColumn:@"description"],@"value"
                                    , nil];
         [arrDictionaryL2 addObject:dicCommon];
@@ -326,6 +333,7 @@
         self.frame = CGRectMake(0, view.frame.size.height - self.frame.size.height, self.frame.size.width, self.frame.size.height);
     }];
     if (self.pickerType == SearchPickerWithOther) {
+        [self setupScollMulti];
         return;
     }
     [self.pickerDictionary selectRow:1 inComponent:0 animated:YES];
@@ -386,12 +394,16 @@
     CGSize rowSize = [self.pickerDictionary rowSizeForComponent:component];
     UIView *viewContent = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, rowSize.width, rowSize.height)] autorelease];
     NSString *strTitle;
+    bool blnSelected = NO;
     switch (component) {
         case 0:
             strTitle = [arrDictionaryL1[row] objectForKey:@"value"];
             break;
         case 1:
             strTitle = [arrDictionaryL2[row] objectForKey:@"value"];
+            if ([self.arrSelectValue containsObject:[arrDictionaryL2[row] objectForKey:@"id"]]) {
+                blnSelected = YES;
+            }
             break;
         case 2:
             strTitle = [arrDictionaryL3[row] objectForKey:@"value"];
@@ -407,6 +419,12 @@
     lbTitle.text = strTitle;
     lbTitle.font = [UIFont systemFontOfSize:14];
     lbTitle.frame = CGRectMake(lbTitle.frame.origin.x+fltLeft, lbTitle.frame.origin.y, lbTitle.frame.size.width, lbTitle.frame.size.height);
+    if (blnSelected) {
+        UIImageView *imgChecked = [[UIImageView alloc] initWithFrame:CGRectMake(fltLeft, 7, 15, 15)];
+        [imgChecked setImage:[UIImage imageNamed:@"check.png"]];
+        [viewContent addSubview:imgChecked];
+        [imgChecked release];
+    }
     [viewContent addSubview:lbTitle];
     [lbTitle release];
     return viewContent;
@@ -431,7 +449,10 @@
                 break;
             }
             else if (component == 1) {
-                [self setRegionDictionary:[arrDictionaryL2[row] objectForKey:@"id"]];
+                [arrDictionaryL3 removeAllObjects];
+                if ([[arrDictionaryL2[row] objectForKey:@"id"] length] > 4) {
+                    [self setRegionDictionary:[arrDictionaryL2[row] objectForKey:@"id"]];
+                }
                 [self.pickerDictionary reloadAllComponents];
                 [self.pickerDictionary selectRow:1 inComponent:2 animated:true];
                 break;
@@ -454,43 +475,47 @@
                 switch (row) {
                     case 0:
                         [arrDictionaryL2 addObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                     @"1",@"id",
+                                                     @"a1",@"id",
                                                      @"在线",@"value", nil] autorelease]];
                         break;
                     case 1:
                         self.selectTableName = @"dcEducation";
+                        self.selectIdentify = @"b";
                         [self setCommonDictionary];
                         break;
                     case 2:
                         self.selectTableName = @"Experience";
+                        self.selectIdentify = @"c";
                         [self setCommonDictionary];
                         break;
                     case 3:
                         self.selectTableName = @"EmployType";
+                        self.selectIdentify = @"d";
                         [self setCommonDictionary];
                         break;
                     case 4:
                         self.selectTableName = @"dcCompanySize";
+                        self.selectIdentify = @"e";
                         [self setCommonDictionary];
                         break;
                     case 5:
                         [arrDictionaryL2 addObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                     @"1",@"id",
+                                                     @"f1",@"id",
                                                      @"保险",@"value", nil] autorelease]];
                         [arrDictionaryL2 addObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                     @"2",@"id",
+                                                     @"f2",@"id",
                                                      @"公积金",@"value", nil] autorelease]];
                         [arrDictionaryL2 addObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                     @"13",@"id",
+                                                     @"f13",@"id",
                                                      @"奖金提成",@"value", nil] autorelease]];
                         [arrDictionaryL2 addObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                     @"3",@"id",
+                                                     @"f3",@"id",
                                                      @"双休",@"value", nil] autorelease]];
                         [arrDictionaryL2 addObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                     @"9",@"id",
+                                                     @"f9",@"id",
                                                      @"8小时工作制",@"value", nil] autorelease]];
                         [arrDictionaryL2 addObject:[[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                     @"10",@"id",
+                                                     @"f10",@"id",
                                                      @"提供住宿",@"value", nil] autorelease]];
                         break;
                     default:
@@ -499,6 +524,7 @@
 
                 
                 [self.pickerDictionary reloadComponent:1];
+                [self.pickerDictionary selectRow:0 inComponent:1 animated:true];
             }
         default:
             break;
@@ -535,27 +561,32 @@
     NSInteger selectRow = [self.pickerDictionary selectedRowInComponent:0];
     NSDictionary *dicSelected;
     dicSelected = arrDictionaryL2[[self.pickerDictionary selectedRowInComponent:1]];
-    
     if ([self.arrSelectValue count] > 0) {
-        NSMutableArray *arrNewSelectValue = [[[NSMutableArray alloc] init] autorelease];
-        NSMutableArray *arrNewSelectName = [[[NSMutableArray alloc] init] autorelease];
         if ([self.arrSelectValue containsObject:dicSelected[@"id"]]) {
             return;
         }
-        for (int i=0; i<self.arrSelectValue.count; i++) {
-            if (1 == 1) {
-                
+        if (selectRow != 5) {
+            NSMutableArray *arrNewSelectValue = [[[NSMutableArray alloc] init] autorelease];
+            NSMutableArray *arrNewSelectName = [[[NSMutableArray alloc] init] autorelease];
+            for (int i=0; i<self.arrSelectValue.count; i++) {
+                if ([[dicSelected[@"id"] substringToIndex:1] isEqualToString:[self.arrSelectValue[i] substringToIndex:1]]) {
+                    
+                }
+                else {
+                    [arrNewSelectValue addObject:self.arrSelectValue[i]];
+                    [arrNewSelectName addObject:self.arrSelectName[i]];
+                }
             }
-            else {
-                [arrNewSelectValue addObject:self.arrSelectValue[i]];
-                [arrNewSelectName addObject:self.arrSelectName[i]];
-            }
+            [arrNewSelectValue addObject:dicSelected[@"id"]];
+            [arrNewSelectName addObject:[dicSelected[@"value"] stringByReplacingOccurrencesOfString:@"全部" withString:@""]];
+            
+            self.arrSelectValue = arrNewSelectValue;
+            self.arrSelectName = arrNewSelectName;
         }
-        [arrNewSelectValue addObject:dicSelected[@"id"]];
-        [arrNewSelectName addObject:[dicSelected[@"value"] stringByReplacingOccurrencesOfString:@"全部" withString:@""]];
-        
-        self.arrSelectValue = arrNewSelectValue;
-        self.arrSelectName = arrNewSelectName;
+        else {
+            [self.arrSelectValue addObject:dicSelected[@"id"]];
+            [self.arrSelectName addObject:dicSelected[@"value"]];
+        }
     }
     else {
         [self.arrSelectValue addObject:dicSelected[@"id"]];
@@ -582,7 +613,9 @@
         [imgMultiSelect setImage:[UIImage imageNamed:@"check.png"]];
         [btnMultiSelect addSubview:imgMultiSelect];
         [imgMultiSelect release];
-        btnMultiSelect.tag = [self.arrSelectValue[i] intValue];
+//        btnMultiSelect.tag = [self.arrSelectValue[i] intValue];
+        [btnMultiSelect setTitle:self.arrSelectValue[i] forState:UIControlStateNormal];
+        [btnMultiSelect setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
         [btnMultiSelect addTarget:self action:@selector(removeMultiSelect:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollMulti addSubview:btnMultiSelect];
         
@@ -600,7 +633,7 @@
 
 - (void)removeMultiSelect:(UIButton *)sender
 {
-    NSString *multiSelectValue = [NSString stringWithFormat: @"%d", sender.tag];
+    NSString *multiSelectValue = sender.titleLabel.text;
     for (int i=0; i<self.arrSelectValue.count; i++) {
         if ([multiSelectValue isEqualToString:self.arrSelectValue[i]]) {
             [self.arrSelectValue removeObjectAtIndex:i];
