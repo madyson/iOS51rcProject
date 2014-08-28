@@ -21,4 +21,6 @@
 @property (retain,nonatomic) NSString* searchCondition;
 @property (retain,nonatomic) NSString* searchRegionName;
 @property (retain,nonatomic) NSString* searchJobTypeName;
+@property (retain,nonatomic) NSString* selectOther;
+@property (retain,nonatomic) NSString* selectOtherName;
 @end

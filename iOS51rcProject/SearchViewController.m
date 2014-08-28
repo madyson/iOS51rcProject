@@ -19,7 +19,6 @@
     [self.DictionaryPicker cancelPicker];
     self.DictionaryPicker.delegate = nil;
     self.DictionaryPicker = nil;
-    [_DictionaryPicker release];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
