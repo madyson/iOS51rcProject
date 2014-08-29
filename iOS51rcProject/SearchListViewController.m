@@ -6,6 +6,10 @@
 #import "SearchPickerView.h"
 #import "Toast+UIView.h"
 #import "DictionaryPickerView.h"
+#import "LoginViewController.h"
+#import "Popup+UIView.h"
+#import "CustomPopup.h"
+#import "JobViewController.h"
 
 @interface SearchListViewController () <NetWebServiceRequestDelegate,UITableViewDataSource,UITableViewDelegate,SearchPickerDelegate,DictionaryPickerDelegate>
 {
@@ -29,6 +33,7 @@
 @property (nonatomic, retain) UILabel *lbSearchResult;
 @property (nonatomic, retain) SearchPickerView *searchPicker;
 @property (nonatomic, retain) DictionaryPickerView *dictionaryPicker;
+@property (nonatomic, retain) CustomPopup *cPopup;
 @end
 
 @implementation SearchListViewController
@@ -52,7 +57,7 @@
     [lbTitle setFont:[UIFont systemFontOfSize:12]];
     [lbTitle setText:self.searchCondition];
     [lbTitle setTextAlignment:NSTextAlignmentCenter];
-    [viewTitle setBackgroundColor:[UIColor blueColor]];
+//    [viewTitle setBackgroundColor:[UIColor blueColor]];
     [viewTitle addSubview:lbTitle];
     //设置导航标题(搜索结果)
     self.lbSearchResult = [[[UILabel alloc] initWithFrame:CGRectMake(0, 22, viewTitle.frame.size.width, 20)] autorelease];
@@ -67,6 +72,8 @@
     self.btnApply.layer.cornerRadius = 5;
     self.viewBottom.layer.borderWidth = 1.0;
     self.viewBottom.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    [self.btnApply addTarget:self action:@selector(jobApply) forControlEvents:UIControlEventTouchUpInside];
+    [self.btnFavorite addTarget:self action:@selector(jobFavorite) forControlEvents:UIControlEventTouchUpInside];
     //加载等待动画
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     //添加上拉加载更多
@@ -120,6 +127,7 @@
     self.rsType = @"0";
     
     [self onSearch];
+    self.arrCheckJobID = [[NSMutableArray alloc] init];
 }
 
 - (void)onSearch
@@ -149,8 +157,9 @@
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetJobListBySearch" Params:dicParam];
     [request setDelegate:self];
     [request startAsynchronous];
+    request.tag = 1;
     self.runningRequest = request;
-    [dicParam autorelease];
+    [dicParam release];
 }
 
 - (void)footerRereshing{
@@ -162,18 +171,50 @@
       finishedInfoToResult:(NSString *)result
               responseData:(NSMutableArray *)requestData
 {
-    if(self.pageNumber == 1){
-        [self.jobListData removeAllObjects];
-        self.jobListData = requestData;
+    if (request.tag == 1) {
+        if(self.pageNumber == 1){
+            [self.jobListData removeAllObjects];
+            self.jobListData = requestData;
+        }
+        else{
+            [self.jobListData addObjectsFromArray:requestData];
+        }
+        [self.tvJobList footerEndRefreshing];
+        //重新加载列表
+        [self.tvJobList reloadData];
     }
-    else{
-        [self.jobListData addObjectsFromArray:requestData];
+    else if (request.tag == 2) {
+        if (requestData.count == 0) {
+            [self.view makeToast:@"您没有有效职位，请先完善您的简历"];
+        }
+        else {
+            self.cPopup = [[CustomPopup alloc] popupCvSelect:requestData];
+            [self.cPopup showCvSelect:@"" view:self.view];
+//            [self insertJobApply:requestData[0][@"ID"]];
+        }
+    }
+    else if (request.tag == 3) {
+        
+        NSLog(@"%@",result);
     }
     //结束等待动画
     [loadView stopAnimating];
-    [self.tvJobList footerEndRefreshing];
-    //重新加载列表
-    [self.tvJobList reloadData];
+}
+
+- (void)insertJobApply:(NSString *)cvMainID
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
+    [dicParam setObject:[self.arrCheckJobID componentsJoinedByString:@","] forKey:@"JobID"];
+    [dicParam setObject:cvMainID forKey:@"cvMainID"];
+    [dicParam setObject:[userDefaults objectForKey:@"UserID"] forKey:@"paMainID"];
+    [dicParam setObject:[userDefaults objectForKey:@"code"] forKey:@"code"];
+    NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"InsertJobApply" Params:dicParam];
+    [request setDelegate:self];
+    [request startAsynchronous];
+    request.tag = 3;
+    self.runningRequest = request;
+    [dicParam release];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -191,14 +232,29 @@
         [self.lbSearchResult setText:[NSString stringWithFormat:@"[找到%@个职位]",rowData[@"JobNumber"]]];
     }
     //职位名称
-    UILabel *lbJobName = [[UILabel alloc] initWithFrame:CGRectMake(30, 5, 200, 20)];
+    UILabel *lbJobName = [[UILabel alloc] initWithFrame:CGRectMake(40, 5, 200, 20)];
     [lbJobName setText:rowData[@"JobName"]];
     [lbJobName setFont:[UIFont systemFontOfSize:14]];
     [cell.contentView addSubview:lbJobName];
     [lbJobName release];
     
+    //是否在线
+    if ([rowData[@"IsOnline"] isEqualToString:@"true"]) {
+        
+        UIImageView *imgOnline = [[UIImageView alloc] initWithFrame:CGRectMake(275, 5, 40, 20)];
+        [imgOnline setImage:[UIImage imageNamed:@"ico_joblist_online.png"]];
+        [cell.contentView addSubview:imgOnline];
+        [imgOnline release];
+//
+//        [lbJobName setText:rowData[@"JobName"]];
+//        [lbJobName setFont:[UIFont systemFontOfSize:14]];
+//        [cell.contentView addSubview:lbJobName];
+//        [lbJobName release];
+    }
+    
+    
     //公司名称
-    UILabel *lbCompanyName = [[UILabel alloc] initWithFrame:CGRectMake(30, 28, 200, 20)];
+    UILabel *lbCompanyName = [[UILabel alloc] initWithFrame:CGRectMake(40, 28, 200, 20)];
     [lbCompanyName setText:rowData[@"cpName"]];
     [lbCompanyName setFont:fontCell];
     [lbCompanyName setTextColor:colorText];
@@ -206,7 +262,7 @@
     [lbCompanyName release];
     
     //刷新时间
-    UILabel *lbRefreshDate = [[UILabel alloc] initWithFrame:CGRectMake(230, 28, 85, 20)];
+    UILabel *lbRefreshDate = [[UILabel alloc] initWithFrame:CGRectMake(240, 28, 75, 20)];
     [lbRefreshDate setText:[CommonController stringFromDate:[CommonController dateFromString:rowData[@"RefreshDate"]] formatType:@"MM-dd HH:mm"]];
     [lbRefreshDate setFont:fontCell];
     [lbRefreshDate setTextColor:colorText];
@@ -216,7 +272,7 @@
     
     //地区|学历
     NSString *strRegionAndEducation = [NSString stringWithFormat:@"%@|%@",[CommonController getDictionaryDesc:rowData[@"dcRegionID"] tableName:@"dcRegion"],[CommonController getDictionaryDesc:rowData[@"dcEducationID"] tableName:@"dcEducation"]];
-    UILabel *lbRegionAndEducation = [[UILabel alloc] initWithFrame:CGRectMake(30, 51, 200, 20)];
+    UILabel *lbRegionAndEducation = [[UILabel alloc] initWithFrame:CGRectMake(40, 51, 200, 20)];
     [lbRegionAndEducation setText:strRegionAndEducation];
     [lbRegionAndEducation setFont:fontCell];
     [lbRegionAndEducation setTextColor:colorText];
@@ -228,13 +284,23 @@
     if (strSalary.length == 0) {
         strSalary = @"面议";
     }
-    UILabel *lbSalary = [[UILabel alloc] initWithFrame:CGRectMake(230, 51, 85, 20)];
+    UILabel *lbSalary = [[UILabel alloc] initWithFrame:CGRectMake(240, 51, 75, 20)];
     [lbSalary setText:strSalary];
     [lbSalary setFont:fontCell];
     [lbSalary setTextColor:[UIColor redColor]];
     [lbSalary setTextAlignment:NSTextAlignmentRight];
     [cell.contentView addSubview:lbSalary];
     [lbSalary release];
+    
+    //复选框
+    UIButton *btnCheck = [[UIButton alloc] initWithFrame:CGRectMake(10, 30, 20, 20)];
+    [btnCheck setImage:[UIImage imageNamed:@"chk_default.png"] forState:UIControlStateNormal];
+    [btnCheck setTitle:rowData[@"ID"] forState:UIControlStateNormal];
+    [btnCheck setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
+    [btnCheck setTag:1];
+    [btnCheck addTarget:self action:@selector(rowChecked:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.contentView addSubview:btnCheck];
+    [btnCheck release];
     
     //分割线
     UIView *viewSeparate = [[UIView alloc] initWithFrame:CGRectMake(0, 76, 320, 1)];
@@ -246,6 +312,32 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 77;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *rowData = self.jobListData[indexPath.row];
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"JobSearch" bundle:nil];
+    JobViewController *jobC = [storyBoard instantiateViewControllerWithIdentifier:@"JobView"];
+    jobC.JobID = rowData[@"ID"];
+    [self.navigationController pushViewController:jobC animated:YES];
+}
+
+- (void)rowChecked:(UIButton *)sender
+{
+    if (sender.tag == 1) {
+        if (![self.arrCheckJobID containsObject:sender.titleLabel.text]) {
+            [self.arrCheckJobID addObject:sender.titleLabel.text];
+        }
+        [sender setImage:[UIImage imageNamed:@"chk_check.png"] forState:UIControlStateNormal];
+        [sender setTag:2];
+    }
+    else {
+        [self.arrCheckJobID removeObject:sender.titleLabel.text];
+        [sender setImage:[UIImage imageNamed:@"chk_default.png"] forState:UIControlStateNormal];
+        [sender setTag:1];
+    }
+    NSLog(@"%@",[self.arrCheckJobID componentsJoinedByString:@","]);
 }
 
 - (void)regionFilter
@@ -365,6 +457,39 @@
     self.searchPicker = nil;
 }
 
+- (void)jobApply
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults objectForKey:@"UserID"]) {
+        //判断是否有选中的职位
+        if (self.arrCheckJobID.count == 0) {
+            [self.view makeToast:@"您还没有选择职位"];
+            return;
+        }
+        //连接数据库，读取有效简历
+        NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
+        [dicParam setObject:[userDefaults objectForKey:@"UserID"] forKey:@"paMainID"];
+        [dicParam setObject:[userDefaults objectForKey:@"code"] forKey:@"code"];
+        NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetCvListByApply" Params:dicParam];
+        [request setDelegate:self];
+        [request startAsynchronous];
+        request.tag = 2;
+        self.runningRequest = request;
+        [dicParam release];
+        [loadView startAnimating];
+    }
+    else {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Login" bundle: nil];
+        LoginViewController *loginC = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginView"];
+        [self.navigationController pushViewController:loginC animated:true];
+    }
+}
+
+- (void)jobFavorite
+{
+    [self.view closePopup];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -415,6 +540,8 @@
     [_viewBottom release];
     [_searchPicker release];
     [_dictionaryPicker release];
+    [_arrCheckJobID release];
+    [_cPopup release];
     [super dealloc];
 }
 @end

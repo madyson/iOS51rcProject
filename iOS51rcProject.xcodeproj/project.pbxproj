@@ -159,6 +159,10 @@
 		99F51F4319AEB30300C81A9B /* chk_check.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F51F4019AEB30300C81A9B /* chk_check.png */; };
 		99F51F4419AEB30300C81A9B /* chk_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F51F4119AEB30300C81A9B /* chk_default.png */; };
 		99F51F4519AEB30300C81A9B /* chk_unable.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F51F4219AEB30300C81A9B /* chk_unable.png */; };
+		99F51F4919AEDE0F00C81A9B /* Popup+UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F51F4819AEDE0F00C81A9B /* Popup+UIView.m */; };
+		99F51F4F19AF0D4B00C81A9B /* CustomPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 99F51F4E19AF0D4B00C81A9B /* CustomPopup.m */; };
+		99F51F5219AF296A00C81A9B /* radio_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F51F5019AF296A00C81A9B /* radio_sel.png */; };
+		99F51F5319AF296A00C81A9B /* radio_unsel.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F51F5119AF296A00C81A9B /* radio_unsel.png */; };
 		99FA8B7519A6DBD500F8B1B9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FA8B7419A6DBD500F8B1B9 /* MenuViewController.m */; };
 		99FA8B7D19A7132700F8B1B9 /* UserCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FA8B7C19A7132700F8B1B9 /* UserCenter.storyboard */; };
 		99FAFC0D19AD6002003D478E /* SearchPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FAFC0C19AD6002003D478E /* SearchPickerView.m */; };
@@ -411,6 +415,12 @@
 		99F51F4019AEB30300C81A9B /* chk_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chk_check.png; sourceTree = "<group>"; };
 		99F51F4119AEB30300C81A9B /* chk_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chk_default.png; sourceTree = "<group>"; };
 		99F51F4219AEB30300C81A9B /* chk_unable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chk_unable.png; sourceTree = "<group>"; };
+		99F51F4719AEDE0F00C81A9B /* Popup+UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Popup+UIView.h"; sourceTree = "<group>"; };
+		99F51F4819AEDE0F00C81A9B /* Popup+UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Popup+UIView.m"; sourceTree = "<group>"; };
+		99F51F4D19AF0D4B00C81A9B /* CustomPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPopup.h; sourceTree = "<group>"; };
+		99F51F4E19AF0D4B00C81A9B /* CustomPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPopup.m; sourceTree = "<group>"; };
+		99F51F5019AF296A00C81A9B /* radio_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_sel.png; sourceTree = "<group>"; };
+		99F51F5119AF296A00C81A9B /* radio_unsel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radio_unsel.png; sourceTree = "<group>"; };
 		99FA8B7319A6DBD500F8B1B9 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		99FA8B7419A6DBD500F8B1B9 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		99FA8B7C19A7132700F8B1B9 /* UserCenter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserCenter.storyboard; sourceTree = "<group>"; };
@@ -737,8 +747,8 @@
 				99BDC59C19A57FAD00B2BDB1 /* CustomControl */,
 				99AF855F19A188F100524B66 /* Login */,
 				99AF855E19A188D700524B66 /* WelCome */,
-				99CFD84E199B60D8009A5ABA /* Resource */,
 				99CFD826199B5F80009A5ABA /* AppDelegate.h */,
+				99CFD84E199B60D8009A5ABA /* Resource */,
 				99CFD827199B5F80009A5ABA /* AppDelegate.m */,
 				99CFD82F199B5F80009A5ABA /* Images.xcassets */,
 				99CFD81E199B5F80009A5ABA /* Supporting Files */,
@@ -806,6 +816,8 @@
 		99CFD84F199B60D8009A5ABA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				99F51F5019AF296A00C81A9B /* radio_sel.png */,
+				99F51F5119AF296A00C81A9B /* radio_unsel.png */,
 				99F51F4019AEB30300C81A9B /* chk_check.png */,
 				99F51F4119AEB30300C81A9B /* chk_default.png */,
 				99F51F4219AEB30300C81A9B /* chk_unable.png */,
@@ -878,6 +890,7 @@
 		99CFD89A199B6196009A5ABA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				99F51F4619AEDDEE00C81A9B /* Popup */,
 				99BDC5DB19A5F10D00B2BDB1 /* MBProgressHUD */,
 				9911259E19A49DCE00C98173 /* Toast */,
 				99908A4B19A34DD300137FDE /* FMDB */,
@@ -936,6 +949,17 @@
 				99CFD8B8199B6196009A5ABA /* menu-button@2x.png */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		99F51F4619AEDDEE00C81A9B /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				99F51F4719AEDE0F00C81A9B /* Popup+UIView.h */,
+				99F51F4819AEDE0F00C81A9B /* Popup+UIView.m */,
+				99F51F4D19AF0D4B00C81A9B /* CustomPopup.h */,
+				99F51F4E19AF0D4B00C81A9B /* CustomPopup.m */,
+			);
+			name = Popup;
 			sourceTree = "<group>";
 		};
 		99FA8B7E19A7132C00F8B1B9 /* UserCenter */ = {
@@ -1040,6 +1064,7 @@
 				99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */,
 				99CFD87C199B60D8009A5ABA /* ico_leftmenu_index.png in Resources */,
 				9952A06919AAD5F200F6452C /* ico_select_right.png in Resources */,
+				99F51F5219AF296A00C81A9B /* radio_sel.png in Resources */,
 				99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */,
 				99CFD893199B60D8009A5ABA /* main_pic_jobnews.png in Resources */,
 				99CFD822199B5F80009A5ABA /* InfoPlist.strings in Resources */,
@@ -1077,6 +1102,7 @@
 				99CFD88A199B60D8009A5ABA /* ico_main_search.png in Resources */,
 				99CFD887199B60D8009A5ABA /* ico_main_near.png in Resources */,
 				99CFD88E199B60D8009A5ABA /* loginRenRen.png in Resources */,
+				99F51F5319AF296A00C81A9B /* radio_unsel.png in Resources */,
 				99CFD84D199B6082009A5ABA /* Home.storyboard in Resources */,
 				99CFD881199B60D8009A5ABA /* ico_leftmenu_salary.png in Resources */,
 				99CFD87A199B60D8009A5ABA /* ico_leftmenu_govnews.png in Resources */,
@@ -1135,6 +1161,7 @@
 				995575C019AC64CE00B73E4A /* RecruitmentPaListViewController.m in Sources */,
 				99908A5619A34DD300137FDE /* FMDatabase.m in Sources */,
 				99908A5A19A34DD300137FDE /* FMResultSet.m in Sources */,
+				99F51F4F19AF0D4B00C81A9B /* CustomPopup.m in Sources */,
 				997BF0EA199DB33C00FD0B12 /* ASINetworkQueue.m in Sources */,
 				99BDC5EB19A5F10D00B2BDB1 /* SVProgressHUD.m in Sources */,
 				99CFD8D5199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
@@ -1176,6 +1203,7 @@
 				99B4ED8C19AB0458004C9068 /* JobDetailsController.m in Sources */,
 				99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */,
 				997BF0E7199DB33C00FD0B12 /* ASIFormDataRequest.m in Sources */,
+				99F51F4919AEDE0F00C81A9B /* Popup+UIView.m in Sources */,
 				997BF0EE199DB33C00FD0B12 /* SoapXmlParseHelper.m in Sources */,
 				998025C019A23024001A7E84 /* MJRefreshConst.m in Sources */,
 				998025D019A23528001A7E84 /* LoadingAnimationView.m in Sources */,

@@ -28,7 +28,7 @@
         <!--Search View Controller - 职位搜索-->
         <scene sceneID="J5w-9m-5kC">
             <objects>
-                <viewController id="sUm-FB-sI4" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchView" id="sUm-FB-sI4" customClass="SearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h0a-cP-IKH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

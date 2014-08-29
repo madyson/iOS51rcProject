@@ -154,8 +154,6 @@
     [_btnRegionSelect release];
     [_btnJobTypeSelect release];
     [_btnIndustrySelect release];
-    [_btnIndustrySelect release];
-    [_btnJobTypeSelect release];
     [_lbRegionSelect release];
     [_lbJobTypeSelect release];
     [_lbIndustrySelect release];
