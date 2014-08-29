@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JobViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface JobViewController : UIViewController<UIScrollViewDelegate>
 {
     NSMutableArray *recommentJobsData;
 }

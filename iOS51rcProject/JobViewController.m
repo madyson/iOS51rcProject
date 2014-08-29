@@ -25,17 +25,12 @@
 @property (retain, nonatomic) IBOutlet UILabel *lbSalary;
 @property (retain, nonatomic) IBOutlet UILabel *lbSpitLine2;
 @property (retain, nonatomic) IBOutlet UILabel *lbSpitLine3;
-@property (retain, nonatomic) IBOutlet UILabel *lbResponsibility;
-@property (retain, nonatomic) IBOutlet UILabel *lbDemand;
-
 @property (retain, nonatomic) IBOutlet UIView *contentView;
-@property (retain, nonatomic) IBOutlet UILabel *lbResponsibilityInput;
-@property (retain, nonatomic) IBOutlet UILabel *lbDemandInput;
-
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (nonatomic, retain) LoadingAnimationView *loading;
 @property (retain, nonatomic) NSString *wsName;//当前调用的webservice名称
 @property (retain, nonatomic) IBOutlet UITableView *tvRecommentJobList;
+@property (retain, nonatomic) IBOutlet UIView *subView;
 
 @end
 
@@ -61,6 +56,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.jobMainScroll.delegate = self;
     self.JobID = @"4509150";
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
     [dicParam setObject:self.JobID forKey:@"JobID"];
@@ -162,7 +158,7 @@
     //职位名称
     NSString *jobName = dicJob[@"Name"];
     CGSize labelSize = [CommonController CalculateFrame:jobName fontDemond:[UIFont systemFontOfSize:16] sizeDemand:CGSizeMake(self.lbJobName.frame.size.width, 500)];
-    self.lbJobName.frame = CGRectMake(self.lbJobName.frame.origin.x, self.lbJobName.frame.origin.y, labelSize.width, labelSize.height);
+    self.lbJobName.frame = CGRectMake(20, 15, labelSize.width, labelSize.height);
     self.lbJobName.lineBreakMode = NSLineBreakByCharWrapping;
     self.lbJobName.numberOfLines = 0;
     [self.lbJobName setText:jobName];
@@ -184,7 +180,7 @@
     self.lbWorkPlaceValue.frame = CGRectMake(76, 122, labelSize.width, 15);
     [self.lbWorkPlaceValue setText:strJobRegion];
     //坐标
-    UIButton *btnLngLat = [[UIButton alloc] initWithFrame:CGRectMake(self.lbWorkPlaceValue.frame.size.width + self.lbWorkPlaceValue.frame.origin.x, self.lbWorkPlaceValue.frame.origin.y + self.lbWorkPlaceValue.frame.size.height + 5, 15, 15)];
+    UIButton *btnLngLat = [[UIButton alloc] initWithFrame:CGRectMake(self.lbWorkPlaceValue.frame.size.width + self.lbWorkPlaceValue.frame.origin.x, self.lbWorkPlaceValue.frame.origin.y + self.lbWorkPlaceValue.frame.size.height - 15, 15, 15)];
     //NSString *lng = rowData[@"lng"];
     //NSString *lat = rowData[@"lat"];
     UIImageView *imgLngLat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
@@ -192,7 +188,7 @@
     [btnLngLat addSubview:imgLngLat];
     btnLngLat.tag = (NSInteger)dicJob[@"ID"];
     //[btnLngLat addTarget:self action:@selector(btnLngLatClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnLngLat];
+    [self.subView addSubview:btnLngLat];
     [btnLngLat release];
     [imgLngLat release];
 
@@ -211,37 +207,52 @@
     self.lbJobRequest.textColor = [UIColor grayColor];
     self.lbJobRequestValue.text = [NSString stringWithFormat:@"%@|%@|%@-%@|%@|%@", num, education, minAge, maxAge, experience, employType];
     //岗位职责------hight = 166
-    self.lbResponsibility.textColor = [UIColor grayColor];
-    self.lbResponsibility.frame = CGRectMake(20, self.lbJobRequest.frame.origin.y + self.lbJobRequest.frame.size.height + 5, 200, 15);
+    UILabel *lbResponsibility = [[UILabel alloc] initWithFrame:CGRectMake(20, self.lbJobRequest.frame.origin.y + self.lbJobRequest.frame.size.height + 5, 200, 15)];
+    lbResponsibility.textColor = [UIColor grayColor];
+    lbResponsibility.text = @"岗位职责";
+    lbResponsibility.font = [UIFont systemFontOfSize:12];
+    
     NSString *strResponsibility = dicJob[@"Responsibility"];
     labelSize = [CommonController CalculateFrame:strResponsibility fontDemond:[UIFont systemFontOfSize:12] sizeDemand:CGSizeMake(280, 500)];
-    self.lbResponsibilityInput.frame = CGRectMake(20, self.lbResponsibility.frame.origin.y + self.lbResponsibility.frame.size.height + 5, labelSize.width, labelSize.height);
-    self.lbResponsibilityInput.lineBreakMode = NSLineBreakByCharWrapping;
-    self.lbResponsibilityInput.numberOfLines = 0;
-    self.lbResponsibilityInput.text = strResponsibility;
+     UILabel *lbResponsibilityInput = [[UILabel alloc] initWithFrame:CGRectMake(20, lbResponsibility.frame.origin.y + lbResponsibility.frame.size.height + 5, labelSize.width, labelSize.height)];
+    lbResponsibilityInput.lineBreakMode = NSLineBreakByCharWrapping;
+    lbResponsibilityInput.numberOfLines = 0;
+    lbResponsibilityInput.font = [UIFont systemFontOfSize:12];
+    lbResponsibilityInput.text = strResponsibility;
+    [self.subView addSubview:lbResponsibilityInput];
+    [self.subView addSubview:lbResponsibility];
+    [lbResponsibility release];
+    [lbResponsibilityInput release];
     //岗位要求
-    self.lbDemand.textColor = [UIColor grayColor];
-    self.lbDemand.frame = CGRectMake(20, self.lbResponsibilityInput.frame.origin.y+self.lbResponsibilityInput.frame.size.height + 5, 200, 15);
+    UILabel *lbDemand = [[UILabel alloc] initWithFrame:CGRectMake(20, lbResponsibilityInput.frame.origin.y+lbResponsibilityInput.frame.size.height + 5, 200, 15)];
+    lbDemand.textColor = [UIColor grayColor];
+    lbDemand.text = @"岗位要求";
+    lbDemand.font = [UIFont systemFontOfSize:12];
     NSString *strDemand = dicJob[@"Demand"];
     labelSize = [CommonController CalculateFrame:strDemand fontDemond:[UIFont systemFontOfSize:12] sizeDemand:CGSizeMake(280, 500)];
-    self.lbDemandInput.frame = CGRectMake(20, self.lbDemand.frame.origin.y+self.lbDemand.frame.size.height + 5, labelSize.width, labelSize.height);
-    self.lbDemandInput.lineBreakMode = NSLineBreakByCharWrapping;
-    self.lbDemandInput.numberOfLines = 0;
-    self.lbDemandInput.text = strDemand;
+    UILabel *lbDemandInput = [[UILabel alloc] initWithFrame:CGRectMake(20, lbDemand.frame.origin.y+lbDemand.frame.size.height + 5, labelSize.width, labelSize.height)];
+    lbDemandInput.lineBreakMode = NSLineBreakByCharWrapping;
+    lbDemandInput.numberOfLines = 0;
+    lbDemandInput.text = strDemand;
+    lbDemandInput.font = [UIFont systemFontOfSize:12];
+    [self.subView addSubview:lbDemand];
+    [self.subView addSubview:lbDemandInput];
+    [lbDemand release];
+    [lbDemandInput release];
     
     //第二个分割线
-    CGFloat y = self.lbDemand.frame.origin.y + self.lbDemand.frame.size.height + 70;
-    self.lbSpitLine2.frame = CGRectMake(8, y, 304, 0.5);    
+    CGFloat y = lbDemand.frame.origin.y + lbDemand.frame.size.height + 70;
+    self.lbSpitLine2.frame = CGRectMake(8, y, 304, 22);
     //联系人
     NSString *strCaName = dicJob[@"caName"];
-    UILabel *lbCaName = [[UILabel alloc] initWithFrame:CGRectMake(20, self.lbDemandInput.frame.origin.y + self.lbDemandInput.frame.size.height + 35, 64, 15)];
+    UILabel *lbCaName = [[UILabel alloc] initWithFrame:CGRectMake(20, lbDemandInput.frame.origin.y + lbDemandInput.frame.size.height + 35, 64, 15)];
     lbCaName.textColor = [UIColor grayColor];
     lbCaName.text = @"联 系人：";
     lbCaName.font = [UIFont systemFontOfSize:12];
     [self.view addSubview:lbCaName];
     [lbCaName release];
     
-    UILabel *lbCaNameValue = [[UILabel alloc]initWithFrame:CGRectMake(76, self.lbDemandInput.frame.origin.y + self.lbDemandInput.frame.size.height + 35, 200, 15)];
+    UILabel *lbCaNameValue = [[UILabel alloc]initWithFrame:CGRectMake(76, lbDemandInput.frame.origin.y + lbDemandInput.frame.size.height + 35, 200, 15)];
     lbCaNameValue.text = strCaName;
     lbCaNameValue.font = [UIFont systemFontOfSize:12];
     [self.view addSubview:lbCaNameValue];
@@ -306,6 +317,7 @@
 
         //浏览了该职位的还查看了
     NSString *strOther = @"浏览了该职位的还查看了以下职位";
+    [self.loading stopAnimating];
 //    labelSize = [CommonController CalculateFrame:strOther fontDemond:[UIFont systemFontOfSize:12] sizeDemand:CGSizeMake(280, 500)];
 //    UILabel *lbOther = [[UILabel alloc] initWithFrame:CGRectMake(20, lbCaTel.frame.origin.y+lbCaTel.frame.size.height  + 5, labelSize.width, 15)];
 //    lbOther.textColor = [UIColor grayColor];
@@ -326,7 +338,7 @@
 //    self.tvRecommentJobList.frame = CGRectMake(20, lbOther.frame.origin.y+lbOther.frame.size.height - 100, 280, 160);
     //页面滚动
     self.jobMainScroll.frame = CGRectMake(self.jobMainScroll.frame.origin.x, self.jobMainScroll.frame.origin.y, 320, 400);
-    [self.jobMainScroll setContentSize:CGSizeMake(320, 600)];
+    [self.jobMainScroll setContentSize:CGSizeMake(320, 1600)];
 }
 
 - (void)call:(UIButton *)sender {
@@ -353,18 +365,15 @@
     [_lbSalary release];
     [_lbSpitLine2 release];
     [_lbSpitLine3 release];
-    [_lbResponsibility release];
-    [_lbDemand release];
+
     [_jobMainScroll release];
     [_lbCpName release];
     [_lbWorkPlace release];
     [_lbJobRequest release];
-    [_lbDemand release];
     [_contentView release];
-    [_lbResponsibilityInput release];
-    [_lbDemandInput release];
     
     [_tvRecommentJobList release];
+    [_subView release];
     [super dealloc];
 }
 @end
