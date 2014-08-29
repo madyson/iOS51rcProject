@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JobViewController : UIViewController
-
+@interface JobViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    NSMutableArray *recommentJobsData;
+}
 @property (retain, nonatomic) NSString *JobID;
 @end
