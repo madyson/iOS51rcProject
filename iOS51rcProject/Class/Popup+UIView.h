@@ -6,7 +6,7 @@ typedef enum {
 } PopupButtonType;
 
 @interface UIView (Popup)
-- (UIView*)popupView:(UIView *)contentView
+- (void)popupView:(UIView *)contentView
        buttonType:(PopupButtonType)buttonType;
 
 - (void)closePopup;

@@ -11,7 +11,7 @@
 #import "CustomPopup.h"
 #import "JobViewController.h"
 
-@interface SearchListViewController () <NetWebServiceRequestDelegate,UITableViewDataSource,UITableViewDelegate,SearchPickerDelegate,DictionaryPickerDelegate>
+@interface SearchListViewController () <NetWebServiceRequestDelegate,UITableViewDataSource,UITableViewDelegate,SearchPickerDelegate,DictionaryPickerDelegate,CustomPopupDelegate>
 {
     LoadingAnimationView *loadView;
 }
@@ -171,7 +171,7 @@
       finishedInfoToResult:(NSString *)result
               responseData:(NSMutableArray *)requestData
 {
-    if (request.tag == 1) {
+    if (request.tag == 1) { //职位搜索
         if(self.pageNumber == 1){
             [self.jobListData removeAllObjects];
             self.jobListData = requestData;
@@ -183,25 +183,31 @@
         //重新加载列表
         [self.tvJobList reloadData];
     }
-    else if (request.tag == 2) {
+    else if (request.tag == 2) { //获取可投递的简历，默认投递第一份简历
         if (requestData.count == 0) {
             [self.view makeToast:@"您没有有效职位，请先完善您的简历"];
         }
         else {
-            self.cPopup = [[CustomPopup alloc] popupCvSelect:requestData];
-            [self.cPopup showCvSelect:@"" view:self.view];
-//            [self insertJobApply:requestData[0][@"ID"]];
+            self.cPopup = [[[CustomPopup alloc] popupCvSelect:requestData view:self.view] autorelease];
+            [self.cPopup setDelegate:self];
+            [self insertJobApply:requestData[0][@"ID"] isFirst:YES];
         }
     }
-    else if (request.tag == 3) {
-        
-        NSLog(@"%@",result);
+    else if (request.tag == 3) { //默认投递完之后，显示弹层
+        [self.cPopup showJobApplyCvSelect:result];
+    }
+    else if (request.tag == 4) { //重新申请职位成功
+        [self.view makeToast:@"重新申请简历成功"];
+    }
+    else if (request.tag == 5) {
+        [self.view makeToast:@"收藏职位成功"];
     }
     //结束等待动画
     [loadView stopAnimating];
 }
 
 - (void)insertJobApply:(NSString *)cvMainID
+               isFirst:(BOOL)isFirst
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
@@ -212,7 +218,12 @@
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"InsertJobApply" Params:dicParam];
     [request setDelegate:self];
     [request startAsynchronous];
-    request.tag = 3;
+    if (isFirst) {
+        request.tag = 3;
+    }
+    else {
+        request.tag = 4;
+    }
     self.runningRequest = request;
     [dicParam release];
 }
@@ -245,13 +256,7 @@
         [imgOnline setImage:[UIImage imageNamed:@"ico_joblist_online.png"]];
         [cell.contentView addSubview:imgOnline];
         [imgOnline release];
-//
-//        [lbJobName setText:rowData[@"JobName"]];
-//        [lbJobName setFont:[UIFont systemFontOfSize:14]];
-//        [cell.contentView addSubview:lbJobName];
-//        [lbJobName release];
     }
-    
     
     //公司名称
     UILabel *lbCompanyName = [[UILabel alloc] initWithFrame:CGRectMake(40, 28, 200, 20)];
@@ -487,7 +492,36 @@
 
 - (void)jobFavorite
 {
-    [self.view closePopup];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults objectForKey:@"UserID"]) {
+        //判断是否有选中的职位
+        if (self.arrCheckJobID.count == 0) {
+            [self.view makeToast:@"您还没有选择职位"];
+            return;
+        }
+        //连接数据库，读取有效简历
+        NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
+        [dicParam setObject:[userDefaults objectForKey:@"UserID"] forKey:@"paMainID"];
+        [dicParam setObject:[self.arrCheckJobID componentsJoinedByString:@","] forKey:@"jobID"];
+        [dicParam setObject:[userDefaults objectForKey:@"code"] forKey:@"code"];
+        NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"InsertPaFavorate" Params:dicParam];
+        [request setDelegate:self];
+        [request startAsynchronous];
+        request.tag = 5;
+        self.runningRequest = request;
+        [dicParam release];
+        [loadView startAnimating];
+    }
+    else {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Login" bundle: nil];
+        LoginViewController *loginC = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginView"];
+        [self.navigationController pushViewController:loginC animated:true];
+    }
+}
+
+- (void) getPopupValue:(NSString *)value
+{
+    [self insertJobApply:value isFirst:NO];
 }
 
 - (void)didReceiveMemoryWarning

@@ -2,11 +2,11 @@
 #import <objc/runtime.h>
 
 @implementation UIView (Popup)
-- (UIView *)popupView:(UIView *)contentView
+- (void)popupView:(UIView *)contentView
        buttonType:(PopupButtonType)buttonType
 {
     //加背景
-    UIView *viewBackground = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)] autorelease];
+    UIView *viewBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [viewBackground setBackgroundColor:[UIColor colorWithWhite:0.5 alpha:0.5]];
     
     //加内容
@@ -49,12 +49,14 @@
                          
                      }];
     [viewInner release];
-    return viewBackground;
+    [viewBackground release];
+    objc_setAssociatedObject(self, @"popupview", viewBackground, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)closePopup
 {
-    [self removeFromSuperview];
+    UIView *view = (UIView *)objc_getAssociatedObject(self, @"popupview");
+    [view removeFromSuperview];
 }
 
 @end

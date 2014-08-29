@@ -78,8 +78,6 @@
 //    self.btnRmPa.layer.borderWidth = 1.0;
 //    self.btnRmPa.layer.borderColor = [[UIColor grayColor] CGColor];
     
-    self.JobID = @"4509150";
-    
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
     [dicParam setObject:self.JobID forKey:@"JobID"];
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetJobInfo" Params:dicParam];
@@ -120,7 +118,6 @@
 -(void) didReceiveJobMain:(NSArray *) requestData
 {
     float fltHeight = 235;
-    float fltLineHeight = 25;
     
     NSDictionary *dicJob = requestData[0];
     //职位名称
@@ -250,7 +247,6 @@
     [_lbCpName release];
     [_lbWorkPlace release];
     [_lbJobRequest release];
-    [_lbDemand release];
     [_contentView release];
     [_lbResponsibilityInput release];
     [_lbDemandInput release];
