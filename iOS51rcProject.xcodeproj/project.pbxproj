@@ -64,6 +64,8 @@
 		99908A5919A34DD300137FDE /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 99908A5319A34DD300137FDE /* FMDatabaseQueue.m */; };
 		99908A5A19A34DD300137FDE /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 99908A5519A34DD300137FDE /* FMResultSet.m */; };
 		99908A5C19A37D2000137FDE /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 99908A5B19A37D2000137FDE /* libsqlite3.0.dylib */; };
+		999DF63319AED80900C05F20 /* MyRmInviteCpListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 999DF63219AED80900C05F20 /* MyRmInviteCpListViewController.m */; };
+		999DF63519AEEE7100C05F20 /* ico_shen.png in Resources */ = {isa = PBXBuildFile; fileRef = 999DF63419AEEE7100C05F20 /* ico_shen.png */; };
 		99A5D671199CB8D100466B0C /* RecruitmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */; };
 		99AC903B19AC395400165D88 /* CpMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AC903A19AC395400165D88 /* CpMainViewController.m */; };
 		99AF855619A1883400524B66 /* FindPsdStep1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AF854719A1883400524B66 /* FindPsdStep1ViewController.m */; };
@@ -100,6 +102,8 @@
 		99BDC5F419A5F4A900B2BDB1 /* radioChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5F219A5F4A900B2BDB1 /* radioChecked.png */; };
 		99BDC5F519A5F4A900B2BDB1 /* radioUnChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5F319A5F4A900B2BDB1 /* radioUnChecked.png */; };
 		99BEE43D19ADAEDE0090C9E1 /* MyRecruitmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEE43C19ADAEDE0090C9E1 /* MyRecruitmentViewController.m */; };
+		99BEE44119ADBE380090C9E1 /* MyRmCpListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEE44019ADBE380090C9E1 /* MyRmCpListViewController.m */; };
+		99BEE44419ADBE6E0090C9E1 /* MyRmReceivedInvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BEE44319ADBE6E0090C9E1 /* MyRmReceivedInvitationViewController.m */; };
 		99CFD818199B5F80009A5ABA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD817199B5F80009A5ABA /* Foundation.framework */; };
 		99CFD81A199B5F80009A5ABA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD819199B5F80009A5ABA /* CoreGraphics.framework */; };
 		99CFD81C199B5F80009A5ABA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99CFD81B199B5F80009A5ABA /* UIKit.framework */; };
@@ -280,6 +284,11 @@
 		99908A5419A34DD300137FDE /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		99908A5519A34DD300137FDE /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		99908A5B19A37D2000137FDE /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		999DF62E19AECC5600C05F20 /* GoToRmViewDetailDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoToRmViewDetailDelegate.h; sourceTree = "<group>"; };
+		999DF63019AECF3700C05F20 /* GoToMyInvitedCpViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GoToMyInvitedCpViewDelegate.h; path = Recruitment/Delegate/GoToMyInvitedCpViewDelegate.h; sourceTree = "<group>"; };
+		999DF63119AED80900C05F20 /* MyRmInviteCpListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyRmInviteCpListViewController.h; path = Recruitment/MyRmInviteCpListViewController.h; sourceTree = "<group>"; };
+		999DF63219AED80900C05F20 /* MyRmInviteCpListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyRmInviteCpListViewController.m; path = Recruitment/MyRmInviteCpListViewController.m; sourceTree = "<group>"; };
+		999DF63419AEEE7100C05F20 /* ico_shen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_shen.png; sourceTree = "<group>"; };
 		99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecruitmentListViewController.h; sourceTree = "<group>"; };
 		99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruitmentListViewController.m; sourceTree = "<group>"; };
 		99AC903919AC395400165D88 /* CpMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CpMainViewController.h; sourceTree = "<group>"; };
@@ -345,6 +354,10 @@
 		99BDC5F719A5F4E100B2BDB1 /* radioUnChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radioUnChecked.png; sourceTree = "<group>"; };
 		99BEE43B19ADAEDE0090C9E1 /* MyRecruitmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyRecruitmentViewController.h; path = Recruitment/MyRecruitmentViewController.h; sourceTree = "<group>"; };
 		99BEE43C19ADAEDE0090C9E1 /* MyRecruitmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyRecruitmentViewController.m; path = Recruitment/MyRecruitmentViewController.m; sourceTree = "<group>"; };
+		99BEE43F19ADBE380090C9E1 /* MyRmCpListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRmCpListViewController.h; sourceTree = "<group>"; };
+		99BEE44019ADBE380090C9E1 /* MyRmCpListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRmCpListViewController.m; sourceTree = "<group>"; };
+		99BEE44219ADBE6E0090C9E1 /* MyRmReceivedInvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyRmReceivedInvitationViewController.h; path = Recruitment/MyRmReceivedInvitationViewController.h; sourceTree = "<group>"; };
+		99BEE44319ADBE6E0090C9E1 /* MyRmReceivedInvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyRmReceivedInvitationViewController.m; path = Recruitment/MyRmReceivedInvitationViewController.m; sourceTree = "<group>"; };
 		99CFD814199B5F80009A5ABA /* iOS51rcProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS51rcProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CFD817199B5F80009A5ABA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99CFD819199B5F80009A5ABA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -610,6 +623,15 @@
 			path = FMDB;
 			sourceTree = "<group>";
 		};
+		999DF62F19AECEE700C05F20 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				999DF62E19AECC5600C05F20 /* GoToRmViewDetailDelegate.h */,
+				999DF63019AECF3700C05F20 /* GoToMyInvitedCpViewDelegate.h */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
 		99AF855E19A188D700524B66 /* WelCome */ = {
 			isa = PBXGroup;
 			children = (
@@ -688,6 +710,8 @@
 		99BEE43E19ADB0130090C9E1 /* Recruitment */ = {
 			isa = PBXGroup;
 			children = (
+				999DF63119AED80900C05F20 /* MyRmInviteCpListViewController.h */,
+				999DF63219AED80900C05F20 /* MyRmInviteCpListViewController.m */,
 				99A5D66F199CB8D100466B0C /* RecruitmentListViewController.h */,
 				99A5D670199CB8D100466B0C /* RecruitmentListViewController.m */,
 				991125AA19A4DB7C00C98173 /* RecruitmentViewController.h */,
@@ -698,6 +722,11 @@
 				995575C219AC64EA00B73E4A /* RecruitmentCpListViewController.m */,
 				99BEE43B19ADAEDE0090C9E1 /* MyRecruitmentViewController.h */,
 				99BEE43C19ADAEDE0090C9E1 /* MyRecruitmentViewController.m */,
+				99BEE43F19ADBE380090C9E1 /* MyRmCpListViewController.h */,
+				99BEE44019ADBE380090C9E1 /* MyRmCpListViewController.m */,
+				99BEE44219ADBE6E0090C9E1 /* MyRmReceivedInvitationViewController.h */,
+				99BEE44319ADBE6E0090C9E1 /* MyRmReceivedInvitationViewController.m */,
+				999DF62F19AECEE700C05F20 /* Delegate */,
 			);
 			name = Recruitment;
 			sourceTree = "<group>";
@@ -1061,6 +1090,7 @@
 				99CFD889199B60D8009A5ABA /* ico_main_salary.png in Resources */,
 				995575BA19AC56A800B73E4A /* ico_coordinate_blue.png in Resources */,
 				99CFD830199B5F80009A5ABA /* Images.xcassets in Resources */,
+				999DF63519AEEE7100C05F20 /* ico_shen.png in Resources */,
 				99B350B8199CB1F100CAEC71 /* index640x1136.png in Resources */,
 				99CFD87C199B60D8009A5ABA /* ico_leftmenu_index.png in Resources */,
 				9952A06919AAD5F200F6452C /* ico_select_right.png in Resources */,
@@ -1159,7 +1189,9 @@
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				991125AC19A4DB7C00C98173 /* RecruitmentViewController.m in Sources */,
 				995575C019AC64CE00B73E4A /* RecruitmentPaListViewController.m in Sources */,
+				99BEE44419ADBE6E0090C9E1 /* MyRmReceivedInvitationViewController.m in Sources */,
 				99908A5619A34DD300137FDE /* FMDatabase.m in Sources */,
+				999DF63319AED80900C05F20 /* MyRmInviteCpListViewController.m in Sources */,
 				99908A5A19A34DD300137FDE /* FMResultSet.m in Sources */,
 				99F51F4F19AF0D4B00C81A9B /* CustomPopup.m in Sources */,
 				997BF0EA199DB33C00FD0B12 /* ASINetworkQueue.m in Sources */,
@@ -1170,6 +1202,7 @@
 				9945C32B19A1E8FA0027E931 /* DatePicker.m in Sources */,
 				99B4ED9219AB067C004C9068 /* JobViewController.m in Sources */,
 				997BF0EC199DB33C00FD0B12 /* GDataXMLNode.m in Sources */,
+				99BEE44119ADBE380090C9E1 /* MyRmCpListViewController.m in Sources */,
 				998025C119A23024001A7E84 /* MJRefreshFooterView.m in Sources */,
 				99BDC5E819A5F10D00B2BDB1 /* MBProgressHUD.m in Sources */,
 				997BF0E6199DB33C00FD0B12 /* ASIDownloadCache.m in Sources */,

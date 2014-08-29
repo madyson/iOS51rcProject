@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyRmReceivedInvitationViewController.h"
+#import "MyRmCpListViewController.h"
+#import "GoToRmViewDetailDelegate.h"
+#import "Delegate/GoToMyInvitedCpViewDelegate.h"
 
-@interface MyRecruitmentViewController : UIViewController
-
+@interface MyRecruitmentViewController : UIViewController<GoToRmViewDetailDelegate, GoToMyInvitedCpViewDelegate>
+{
+    
+}
+@property (nonatomic, strong) UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
+@property (nonatomic, strong) UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
+@property (retain,nonatomic) MyRmCpListViewController *myRmCpListViewCtrl;
+@property (retain,nonatomic) MyRmReceivedInvitationViewController *myRmInvitationViewCtrl;
 @end

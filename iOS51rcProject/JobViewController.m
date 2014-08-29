@@ -250,7 +250,6 @@
     [_lbCpName release];
     [_lbWorkPlace release];
     [_lbJobRequest release];
-    [_lbResponsibility release];
     [_lbDemand release];
     [_contentView release];
     [_lbResponsibilityInput release];

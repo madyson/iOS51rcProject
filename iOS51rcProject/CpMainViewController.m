@@ -52,8 +52,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //self.cpMainID = @"8047194";
+    UIButton *button = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    [button setTitle: @"企业信息" forState: UIControlStateNormal];
+    [button sizeToFit];
+    self.navigationItem.titleView = button;
+    //UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"后退" style:UIBarButtonItemStyleDone target:nil action:nil];
+    //self.navigationItem.leftBarButtonItem=backButton;
     
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
     [dicParam setObject:self.cpMainID forKey:@"CpMainID"];
