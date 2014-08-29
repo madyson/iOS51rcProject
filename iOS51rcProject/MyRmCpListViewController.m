@@ -17,6 +17,7 @@
 @interface MyRmCpListViewController ()<NetWebServiceRequestDelegate>
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentCpList;
+@property (retain, nonatomic) IBOutlet UIButton *btnInviteCp;
 
 @end
 
@@ -36,9 +37,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    page = 1;
-    pageSize = 20;
-   
+  
+    self.btnInviteCp.layer.cornerRadius = 5;
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     [self onSearch];
@@ -46,17 +46,14 @@
 }
 - (void)onSearch
 {
-    if (page == 1) {
-        [recruitmentCpData removeAllObjects];
-        [self.tvRecruitmentCpList reloadData];
-    }
+    [recruitmentCpData removeAllObjects];
+    [self.tvRecruitmentCpList reloadData];
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *code = [userDefaults objectForKey:@"code"];
+    NSString *userID = [userDefaults objectForKey:@"UserID"];
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
-//    [dicParam setObject:@"95935" forKey:@"recruitmentID"];
-//    [dicParam setObject:@"25056119" forKey:@"paMainID"];
-//    [dicParam setObject:code forKey:@"code"];
-    [dicParam setObject:@"25056119" forKey:@"paMainID"];//25056119
+    [dicParam setObject:userID forKey:@"paMainID"];//25056119
     [dicParam setObject:code forKey:@"code"];//152014391908
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetMyBespeakList" Params:dicParam];
     [request setDelegate:self];
@@ -65,24 +62,22 @@
     self.runningRequest = request;
     [dicParam release];
 }
+
 //成功
 - (void)netRequestFinished:(NetWebServiceRequest *)request
       finishedInfoToResult:(NSString *)result
               responseData:(NSMutableArray *)requestData
 {
-    if(page == 1){
-        [recruitmentCpData removeAllObjects];
-        recruitmentCpData = requestData;
-    }
-    else{
-        [recruitmentCpData addObjectsFromArray:requestData];
-    }
+    [recruitmentCpData removeAllObjects];
+    recruitmentCpData = requestData;
+    
     [self.tvRecruitmentCpList reloadData];
     [self.tvRecruitmentCpList footerEndRefreshing];
     
     //结束等待动画
     [loadView stopAnimating];
 }
+
 //绑定数据
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell =
@@ -182,6 +177,11 @@
     return [recruitmentCpData count];
 }
 
+//邀请企业参会
+- (IBAction)btnInviteCp:(id)sender {
+    NSLog(@"邀请企业参会");
+}
+
 //点击坐标
 -(void)btnLngLatClick:(UIButton *) sender{
     NSLog(@"%d", sender.tag);
@@ -196,29 +196,6 @@
 //点击某一行,到达企业页面--调用代理
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [gotoRmViewDelegate gotoRmView:recruitmentCpData[indexPath.row][@"id"]];
-}
-
-//点击下方预约面试
-- (IBAction)btnBookAll:(id)sender {
-    //先检查是否登陆
-    //转到邀请企业参会
-    //    NSMutableArray *dic = [[NSMutableArray alloc] init];
-    //    NSLog(@"111 %d", [self.tvRecruitmentCpList subviews].count);
-    //    UITableViewCell *cell = [self.tvRecruitmentCpList subviews][0];
-    //    NSLog(@"2222 %d", [cell subviews].count);
-    //    for (int i = 0; i<[cell subviews].count; i++) {
-    //        //找到每一个行
-    //        UITableViewCell *tmpCell = [cell subviews][i];
-    //        UIButton *leftBtn = (UIButton*)[tmpCell subviews][0];
-    //        NSInteger cpID = leftBtn.tag;
-    //        NSLog(@"333 %d", cpID);
-    //
-    //        UIImageView *leftImg = [leftBtn subviews][0];
-    //
-    //        if (leftImg.tag == 1) {//如果是已经预约
-    //            [dic addObject:cpID];
-    //        }
-    //    }    
 }
 
 //每一行的高度
@@ -245,6 +222,7 @@
 
 - (void)dealloc {
     [_tvRecruitmentCpList release];
+    [_btnInviteCp release];
     [super dealloc];
 }
 @end

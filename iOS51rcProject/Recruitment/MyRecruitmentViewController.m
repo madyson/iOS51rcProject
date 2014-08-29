@@ -13,8 +13,8 @@
 @interface MyRecruitmentViewController ()
 @property (retain, nonatomic) IBOutlet UILabel *lbBgLeft;
 @property (retain, nonatomic) IBOutlet UILabel *lbBgRight;
-@property (retain, nonatomic) IBOutlet UIButton *btnInvitation;
-@property (retain, nonatomic) IBOutlet UIButton *btnMyRm;
+@property (retain, nonatomic) IBOutlet UIButton *btnInvitation;//右
+@property (retain, nonatomic) IBOutlet UIButton *btnMyRm;//左
 
 @end
 
@@ -32,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     self.lbBgRight.backgroundColor = [UIColor clearColor];
+    //self.btnInvitation.titleLabel.textColor = [UIColor orangeColor];
+    self.btnInvitation.titleLabel.textColor = [UIColor blackColor];
     CGRect frame = [[UIScreen mainScreen] bounds];
     frame.origin.y = 106;//状态栏和切换栏的高度
     frame.size.height = frame.size.height - 106;
@@ -53,7 +56,7 @@
     self.myRmCpListViewCtrl.gotoMyInvitedCpViewDelegate = self;
     //self.myRmInvitationViewCtrl.gotoHomeDelegate = self;
     
-    //默认加载登录页面
+    //默认加载我的预约页面
     [self.view addSubview: self.myRmCpListViewCtrl.view];
 }
 

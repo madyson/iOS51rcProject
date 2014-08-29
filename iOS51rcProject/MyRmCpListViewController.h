@@ -12,9 +12,7 @@
 #import "GoToMyInvitedCpViewDelegate.h"
 
 @interface MyRmCpListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
-{
-    NSInteger page;
-    NSInteger pageSize;
+{   
     NSMutableArray *recruitmentCpData;
     //NSString *rmID;
     LoadingAnimationView *loadView;
