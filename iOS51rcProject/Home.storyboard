@@ -520,6 +520,29 @@
             </objects>
             <point key="canvasLocation" x="2498" y="-281"/>
         </scene>
+        <!--Rm Invite Cp View Controller-->
+        <scene sceneID="R13-QK-84q">
+            <objects>
+                <viewController storyboardIdentifier="RmInviteCpView" id="z61-v1-ikh" customClass="RmInviteCpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lHR-HA-fYi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="F0m-mC-hsr">
+                                <rect key="frame" x="105" y="62" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="邀请企业参会">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ixu-fU-Slo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2128" y="-749"/>
+        </scene>
         <!--My Rm Cp List View Controller-->
         <scene sceneID="f6i-QY-lge">
             <objects>
@@ -550,28 +573,12 @@
                             <view contentMode="scaleToFill" id="5Gv-kZ-5Sg">
                                 <rect key="frame" x="0.0" y="506" width="320" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0nl-Pw-UZ7">
-                                        <rect key="frame" x="110" y="10" width="99" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.35294117650000001" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="邀请企业参会">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnBookAll:" destination="REW-qE-DFZ" eventType="touchUpInside" id="eUH-Py-RCK"/>
-                                            <action selector="btnInviteCp:" destination="rKm-q6-H8b" eventType="touchUpInside" id="fj1-Fi-yhn"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="btnInviteCp" destination="0nl-Pw-UZ7" id="njS-ck-VWx"/>
                         <outlet property="tvRecruitmentCpList" destination="Y5M-6H-NZN" id="u5n-iA-lZI"/>
                     </connections>
                 </viewController>

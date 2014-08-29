@@ -377,7 +377,7 @@
        
     }else {
         return 95;
-    }    
+    }
 }
 
 - (void)didReceiveMemoryWarning

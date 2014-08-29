@@ -92,6 +92,7 @@
 		99B4ED8F19AB05E7004C9068 /* CpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4ED8E19AB05E7004C9068 /* CpController.m */; };
 		99B4ED9219AB067C004C9068 /* JobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4ED9119AB067C004C9068 /* JobViewController.m */; };
 		99B4ED9519AB0C52004C9068 /* JobMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4ED9419AB0C52004C9068 /* JobMain.m */; };
+		99B96B0D19B0286C0069C1FA /* RmInviteCpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B96B0C19B0286C0069C1FA /* RmInviteCpViewController.m */; };
 		99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5A119A586A700B2BDB1 /* HomeViewController.m */; };
 		99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */; };
 		99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */; };
@@ -330,6 +331,8 @@
 		99B4ED9119AB067C004C9068 /* JobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobViewController.m; sourceTree = "<group>"; };
 		99B4ED9319AB0C52004C9068 /* JobMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobMain.h; sourceTree = "<group>"; };
 		99B4ED9419AB0C52004C9068 /* JobMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobMain.m; sourceTree = "<group>"; };
+		99B96B0B19B0286C0069C1FA /* RmInviteCpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RmInviteCpViewController.h; path = Recruitment/RmInviteCpViewController.h; sourceTree = "<group>"; };
+		99B96B0C19B0286C0069C1FA /* RmInviteCpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RmInviteCpViewController.m; path = Recruitment/RmInviteCpViewController.m; sourceTree = "<group>"; };
 		99BDC5A019A586A700B2BDB1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		99BDC5A119A586A700B2BDB1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		99BDC5AA19A5917200B2BDB1 /* CreateResumeAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertViewController.h; sourceTree = "<group>"; };
@@ -717,6 +720,8 @@
 				99BEE44219ADBE6E0090C9E1 /* MyRmReceivedInvitationViewController.h */,
 				99BEE44319ADBE6E0090C9E1 /* MyRmReceivedInvitationViewController.m */,
 				999DF62F19AECEE700C05F20 /* Delegate */,
+				99B96B0B19B0286C0069C1FA /* RmInviteCpViewController.h */,
+				99B96B0C19B0286C0069C1FA /* RmInviteCpViewController.m */,
 			);
 			name = Recruitment;
 			sourceTree = "<group>";
@@ -1161,6 +1166,7 @@
 				997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */,
 				99FA8B7519A6DBD500F8B1B9 /* MenuViewController.m in Sources */,
 				99908A5719A34DD300137FDE /* FMDatabaseAdditions.m in Sources */,
+				99B96B0D19B0286C0069C1FA /* RmInviteCpViewController.m in Sources */,
 				99CFD8D4199B6196009A5ABA /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				991125AC19A4DB7C00C98173 /* RecruitmentViewController.m in Sources */,
 				995575C019AC64CE00B73E4A /* RecruitmentPaListViewController.m in Sources */,
