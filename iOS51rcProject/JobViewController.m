@@ -58,6 +58,15 @@
     [super viewDidLoad];
     self.jobMainScroll.delegate = self;
     self.JobID = @"4509150";
+    //NSLog(@"%@",self.recruitmentID);
+//    self.btnRmCp.layer.masksToBounds = YES;
+//    self.btnRmCp.layer.borderWidth = 1.0;
+//    self.btnRmCp.layer.borderColor = [[UIColor grayColor] CGColor];
+//    
+//    self.btnRmPa.layer.masksToBounds = YES;
+//    self.btnRmPa.layer.borderWidth = 1.0;
+//    self.btnRmPa.layer.borderColor = [[UIColor grayColor] CGColor];
+    
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
     [dicParam setObject:self.JobID forKey:@"JobID"];
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetJobInfo" Params:dicParam];
@@ -154,6 +163,8 @@
 //绑定职位信息
 -(void) didReceiveJobMain:(NSArray *) requestData
 {
+    float fltHeight = 235;
+    
     NSDictionary *dicJob = requestData[0];
     //职位名称
     NSString *jobName = dicJob[@"Name"];

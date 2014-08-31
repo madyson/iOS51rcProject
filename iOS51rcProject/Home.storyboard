@@ -529,7 +529,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="K0e-EX-Bc2">
-                                <rect key="frame" x="20" y="57" width="280" height="155"/>
+                                <rect key="frame" x="20" y="65" width="280" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="举办时间" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pA1-44-49U">
@@ -621,6 +621,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="ViewRmInfo" destination="K0e-EX-Bc2" id="FcR-xe-cQr"/>
                         <outlet property="btnAddressSelect" destination="3XI-Fe-3zi" id="TKx-6k-k3q"/>
                         <outlet property="btnPlaceSelect" destination="Mlm-CI-Hcx" id="E0k-d3-UFe"/>
                         <outlet property="btnTimeSelect" destination="Atl-Zf-FxM" id="8g6-G9-BNc"/>
@@ -632,6 +633,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ixu-fU-Slo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2162" y="-884"/>
+        </scene>
+        <!--Rm Cp Job List View Controller-->
+        <scene sceneID="wYe-ib-Q1l">
+            <objects>
+                <viewController storyboardIdentifier="RmCpJobListView" id="Yva-O2-lsH" customClass="RmCpJobListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZFz-LU-HlZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rYh-04-HbH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fMn-GR-ZMm">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fMn-GR-ZMm" id="u1w-gV-qVa">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Yva-O2-lsH" id="YIt-IL-qjk"/>
+                                    <outlet property="delegate" destination="Yva-O2-lsH" id="KL9-Rf-XKz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="tvCpJobList" destination="rYh-04-HbH" id="vpr-5m-o9G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KzA-MM-Fh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2511" y="-884"/>
         </scene>
         <!--My Rm Cp List View Controller-->
         <scene sceneID="f6i-QY-lge">

@@ -1,11 +1,3 @@
-//
-//  MyRmReceivedInvitationViewController.m
-//  iOS51rcProject
-//
-//  Created by qlrc on 14-8-27.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
-
 #import "MyRmReceivedInvitationViewController.h"
 #import "MyRecruitmentViewController.h"
 #import "MJRefresh.h"
@@ -36,8 +28,7 @@
 {
     [super viewDidLoad];
     selectRowIndex = 0;
-    selectRowHeight = 110;//选择行的高度
-    
+    selectRowHeight = 110;//选择行的高度    
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     [self onSearch];

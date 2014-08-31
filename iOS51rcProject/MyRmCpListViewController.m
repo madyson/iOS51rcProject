@@ -1,11 +1,3 @@
-//
-//  MyRmCpListViewController.m
-//  iOS51rcProject
-//
-//  Created by qlrc on 14-8-27.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
-
 #import "MyRmCpListViewController.h"
 #import "MJRefresh.h"
 #import "NetWebServiceRequest.h"

@@ -1,11 +1,3 @@
-//
-//  RecruitmentPaListViewController.m
-//  iOS51rcProject
-//
-//  Created by qlrc on 14-8-26.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
-
 #import "RecruitmentPaListViewController.h"
 #import "NetWebServiceRequest.h"
 #import "LoadingAnimationView.h"

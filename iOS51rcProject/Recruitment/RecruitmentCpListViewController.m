@@ -13,6 +13,8 @@
 #import "MJRefresh.h"
 #import "CpMainViewController.h"
 #import "RmInviteCpViewController.h"
+#import "RmCpMain.h"
+#import <objc/runtime.h> 
 
 @interface RecruitmentCpListViewController ()<NetWebServiceRequestDelegate>
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
@@ -93,12 +95,25 @@
 
 //绑定数据
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     UITableViewCell *cell =
     [[[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:@"cpList"] autorelease];
     
     NSDictionary *rowData = recruitmentCpData[indexPath.row];
+    RmCpMain *cpMain = [[RmCpMain alloc] init];
+    [cpMain retain];
+    
     int isBooked = [rowData[@"isBooked"] integerValue];
+    cpMain.IsBooked = isBooked;
+    cpMain.ID = rowData[@"cpMainID"];
+    cpMain.Name = rowData[@"Name"];
+    cpMain.Address = rowData[@"Address"];
+    cpMain.OrderDate = rowData[@"AddDate"];
+    cpMain.Lat = rowData[@"Lat"];
+    cpMain.Lng = rowData[@"Lng"];
+    cpMain.jobID = rowData[@"jobID"];
+    cpMain.caMainID = rowData[@"caMainID"];
+    cpMain.JobName = rowData[@"JobName"];
+    
     //选择图标
     UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 22, 30, 45)];
     leftButton.tag = [rowData[@"cpMainID"] integerValue];
@@ -109,6 +124,7 @@
         imgCheck.image = [UIImage imageNamed:@"checked.png"];
     }else{
         //没有预约才可以点击
+        objc_setAssociatedObject(leftButton, "rmCpMain", cpMain, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         [leftButton addTarget:self action:@selector(checkBoxBookinginterviewClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -202,36 +218,20 @@
     [self.navigationController pushViewController:cpMainCtrl animated:true];
 }
 
-//点击下方预约面试
+//点击下方预约面试(批量预约)
 - (IBAction)btnBookAll:(id)sender {
-    //先检查是否登陆
-    //转到邀请企业参会
-//    NSMutableArray *dic = [[NSMutableArray alloc] init];
-//    NSLog(@"111 %d", [self.tvRecruitmentCpList subviews].count);
-//    UITableViewCell *cell = [self.tvRecruitmentCpList subviews][0];
-//    NSLog(@"2222 %d", [cell subviews].count);
-//    for (int i = 0; i<[cell subviews].count; i++) {
-//        //找到每一个行
-//        UITableViewCell *tmpCell = [cell subviews][i];
-//        UIButton *leftBtn = (UIButton*)[tmpCell subviews][0];
-//        NSInteger cpID = leftBtn.tag;
-//        NSLog(@"333 %d", cpID);
-//
-//        UIImageView *leftImg = [leftBtn subviews][0];
-//        
-//        if (leftImg.tag == 1) {//如果是已经预约
-//            [dic addObject:cpID];
-//        }
-//    }
     RmInviteCpViewController *rmInviteCpViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmInviteCpView"];
-    rmInviteCpViewCtrl.dtBeginTime = self.dtBeginTime;
+    rmInviteCpViewCtrl.strBeginTime = self.strBeginTime;
     rmInviteCpViewCtrl.strAddress = self.strAddress;
     rmInviteCpViewCtrl.strPlace = self.strPlace;
     rmInviteCpViewCtrl.strRmID = self.rmID;
+    rmInviteCpViewCtrl.cpIDs = checkedCpArray;
+    rmInviteCpViewCtrl.selectRmCps = checkedCpArray;
+    [checkedCpArray retain];
     [self.navigationController pushViewController:rmInviteCpViewCtrl animated:YES];
 }
 
-//点击我要参会--进入邀请企业参会页面
+//点击我要参会--进入邀请企业参会页面（预约一个）
 -(void) bookinginterview:(UIButton *)sender{
     //NSLog(@"%d",sender.tag);
     RmInviteCpViewController *rmInviteCpViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmInviteCpView"];
@@ -241,14 +241,16 @@
 //点击左侧小图标
 -(void) checkBoxBookinginterviewClick:(UIButton *)sender{
     NSLog(@"选择的企业为：%d",sender.tag);
-    NSInteger cpID = [@(sender.tag) integerValue];
-     UIImageView *imgView = [sender subviews][0];
+    RmCpMain *selectCp = (RmCpMain*)objc_getAssociatedObject(sender, "rmCpMain");
+    //NSInteger cpID = [@(sender.tag) integerValue];
+    UIImageView *imgView = [sender subviews][0];
     if (imgView.tag == 1) {//如果是已经预约
         imgView.image = [UIImage imageNamed:@"unChecked.png"];
-        [checkedCpArray removeObject:@(cpID)];
+        //[checkedCpArray removeObject:@(cpID)];
+        [checkedCpArray removeObject:(selectCp)];
     }else{
         imgView.image = [UIImage imageNamed:@"checked.png"];
-        [checkedCpArray addObject: @(cpID)];
+        [checkedCpArray addObject: selectCp];
     }
     sender.tag = !sender.tag;
 }

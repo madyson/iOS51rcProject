@@ -1,11 +1,3 @@
-//
-//  MyRmInviteCpListViewController.m
-//  iOS51rcProject
-//
-//  Created by qlrc on 14-8-28.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
-
 #import "MyRmInviteCpListViewController.h"
 #import "NetWebServiceRequest.h"
 #import "LoadingAnimationView.h"
@@ -48,8 +40,7 @@
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super didReceiveMemoryWarning];    
 }
 - (void)onSearch
 {
