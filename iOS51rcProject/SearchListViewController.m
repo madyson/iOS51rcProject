@@ -50,7 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.arrCheckJobID = [[NSMutableArray alloc] init];
     //设置导航标题(搜索条件)
     UIView *viewTitle = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 125, 45)];
     UILabel *lbTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, viewTitle.frame.size.width, 20)];
@@ -117,17 +117,21 @@
     if (self.searchJobType.length > 0) {
         self.jobType = self.searchJobType;
     }
+    else {
+        self.searchJobType = @"";
+    }
     if (self.searchIndustry.length > 0) {
         self.industry = self.searchIndustry;
     }
-    
+    else {
+        self.searchIndustry = @"";
+    }
     self.workPlace = self.searchRegion;
     self.keyWord = self.searchKeyword;
     self.pageNumber = 1;
     self.rsType = @"0";
     
     [self onSearch];
-    self.arrCheckJobID = [[NSMutableArray alloc] init];
 }
 
 - (void)onSearch
@@ -241,6 +245,14 @@
     NSDictionary *rowData = self.jobListData[indexPath.row];
     if (indexPath.row == 1) {
         [self.lbSearchResult setText:[NSString stringWithFormat:@"[找到%@个职位]",rowData[@"JobNumber"]]];
+        if (self.pageNumber == 1) {
+            //删除重复的搜索记录
+            NSString *strSql = [NSString stringWithFormat:@"DELETE FROM PaSearchHistory WHERE Name='%@'",self.searchCondition];
+            [CommonController execSql:strSql];
+            //添加搜索记录
+            strSql = [NSString stringWithFormat:@"INSERT INTO PaSearchHistory(Name,dcRegionID,dcIndustryID,dcJobTypeID,keyWords,reSearchDate,addDate,JobNum) VALUES('%@','%@','%@','%@','%@',datetime(CURRENT_TIMESTAMP,'localtime'),datetime(CURRENT_TIMESTAMP,'localtime'),%@)",self.searchCondition,self.searchRegion,self.searchIndustry,self.searchJobType,self.keyWord,rowData[@"JobNumber"]];
+            [CommonController execSql:strSql];
+        }
     }
     //职位名称
     UILabel *lbJobName = [[UILabel alloc] initWithFrame:CGRectMake(40, 5, 200, 20)];

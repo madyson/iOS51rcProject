@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#import "FMDatabase.h"
 
 @interface CommonController : NSObject
 
@@ -19,4 +20,6 @@
 +(NSString *)getDictionaryDesc:(NSString *)value
                tableName:(NSString *)tableName;
 +(BOOL)hasParentOfRegion:(NSString *)regionId;
++(void) execSql:(NSString *)sql;
++(FMResultSet *) querySql:(NSString *)sql;
 @end

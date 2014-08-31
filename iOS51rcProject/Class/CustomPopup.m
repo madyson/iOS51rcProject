@@ -197,6 +197,7 @@
     [_viewContent release];
     [_viewSuper release];
     [_arrCvButton release];
+    [_selectCvID release];
     [super dealloc];
 }
 
