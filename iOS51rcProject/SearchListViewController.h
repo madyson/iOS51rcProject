@@ -23,4 +23,6 @@
 @property (retain,nonatomic) NSString* searchJobTypeName;
 @property (retain,nonatomic) NSString* selectOther;
 @property (retain,nonatomic) NSString* selectOtherName;
+
+@property (retain,nonatomic) NSMutableArray* arrCheckJobID;
 @end

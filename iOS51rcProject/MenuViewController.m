@@ -133,6 +133,9 @@
 			[[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
 			return;
 			break;
+        case 2:
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"SearchView"];
+			break;
 		case 5:
 			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"RecruitmentListView"];
 			break;
@@ -155,9 +158,6 @@
 
 -(void)changeMenuItem:(int)item
 {
-    if (!self.tvMenu) {
-        NSLog(@"fffffffff");
-    }
     [self.tvMenu selectRowAtIndexPath:[NSIndexPath indexPathForRow:item inSection:0] animated:false scrollPosition:UITableViewScrollPositionNone];
 }
 

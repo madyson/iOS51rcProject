@@ -203,7 +203,7 @@
         <!--Job View Controller-->
         <scene sceneID="K5G-s4-IFW">
             <objects>
-                <viewController id="VqT-UH-xDE" customClass="JobViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JobView" id="VqT-UH-xDE" customClass="JobViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VmR-5c-OgU"/>
                         <viewControllerLayoutGuide type="bottom" id="YXw-el-HFJ"/>
