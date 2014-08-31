@@ -12,6 +12,7 @@
 #import "CommonController.h"
 #import "MJRefresh.h"
 #import "CpMainViewController.h"
+#import "RmInviteCpViewController.h"
 
 @interface RecruitmentCpListViewController ()<NetWebServiceRequestDelegate>
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
@@ -53,12 +54,16 @@
         [recruitmentCpData removeAllObjects];
         [self.tvRecruitmentCpList reloadData];
     }
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *code = [userDefaults objectForKey:@"code"];
+    NSString *userID = [userDefaults objectForKey:@"UserID"];
+    
     NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
     [dicParam setObject:self.rmID forKey:@"ID"];
     [dicParam setObject:[NSString stringWithFormat:@"%d",page] forKey:@"pageNum"];
     [dicParam setObject:[NSString stringWithFormat:@"%d",pageSize] forKey:@"pageSize"];
-    [dicParam setObject:@"123456" forKey:@"paMainID"];
-    [dicParam setObject:@"1" forKey:@"code"];
+    [dicParam setObject:userID forKey:@"paMainID"];
+    [dicParam setObject:code forKey:@"code"];
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetRmcompanyList" Params:dicParam];
     [request setDelegate:self];
     [request startAsynchronous];
@@ -217,12 +222,20 @@
 //        if (leftImg.tag == 1) {//如果是已经预约
 //            [dic addObject:cpID];
 //        }
-//    }    
+//    }
+    RmInviteCpViewController *rmInviteCpViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmInviteCpView"];
+    rmInviteCpViewCtrl.dtBeginTime = self.dtBeginTime;
+    rmInviteCpViewCtrl.strAddress = self.strAddress;
+    rmInviteCpViewCtrl.strPlace = self.strPlace;
+    rmInviteCpViewCtrl.strRmID = self.rmID;
+    [self.navigationController pushViewController:rmInviteCpViewCtrl animated:YES];
 }
 
-//点击我要参会
+//点击我要参会--进入邀请企业参会页面
 -(void) bookinginterview:(UIButton *)sender{
-    NSLog(@"%d",sender.tag);
+    //NSLog(@"%d",sender.tag);
+    RmInviteCpViewController *rmInviteCpViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmInviteCpView"];
+    [self.navigationController pushViewController:rmInviteCpViewCtrl animated:YES];
 }
 
 //点击左侧小图标
