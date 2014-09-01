@@ -27,7 +27,6 @@
 		995575BD19AC582600B73E4A /* ico_cp_hasLincence.png in Resources */ = {isa = PBXBuildFile; fileRef = 995575BC19AC582600B73E4A /* ico_cp_hasLincence.png */; };
 		995575C019AC64CE00B73E4A /* RecruitmentPaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995575BF19AC64CE00B73E4A /* RecruitmentPaListViewController.m */; };
 		995575C319AC64EA00B73E4A /* RecruitmentCpListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 995575C219AC64EA00B73E4A /* RecruitmentCpListViewController.m */; };
-		9978E3D919B0691D00187284 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9978E3D819B0691D00187284 /* testViewController.m */; };
 		997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C5199DB33C00FD0B12 /* ASIAuthenticationDialog.m */; };
 		997BF0E4199DB33C00FD0B12 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0C8199DB33C00FD0B12 /* ASIDataCompressor.m */; };
 		997BF0E5199DB33C00FD0B12 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 997BF0CA199DB33C00FD0B12 /* ASIDataDecompressor.m */; };
@@ -100,6 +99,7 @@
 		99B469D719B3F1CB0034505D /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99B469D219B3F1CB0034505D /* mapapi.bundle */; };
 		99B469D819B3F1CB0034505D /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B469D419B3F1CB0034505D /* libbaidumapapi.a */; };
 		99B469D919B3F1CB0034505D /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B469D619B3F1CB0034505D /* libbaidumapapi.a */; };
+		99B469DC19B3FC090034505D /* MapSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B469DB19B3FC090034505D /* MapSearchViewController.m */; };
 		99B4ED8C19AB0458004C9068 /* JobDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4ED8B19AB0458004C9068 /* JobDetailsController.m */; };
 		99B4ED8F19AB05E7004C9068 /* CpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4ED8E19AB05E7004C9068 /* CpController.m */; };
 		99B4ED9219AB067C004C9068 /* JobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4ED9119AB067C004C9068 /* JobViewController.m */; };
@@ -232,8 +232,6 @@
 		995575BF19AC64CE00B73E4A /* RecruitmentPaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecruitmentPaListViewController.m; path = Recruitment/RecruitmentPaListViewController.m; sourceTree = "<group>"; };
 		995575C119AC64EA00B73E4A /* RecruitmentCpListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecruitmentCpListViewController.h; path = Recruitment/RecruitmentCpListViewController.h; sourceTree = "<group>"; };
 		995575C219AC64EA00B73E4A /* RecruitmentCpListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecruitmentCpListViewController.m; path = Recruitment/RecruitmentCpListViewController.m; sourceTree = "<group>"; };
-		9978E3D719B0691D00187284 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
-		9978E3D819B0691D00187284 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
 		997BF0C4199DB33C00FD0B12 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		997BF0C5199DB33C00FD0B12 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		997BF0C6199DB33C00FD0B12 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -418,6 +416,8 @@
 		99B469D219B3F1CB0034505D /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
 		99B469D419B3F1CB0034505D /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
 		99B469D619B3F1CB0034505D /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
+		99B469DA19B3FC090034505D /* MapSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSearchViewController.h; sourceTree = "<group>"; };
+		99B469DB19B3FC090034505D /* MapSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSearchViewController.m; sourceTree = "<group>"; };
 		99B4ED8A19AB0458004C9068 /* JobDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailsController.h; sourceTree = "<group>"; };
 		99B4ED8B19AB0458004C9068 /* JobDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailsController.m; sourceTree = "<group>"; };
 		99B4ED8D19AB05E7004C9068 /* CpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CpController.h; sourceTree = "<group>"; };
@@ -426,7 +426,6 @@
 		99B4ED9119AB067C004C9068 /* JobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobViewController.m; sourceTree = "<group>"; };
 		99B4ED9319AB0C52004C9068 /* JobMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobMain.h; sourceTree = "<group>"; };
 		99B4ED9419AB0C52004C9068 /* JobMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobMain.m; sourceTree = "<group>"; };
-		99B7FF7B19B332A300BD1345 /* RmCpMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RmCpMain.h; sourceTree = "<group>"; };
 		99B7FF7C19B332A300BD1345 /* RmCpMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RmCpMain.m; sourceTree = "<group>"; };
 		99B7FF8119B353C700BD1345 /* RmCpJobListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RmCpJobListViewController.h; path = Recruitment/RmCpJobListViewController.h; sourceTree = "<group>"; };
 		99B7FF8219B353C700BD1345 /* RmCpJobListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RmCpJobListViewController.m; path = Recruitment/RmCpJobListViewController.m; sourceTree = "<group>"; };
@@ -982,7 +981,6 @@
 		99CFD81D199B5F80009A5ABA /* iOS51rcProject */ = {
 			isa = PBXGroup;
 			children = (
-				99B7FF7919B332A300BD1345 /* Framework */,
 				99BEE43E19ADB0130090C9E1 /* Recruitment */,
 				9952A06A19AAF71000F6452C /* JobSearch */,
 				99FA8B7E19A7132C00F8B1B9 /* UserCenter */,
@@ -1012,8 +1010,8 @@
 				99B4ED9119AB067C004C9068 /* JobViewController.m */,
 				99AC903919AC395400165D88 /* CpMainViewController.h */,
 				99AC903A19AC395400165D88 /* CpMainViewController.m */,
-				9978E3D719B0691D00187284 /* testViewController.h */,
-				9978E3D819B0691D00187284 /* testViewController.m */,
+				99B469DA19B3FC090034505D /* MapSearchViewController.h */,
+				99B469DB19B3FC090034505D /* MapSearchViewController.m */,
 			);
 			path = iOS51rcProject;
 			sourceTree = "<group>";
@@ -1409,7 +1407,6 @@
 				99BDC5E919A5F10D00B2BDB1 /* MLTableAlert.m in Sources */,
 				99AF856119A1898B00524B66 /* WelcomeUIImage.m in Sources */,
 				99CFD8D3199B6196009A5ABA /* SlideNavigationContorllerAnimatorScale.m in Sources */,
-				9978E3D919B0691D00187284 /* testViewController.m in Sources */,
 				99CFD8D6199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				995575C319AC64EA00B73E4A /* RecruitmentCpListViewController.m in Sources */,
 				99B7FF7D19B332A300BD1345 /* RmCpMain.m in Sources */,
@@ -1461,6 +1458,7 @@
 				99CFD824199B5F80009A5ABA /* main.mm in Sources */,
 				99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				99B4ED8F19AB05E7004C9068 /* CpController.m in Sources */,
+				99B469DC19B3FC090034505D /* MapSearchViewController.m in Sources */,
 				998025C419A23024001A7E84 /* UIScrollView+MJRefresh.m in Sources */,
 				99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */,
 				99908A5919A34DD300137FDE /* FMDatabaseQueue.m in Sources */,

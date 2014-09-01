@@ -1,19 +1,11 @@
-//
-//  testViewController.m
-//  iOS51rcProject
-//
-//  Created by qlrc on 14-8-29.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
+#import "MapSearchViewController.h"
+#import "BMapKit.h"
 
-#import "testViewController.h"
-
-@interface testViewController ()
-@property (retain, nonatomic) IBOutlet UIScrollView *sv;
+@interface MapSearchViewController ()
 
 @end
 
-@implementation testViewController
+@implementation MapSearchViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,10 +19,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.sv.delegate = self;
-    self.sv.frame = CGRectMake(0,0, 320, 400);
-    [self.sv setContentSize:CGSizeMake(320, 1600)];
-    // Do any additional setup after loading the view.
+    BMKMapView *mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 456)];
+    self.viewMap = mapView;
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +41,7 @@
 */
 
 - (void)dealloc {
-    [_sv release];
+    [_viewMap release];
     [super dealloc];
 }
 @end

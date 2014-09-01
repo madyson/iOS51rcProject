@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="IDp-DD-dkI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="kqb-nM-Cv1">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="8" y="-280"/>
         </scene>
-        <!--View Controller - 地图搜索-->
+        <!--Map Search View Controller - 地图搜索-->
         <scene sceneID="AMh-KD-Mkf">
             <objects>
-                <viewController id="kqb-nM-Cv1" sceneMemberID="viewController">
+                <viewController id="kqb-nM-Cv1" customClass="MapSearchViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cF3-0S-vGR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -98,6 +98,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="地图搜索" id="7jG-Ii-knh"/>
+                    <connections>
+                        <outlet property="viewMap" destination="nFf-UT-E6g" id="ACq-BJ-dyo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ob-66-IBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
