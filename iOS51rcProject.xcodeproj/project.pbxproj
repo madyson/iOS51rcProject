@@ -108,6 +108,11 @@
 		99B9672519B45B3600E93CBD /* CommonSearchJobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B9672419B45B3600E93CBD /* CommonSearchJobViewController.m */; };
 		99B9672919B462CF00E93CBD /* RmInviteCpListFromSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B9672819B462CF00E93CBD /* RmInviteCpListFromSearchViewController.m */; };
 		99B96B0D19B0286C0069C1FA /* RmInviteCpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B96B0C19B0286C0069C1FA /* RmInviteCpViewController.m */; };
+		99B9822419B4C3B600D5D77D /* GRListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B9822319B4C3B600D5D77D /* GRListViewController.m */; };
+		99B9822719B4C3DA00D5D77D /* GRItemDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B9822619B4C3DA00D5D77D /* GRItemDetailsViewController.m */; };
+		99B9822B19B4C49600D5D77D /* EIMainViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B9822A19B4C49600D5D77D /* EIMainViewViewController.m */; };
+		99B9822E19B4C4B000D5D77D /* EIListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B9822D19B4C4B000D5D77D /* EIListViewController.m */; };
+		99B9823119B4C52100D5D77D /* EIItemDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B9823019B4C52100D5D77D /* EIItemDetailsViewController.m */; };
 		99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5A119A586A700B2BDB1 /* HomeViewController.m */; };
 		99BDC5AD19A5917200B2BDB1 /* CreateResumeAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BDC5AB19A5917200B2BDB1 /* CreateResumeAlertViewController.m */; };
 		99BDC5AE19A5917200B2BDB1 /* CreateResumeAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99BDC5AC19A5917200B2BDB1 /* CreateResumeAlertViewController.xib */; };
@@ -437,6 +442,16 @@
 		99B9672819B462CF00E93CBD /* RmInviteCpListFromSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RmInviteCpListFromSearchViewController.m; path = Recruitment/RmInviteCpListFromSearchViewController.m; sourceTree = "<group>"; };
 		99B96B0B19B0286C0069C1FA /* RmInviteCpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RmInviteCpViewController.h; path = Recruitment/RmInviteCpViewController.h; sourceTree = "<group>"; };
 		99B96B0C19B0286C0069C1FA /* RmInviteCpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RmInviteCpViewController.m; path = Recruitment/RmInviteCpViewController.m; sourceTree = "<group>"; };
+		99B9822219B4C3B600D5D77D /* GRListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRListViewController.h; sourceTree = "<group>"; };
+		99B9822319B4C3B600D5D77D /* GRListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRListViewController.m; sourceTree = "<group>"; };
+		99B9822519B4C3DA00D5D77D /* GRItemDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GRItemDetailsViewController.h; sourceTree = "<group>"; };
+		99B9822619B4C3DA00D5D77D /* GRItemDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRItemDetailsViewController.m; sourceTree = "<group>"; };
+		99B9822919B4C49600D5D77D /* EIMainViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIMainViewViewController.h; sourceTree = "<group>"; };
+		99B9822A19B4C49600D5D77D /* EIMainViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIMainViewViewController.m; sourceTree = "<group>"; };
+		99B9822C19B4C4B000D5D77D /* EIListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIListViewController.h; sourceTree = "<group>"; };
+		99B9822D19B4C4B000D5D77D /* EIListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIListViewController.m; sourceTree = "<group>"; };
+		99B9822F19B4C52100D5D77D /* EIItemDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIItemDetailsViewController.h; sourceTree = "<group>"; };
+		99B9823019B4C52100D5D77D /* EIItemDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIItemDetailsViewController.m; sourceTree = "<group>"; };
 		99BDC5A019A586A700B2BDB1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		99BDC5A119A586A700B2BDB1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		99BDC5AA19A5917200B2BDB1 /* CreateResumeAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertViewController.h; sourceTree = "<group>"; };
@@ -899,6 +914,30 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		99B9822119B4C39400D5D77D /* GovernmentRecruitment */ = {
+			isa = PBXGroup;
+			children = (
+				99B9822219B4C3B600D5D77D /* GRListViewController.h */,
+				99B9822319B4C3B600D5D77D /* GRListViewController.m */,
+				99B9822519B4C3DA00D5D77D /* GRItemDetailsViewController.h */,
+				99B9822619B4C3DA00D5D77D /* GRItemDetailsViewController.m */,
+			);
+			path = GovernmentRecruitment;
+			sourceTree = "<group>";
+		};
+		99B9822819B4C46700D5D77D /* EmploymentInformation */ = {
+			isa = PBXGroup;
+			children = (
+				99B9822919B4C49600D5D77D /* EIMainViewViewController.h */,
+				99B9822A19B4C49600D5D77D /* EIMainViewViewController.m */,
+				99B9822C19B4C4B000D5D77D /* EIListViewController.h */,
+				99B9822D19B4C4B000D5D77D /* EIListViewController.m */,
+				99B9822F19B4C52100D5D77D /* EIItemDetailsViewController.h */,
+				99B9823019B4C52100D5D77D /* EIItemDetailsViewController.m */,
+			);
+			path = EmploymentInformation;
+			sourceTree = "<group>";
+		};
 		99BDC59C19A57FAD00B2BDB1 /* CustomControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -1010,6 +1049,8 @@
 		99CFD81D199B5F80009A5ABA /* iOS51rcProject */ = {
 			isa = PBXGroup;
 			children = (
+				99B9822819B4C46700D5D77D /* EmploymentInformation */,
+				99B9822119B4C39400D5D77D /* GovernmentRecruitment */,
 				99B9671919B443D000E93CBD /* Framework */,
 				99BEE43E19ADB0130090C9E1 /* Recruitment */,
 				9952A06A19AAF71000F6452C /* JobSearch */,
@@ -1460,6 +1501,7 @@
 				99CFD8D5199B6196009A5ABA /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				99AC903B19AC395400165D88 /* CpMainViewController.m in Sources */,
 				998025CF19A23528001A7E84 /* AnimatedGif.m in Sources */,
+				99B9822719B4C3DA00D5D77D /* GRItemDetailsViewController.m in Sources */,
 				9945C32B19A1E8FA0027E931 /* DatePicker.m in Sources */,
 				99B4ED9219AB067C004C9068 /* JobViewController.m in Sources */,
 				997BF0EC199DB33C00FD0B12 /* GDataXMLNode.m in Sources */,
@@ -1468,6 +1510,7 @@
 				99BDC5E819A5F10D00B2BDB1 /* MBProgressHUD.m in Sources */,
 				997BF0E6199DB33C00FD0B12 /* ASIDownloadCache.m in Sources */,
 				997BF0E9199DB33C00FD0B12 /* ASIInputStream.m in Sources */,
+				99B9822E19B4C4B000D5D77D /* EIListViewController.m in Sources */,
 				998025C319A23024001A7E84 /* UIScrollView+Extension.m in Sources */,
 				99AF855D19A1883400524B66 /* WelcomeViewController.m in Sources */,
 				99AF855719A1883400524B66 /* FindPsdStep2ViewController.m in Sources */,
@@ -1488,6 +1531,7 @@
 				99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */,
 				99908A5919A34DD300137FDE /* FMDatabaseQueue.m in Sources */,
 				99BDC5E719A5F10D00B2BDB1 /* Dialog.m in Sources */,
+				99B9822419B4C3B600D5D77D /* GRListViewController.m in Sources */,
 				99CFD8D9199B6196009A5ABA /* SlideNavigationController.m in Sources */,
 				997BF0ED199DB33C00FD0B12 /* NetWebServiceRequest.m in Sources */,
 				99AF855619A1883400524B66 /* FindPsdStep1ViewController.m in Sources */,
@@ -1496,8 +1540,10 @@
 				99BDC5A219A586A800B2BDB1 /* HomeViewController.m in Sources */,
 				99B9672519B45B3600E93CBD /* CommonSearchJobViewController.m in Sources */,
 				997BF0E7199DB33C00FD0B12 /* ASIFormDataRequest.m in Sources */,
+				99B9823119B4C52100D5D77D /* EIItemDetailsViewController.m in Sources */,
 				99F51F4919AEDE0F00C81A9B /* Popup+UIView.m in Sources */,
 				997BF0EE199DB33C00FD0B12 /* SoapXmlParseHelper.m in Sources */,
+				99B9822B19B4C49600D5D77D /* EIMainViewViewController.m in Sources */,
 				998025C019A23024001A7E84 /* MJRefreshConst.m in Sources */,
 				998025D019A23528001A7E84 /* LoadingAnimationView.m in Sources */,
 				99B9672919B462CF00E93CBD /* RmInviteCpListFromSearchViewController.m in Sources */,
