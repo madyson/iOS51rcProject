@@ -29,8 +29,7 @@
     btnMyRecruitment.title = @"我的招聘会";
     self.navigationItem.rightBarButtonItem=btnMyRecruitment;
     page = 1;
-    pageSize = 20;
-    self.rmID = @"95935";
+    pageSize = 20;   
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     [self onSearch];
@@ -97,12 +96,12 @@
     CGSize titleSize = CGSizeMake(titleWidth, 5000.0f);
     CGSize labelSize = [CommonController CalculateFrame:strJobName fontDemond:titleFont sizeDemand:titleSize];
     //现职位这三个字的label
-    UILabel *lbPreTitle = [[UILabel alloc] initWithFrame:CGRectMake(20, self.tvRecruitmentPaList.frame.origin.x + 20, 50, labelSize.height)];
+    UILabel *lbPreTitle = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 50, 20)];
     lbPreTitle.text = @"[现职位]";
     lbPreTitle.textColor = [UIColor grayColor];
     lbPreTitle.font = [UIFont systemFontOfSize:14];
     //职位名称
-    UILabel *lbTitle = [[UILabel alloc] initWithFrame:CGRectMake(lbPreTitle.frame.origin.x+lbPreTitle.frame.size.width + 1, lbPreTitle.frame.origin.y, labelSize.width, labelSize.height)];
+    UILabel *lbTitle = [[UILabel alloc] initWithFrame:CGRectMake(lbPreTitle.frame.origin.x+lbPreTitle.frame.size.width + 1, lbPreTitle.frame.origin.y, labelSize.width, 20)];
     lbTitle.text = strJobName;
     lbTitle.lineBreakMode = NSLineBreakByCharWrapping;
     lbTitle.numberOfLines = 0;
@@ -134,7 +133,6 @@
     lbPaInfo.font = [UIFont systemFontOfSize:12];
     lbPaInfo.textColor = [UIColor grayColor];
     [cell.contentView addSubview:(lbPaInfo)];
-    
     //参会时间
     NSString *strBeginDate = rowData[@"BeginDate"];
     NSDate *dtBeginDate = [CommonController dateFromString:strBeginDate];
@@ -162,7 +160,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 75;
 }
 
 - (void)footerRereshing{
