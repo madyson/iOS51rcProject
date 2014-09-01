@@ -19,4 +19,7 @@
     NSMutableArray *checkedCpArray;
 }
 @property (retain, nonatomic) NSString *rmID;
+@property (retain, nonatomic) NSString *strBeginTime;
+@property (retain, nonatomic) NSString *strAddress;
+@property (retain, nonatomic) NSString *strPlace;
 @end

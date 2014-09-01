@@ -9,6 +9,7 @@
 #import "MyRecruitmentViewController.h"
 #import "RecruitmentViewController.h"
 #import "MyRmInviteCpListViewController.h"
+#import "RmInviteCpViewController.h"
 
 @interface MyRecruitmentViewController ()
 @property (retain, nonatomic) IBOutlet UILabel *lbBgLeft;
@@ -58,6 +59,28 @@
     
     //默认加载我的预约页面
     [self.view addSubview: self.myRmCpListViewCtrl.view];
+    
+    //添加邀请按钮
+    UIButton *btnInviteCp = [[UIButton alloc] initWithFrame:CGRectMake(110,  self.myRmCpListViewCtrl.view.frame.size.height + 60, 110, 35)];
+    btnInviteCp.backgroundColor = [UIColor colorWithRed:255/255.0 green:90/255.0 blue:49/255.0 alpha:1];
+    btnInviteCp.layer.cornerRadius = 5;
+    [btnInviteCp addTarget:self action:@selector(inviteCp) forControlEvents:UIControlEventTouchUpInside];
+    UILabel *lbInviteCp = [[UILabel alloc]initWithFrame:CGRectMake(0,0, 110,35)];
+    lbInviteCp.text = @"邀请企业参会";
+    lbInviteCp.font = [UIFont systemFontOfSize:12];
+    lbInviteCp.textColor = [UIColor whiteColor];
+    lbInviteCp.textAlignment = NSTextAlignmentCenter;
+    [btnInviteCp addSubview:lbInviteCp];
+    [self.view addSubview:btnInviteCp];
+    [btnInviteCp release];
+    [lbInviteCp release];
+}
+
+//邀请企业参会
+-(void) inviteCp
+{
+    RmInviteCpViewController *inviteViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmInviteCpView"];
+    [self.navigationController pushViewController:inviteViewCtrl animated:true];
 }
 
 //从我的预约页面到招聘会详情页面

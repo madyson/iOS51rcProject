@@ -20,6 +20,7 @@
     NSMutableArray *checkedCpArray;
     id<GoToRmViewDetailDelegate> gotoRmViewDelegate;
     id<GoToMyInvitedCpViewDelegate> gotoMyInvitedCpViewDelegate;
+    NSInteger selectRowHeight;
 }
 @property (retain, nonatomic) id<GoToRmViewDetailDelegate> gotoRmViewDelegate;
 @property (retain, nonatomic) id<GoToMyInvitedCpViewDelegate> gotoMyInvitedCpViewDelegate;

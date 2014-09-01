@@ -21,6 +21,8 @@
 @property (retain, nonatomic) IBOutlet UILabel *lbViewNumber;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (nonatomic, retain) LoadingAnimationView *loading;
+
+
 @end
 
 @implementation RecruitmentViewController
@@ -122,22 +124,24 @@
     [self.lbRmCp setText:dicRecruitment[@"cpAttentNum"]];
     
     //举办日期
-    NSDate *dtBeginDate = [CommonController dateFromString:dicRecruitment[@"BeginDate"]];
+    self.dtBeginTime = [CommonController dateFromString:dicRecruitment[@"BeginDate"]];
+    [self.dtBeginTime retain];
     NSDate *dtEndDate = [CommonController dateFromString:dicRecruitment[@"EndDate"]];
-    
-    [self.lbRunDate setText:[NSString stringWithFormat:@"%@-%@",[CommonController stringFromDate:dtBeginDate formatType:@"yyyy-MM-dd HH:mm"],[CommonController stringFromDate:dtEndDate formatType:@"HH:mm"]]];
+    NSString *strTime = [NSString stringWithFormat:@"%@-%@",[CommonController stringFromDate:self.dtBeginTime formatType:@"yyyy-MM-dd HH:mm"],[CommonController stringFromDate:dtEndDate formatType:@"HH:mm"]];
+    [self.lbRunDate setText:strTime];
     
     //举办场馆
-    [self.lbPlace setText:dicRecruitment[@"PlaceName"]];
+    self.strPlace = dicRecruitment[@"PlaceName"];
+    [self.lbPlace setText:self.strPlace];
     
     UIFont *font = [UIFont systemFontOfSize:12];
     //举办地址
-    NSString *recruitmentAddress = dicRecruitment[@"Address"];
-    labelSize = [CommonController CalculateFrame:recruitmentAddress fontDemond:font sizeDemand:CGSizeMake(self.lbAddress.frame.size.width, 500)];
+    self.strAddress = dicRecruitment[@"Address"];
+    labelSize = [CommonController CalculateFrame:self.strAddress fontDemond:font sizeDemand:CGSizeMake(self.lbAddress.frame.size.width, 500)];
     self.lbAddress.frame = CGRectMake(self.lbAddress.frame.origin.x, self.lbAddress.frame.origin.y, labelSize.width, MAX(21, labelSize.height));
     self.lbAddress.lineBreakMode = NSLineBreakByCharWrapping;
     self.lbAddress.numberOfLines = 0;
-    [self.lbAddress setText:recruitmentAddress];
+    [self.lbAddress setText:self.strAddress];
     
     float fltHeight = 235;
     float fltLineHeight = 25;
@@ -290,7 +294,7 @@
         fltHeight += labelSize.height;
     }
     
-    if ([dtBeginDate laterDate:[NSDate date]] == dtBeginDate) {
+    if ([self.dtBeginTime laterDate:[NSDate date]] == self.dtBeginTime) {
         //加底部菜单
         UIView *viewBottom = [[[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-50, 320, 50)] autorelease];
         viewBottom.backgroundColor = [UIColor colorWithRed:255.f/255.f green:255.f/255.f blue:255.f/255.f alpha:1];
@@ -315,6 +319,10 @@
 - (IBAction)btnRmCpClick:(id)sender {
     RecruitmentCpListViewController *cpListCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmCpListView"];
     cpListCtrl.rmID = self.recruitmentID;
+    NSString *strTime = [NSString stringWithFormat:@"%@",[CommonController stringFromDate:self.dtBeginTime formatType:@"yyyy-MM-dd HH:mm"]];
+    cpListCtrl.strBeginTime = strTime;
+    cpListCtrl.strAddress = self.strAddress;
+    cpListCtrl.strPlace = self.strPlace;
     [self.navigationController pushViewController:cpListCtrl animated:YES];
 }
 
@@ -352,6 +360,9 @@
     [_btnRmPa release];
     [_loading release];
     [_scrollRecruitment release];
+    [_dtBeginTime release];
+    [_strAddress release];
+    [_strPlace release];
     [super dealloc];
 }
 @end

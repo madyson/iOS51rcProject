@@ -1,11 +1,3 @@
-//
-//  MyRmCpListViewController.m
-//  iOS51rcProject
-//
-//  Created by qlrc on 14-8-27.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
-
 #import "MyRmCpListViewController.h"
 #import "MJRefresh.h"
 #import "NetWebServiceRequest.h"
@@ -37,12 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
+    
     self.btnInviteCp.layer.cornerRadius = 5;
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     [self onSearch];
-
+    self.btnInviteCp.frame = CGRectMake(100, 300, 100, 50);
 }
 - (void)onSearch
 {
@@ -87,7 +79,7 @@
     //显示标题
     NSString *strRecruitmentName = rowData[@"RecruitmentName"];
     UIFont *titleFont = [UIFont systemFontOfSize:15];
-    CGFloat titleWidth = 235;
+    CGFloat titleWidth = 270;
     CGSize titleSize = CGSizeMake(titleWidth, 5000.0f);
     CGSize labelSize = [CommonController CalculateFrame:strRecruitmentName fontDemond:titleFont sizeDemand:titleSize];
     UILabel *lbTitle = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, labelSize.width, labelSize.height)];
@@ -112,8 +104,8 @@
     
     //举办场馆
     NSString *strPlace = [NSString stringWithFormat:@"举办场馆：%@",rowData[@"PlaceName"]];
-    labelSize = [CommonController CalculateFrame:strPlace fontDemond:[UIFont systemFontOfSize:12] sizeDemand:CGSizeMake(200, 15)];
-    UILabel *lbPlace = [[UILabel alloc] initWithFrame:CGRectMake(20, lbBegin.frame.origin.y + 38, labelSize.width, 15)];
+    labelSize = [CommonController CalculateFrame:strPlace fontDemond:[UIFont systemFontOfSize:12] sizeDemand:CGSizeMake(200, 40)];
+    UILabel *lbPlace = [[UILabel alloc] initWithFrame:CGRectMake(20, lbBegin.frame.origin.y + lbBegin.frame.size.height + 5, labelSize.width, labelSize.height)];
     lbPlace.text = strPlace;
     lbPlace.font = [UIFont systemFontOfSize:12];
     lbPlace.textColor = [UIColor grayColor];
@@ -124,7 +116,7 @@
     UIButton *btnLngLat = [[UIButton alloc] initWithFrame:CGRectMake(20 + lbPlace.frame.size.width, lbPlace.frame.origin.y, 15, 15)];
     //NSString *lng = rowData[@"lng"];
     //NSString *lat = rowData[@"lat"];
-    UIImageView *imgLngLat = [[UIImageView alloc] initWithFrame:CGRectMake(20 + lbPlace.frame.size.width, lbPlace.frame.origin.y, 15, 15)];
+    UIImageView *imgLngLat = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
     imgLngLat.image = [UIImage imageNamed:@"ico_coordinate_red.png"];
     [btnLngLat addSubview:imgLngLat];
     btnLngLat.tag = (NSInteger)rowData[@"ID"];
@@ -132,11 +124,12 @@
     [cell.contentView addSubview:btnLngLat];
     [btnLngLat release];
     [imgLngLat release];
-
     
     //举办地址
-    UILabel *lbAddress = [[UILabel alloc] initWithFrame:CGRectMake(20, (labelSize.height + 55), titleWidth, 15)];
-    lbAddress.text = [NSString stringWithFormat:@"举办地址：%@",rowData[@"Address"]];
+    NSString *strAddress =[NSString stringWithFormat:@"举办地址：%@",rowData[@"Address"]];
+    labelSize = [CommonController CalculateFrame:strPlace fontDemond:[UIFont systemFontOfSize:12] sizeDemand:CGSizeMake(200, 40)];
+    UILabel *lbAddress = [[UILabel alloc] initWithFrame:CGRectMake(20, lbPlace.frame.origin.y + lbPlace.frame.size.height + 5, labelSize.width, labelSize.height)];
+    lbAddress.text = strAddress;
     lbAddress.font = [UIFont systemFontOfSize:12];
     lbAddress.textColor = [UIColor grayColor];
     [cell.contentView addSubview:(lbAddress)];
