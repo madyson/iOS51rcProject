@@ -24,9 +24,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];   
-
+    
+    UIButton *button = [UIButton buttonWithType: UIButtonTypeRoundedRect];
+    [button setTitle: @"参会个人" forState: UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    [button sizeToFit];
+    self.navigationItem.titleView = button;
     page = 1;
-    pageSize = 20;   
+    pageSize = 20;
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     [self onSearch];

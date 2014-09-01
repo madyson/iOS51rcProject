@@ -89,9 +89,7 @@
 		99B350CA199CB43A00CAEC71 /* welcom5-320x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B350C8199CB43A00CAEC71 /* welcom5-320x1136.png */; };
 		99B385D919A744C600B3C734 /* SearchMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B385D819A744C600B3C734 /* SearchMainViewController.m */; };
 		99B4ED8C19AB0458004C9068 /* JobDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4ED8B19AB0458004C9068 /* JobDetailsController.m */; };
-		99B4ED8F19AB05E7004C9068 /* CpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4ED8E19AB05E7004C9068 /* CpController.m */; };
 		99B4ED9219AB067C004C9068 /* JobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4ED9119AB067C004C9068 /* JobViewController.m */; };
-		99B4ED9519AB0C52004C9068 /* JobMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B4ED9419AB0C52004C9068 /* JobMain.m */; };
 		99B7FF7D19B332A300BD1345 /* RmCpMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B7FF7C19B332A300BD1345 /* RmCpMain.m */; };
 		99B7FF8319B353C700BD1345 /* RmCpJobListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B7FF8219B353C700BD1345 /* RmCpJobListViewController.m */; };
 		99B96B0D19B0286C0069C1FA /* RmInviteCpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B96B0C19B0286C0069C1FA /* RmInviteCpViewController.m */; };
@@ -335,12 +333,8 @@
 		99B385D819A744C600B3C734 /* SearchMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchMainViewController.m; path = JobSearch/SearchMainViewController.m; sourceTree = "<group>"; };
 		99B4ED8A19AB0458004C9068 /* JobDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobDetailsController.h; sourceTree = "<group>"; };
 		99B4ED8B19AB0458004C9068 /* JobDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobDetailsController.m; sourceTree = "<group>"; };
-		99B4ED8D19AB05E7004C9068 /* CpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CpController.h; sourceTree = "<group>"; };
-		99B4ED8E19AB05E7004C9068 /* CpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CpController.m; sourceTree = "<group>"; };
 		99B4ED9019AB067C004C9068 /* JobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobViewController.h; sourceTree = "<group>"; };
 		99B4ED9119AB067C004C9068 /* JobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobViewController.m; sourceTree = "<group>"; };
-		99B4ED9319AB0C52004C9068 /* JobMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobMain.h; sourceTree = "<group>"; };
-		99B4ED9419AB0C52004C9068 /* JobMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobMain.m; sourceTree = "<group>"; };
 		99B7FF7B19B332A300BD1345 /* RmCpMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RmCpMain.h; sourceTree = "<group>"; };
 		99B7FF7C19B332A300BD1345 /* RmCpMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RmCpMain.m; sourceTree = "<group>"; };
 		99B7FF8119B353C700BD1345 /* RmCpJobListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RmCpJobListViewController.h; path = Recruitment/RmCpJobListViewController.h; sourceTree = "<group>"; };
@@ -979,10 +973,6 @@
 				9945C32A19A1E8FA0027E931 /* DatePicker.m */,
 				99B4ED8A19AB0458004C9068 /* JobDetailsController.h */,
 				99B4ED8B19AB0458004C9068 /* JobDetailsController.m */,
-				99B4ED8D19AB05E7004C9068 /* CpController.h */,
-				99B4ED8E19AB05E7004C9068 /* CpController.m */,
-				99B4ED9319AB0C52004C9068 /* JobMain.h */,
-				99B4ED9419AB0C52004C9068 /* JobMain.m */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -1271,11 +1261,9 @@
 				997BF0E3199DB33C00FD0B12 /* ASIAuthenticationDialog.m in Sources */,
 				99A5D671199CB8D100466B0C /* RecruitmentListViewController.m in Sources */,
 				997BF102199E248C00FD0B12 /* CommonController.m in Sources */,
-				99B4ED9519AB0C52004C9068 /* JobMain.m in Sources */,
 				997BF0E8199DB33C00FD0B12 /* ASIHTTPRequest.m in Sources */,
 				99CFD824199B5F80009A5ABA /* main.m in Sources */,
 				99CFD8D2199B6196009A5ABA /* SlideNavigationContorllerAnimatorFade.m in Sources */,
-				99B4ED8F19AB05E7004C9068 /* CpController.m in Sources */,
 				998025C419A23024001A7E84 /* UIScrollView+MJRefresh.m in Sources */,
 				99AF855B19A1883400524B66 /* RegisterViewController.m in Sources */,
 				99908A5919A34DD300137FDE /* FMDatabaseQueue.m in Sources */,

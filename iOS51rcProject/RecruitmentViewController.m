@@ -21,6 +21,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *lbViewNumber;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (nonatomic, retain) LoadingAnimationView *loading;
+@property (retain, nonatomic) NSString *attentCpCount;
 
 
 @end
@@ -43,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.attentCpCount = @"0";
     //右侧导航按钮
     UIButton *myRmBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 70, 22)];
     //myRmBtn.titleLabel.text = @"我的招聘会";//这样无法赋值
@@ -122,6 +124,7 @@
     //参与人数
     [self.lbRmPa setText:dicRecruitment[@"paAttentNum"]];
     [self.lbRmCp setText:dicRecruitment[@"cpAttentNum"]];
+    self.attentCpCount = dicRecruitment[@"cpAttentNum"];
     
     //举办日期
     self.dtBeginTime = [CommonController dateFromString:dicRecruitment[@"BeginDate"]];
@@ -317,13 +320,15 @@
 
 //点击参会企业
 - (IBAction)btnRmCpClick:(id)sender {
-    RecruitmentCpListViewController *cpListCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmCpListView"];
-    cpListCtrl.rmID = self.recruitmentID;
-    NSString *strTime = [NSString stringWithFormat:@"%@",[CommonController stringFromDate:self.dtBeginTime formatType:@"yyyy-MM-dd HH:mm"]];
-    cpListCtrl.strBeginTime = strTime;
-    cpListCtrl.strAddress = self.strAddress;
-    cpListCtrl.strPlace = self.strPlace;
-    [self.navigationController pushViewController:cpListCtrl animated:YES];
+    if ([self.attentCpCount intValue]>0) {
+        RecruitmentCpListViewController *cpListCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmCpListView"];
+        cpListCtrl.rmID = self.recruitmentID;
+        NSString *strTime = [NSString stringWithFormat:@"%@",[CommonController stringFromDate:self.dtBeginTime formatType:@"yyyy-MM-dd HH:mm"]];
+        cpListCtrl.strBeginTime = strTime;
+        cpListCtrl.strAddress = self.strAddress;
+        cpListCtrl.strPlace = self.strPlace;
+        [self.navigationController pushViewController:cpListCtrl animated:YES];
+    }
 }
 
 //点击参会个人
@@ -349,6 +354,7 @@
 }
 
 - (void)dealloc {
+    [_attentCpCount release];
     [_lbViewNumber release];
     [_lbRmPa release];
     [_lbRmCp release];

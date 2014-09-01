@@ -19,4 +19,6 @@
 +(NSString *)getDictionaryDesc:(NSString *)value
                tableName:(NSString *)tableName;
 +(BOOL)hasParentOfRegion:(NSString *)regionId;
++(NSString*) GetEduByID:(NSString *) eduID;
++(NSString*) GetSalary:(NSString *) dcSalaryID;
 @end

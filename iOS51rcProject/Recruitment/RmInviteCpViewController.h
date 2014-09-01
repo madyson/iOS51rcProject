@@ -32,7 +32,7 @@
 @property (retain, nonatomic) NSString *strAddress;//地址
 @property (retain, nonatomic) NSString *strPlace;//场馆
 @property (retain, nonatomic) NSArray  *arrJobs;//邀请的职位
-@property (retain, nonatomic) NSArray *cpIDs;//预约面试的企业
+//@property (retain, nonatomic) NSArray *cpIDs;//预约面试的企业
 @property (retain, nonatomic) NSMutableArray *selectRmCps;
 //@property (retain, nonatomic) s
 @end

@@ -38,8 +38,7 @@
     [super viewDidLoad];
     checkedCpArray = [[NSMutableArray alloc] init];//选择的企业
     page = 1;
-    pageSize = 20;
-    self.rmID = @"95935";
+    pageSize = 20;   
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     [self onSearch];
@@ -225,7 +224,6 @@
     rmInviteCpViewCtrl.strAddress = self.strAddress;
     rmInviteCpViewCtrl.strPlace = self.strPlace;
     rmInviteCpViewCtrl.strRmID = self.rmID;
-    rmInviteCpViewCtrl.cpIDs = checkedCpArray;
     rmInviteCpViewCtrl.selectRmCps = checkedCpArray;
     [checkedCpArray retain];
     [self.navigationController pushViewController:rmInviteCpViewCtrl animated:YES];

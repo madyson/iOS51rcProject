@@ -21,7 +21,11 @@
 @property (strong, nonatomic) DictionaryPickerView *DictionaryPicker;
 @property (retain, nonatomic) NetWebServiceRequest *runningRequestGetJobs;
 @property (retain, nonatomic) NetWebServiceRequest *runningRequestGetPlace;
+@property (retain, nonatomic) NetWebServiceRequest *runningRequestInviteCps;
 @property (retain, nonatomic) IBOutlet UIView *ViewRmInfo;
+//绑定工作用的Table
+@property (retain, nonatomic) UIView *cpListView;
+@property (retain, nonatomic) IBOutlet UIScrollView *svCpList;//全局的滚动条
 
 @end
 
@@ -87,7 +91,6 @@
 
 //加载场馆
 - (void)reloadPlace {
-    //加载场馆
     NSMutableDictionary *dicParam = [[ NSMutableDictionary alloc] init];
     [dicParam setObject:beginDate forKey:@"strBeginDate"];
     [dicParam setObject:regionID forKey:@"RegionID"];
@@ -102,7 +105,7 @@
 
 //加载公司和职位
 -(void)reloadJobs:(NSArray*) rmCpInfos{
-    UIView *cpListView = [[UIView alloc]initWithFrame:CGRectMake(20, self.ViewRmInfo.frame.origin.y+self.ViewRmInfo.frame.size.height+20, 280, 70*rmCpInfos.count)];
+    self.cpListView = [[UIView alloc]initWithFrame:CGRectMake(20, self.ViewRmInfo.frame.origin.y+self.ViewRmInfo.frame.size.height+20, 280, 70*rmCpInfos.count)];
     for (int i=0; i<rmCpInfos.count; i++) {
         RmCpMain *rmCp = rmCpInfos[i];
          UIButton *btnRight = [[UIButton alloc] initWithFrame:CGRectMake(0, 70*i, 280, 60)];
@@ -126,7 +129,7 @@
         //右箭头
         UIImageView *imgRight = [[UIImageView alloc]initWithFrame:CGRectMake(260, 25, 10, 17)];
         imgRight.image = [UIImage imageNamed:@"ico_select_right.png"];
-        [cpListView addSubview:btnRight];
+        [self.cpListView addSubview:btnRight];
         [btnRight addSubview:imgRight];
         [btnRight release];
         [imgRight release];
@@ -134,20 +137,22 @@
         UILabel *lbLine = [[UILabel alloc] initWithFrame:CGRectMake(0, 70*i+69.5, 280, 0.5)];
         lbLine.layer.borderWidth = 0;
         lbLine.layer.backgroundColor = [UIColor lightGrayColor].CGColor;
-        [cpListView addSubview:lbLine];
+        [self.cpListView addSubview:lbLine];
         [lbLine release];
         
-        [cpListView addSubview:btnRight];
+        [self.cpListView addSubview:btnRight];
     }
-    cpListView.layer.cornerRadius = 5;
-    cpListView.layer.borderWidth = 1;
-    cpListView.layer.borderColor = [[UIColor colorWithRed:236.f/255.f green:236.f/255.f blue:236.f/255.f alpha:1] CGColor];
+    self.cpListView.layer.cornerRadius = 5;
+    self.cpListView.layer.borderWidth = 1;
+    self.cpListView.layer.borderColor = [[UIColor colorWithRed:236.f/255.f green:236.f/255.f blue:236.f/255.f alpha:1] CGColor];
     
-    [self.view addSubview: cpListView];
-    [cpListView release];
+    [self.svCpList addSubview: self.cpListView];
+    
+    //屏幕滚动
+    [self.svCpList setContentSize:CGSizeMake(320, self.cpListView.frame.size.height + self.cpListView.frame.origin.y + 20)];
 }
 
-//成功
+//Webservice成功
 - (void)netRequestFinished:(NetWebServiceRequest *)request
       finishedInfoToResult:(NSString *)result
               responseData:(NSMutableArray *)requestData
@@ -156,7 +161,7 @@
         //结束等待动画
         [loadView stopAnimating];
     }
-    else {
+    else if(request.tag == 2){
         NSMutableArray *arrPlace = [[NSMutableArray alloc] init];
         for (int i = 0; i < requestData.count; i++) {
             NSDictionary *dicPlace = [[[NSDictionary alloc] initWithObjectsAndKeys:
@@ -166,26 +171,95 @@
             [arrPlace addObject:dicPlace];
         }
         placeData = arrPlace;
-        //[loadView startAnimating];
         [loadView stopAnimating];
+    }
+    else{//邀请
+        if (result == nil) {
+            [self.view makeToast:@"网络连接错误！"];
+        } else if ([result isEqual:@"-100"]){
+            [self.view makeToast:@"参数错误！"];
+        }else if ([result isEqual:@"-1"]){
+            [self.view makeToast:@"您没有预约此场招聘会，不能邀请企业参会！"];
+        }else if ([result isEqual:@"-2"]){
+            [self.view makeToast:@"预约招聘会失败！"];
+        }else if ([result isEqual:@"-3"]){
+            [self.view makeToast:@"网络连接错误！"];
+        }else if ([result isEqual:@"1"]){
+            [self.view makeToast:@"邀请成功！"];
+        }else {
+            [self.view makeToast:@"未知错误！"];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
 //点击转到职位选择页面
 -(void)showJobSelect:(UIButton*)sender{
-    RmCpJobListViewController *jobListCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmCpJobListViewController"];
+    RmCpJobListViewController *jobListCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmCpJobListView"];
     jobListCtrl.cpMainID = [NSString stringWithFormat:@"%d", sender.tag];
     jobListCtrl.delegate = self;
-    [self.navigationController pushViewController:jobListCtrl animated:YES];
+    //[self.navigationController pushViewController:jobListCtrl animated:YES];
+    [self presentViewController:jobListCtrl animated:YES completion:nil];
 }
 
-//代理
+//代理职位列表选择操作
 -(void) SetJob:(NSString *) cpID jobID:(NSString*)jobID JobName:(NSString*) jobName{
+    for (int i=0; i<self.selectRmCps.count; i++) {
+        RmCpMain *tmpCp = self.selectRmCps[i];
+        //如果是修改的该企业
+        if ([tmpCp.ID isEqualToString:cpID]) {
+            tmpCp.jobID = jobID;
+            tmpCp.JobName = jobName;
+        }
+    }
+    //重新绑定
+    NSArray *views = [self.cpListView subviews];
+    for(UIView* childView in views)
+    {
+        [childView removeFromSuperview];
+    }   
     [self reloadJobs:self.selectRmCps];
 }
 
 -(void)showDateSelect{
     [pickDate showDatePicker:self dateTitle:@"请选择举办日期"];
+}
+
+//邀请企业
+- (IBAction)btnInviteClick:(id)sender {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *code = [userDefaults objectForKey:@"code"];
+    NSString *paMainID = [userDefaults objectForKey:@"UserID"];
+    NSString *caids = @"";
+    NSString *jobids = @"";
+    for (int i = 0; i<self.selectRmCps.count; i++) {
+        RmCpMain *tmpCp = self.selectRmCps[i];
+        NSString *caID = tmpCp.caMainID;
+        NSString *jobID = tmpCp.jobID;
+        if (i == 0) {
+            caids = caID;
+            jobids = jobID;
+        }
+        else
+        {
+            caids = [caids stringByAppendingFormat:@",%@", caID];
+            jobids = [jobids stringByAppendingFormat:@",%@", jobID];
+        }
+    }
+    NSMutableDictionary *dicParam = [[ NSMutableDictionary alloc] init];
+    [dicParam setObject:self.strRmID forKey:@"recruitmentID"];
+    [dicParam setObject:paMainID forKey:@"paMainId"];
+    [dicParam setObject:caids forKey:@"caids"];
+    [dicParam setObject:jobids forKey:@"jobids"];
+    [dicParam setObject:code forKey:@"code"];
+    [dicParam setObject:@"1" forKey:@"isNeedBook"];
+    NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"InsertBatchInviteCpToRm" Params:dicParam];
+    [request setDelegate:self];
+    [request startAsynchronous];
+    request.tag = 3;
+    self.runningRequestInviteCps = request;
+    [dicParam release];
+
 }
 
 //选择日期完成
@@ -283,6 +357,8 @@
     [_lbAddress release];
     [_lbPlace release];
     [_ViewRmInfo release];
+    [_cpListView release];
+    [_svCpList release];
     [super dealloc];
 }
 @end
