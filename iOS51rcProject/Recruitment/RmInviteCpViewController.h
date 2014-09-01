@@ -1,17 +1,10 @@
-//
-//  RmInviteCpViewController.h
-//  iOS51rcProject
-//
-//  Created by qlrc on 14-8-29.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 #import "DatePicker.h"
 #import "LoadingAnimationView.h"
 #import "RmCpMain.h"
 #import "Delegate/SelectJobDelegate.h"
-
+//点击邀请后，进入的职位确认页面（把邀请的公司都列出来）
 @interface RmInviteCpViewController : UIViewController<SelectJobDelegate>
 {
     NSMutableArray *placeData;//场馆

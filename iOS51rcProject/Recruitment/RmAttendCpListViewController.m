@@ -1,12 +1,6 @@
-//
-//  RecruitmentCpListViewController.m
-//  iOS51rcProject
-//
-//  Created by qlrc on 14-8-26.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
 
-#import "RecruitmentCpListViewController.h"
+//招聘会参会企业列表
+#import "RmAttendCpListViewController.h"
 #import "NetWebServiceRequest.h"
 #import "LoadingAnimationView.h"
 #import "CommonController.h"
@@ -16,13 +10,13 @@
 #import "RmCpMain.h"
 #import <objc/runtime.h> 
 
-@interface RecruitmentCpListViewController ()<NetWebServiceRequestDelegate>
+@interface RmAttendCpListViewController ()<NetWebServiceRequestDelegate>
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentCpList;
 
 @end
 
-@implementation RecruitmentCpListViewController
+@implementation RmAttendCpListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -242,7 +236,8 @@
     RmCpMain *selectCp = (RmCpMain*)objc_getAssociatedObject(sender, "rmCpMain");
     //NSInteger cpID = [@(sender.tag) integerValue];
     UIImageView *imgView = [sender subviews][0];
-    if (imgView.tag == 1) {//如果是已经预约
+    int tmpTag = imgView.tag;
+    if (tmpTag == 1) {//如果是已经预约
         imgView.image = [UIImage imageNamed:@"unChecked.png"];
         //[checkedCpArray removeObject:@(cpID)];
         [checkedCpArray removeObject:(selectCp)];
@@ -250,7 +245,7 @@
         imgView.image = [UIImage imageNamed:@"checked.png"];
         [checkedCpArray addObject: selectCp];
     }
-    sender.tag = !sender.tag;
+    imgView.tag = !imgView.tag;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

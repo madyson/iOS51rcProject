@@ -163,8 +163,6 @@
 //绑定职位信息
 -(void) didReceiveJobMain:(NSArray *) requestData
 {
-    float fltHeight = 235;
-    
     NSDictionary *dicJob = requestData[0];
     //职位名称
     NSString *jobName = dicJob[@"Name"];
@@ -327,7 +325,7 @@
     self.lbSpitLine3.frame = CGRectMake(8, y, 304, 0.5);
 
         //浏览了该职位的还查看了
-    NSString *strOther = @"浏览了该职位的还查看了以下职位";
+    //NSString *strOther = @"浏览了该职位的还查看了以下职位";
     [self.loading stopAnimating];
 //    labelSize = [CommonController CalculateFrame:strOther fontDemond:[UIFont systemFontOfSize:12] sizeDemand:CGSizeMake(280, 500)];
 //    UILabel *lbOther = [[UILabel alloc] initWithFrame:CGRectMake(20, lbCaTel.frame.origin.y+lbCaTel.frame.size.height  + 5, labelSize.width, 15)];

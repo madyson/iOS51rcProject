@@ -1,16 +1,16 @@
-#import "RecruitmentPaListViewController.h"
+#import "RmAttendPaListViewController.h"
 #import "NetWebServiceRequest.h"
 #import "LoadingAnimationView.h"
 #import "CommonController.h"
 #import "MJRefresh.h"
 #import "MyRecruitmentViewController.h"
 
-@interface RecruitmentPaListViewController ()<NetWebServiceRequestDelegate>
+@interface RmAttendPaListViewController ()<NetWebServiceRequestDelegate>
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentPaList;
 @end
 
-@implementation RecruitmentPaListViewController
+@implementation RmAttendPaListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LoadingAnimationView.h"
 
-@interface RecruitmentPaListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface RmAttendPaListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSInteger page;
     NSInteger pageSize;

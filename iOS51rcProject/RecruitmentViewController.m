@@ -2,10 +2,10 @@
 #import "NetWebServiceRequest.h"
 #import "LoadingAnimationView.h"
 #import "CommonController.h"
-#import "RecruitmentPaListViewController.h"
-#import "RecruitmentCpListViewController.h"
+#import "RmAttendPaListViewController.h"
+#import "RmAttendCpListViewController.h"
 #import "MyRecruitmentViewController.h"
-
+#import "RmSearchJobForInviteViewController.h"
 
 @interface RecruitmentViewController () <NetWebServiceRequestDelegate,UIScrollViewDelegate>
 
@@ -20,10 +20,9 @@
 @property (retain, nonatomic) IBOutlet UILabel *lbRunDate;
 @property (retain, nonatomic) IBOutlet UILabel *lbViewNumber;
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
+@property (retain, nonatomic) NetWebServiceRequest *runningRequestJoinRm;
 @property (nonatomic, retain) LoadingAnimationView *loading;
 @property (retain, nonatomic) NSString *attentCpCount;
-
-
 @end
 
 @implementation RecruitmentViewController
@@ -74,6 +73,7 @@
     [dicParam setObject:@"0" forKey:@"paMainID"];
     NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"GetOneRectuitment" Params:dicParam];
     [request setDelegate:self];
+    request.tag = 1;
     [request startAsynchronous];
     self.runningRequest = request;
     
@@ -109,6 +109,17 @@
       finishedInfoToResult:(NSString *)result
               responseData:(NSArray *)requestData
 {
+    if (request.tag == 1) {
+        [self bindRm:requestData];
+    }else if(request.tag == 2){
+        [self.loading stopAnimating];
+        RmSearchJobForInviteViewController *searchView = [self.storyboard instantiateViewControllerWithIdentifier:@"RmSearchJobForInviteView"];
+        [self.navigationController pushViewController:searchView animated:YES];
+    }
+}
+
+//绑定招聘会的基本信息
+-(void)bindRm:(NSArray* )requestData{
     NSDictionary *dicRecruitment = requestData[0];
     //招聘会名称
     NSString *recruitmentTitle = dicRecruitment[@"RecruitmentName"];
@@ -190,7 +201,6 @@
             [lbMobile release];
         }
         
-        
         //添加固定电话
         if ([dicRecruitment objectForKey:@"Telephone"]) {
             fltLinkHeight += fltLineHeight;
@@ -265,7 +275,7 @@
     if ([dicRecruitment objectForKey:@"BusLine"]) {
         fltHeight += 10;
         UILabel *lbBusLine = [[UILabel alloc] initWithFrame:CGRectMake(20, fltHeight, 280, 20)];
-//        lbBusLine.backgroundColor = [UIColor grayColor];
+        //        lbBusLine.backgroundColor = [UIColor grayColor];
         NSString *recruitmentBusLine = [NSString stringWithFormat:@"乘车线路：\n\n%@",dicRecruitment[@"BusLine"]];
         labelSize = [CommonController CalculateFrame:recruitmentBusLine fontDemond:font sizeDemand:CGSizeMake(lbBusLine.frame.size.width, 500)];
         [lbBusLine setFrame:CGRectMake(lbBusLine.frame.origin.x, lbBusLine.frame.origin.y, lbBusLine.frame.size.width, labelSize.height)];
@@ -283,7 +293,7 @@
     if ([dicRecruitment objectForKey:@"Brief"]) {
         fltHeight += 10;
         UILabel *lbBrief = [[UILabel alloc] initWithFrame:CGRectMake(20, fltHeight, 280, 20)];
-//        lbBrief.backgroundColor = [UIColor grayColor];
+        //        lbBrief.backgroundColor = [UIColor grayColor];
         NSString *recruitmentBrief = [NSString stringWithFormat:@"招聘会详情：\n\n%@",dicRecruitment[@"Brief"]];
         labelSize = [CommonController CalculateFrame:recruitmentBrief fontDemond:font sizeDemand:CGSizeMake(lbBrief.frame.size.width, 500)];
         [lbBrief setFrame:CGRectMake(lbBrief.frame.origin.x, lbBrief.frame.origin.y, lbBrief.frame.size.width, labelSize.height)];
@@ -304,6 +314,7 @@
         
         //加我要参会按钮
         UIButton *btnJoin = [[[UIButton alloc] initWithFrame:CGRectMake(110, 10, 100, 30)] autorelease];
+        [btnJoin addTarget:self action:@selector(btnJoinClick:) forControlEvents:UIControlEventTouchUpInside];
         [btnJoin setBackgroundColor:[UIColor colorWithRed:255.f/255.f green:90.f/255.f blue:39.f/255.f alpha:1]];
         [btnJoin setTitle:@"我要参会" forState:UIControlStateNormal];
         [btnJoin.titleLabel setFont:[UIFont systemFontOfSize:15]];
@@ -318,10 +329,31 @@
     [self.loading stopAnimating];
 }
 
+//点击我要参会
+-(IBAction)btnJoinClick:(id)sender{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *code = [userDefaults objectForKey:@"code"];
+    NSString *userID = [userDefaults objectForKey:@"UserID"];
+    
+    NSMutableDictionary *dicParam = [[NSMutableDictionary alloc] init];
+    [dicParam setObject:self.recruitmentID forKey:@"RmID"];
+    [dicParam setObject:userID forKey:@"paMainID"];
+    [dicParam setObject:code forKey:@"code"];
+    NetWebServiceRequest *request = [NetWebServiceRequest serviceRequestUrl:@"AddPaRmAppointment" Params:dicParam];
+    [request setDelegate:self];
+    [request startAsynchronous];
+    request.tag = 2;
+    self.runningRequestJoinRm = request;
+    
+    self.loading = [[[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self] autorelease];
+    [self.loading startAnimating];
+    [dicParam release];
+}
+
 //点击参会企业
 - (IBAction)btnRmCpClick:(id)sender {
     if ([self.attentCpCount intValue]>0) {
-        RecruitmentCpListViewController *cpListCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmCpListView"];
+        RmAttendCpListViewController *cpListCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmCpListView"];
         cpListCtrl.rmID = self.recruitmentID;
         NSString *strTime = [NSString stringWithFormat:@"%@",[CommonController stringFromDate:self.dtBeginTime formatType:@"yyyy-MM-dd HH:mm"]];
         cpListCtrl.strBeginTime = strTime;
@@ -333,7 +365,7 @@
 
 //点击参会个人
 - (IBAction)btnRmPaClick:(id)sender {
-    RecruitmentPaListViewController *paListCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmPaListView"];
+    RmAttendPaListViewController *paListCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"RmPaListView"];
     paListCtrl.rmID = self.recruitmentID;
     [self.navigationController pushViewController:paListCtrl animated:YES];
 }
