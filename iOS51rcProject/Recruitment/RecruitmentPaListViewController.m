@@ -23,11 +23,8 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-   
-    UIBarButtonItem *btnMyRecruitment = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(btnMyRecruitmentClick:)];
-    btnMyRecruitment.title = @"我的招聘会";
-    self.navigationItem.rightBarButtonItem=btnMyRecruitment;
+    [super viewDidLoad];   
+
     page = 1;
     pageSize = 20;   
     //数据加载等待控件初始化
