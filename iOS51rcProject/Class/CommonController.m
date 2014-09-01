@@ -1,5 +1,4 @@
 #import "CommonController.h"
-#import "FMDatabase.h"
 
 @implementation CommonController
 
@@ -293,6 +292,29 @@
     BOOL hasRow = [regionList next];
     [db close];
     return hasRow;
+}
+
++(void) execSql:(NSString *)sql
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"dictionary.db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    [db open];
+    [db executeUpdate:sql];
+    [db close];
+}
+
++(FMResultSet *) querySql:(NSString *)sql
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:@"dictionary.db"];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    [db open];
+    
+    FMResultSet *queryList = [db executeQuery:sql];
+    return queryList;
 }
 
 @end

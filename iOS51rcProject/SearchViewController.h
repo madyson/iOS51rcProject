@@ -18,5 +18,6 @@
 @property (retain, nonatomic) IBOutlet UILabel *lbJobTypeSelect;
 @property (retain, nonatomic) IBOutlet UIButton *btnIndustrySelect;
 @property (retain, nonatomic) IBOutlet UILabel *lbIndustrySelect;
-
+@property (retain, nonatomic) IBOutlet UIScrollView *scrollSearch;
+@property (retain, nonatomic) UIView *viewHistory;
 @end

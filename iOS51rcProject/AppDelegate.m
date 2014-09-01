@@ -21,6 +21,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    _mapManager = [[BMKMapManager alloc] init];
+    // 如果要关注网络及授权验证事件，请设定generalDelegate参数
+    BOOL ret = [_mapManager start:@"1NZwnG1MjpMm9W2k8NgddlTg"  generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
+    
     //将字典存入到document内
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];

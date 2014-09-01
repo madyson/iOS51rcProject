@@ -1,4 +1,5 @@
 #import <UIKit/UIKit.h>
+#import "FMDatabase.h"
 
 @interface CommonController : NSObject
 
