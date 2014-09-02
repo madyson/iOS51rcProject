@@ -139,7 +139,7 @@
     //UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
     GRItemDetailsViewController *detailCtrl = (GRItemDetailsViewController*)[self.storyboard
                                                                       instantiateViewControllerWithIdentifier: @"GRItemDetailsView"];
-    //detailCtrl.recruitmentID = recruitmentData[indexPath.row][@"ID"];
+    detailCtrl.strNewsID = gRListData[indexPath.row][@"ID"];
     [self.navigationController pushViewController:detailCtrl animated:true];
 }
 

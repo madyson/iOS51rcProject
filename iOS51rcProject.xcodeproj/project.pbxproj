@@ -456,6 +456,7 @@
 		99B9823019B4C52100D5D77D /* EIItemDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIItemDetailsViewController.m; sourceTree = "<group>"; };
 		99BD6FA019B54B5E00514807 /* GovernmentRecruitmentStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GovernmentRecruitmentStoryboard.storyboard; sourceTree = "<group>"; };
 		99BD6FA219B5555800514807 /* gr_pic_head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gr_pic_head.png; sourceTree = "<group>"; };
+		99BD6FA419B58BD900514807 /* FrontiaDemo.ipa */ = {isa = PBXFileReference; lastKnownFileType = file; name = FrontiaDemo.ipa; path = ../../../Downloads/FrontiaDemo.ipa; sourceTree = "<group>"; };
 		99BDC5A019A586A700B2BDB1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		99BDC5A119A586A700B2BDB1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		99BDC5AA19A5917200B2BDB1 /* CreateResumeAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateResumeAlertViewController.h; sourceTree = "<group>"; };
@@ -1033,6 +1034,7 @@
 		99CFD816199B5F80009A5ABA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				99BD6FA419B58BD900514807 /* FrontiaDemo.ipa */,
 				99B4694419B2F8630034505D /* Security.framework */,
 				99B4694219B2F80B0034505D /* OpenGLES.framework */,
 				99B4694019B2F8010034505D /* QuartzCore.framework */,
