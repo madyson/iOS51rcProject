@@ -11,7 +11,7 @@
 #import "MenuViewController.h"
 #import "BMapKit.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, BMKGeneralDelegate>
 {
     BMKMapManager* _mapManager;
 }
