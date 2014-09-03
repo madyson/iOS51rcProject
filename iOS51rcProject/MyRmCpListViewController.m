@@ -5,7 +5,7 @@
 #import "CommonController.h"
 #import "RecruitmentViewController.h"
 
-//我预约的企业
+//我邀请的企业列表
 @interface MyRmCpListViewController ()<NetWebServiceRequestDelegate>
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentCpList;

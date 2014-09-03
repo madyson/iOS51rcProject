@@ -20,6 +20,8 @@
 +(NSString *)getDictionaryDesc:(NSString *)value
                tableName:(NSString *)tableName;
 +(BOOL)hasParentOfRegion:(NSString *)regionId;
++(NSString*) GetEduByID:(NSString *) eduID;
++(NSString*) GetSalary:(NSString *) dcSalaryID;
 +(void) execSql:(NSString *)sql;
 +(FMResultSet *) querySql:(NSString *)sql;
 @end

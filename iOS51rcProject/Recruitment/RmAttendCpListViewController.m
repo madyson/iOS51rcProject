@@ -1,12 +1,6 @@
-//
-//  RecruitmentCpListViewController.m
-//  iOS51rcProject
-//
-//  Created by qlrc on 14-8-26.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
 
-#import "RecruitmentCpListViewController.h"
+//招聘会参会企业列表
+#import "RmAttendCpListViewController.h"
 #import "NetWebServiceRequest.h"
 #import "LoadingAnimationView.h"
 #import "CommonController.h"
@@ -16,13 +10,13 @@
 #import "RmCpMain.h"
 #import <objc/runtime.h> 
 
-@interface RecruitmentCpListViewController ()<NetWebServiceRequestDelegate>
+@interface RmAttendCpListViewController ()<NetWebServiceRequestDelegate>
 @property (nonatomic, retain) NetWebServiceRequest *runningRequest;
 @property (retain, nonatomic) IBOutlet UITableView *tvRecruitmentCpList;
 
 @end
 
-@implementation RecruitmentCpListViewController
+@implementation RmAttendCpListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,8 +32,7 @@
     [super viewDidLoad];
     checkedCpArray = [[NSMutableArray alloc] init];//选择的企业
     page = 1;
-    pageSize = 20;
-    self.rmID = @"95935";
+    pageSize = 20;   
     //数据加载等待控件初始化
     loadView = [[LoadingAnimationView alloc] initWithFrame:CGRectMake(140, 100, 80, 98) loadingAnimationViewStyle:LoadingAnimationViewStyleCarton target:self];
     [self onSearch];
@@ -225,7 +218,6 @@
     rmInviteCpViewCtrl.strAddress = self.strAddress;
     rmInviteCpViewCtrl.strPlace = self.strPlace;
     rmInviteCpViewCtrl.strRmID = self.rmID;
-    rmInviteCpViewCtrl.cpIDs = checkedCpArray;
     rmInviteCpViewCtrl.selectRmCps = checkedCpArray;
     [checkedCpArray retain];
     [self.navigationController pushViewController:rmInviteCpViewCtrl animated:YES];
@@ -244,7 +236,8 @@
     RmCpMain *selectCp = (RmCpMain*)objc_getAssociatedObject(sender, "rmCpMain");
     //NSInteger cpID = [@(sender.tag) integerValue];
     UIImageView *imgView = [sender subviews][0];
-    if (imgView.tag == 1) {//如果是已经预约
+    int tmpTag = imgView.tag;
+    if (tmpTag == 1) {//如果是已经预约
         imgView.image = [UIImage imageNamed:@"unChecked.png"];
         //[checkedCpArray removeObject:@(cpID)];
         [checkedCpArray removeObject:(selectCp)];
@@ -252,7 +245,7 @@
         imgView.image = [UIImage imageNamed:@"checked.png"];
         [checkedCpArray addObject: selectCp];
     }
-    sender.tag = !sender.tag;
+    imgView.tag = !imgView.tag;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

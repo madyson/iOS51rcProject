@@ -2,6 +2,8 @@
 #import "LoginViewController.h"
 #import "SlideNavigationController.h"
 #import "JobSearch/SearchMainViewController.h"
+#import "GRListViewController.h"
+#import "EIListViewController.h"
 
 @interface HomeViewController() <SlideNavigationControllerDelegate>
 
@@ -53,6 +55,19 @@
 - (int)slideMenuItem
 {
     return 1;
+}
+
+//点击政府招考
+- (IBAction)btnGRClick:(id)sender {
+    UIStoryboard *search = [UIStoryboard storyboardWithName:@"GovernmentRecruitmentStoryboard" bundle:nil];
+    EIListViewController *eiCtrl = [search instantiateViewControllerWithIdentifier:@"GRListView"];
+    [self.navigationController pushViewController:eiCtrl animated:YES];
+}
+//点击就业资讯
+- (IBAction)btnEIClick:(id)sender {
+    UIStoryboard *search = [UIStoryboard storyboardWithName:@"JobSearch" bundle:nil];
+    SearchMainViewController *searchCtrl = [search instantiateViewControllerWithIdentifier:@"SearchMain"];
+    [self.navigationController pushViewController:searchCtrl animated:YES];
 }
 
 /*

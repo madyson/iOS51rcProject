@@ -1,15 +1,7 @@
-//
-//  RecruitmentCpListViewController.h
-//  iOS51rcProject
-//
-//  Created by qlrc on 14-8-26.
-//  Copyright (c) 2014年 Lucifer. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import "LoadingAnimationView.h"
-
-@interface RecruitmentCpListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+//招聘会参会企业列表
+@interface RmAttendCpListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSInteger page;
     NSInteger pageSize;
